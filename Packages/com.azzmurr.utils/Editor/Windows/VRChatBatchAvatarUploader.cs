@@ -5,79 +5,238 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using VRC.Core;
 using VRC.SDK3.Avatars.Components;
 using VRC.SDK3A.Editor;
+using VRC.SDKBase.Editor;
 using VRC.SDKBase.Editor.Api;
+using Object = UnityEngine.Object;
 
 namespace Azzmurr.Utils {
     internal class VRChatBatchAvatarUploader : EditorWindow {
-        private List<AvatarEntry> _avatars = new();
-        private Button _cancelButton;
+        public static readonly string AgreementText = "By clicking OK, I certify that I have the necessary rights to upload this content and that it will not infringe on any third-party legal or intellectual property rights.";
+        private MultiColumnListView _actionsGUI;
+        private MultiColumnListView _avatarsGUI;
+
         private CancellationTokenSource _cts;
-        private bool _isUploading;
-        private ListView _listView;
+
+        private ObjectField _folderSelectorField;
         private Label _statusLabel;
-        private Button _uploadAllButton;
-        private Button _uploadSelectedButton;
 
         private void OnDestroy() {
             _cts?.Cancel();
         }
 
         private void CreateGUI() {
+            var root = CreateRootElement();
+            root.Add(CreateFolderSelector());
+            root.Add(CreateActionsGUI());
+            root.Add(CreateStatusLabel());
+            root.Add(CreateAvatarListView());
+        }
+
+        private VisualElement CreateRootElement() {
             var root = rootVisualElement;
-            root.style.paddingTop = 4;
-            root.style.paddingBottom = 4;
-            root.style.paddingLeft = 4;
-            root.style.paddingRight = 4;
+            root.style.paddingRight = 8;
+            root.style.paddingLeft = 8;
 
-            // Search controls
-            var searchRow = new VisualElement { style = { flexDirection = FlexDirection.Row, marginBottom = 4 } };
+            return root;
+        }
 
-            var scanProjectButton = new Button(ScanProject) { text = "Scan Entire Project", style = { flexGrow = 1 } };
-            var scanFolderButton = new Button(ScanSelectedFolder) { text = "Scan Selected Folder", style = { flexGrow = 1 } };
+        private VisualElement CreateFolderSelector() {
+            var folderSelector = new VisualElement { style = { flexShrink = 0 } };
+            var selectedFolder = GetSelectedFolder();
+            var folderSelectorField = new ObjectField {
+                objectType = typeof(DefaultAsset),
+                value = selectedFolder,
+                name = "Folder",
+                label = "Folder: ",
+                style = {
+                    flexShrink = 0,
+                    flexGrow = 1,
+                }
+            };
 
-            searchRow.Add(scanProjectButton);
-            searchRow.Add(scanFolderButton);
-            root.Add(searchRow);
+            folderSelectorField.RegisterValueChangedCallback(evt => {
+                if (evt.newValue == null) {
+                    _avatarsGUI.itemsSource = null;
+                    return;
+                }
 
-            // Select/Deselect controls
-            var selectRow = new VisualElement { style = { flexDirection = FlexDirection.Row, marginBottom = 4 } };
-            selectRow.Add(new Button(() => SetAllSelected(true)) { text = "Select All", style = { flexGrow = 1 } });
-            selectRow.Add(new Button(() => SetAllSelected(false)) { text = "Deselect All", style = { flexGrow = 1 } });
-            root.Add(selectRow);
+                _avatarsGUI.itemsSource = ScanFolder(evt.newValue);
+            });
 
-            // Avatar list
-            _listView = new ListView {
-                makeItem = MakeAvatarItem,
-                bindItem = BindAvatarItem,
-                itemsSource = _avatars,
-                fixedItemHeight = 28,
-                selectionType = SelectionType.None,
+            _folderSelectorField = folderSelectorField;
+
+            folderSelector.Add(folderSelectorField);
+            return folderSelector;
+        }
+
+        private MultiColumnListView CreateActionsGUI() {
+            var actions = new MultiColumnListView {
+                name = "Actions",
+                focusable = true,
                 showAlternatingRowBackgrounds = AlternatingRowBackground.All,
                 showBorder = true,
-                style = { flexGrow = 1, marginBottom = 4 }
+                reorderMode = ListViewReorderMode.Animated,
+                virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight,
+                style = {
+                    marginTop = 8,
+                    flexShrink = 0,
+                }
             };
-            root.Add(_listView);
 
-            // Status
-            _statusLabel = new Label("Ready") { style = { marginBottom = 4 } };
-            root.Add(_statusLabel);
+            actions.columns.Add(new Column {
+                title = "Type",
+                width = 80,
+                makeCell = () => new Label { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft } },
+                bindCell = (element, index) => {
+                    var label = (Label)element;
+                    var actionGroup = (ActionGroup)actions.viewController.GetItemForIndex(index);
+                    label.text = actionGroup.Name;
+                }
+            });
 
-            // Upload controls
-            var uploadRow = new VisualElement { style = { flexDirection = FlexDirection.Row } };
+            actions.columns.Add(new Column {
+                title = "Actions",
 
-            _uploadSelectedButton = new Button(() => StartUpload(false)) { text = "Upload Selected", style = { flexGrow = 1 } };
-            _uploadAllButton = new Button(() => StartUpload(true)) { text = "Upload All", style = { flexGrow = 1 } };
-            _cancelButton = new Button(CancelUpload) { text = "Cancel", style = { flexGrow = 1 }, visible = false };
+                width = 400,
+                makeCell = () => new VisualElement { style = { flexDirection = FlexDirection.Row } },
+                bindCell = (element, index) => {
+                    var actionGroup = (ActionGroup)actions.viewController.GetItemForIndex(index);
+                    actionGroup.Actions
+                        .ToList()
+                        .ConvertAll((action) => {
+                            action.style.flexGrow = 1;
+                            return action;
+                        })
+                        .ForEach(element.Add);
+                }
+            });
 
-            uploadRow.Add(_uploadSelectedButton);
-            uploadRow.Add(_uploadAllButton);
-            uploadRow.Add(_cancelButton);
-            root.Add(uploadRow);
+            actions.itemsSource = new List<ActionGroup> {
+                new() {
+                    Name = "Folder",
+                    Actions = new List<Button> {
+                        new(RescanSelectedFolder) { text = "Rescan Folder" }
+                    },
+                },
+                new() {
+                    Name = "Select",
+                    Actions = new List<Button> {
+                        new(() => { SetAllSelected(true); }) { text = "All" },
+                        new(() => { SetAllSelected(false); }) { text = "None" },
+                        new(FlipSelection) { text = "Flip selection" },
+                    }
+                },
+                new() {
+                    Name = "Upload",
+                    Actions = new List<Button> {
+                        new(() => UploadAvatars(false)) { text = "Upload Selected" },
+                        new(() => UploadAvatars(true)) { text = "Upload All" },
+                        new(CancelUpload) { text = "Cancel Upload", visible = false },
+                    }
+                }
+            };
+
+            _actionsGUI = actions;
+
+            return actions;
+        }
+
+        private MultiColumnListView CreateAvatarListView() {
+            var avatarList = new MultiColumnListView {
+                name = "Avatars List",
+                focusable = true,
+                showAlternatingRowBackgrounds = AlternatingRowBackground.All,
+                showBorder = true,
+                reorderMode = ListViewReorderMode.Animated,
+                virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight,
+                style = {
+                    marginTop = 8,
+                }
+            };
+
+            avatarList.columns.Add(new Column {
+                title = "Selected",
+                width = 200,
+                makeCell = () => new Toggle(),
+                bindCell = (element, index) => {
+                    var avatarEntry = (AvatarEntry)avatarList.viewController.GetItemForIndex(index);
+                    var toggle = (Toggle)element;
+                    toggle.value = avatarEntry.Selected;
+
+                    toggle.RegisterValueChangedCallback(evt => { avatarEntry.Selected = evt.newValue; });
+                }
+            });
+
+            avatarList.columns.Add(new Column {
+                title = "Scene",
+                width = 200,
+                makeCell = () => {
+                    var objectField = new ObjectField {
+                        objectType = typeof(SceneAsset),
+                        allowSceneObjects = false
+                    };
+                    return objectField;
+                },
+                bindCell = (element, index) => {
+                    var avatarEntry = (AvatarEntry)avatarList.viewController.GetItemForIndex(index);
+                    ((ObjectField)element).value = avatarEntry.AvatarScene;
+                }
+            });
+
+            avatarList.columns.Add(new Column {
+                title = "Game Object",
+                width = 200,
+                makeCell = () => new Label(),
+                bindCell = (element, index) => {
+                    var avatarEntry = (AvatarEntry)avatarList.viewController.GetItemForIndex(index);
+                    ((Label)element).text = avatarEntry.Name;
+                }
+            });
+
+            avatarList.columns.Add(new Column {
+                title = "Blueprint ID",
+                width = 200,
+                makeCell = () => new Label(),
+                bindCell = (element, index) => {
+                    var avatarEntry = (AvatarEntry)avatarList.viewController.GetItemForIndex(index);
+                    var hasBlueprint = string.IsNullOrEmpty(avatarEntry.BlueprintId);
+                    ((Label)element).text = hasBlueprint
+                        ? "○ No Blueprint ID"
+                        : $"✓ {avatarEntry.BlueprintId}";
+
+                    ((Label)element).style.color = hasBlueprint
+                        ? new Color(0.8f, 0.6f, 0.2f)
+                        : new Color(0.4f, 0.85f, 0.4f);
+                }
+            });
+
+            avatarList.columns.Add(new Column {
+                title = "Status",
+                width = 200,
+                makeCell = () => new Label(),
+                bindCell = (element, index) => {
+                    var avatarEntry = (AvatarEntry)avatarList.viewController.GetItemForIndex(index);
+                    ((Label)element).text = avatarEntry.Status;
+                }
+            });
+
+            _avatarsGUI = avatarList;
+
+            RescanSelectedFolder();
+
+            return avatarList;
+        }
+
+        private Label CreateStatusLabel() {
+            _statusLabel = new Label { name = "status-label", text = "Ready", style = { marginTop = 8 } };
+            return _statusLabel;
         }
 
         [MenuItem("Azzmurr/Batch Avatar Uploader")]
@@ -86,53 +245,20 @@ namespace Azzmurr.Utils {
             window.minSize = new Vector2(600, 400);
         }
 
-        private VisualElement MakeAvatarItem() {
-            var row = new VisualElement { style = { flexDirection = FlexDirection.Row, alignItems = Align.Center } };
+        private void RescanSelectedFolder() {
+            if (_folderSelectorField.value == null) {
+                _avatarsGUI.itemsSource = null;
+            }
 
-            var toggle = new Toggle { name = "select-toggle", style = { marginRight = 4 } };
-            row.Add(toggle);
-
-            var nameLabel = new Label { name = "avatar-name", style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft } };
-            row.Add(nameLabel);
-
-            var idLabel = new Label { name = "blueprint-id", style = { width = 200, unityTextAlign = TextAnchor.MiddleLeft, color = Color.gray } };
-            row.Add(idLabel);
-
-            var statusLabel = new Label { name = "avatar-status", style = { width = 120, unityTextAlign = TextAnchor.MiddleRight } };
-            row.Add(statusLabel);
-
-            var uploadButton = new Button { name = "upload-single", text = "Upload", style = { width = 60 } };
-            row.Add(uploadButton);
-
-            return row;
+            _avatarsGUI.itemsSource = ScanFolder(_folderSelectorField.value);
+            _avatarsGUI.RefreshItems();
         }
 
-        private void BindAvatarItem(VisualElement element, int index) {
-            if (index < 0 || index >= _avatars.Count) return;
-            var entry = _avatars[index];
-
-            var toggle = element.Q<Toggle>("select-toggle");
-            toggle.SetValueWithoutNotify(entry.Selected);
-            toggle.RegisterValueChangedCallback(evt => entry.Selected = evt.newValue);
-
-            element.Q<Label>("avatar-name").text = entry.Name;
-            element.Q<Label>("blueprint-id").text = string.IsNullOrEmpty(entry.BlueprintId) ? "(new avatar)" : entry.BlueprintId;
-            element.Q<Label>("avatar-status").text = entry.Status ?? "";
-
-            var uploadBtn = element.Q<Button>("upload-single");
-            uploadBtn.SetEnabled(!_isUploading);
-            uploadBtn.clickable = new Clickable(() => UploadSingle(index));
-        }
-
-        private void ScanProject() {
-            ScanFolder("Assets");
-        }
-
-        private void ScanSelectedFolder() {
+        private DefaultAsset GetSelectedFolder() {
             var selected = Selection.activeObject;
+
             if (selected == null) {
-                EditorUtility.DisplayDialog("Batch Avatar Uploader", "Please select a folder in the Project window first.", "OK");
-                return;
+                return AssetDatabase.LoadAssetAtPath<DefaultAsset>("Assets");
             }
 
             var path = AssetDatabase.GetAssetPath(selected);
@@ -142,104 +268,76 @@ namespace Azzmurr.Utils {
 
             if (string.IsNullOrEmpty(path)) {
                 EditorUtility.DisplayDialog("Batch Avatar Uploader", "Could not determine folder path.", "OK");
-                return;
+                return null;
             }
 
-            ScanFolder(path);
+            return AssetDatabase.LoadAssetAtPath<DefaultAsset>(path);
         }
 
-        private void ScanFolder(string folderPath) {
-            _avatars.Clear();
-
-            var guids = AssetDatabase.FindAssets("t:Prefab", new[] { folderPath });
-            foreach (var guid in guids) {
-                var assetPath = AssetDatabase.GUIDToAssetPath(guid);
-                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
-                if (prefab == null) continue;
-
-                var descriptor = prefab.GetComponent<VRCAvatarDescriptor>();
-                if (descriptor == null) continue;
-
-                var pm = prefab.GetComponent<PipelineManager>();
-                var blueprintId = pm != null ? pm.blueprintId : "";
-
-                _avatars.Add(new AvatarEntry {
-                    Prefab = prefab,
-                    Name = prefab.name,
-                    BlueprintId = blueprintId,
-                    AssetPath = assetPath,
-                    Selected = true,
-                    Status = ""
-                });
+        private List<AvatarEntry> ScanFolder(Object folder) {
+            if (folder == null) {
+                return new List<AvatarEntry>();
             }
 
-            // Also scan scene for non-prefab avatars
-            var sceneDescriptors = FindObjectsOfType<VRCAvatarDescriptor>();
-            foreach (var descriptor in sceneDescriptors) {
-                // Skip if already found as prefab
-                if (_avatars.Any(a => a.Prefab == descriptor.gameObject)) continue;
+            var folderPath = AssetDatabase.GetAssetPath(folder);
+            var sceneGUIDs = AssetDatabase.FindAssets("t:Scene", new[] { folderPath });
+            var allAvatars = new List<AvatarEntry>();
 
-                var pm = descriptor.GetComponent<PipelineManager>();
-                var blueprintId = pm != null ? pm.blueprintId : "";
+            foreach (var guid in sceneGUIDs) {
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+                var scene = EditorSceneManager.OpenScene(path, OpenSceneMode.Additive);
+                var descriptors = scene.GetRootGameObjects().SelectMany(go => go.GetComponentsInChildren<VRCAvatarDescriptor>());
 
-                _avatars.Add(new AvatarEntry {
-                    Prefab = descriptor.gameObject,
-                    Name = descriptor.gameObject.name,
-                    BlueprintId = blueprintId,
-                    AssetPath = "",
-                    Selected = true,
-                    Status = ""
-                });
+                allAvatars.AddRange(descriptors.Select(descriptor => new AvatarEntry(descriptor.gameObject)).Where(entry => !string.IsNullOrEmpty(entry.BlueprintId)));
+
+                EditorSceneManager.CloseScene(scene, true);
             }
 
-            _listView.itemsSource = _avatars;
-            _listView.Rebuild();
-            _statusLabel.text = $"Found {_avatars.Count} avatar(s)";
+            return allAvatars;
         }
 
         private void SetAllSelected(bool selected) {
-            foreach (var entry in _avatars) entry.Selected = selected;
-            _listView.Rebuild();
+            if (_avatarsGUI.itemsSource is not List<AvatarEntry> avatars) return;
+
+            foreach (var entry in avatars) entry.Selected = selected;
+            _avatarsGUI.RefreshItems();
         }
 
-        private async void UploadSingle(int index) {
-            if (_isUploading || index < 0 || index >= _avatars.Count) return;
+        private void FlipSelection() {
+            if (_avatarsGUI.itemsSource is not List<AvatarEntry> avatars) return;
+
+            foreach (var entry in avatars) entry.Selected = !entry.Selected;
+            _avatarsGUI.RefreshItems();
+        }
+
+        private async void UploadAvatars(bool all) {
+            EditorApplication.ExecuteMenuItem("VRChat SDK/Show Control Panel");
 
             if (!VRCSdkControlPanel.TryGetBuilder<IVRCSdkAvatarBuilderApi>(out var builder)) {
                 EditorUtility.DisplayDialog("Batch Avatar Uploader", "VRChat SDK Builder not found. Please open the VRChat SDK Control Panel first.", "OK");
                 return;
             }
 
-            _isUploading = true;
-            _cts = new CancellationTokenSource();
-            UpdateUploadUI(true);
-
-            var entry = _avatars[index];
-            await UploadAvatar(builder, entry, _cts.Token);
-
-            _isUploading = false;
-            _cts = null;
-            UpdateUploadUI(false);
-            _listView.Rebuild();
-        }
-
-        private async void StartUpload(bool all) {
-            if (_isUploading) return;
-
-            if (!VRCSdkControlPanel.TryGetBuilder<IVRCSdkAvatarBuilderApi>(out var builder)) {
-                EditorUtility.DisplayDialog("Batch Avatar Uploader", "VRChat SDK Builder not found. Please open the VRChat SDK Control Panel first.", "OK");
+            if (_avatarsGUI.itemsSource is not List<AvatarEntry> avatars) {
+                EditorUtility.DisplayDialog("Batch Avatar Uploader", "No avatars found in selected folder", "OK");
                 return;
             }
 
-            var toUpload = all ? _avatars : _avatars.Where(a => a.Selected).ToList();
+            var toUpload = all ? avatars : avatars.Where(a => a.Selected).ToList();
             if (toUpload.Count == 0) {
                 EditorUtility.DisplayDialog("Batch Avatar Uploader", "No avatars selected for upload.", "OK");
                 return;
             }
 
-            _isUploading = true;
+            var confirm = EditorUtility.DisplayDialog(
+                "Upload Avatars",
+                $"You are about to upload {toUpload.Count} avatar(s).\n\nEach avatar's scene will be opened, the VRCSDK builder triggered, and the scene closed.\n\nContinue?",
+                "Upload", "Cancel");
+
+            if (!confirm) return;
+
             _cts = new CancellationTokenSource();
-            UpdateUploadUI(true);
+            _actionsGUI.SetEnabled(false);
 
             var completed = 0;
             var failed = 0;
@@ -247,6 +345,7 @@ namespace Azzmurr.Utils {
             foreach (var entry in toUpload) {
                 if (_cts.IsCancellationRequested) {
                     entry.Status = "Cancelled";
+                    _avatarsGUI.RefreshItems();
                     continue;
                 }
 
@@ -255,35 +354,100 @@ namespace Azzmurr.Utils {
                 var success = await UploadAvatar(builder, entry, _cts.Token);
                 if (success) completed++;
                 else failed++;
-
-                _listView.Rebuild();
             }
 
             _statusLabel.text = $"Done. {completed} uploaded, {failed} failed.";
-            _isUploading = false;
             _cts = null;
-            UpdateUploadUI(false);
-            _listView.Rebuild();
+            _actionsGUI.SetEnabled(true);
         }
 
         private async Task<bool> UploadAvatar(IVRCSdkAvatarBuilderApi builder, AvatarEntry entry, CancellationToken ct) {
             try {
                 entry.Status = "Uploading...";
-                _listView.Rebuild();
+                _avatarsGUI.RefreshItems();
+                await AddCopyrightAgreement(entry.BlueprintId);
 
-                var avatar = new VRCAvatar { Name = entry.Name };
-                await builder.BuildAndUpload(entry.Prefab, avatar, null, ct);
+                var scene = EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(entry.AvatarScene), OpenSceneMode.Additive);
+
+                VRCAvatarDescriptor targetDescriptor = null;
+                foreach (var root in scene.GetRootGameObjects()) {
+                    var descs = root.GetComponentsInChildren<VRCAvatarDescriptor>(true);
+                    targetDescriptor = descs.FirstOrDefault(d => d.gameObject.name == entry.Name);
+                    if (targetDescriptor != null) break;
+                }
+
+                if (targetDescriptor == null) {
+                    Debug.LogWarning($"Batch Avatar Uploader: Could not find avatar '{entry.Name}' in scene '{entry.AvatarScene.name}'");
+                    entry.Status = "Failed to find avatar";
+                    _avatarsGUI.RefreshItems();
+                    return false;
+                }
+
+                builder.OnSdkBuildProgress += (sender, message) => {
+                    entry.Status = message;
+                    _avatarsGUI.RefreshItems();
+                };
+                builder.OnSdkBuildFinish += (sender, message) => {
+                    entry.Status = message;
+                    _avatarsGUI.RefreshItems();
+                };
+
+                var av = await VRCApi.GetAvatar(entry.BlueprintId, false, ct);
+                await builder.BuildAndUpload(targetDescriptor.gameObject, av, cancellationToken: ct);
 
                 entry.Status = "Done";
+                _avatarsGUI.RefreshItems();
                 return true;
+            }
+            catch (NullReferenceException e) {
+                entry.Status = "SDK Control Panel not opened";
+                EditorUtility.DisplayDialog("Batch Avatar Uploader", "SDK Control Panel hasn't been opened yet. Please open the SDK Control Panel and try again.", "OK");
+                Debug.LogError(e.Message + e.StackTrace);
+                return false;
+            }
+            catch (BuilderException e) {
+                Thread.Sleep(4000);
+                Debug.LogError(e.Message + e.StackTrace);
+                if (e.Message.Contains("Avatar validation failed")) {
+                    entry.Status = "Validation Failed";
+                    _avatarsGUI.RefreshItems();
+                    EditorUtility.DisplayDialog("Batch Avatar Uploader", "Validation Failed for " + entry.Name + ".\nPlease fix the errors and try again.", "OK");
+                }
+
+                return false;
+            }
+            catch (ValidationException e) {
+                entry.Status = e.Message;
+                _avatarsGUI.RefreshItems();
+                EditorUtility.DisplayDialog("Batch Avatar Uploader", e.Message + "\n" + string.Join("\n", e.Errors), "OK");
+                Debug.LogError(e.Message + e.StackTrace);
+                EditorUtility.DisplayDialog("Batch Avatar Uploader", "Please fix the errors and try again.", "OK");
+                return false;
+            }
+            catch (OwnershipException e) {
+                entry.Status = e.Message;
+                _avatarsGUI.RefreshItems();
+                EditorUtility.DisplayDialog("Batch Avatar Uploader", e.Message, "OK");
+                Debug.LogError(e.Message + e.StackTrace);
+                return false;
+            }
+            catch (UploadException e) {
+                entry.Status = e.Message;
+                _avatarsGUI.RefreshItems();
+                EditorUtility.DisplayDialog("Batch Avatar Uploader", e.Message, "OK");
+                Debug.LogError(e.Message + e.StackTrace);
+                return false;
             }
             catch (OperationCanceledException) {
                 entry.Status = "Cancelled";
+                _avatarsGUI.RefreshItems();
                 return false;
             }
             catch (Exception e) {
-                entry.Status = "Error";
-                Debug.LogError($"[Batch Avatar Uploader] Failed to upload {entry.Name}: {e.Message}\n{e.StackTrace}");
+                entry.Status = "Unknown Error";
+                _avatarsGUI.RefreshItems();
+                Debug.LogError(e.Message + e.StackTrace);
+                EditorUtility.DisplayDialog("Batch Avatar Uploader", e.Message + "\n" + e.StackTrace, "OK");
                 return false;
             }
         }
@@ -293,20 +457,41 @@ namespace Azzmurr.Utils {
             _statusLabel.text = "Cancelling...";
         }
 
-        private void UpdateUploadUI(bool uploading) {
-            _uploadSelectedButton.SetEnabled(!uploading);
-            _uploadAllButton.SetEnabled(!uploading);
-            _cancelButton.visible = uploading;
-            _listView.Rebuild();
+        private static async Task AddCopyrightAgreement(string blueprint) {
+            const string key = "VRCSdkControlPanel.CopyrightAgreement.ContentList";
+            var keyText = SessionState.GetString(key, "");
+            var list = string.IsNullOrEmpty(keyText) ? new List<string>() : SessionState.GetString(key, "").Split(';').ToList();
+            if (list.Contains(blueprint)) return;
+            list.Add(blueprint);
+            SessionState.SetString(key, string.Join(";", list));
+
+            await VRCApi.ContentUploadConsent(new VRCAgreement {
+                AgreementCode = "content.copyright.owned",
+                AgreementFulltext = AgreementText,
+                ContentId = blueprint,
+                Version = 1,
+            });
         }
 
         private class AvatarEntry {
-            public string AssetPath;
-            public string BlueprintId;
-            public string Name;
-            public GameObject Prefab;
+            public readonly SceneAsset AvatarScene;
+            public readonly string BlueprintId;
+            public readonly string Name;
             public bool Selected;
             public string Status;
+
+            public AvatarEntry(GameObject avatar) {
+                Name = avatar.name;
+                AvatarScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(avatar.scene.path);
+
+                var pipeline = avatar.GetComponent<PipelineManager>();
+                if (pipeline) {
+                    BlueprintId = pipeline.blueprintId;
+                }
+
+                Selected = false;
+                Status = "Pending";
+            }
         }
     }
 }
