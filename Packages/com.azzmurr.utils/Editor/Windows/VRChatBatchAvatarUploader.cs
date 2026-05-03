@@ -62,15 +62,6 @@ namespace Azzmurr.Utils {
                 }
             };
 
-            folderSelectorField.RegisterValueChangedCallback(evt => {
-                if (evt.newValue == null) {
-                    _avatarsGUI.itemsSource = null;
-                    return;
-                }
-
-                _avatarsGUI.itemsSource = ScanFolder(evt.newValue);
-            });
-
             _folderSelectorField = folderSelectorField;
 
             folderSelector.Add(folderSelectorField);
@@ -290,7 +281,7 @@ namespace Azzmurr.Utils {
                 return new List<AvatarEntry>();
             }
 
-            var currentScene = SceneManager.GetActiveScene();
+            var currentScene = SceneManager.GetSceneAt(0).path;
 
             var folderPath = AssetDatabase.GetAssetPath(folder);
             var sceneGUIDs = AssetDatabase.FindAssets("t:Scene", new[] { folderPath });
@@ -306,7 +297,9 @@ namespace Azzmurr.Utils {
                 EditorSceneManager.CloseScene(scene, true);
             }
 
-            EditorSceneManager.OpenScene(currentScene.path, OpenSceneMode.Single);
+            if (!string.IsNullOrEmpty(currentScene)) {
+                EditorSceneManager.OpenScene(currentScene, OpenSceneMode.Single);
+            }
 
             return allAvatars;
         }
