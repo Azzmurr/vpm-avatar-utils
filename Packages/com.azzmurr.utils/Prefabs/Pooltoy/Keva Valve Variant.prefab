@@ -1,0 +1,871 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4321052515229665421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3835048781352611204}
+  - component: {fileID: 3788909126884808761}
+  - component: {fileID: 3556550987245936357}
+  - component: {fileID: 2241320851537371962}
+  - component: {fileID: 1548365108311403872}
+  m_Layer: 0
+  m_Name: Lightbulb Back
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &3835048781352611204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321052515229665421}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071065, y: -0.00000046431654, z: 0.000000464317, w: -0.7071071}
+  m_LocalPosition: {x: 0, y: 0.0403, z: -0.1041}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 3475609924637714702}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!137 &3788909126884808761
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321052515229665421}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 157deff77c229214ca4959cb1346b64a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 1
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: 4300000, guid: a528ab0317c0ef14a80eec7b9ebb58a6, type: 2}
+  m_Bones: []
+  m_BlendShapeWeights:
+  - 0
+  - 100
+  - 100
+  - 0
+  - 0
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0.0000032708049, y: -0.084805965, z: -0.000000404194}
+    m_Extent: {x: 0.028994258, y: 0.02891465, z: 0.028924758}
+  m_DirtyAABB: 0
+--- !u!114 &3556550987245936357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321052515229665421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e94e501a2d4c95bff3d5601013d923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  unityVersion: 2022.3.22f1
+  vrcfuryVersion: 1.1249.0
+  somethingIsBroken: 0
+  config:
+    features: []
+  content:
+    rid: 7690906316512428150
+  references:
+    version: 2
+    RefIds:
+    - rid: 7690906316512428150
+      type: {class: Toggle, ns: VF.Model.Feature, asm: VRCFury}
+      data:
+        version: 3
+        name: 
+        state:
+          actions:
+          - rid: 7690906316512428158
+        saved: 0
+        slider: 1
+        sliderInactiveAtZero: 0
+        securityEnabled: 0
+        defaultOn: 0
+        includeInRest: 0
+        exclusiveOffState: 0
+        enableExclusiveTag: 0
+        exclusiveTag: 
+        resetPhysbones: []
+        hasExitTime: 0
+        enableIcon: 0
+        icon:
+          version: 1
+          fileID: 0
+          guid: 
+          id: 
+          objRef: {fileID: 0}
+        enableDriveGlobalParam: 0
+        driveGlobalParam: 
+        separateLocal: 0
+        localState:
+          actions: []
+        hasTransition: 0
+        transitionStateIn:
+          actions: []
+        transitionStateOut:
+          actions: []
+        transitionTimeIn: 0
+        transitionTimeOut: 0
+        localTransitionStateIn:
+          actions: []
+        localTransitionStateOut:
+          actions: []
+        localTransitionTimeIn: 0
+        localTransitionTimeOut: 0
+        simpleOutTransition: 1
+        defaultSliderValue: 0
+        useGlobalParam: 1
+        globalParam: TF/Manual
+        holdButton: 0
+        invertRestLogic: 0
+        expandIntoTransition: 1
+    - rid: 7690906316512428158
+      type: {class: AnimationClipAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 0
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        clip:
+          version: 1
+          fileID: 0
+          guid: 
+          id: 27350c8ea4127334893394c77674b637|Packages/com.azzmurr.transformation-controller/Runtime/Controller/Anims/Valve
+            lightbulb.anim
+          objRef: {fileID: 7400000, guid: 27350c8ea4127334893394c77674b637, type: 2}
+--- !u!114 &2241320851537371962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321052515229665421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e94e501a2d4c95bff3d5601013d923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  unityVersion: 2022.3.22f1
+  vrcfuryVersion: 1.1249.0
+  somethingIsBroken: 0
+  config:
+    features: []
+  content:
+    rid: 7690906316512428150
+  references:
+    version: 2
+    RefIds:
+    - rid: 7690906316512428150
+      type: {class: Toggle, ns: VF.Model.Feature, asm: VRCFury}
+      data:
+        version: 3
+        name: 
+        state:
+          actions:
+          - rid: 7690906316512428151
+        saved: 0
+        slider: 0
+        sliderInactiveAtZero: 0
+        securityEnabled: 0
+        defaultOn: 0
+        includeInRest: 0
+        exclusiveOffState: 0
+        enableExclusiveTag: 0
+        exclusiveTag: 
+        resetPhysbones: []
+        hasExitTime: 0
+        enableIcon: 0
+        icon:
+          version: 1
+          fileID: 0
+          guid: 
+          id: 
+          objRef: {fileID: 0}
+        enableDriveGlobalParam: 0
+        driveGlobalParam: 
+        separateLocal: 0
+        localState:
+          actions: []
+        hasTransition: 0
+        transitionStateIn:
+          actions: []
+        transitionStateOut:
+          actions: []
+        transitionTimeIn: 0
+        transitionTimeOut: 0
+        localTransitionStateIn:
+          actions: []
+        localTransitionStateOut:
+          actions: []
+        localTransitionTimeIn: 0
+        localTransitionTimeOut: 0
+        simpleOutTransition: 1
+        defaultSliderValue: 0
+        useGlobalParam: 1
+        globalParam: TF/Auto
+        holdButton: 0
+        invertRestLogic: 0
+        expandIntoTransition: 1
+    - rid: 7690906316512428151
+      type: {class: AnimationClipAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 0
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        clip:
+          version: 1
+          fileID: 0
+          guid: 
+          id: 27350c8ea4127334893394c77674b637|Packages/com.azzmurr.transformation-controller/Runtime/Controller/Anims/Valve
+            lightbulb.anim
+          objRef: {fileID: 7400000, guid: 27350c8ea4127334893394c77674b637, type: 2}
+--- !u!114 &1548365108311403872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321052515229665421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e94e501a2d4c95bff3d5601013d923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  unityVersion: 2022.3.22f1
+  vrcfuryVersion: 1.1249.0
+  somethingIsBroken: 0
+  config:
+    features: []
+  content:
+    rid: 7690906316512428150
+  references:
+    version: 2
+    RefIds:
+    - rid: 7690906316512428150
+      type: {class: Toggle, ns: VF.Model.Feature, asm: VRCFury}
+      data:
+        version: 3
+        name: 
+        state:
+          actions:
+          - rid: 7690906316512428151
+        saved: 0
+        slider: 0
+        sliderInactiveAtZero: 0
+        securityEnabled: 0
+        defaultOn: 0
+        includeInRest: 0
+        exclusiveOffState: 0
+        enableExclusiveTag: 0
+        exclusiveTag: 
+        resetPhysbones: []
+        hasExitTime: 0
+        enableIcon: 0
+        icon:
+          version: 1
+          fileID: 0
+          guid: 
+          id: 
+          objRef: {fileID: 0}
+        enableDriveGlobalParam: 0
+        driveGlobalParam: 
+        separateLocal: 0
+        localState:
+          actions: []
+        hasTransition: 0
+        transitionStateIn:
+          actions: []
+        transitionStateOut:
+          actions: []
+        transitionTimeIn: 0
+        transitionTimeOut: 0
+        localTransitionStateIn:
+          actions: []
+        localTransitionStateOut:
+          actions: []
+        localTransitionTimeIn: 0
+        localTransitionTimeOut: 0
+        simpleOutTransition: 1
+        defaultSliderValue: 0
+        useGlobalParam: 1
+        globalParam: TF/Disable Mouth Transform
+        holdButton: 0
+        invertRestLogic: 0
+        expandIntoTransition: 1
+    - rid: 7690906316512428151
+      type: {class: AnimationClipAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 0
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        clip:
+          version: 1
+          fileID: 0
+          guid: 
+          id: 9e23eea7c81ce90419247ddfaea1fad8|Packages/com.azzmurr.transformation-controller/Runtime/Controller/Anims/Valve
+            Do Not lightbulb.anim
+          objRef: {fileID: 7400000, guid: 9e23eea7c81ce90419247ddfaea1fad8, type: 2}
+--- !u!1001 &1043359178320389411
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 871996094096071191, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_Name
+      value: Keva Valve Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816883725093954753, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bc4a9c2116e8b7843b6c3d6348af232e, type: 2}
+    - target: {fileID: 2816883725093954753, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[0]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2816883725093954753, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_BlendShapeWeights.Array.data[1]
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485894650572590125, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485894650572590125, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6232
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485894650572590125, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1589
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485894650572590125, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00000053276204
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485894650572590125, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.00000023215183
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485894650572590125, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.39947298
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485894650572590125, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.916745
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485894650572590125, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 47.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485894650572590125, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4485894650572590125, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009448509056238227, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.0019431114
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009448509056238227, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.01879918
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009448509056238227, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0006405711
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009448509056238227, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.49958315
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009448509056238227, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.50710076
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009448509056238227, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.5137156
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009448509056238227, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.47891733
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009448509056238227, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040718602659778642, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.0032
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040718602659778642, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0194
+      objectReference: {fileID: 0}
+    - target: {fileID: 5040718602659778642, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.0536
+      objectReference: {fileID: 0}
+    - target: {fileID: 6257389617311366746, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: ignoreTransforms.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6838011768909065767, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6887819988226848180, guid: 678f1578e4811dd479ddf54b37591031, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 1642463387417789778, guid: 678f1578e4811dd479ddf54b37591031, type: 3}
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 4485894650572590125, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3835048781352611204}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 871996094096071191, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5450394764039683094}
+    - targetCorrespondingSourceObject: {fileID: 6838011768909065767, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6037895423903057787}
+    - targetCorrespondingSourceObject: {fileID: 6838011768909065767, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2821067622686594424}
+    - targetCorrespondingSourceObject: {fileID: 6838011768909065767, guid: 678f1578e4811dd479ddf54b37591031,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7320140974306744248}
+  m_SourcePrefab: {fileID: 100100000, guid: 678f1578e4811dd479ddf54b37591031, type: 3}
+--- !u!1 &172036696763924276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 871996094096071191, guid: 678f1578e4811dd479ddf54b37591031,
+    type: 3}
+  m_PrefabInstance: {fileID: 1043359178320389411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5450394764039683094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172036696763924276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e94e501a2d4c95bff3d5601013d923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  unityVersion: 2022.3.22f1
+  vrcfuryVersion: 1.1249.0
+  somethingIsBroken: 0
+  config:
+    features: []
+  content:
+    rid: 7690906335650513153
+  references:
+    version: 2
+    RefIds:
+    - rid: 7690906335650513153
+      type: {class: ArmatureLink, ns: VF.Model.Feature, asm: VRCFury}
+      data:
+        version: 7
+        propBone: {fileID: 172036696763924276}
+        linkTo:
+        - useBone: 1
+          bone: 10
+          useObj: 0
+          obj: {fileID: 0}
+          offset: 
+        removeBoneSuffix: 
+        removeParentConstraints: 1
+        forceMergedName: 
+        forceOneWorldScale: 0
+        recursive: 0
+        alignPosition: 0
+        alignRotation: 0
+        alignScale: 0
+        autoScaleFactor: 0
+        scalingFactorPowersOf10Only: 1
+        skinRewriteScalingFactor: 1
+        useOptimizedUpload: 0
+        useBoneMerging: 0
+        keepBoneOffsets: 0
+        physbonesOnAvatarBones: 0
+        boneOnAvatar: 0
+        bonePathOnAvatar: 
+        fallbackBones: 
+        keepBoneOffsets2: 0
+        linkMode: 4
+--- !u!4 &3475609924637714702 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4485894650572590125, guid: 678f1578e4811dd479ddf54b37591031,
+    type: 3}
+  m_PrefabInstance: {fileID: 1043359178320389411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5809571898499910404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6838011768909065767, guid: 678f1578e4811dd479ddf54b37591031,
+    type: 3}
+  m_PrefabInstance: {fileID: 1043359178320389411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6037895423903057787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5809571898499910404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e94e501a2d4c95bff3d5601013d923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  unityVersion: 2022.3.22f1
+  vrcfuryVersion: 1.1249.0
+  somethingIsBroken: 0
+  config:
+    features: []
+  content:
+    rid: 7690906316512428150
+  references:
+    version: 2
+    RefIds:
+    - rid: 7690906316512428150
+      type: {class: Toggle, ns: VF.Model.Feature, asm: VRCFury}
+      data:
+        version: 3
+        name: 
+        state:
+          actions:
+          - rid: 7690906316512428158
+        saved: 0
+        slider: 1
+        sliderInactiveAtZero: 0
+        securityEnabled: 0
+        defaultOn: 0
+        includeInRest: 0
+        exclusiveOffState: 0
+        enableExclusiveTag: 0
+        exclusiveTag: 
+        resetPhysbones: []
+        hasExitTime: 0
+        enableIcon: 0
+        icon:
+          version: 1
+          fileID: 0
+          guid: 
+          id: 
+          objRef: {fileID: 0}
+        enableDriveGlobalParam: 0
+        driveGlobalParam: 
+        separateLocal: 0
+        localState:
+          actions: []
+        hasTransition: 0
+        transitionStateIn:
+          actions: []
+        transitionStateOut:
+          actions: []
+        transitionTimeIn: 0
+        transitionTimeOut: 0
+        localTransitionStateIn:
+          actions: []
+        localTransitionStateOut:
+          actions: []
+        localTransitionTimeIn: 0
+        localTransitionTimeOut: 0
+        simpleOutTransition: 1
+        defaultSliderValue: 0
+        useGlobalParam: 1
+        globalParam: TF/Manual
+        holdButton: 0
+        invertRestLogic: 0
+        expandIntoTransition: 1
+    - rid: 7690906316512428158
+      type: {class: AnimationClipAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 0
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        clip:
+          version: 1
+          fileID: 0
+          guid: 
+          id: 1835e8b7ca343db469fd82ac4e44d2c2|Packages/com.azzmurr.transformation-controller/Runtime/Controller/Anims/Valve
+            Show.anim
+          objRef: {fileID: 7400000, guid: 1835e8b7ca343db469fd82ac4e44d2c2, type: 2}
+--- !u!114 &2821067622686594424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5809571898499910404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e94e501a2d4c95bff3d5601013d923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  unityVersion: 2022.3.22f1
+  vrcfuryVersion: 1.1249.0
+  somethingIsBroken: 0
+  config:
+    features: []
+  content:
+    rid: 7690906316512428150
+  references:
+    version: 2
+    RefIds:
+    - rid: 7690906316512428150
+      type: {class: Toggle, ns: VF.Model.Feature, asm: VRCFury}
+      data:
+        version: 3
+        name: 
+        state:
+          actions:
+          - rid: 7690906316512428151
+        saved: 0
+        slider: 0
+        sliderInactiveAtZero: 0
+        securityEnabled: 0
+        defaultOn: 0
+        includeInRest: 0
+        exclusiveOffState: 0
+        enableExclusiveTag: 0
+        exclusiveTag: 
+        resetPhysbones: []
+        hasExitTime: 0
+        enableIcon: 0
+        icon:
+          version: 1
+          fileID: 0
+          guid: 
+          id: 
+          objRef: {fileID: 0}
+        enableDriveGlobalParam: 0
+        driveGlobalParam: 
+        separateLocal: 0
+        localState:
+          actions: []
+        hasTransition: 0
+        transitionStateIn:
+          actions: []
+        transitionStateOut:
+          actions: []
+        transitionTimeIn: 0
+        transitionTimeOut: 0
+        localTransitionStateIn:
+          actions: []
+        localTransitionStateOut:
+          actions: []
+        localTransitionTimeIn: 0
+        localTransitionTimeOut: 0
+        simpleOutTransition: 1
+        defaultSliderValue: 0
+        useGlobalParam: 1
+        globalParam: TF/Auto
+        holdButton: 0
+        invertRestLogic: 0
+        expandIntoTransition: 1
+    - rid: 7690906316512428151
+      type: {class: AnimationClipAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 0
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        clip:
+          version: 1
+          fileID: 0
+          guid: 
+          id: 1835e8b7ca343db469fd82ac4e44d2c2|Packages/com.azzmurr.transformation-controller/Runtime/Controller/Anims/Valve
+            Show.anim
+          objRef: {fileID: 7400000, guid: 1835e8b7ca343db469fd82ac4e44d2c2, type: 2}
+--- !u!114 &7320140974306744248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5809571898499910404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e94e501a2d4c95bff3d5601013d923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  unityVersion: 2022.3.22f1
+  vrcfuryVersion: 1.1249.0
+  somethingIsBroken: 0
+  config:
+    features: []
+  content:
+    rid: 7690906316512428150
+  references:
+    version: 2
+    RefIds:
+    - rid: 7690906316512428150
+      type: {class: Toggle, ns: VF.Model.Feature, asm: VRCFury}
+      data:
+        version: 3
+        name: 
+        state:
+          actions:
+          - rid: 7690906316512428151
+        saved: 0
+        slider: 0
+        sliderInactiveAtZero: 0
+        securityEnabled: 0
+        defaultOn: 0
+        includeInRest: 0
+        exclusiveOffState: 0
+        enableExclusiveTag: 0
+        exclusiveTag: 
+        resetPhysbones: []
+        hasExitTime: 0
+        enableIcon: 0
+        icon:
+          version: 1
+          fileID: 0
+          guid: 
+          id: 
+          objRef: {fileID: 0}
+        enableDriveGlobalParam: 0
+        driveGlobalParam: 
+        separateLocal: 0
+        localState:
+          actions: []
+        hasTransition: 0
+        transitionStateIn:
+          actions: []
+        transitionStateOut:
+          actions: []
+        transitionTimeIn: 0
+        transitionTimeOut: 0
+        localTransitionStateIn:
+          actions: []
+        localTransitionStateOut:
+          actions: []
+        localTransitionTimeIn: 0
+        localTransitionTimeOut: 0
+        simpleOutTransition: 1
+        defaultSliderValue: 0
+        useGlobalParam: 1
+        globalParam: TF/Disable Mouth Transform
+        holdButton: 0
+        invertRestLogic: 0
+        expandIntoTransition: 1
+    - rid: 7690906316512428151
+      type: {class: AnimationClipAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 0
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        clip:
+          version: 1
+          fileID: 0
+          guid: 
+          id: 517c61fe879b47b44abd951931a843a3|Packages/com.azzmurr.transformation-controller/Runtime/Controller/Anims/Valve
+            Do Not Show.anim
+          objRef: {fileID: 7400000, guid: 517c61fe879b47b44abd951931a843a3, type: 2}

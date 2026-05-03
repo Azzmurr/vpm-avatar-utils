@@ -1,0 +1,792 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ba0074d0c746138c5109aa0893ee83, type: 3}
+  m_Name: Pooltoy Checklist
+  m_EditorClassIdentifier: 
+  behaviours:
+  - shaderName: Goo 2
+    items:
+    - propertyName: _RenderingMode
+      propertyCheckType: 0
+      desiredValue:
+        type: 2
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 1
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _MainTex
+      propertyCheckType: 2
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 1
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Opacity
+      propertyCheckType: 0
+      desiredValue:
+        type: 2
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 1
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Glossiness
+      propertyCheckType: 0
+      desiredValue:
+        type: 2
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _BumpMap
+      propertyCheckType: 2
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _DetailNormalMap
+      propertyCheckType: 0
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: 7a7e9bc2b04ec0548a7d564103f8103d, type: 3}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _DetailNormalMap_Tiling
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: 7a7e9bc2b04ec0548a7d564103f8103d, type: 3}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Matcap_1_Texture
+      propertyCheckType: 0
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: 8f837a059485331499c7fd9e5aa0d11d, type: 3}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Matcap_2_Texture
+      propertyCheckType: 0
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: bb168e04b42ac1148a93e56e84b71c16, type: 3}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Matcap_3_Texture
+      propertyCheckType: 0
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: 0e6aaa5cd1a83da45a93102e3d138b66, type: 3}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Matcap_1_Color
+      propertyCheckType: 0
+      desiredValue:
+        type: 3
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: 8f837a059485331499c7fd9e5aa0d11d, type: 3}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Matcap_2_Color
+      propertyCheckType: 0
+      desiredValue:
+        type: 3
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: bb168e04b42ac1148a93e56e84b71c16, type: 3}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Matcap_3_Color
+      propertyCheckType: 0
+      desiredValue:
+        type: 3
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: bb168e04b42ac1148a93e56e84b71c16, type: 3}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Matcap_1_Lighting_Enabled
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: 8f837a059485331499c7fd9e5aa0d11d, type: 3}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Matcap_2_Lighting_Enabled
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: bb168e04b42ac1148a93e56e84b71c16, type: 3}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Matcap_3_Lighting_Enabled
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: bb168e04b42ac1148a93e56e84b71c16, type: 3}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _TF_AnimationMap
+      propertyCheckType: 0
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: a43e3197e3af367458fa25637d0ace57, type: 3}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Mix_Separate_MainTex
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: a43e3197e3af367458fa25637d0ace57, type: 3}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Mix_MainTex
+      propertyCheckType: 2
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 0.36862746, g: 0.36862746, b: 0.36862746, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Mix_Color
+      propertyCheckType: 0
+      desiredValue:
+        type: 3
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 1, g: 1, b: 1, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Mix_Separate_SecondaryTex
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 1, g: 1, b: 1, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Mix_Separate_Occlusion
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 1, g: 1, b: 1, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Mix_Separate_MetallicGlossiness
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 1, g: 1, b: 1, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Mix_Separate_BumpMap
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 1, g: 1, b: 1, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Mix_Separate_Matcap_1
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 1, g: 1, b: 1, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Mix_Separate_Matcap_2
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 1, g: 1, b: 1, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Mix_Separate_Matcap_3
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 1, g: 1, b: 1, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Mix_Separate_Emission_1
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 1, g: 1, b: 1, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Mix_Separate_Emission_2
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 1, g: 1, b: 1, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Mix_Separate_Emission_3
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 1, g: 1, b: 1, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _Mix_Separate_Emission_Const
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0.75
+        colorValue: {r: 1, g: 1, b: 1, a: 0}
+        vector4Value: {x: 3.2, y: 3.2, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 

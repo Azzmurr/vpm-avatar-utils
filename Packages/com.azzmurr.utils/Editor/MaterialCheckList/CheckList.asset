@@ -1,0 +1,1667 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75ba0074d0c746138c5109aa0893ee83, type: 3}
+  m_Name: CheckList
+  m_EditorClassIdentifier: 
+  behaviours:
+  - shaderName: Poiyomi
+    items:
+    - propertyName: _LightingMode
+      propertyCheckType: 0
+      desiredValue:
+        type: 1
+        isHDR: 0
+        boolValue: 0
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _EnableAudioLink
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _EnableEmission
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: 
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _EnableEmission1
+      propertyCheckType: 1
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EnableAudioLink
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _EnableEmission2
+      propertyCheckType: 1
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EnableAudioLink
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _EnableEmission3
+      propertyCheckType: 1
+      desiredValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EnableAudioLink
+      showPropertyIf: 0
+      showPropertyIfPropertyName: 
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: 
+    - propertyName: _EmissionMask
+      propertyCheckType: 2
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EnableAudioLink
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EmissionMask
+      showPropertyIfPropertyValue:
+        type: 5
+        isHDR: 0
+        boolValue: 0
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: a43e3197e3af367458fa25637d0ace57, type: 3}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap
+    - propertyName: _EmissionMask1
+      propertyCheckType: 1
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: a43e3197e3af367458fa25637d0ace57, type: 3}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EmissionMask1
+      showPropertyIfPropertyValue:
+        type: 5
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: a43e3197e3af367458fa25637d0ace57, type: 3}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap1
+    - propertyName: _EmissionMask2
+      propertyCheckType: 1
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: a43e3197e3af367458fa25637d0ace57, type: 3}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EmissionMask2
+      showPropertyIfPropertyValue:
+        type: 5
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: a43e3197e3af367458fa25637d0ace57, type: 3}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap2
+    - propertyName: _EmissionMask3
+      propertyCheckType: 1
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: a43e3197e3af367458fa25637d0ace57, type: 3}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EmissionMask3
+      showPropertyIfPropertyValue:
+        type: 5
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 2800000, guid: a43e3197e3af367458fa25637d0ace57, type: 3}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionMap
+      propertyCheckType: 0
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 0
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionMap1
+      propertyCheckType: 0
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionMap2
+      propertyCheckType: 0
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionMap3
+      propertyCheckType: 0
+      desiredValue:
+        type: 5
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionMaskPan
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 0
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionMask1Pan
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionMask2Pan
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionMask3Pan
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 0
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionColor
+      propertyCheckType: 0
+      desiredValue:
+        type: 3
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0.14798677, g: 1.0592738, b: 0.06231023, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 0
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionColor1
+      propertyCheckType: 0
+      desiredValue:
+        type: 3
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.48946607, b: 0, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionColor2
+      propertyCheckType: 0
+      desiredValue:
+        type: 3
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 0, g: 0.33878037, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionColor3
+      propertyCheckType: 0
+      desiredValue:
+        type: 3
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionStrength
+      propertyCheckType: 0
+      desiredValue:
+        type: 2
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 1
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 0
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionStrength1
+      propertyCheckType: 0
+      desiredValue:
+        type: 2
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionStrength2
+      propertyCheckType: 0
+      desiredValue:
+        type: 2
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionStrength3
+      propertyCheckType: 0
+      desiredValue:
+        type: 2
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionReplace0
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 0
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionReplace1
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionReplace2
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionReplace3
+      propertyCheckType: 0
+      desiredValue:
+        type: 0
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EmissionMask
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL0Enabled
+      propertyCheckType: 1
+      desiredValue:
+        type: 0
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EnableAudioLink
+      showPropertyIf: 0
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL1Enabled
+      propertyCheckType: 1
+      desiredValue:
+        type: 0
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EnableAudioLink
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL2Enabled
+      propertyCheckType: 1
+      desiredValue:
+        type: 0
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EnableAudioLink
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL3Enabled
+      propertyCheckType: 1
+      desiredValue:
+        type: 0
+        isHDR: 1
+        boolValue: 1
+        intValue: 6
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EnableAudioLink
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission0CenterOutBand
+      propertyCheckType: 0
+      desiredValue:
+        type: 1
+        isHDR: 1
+        boolValue: 1
+        intValue: 3
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EnableAudioLink
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission1CenterOutBand
+      propertyCheckType: 0
+      desiredValue:
+        type: 1
+        isHDR: 1
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EnableAudioLink
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission2CenterOutBand
+      propertyCheckType: 0
+      desiredValue:
+        type: 1
+        isHDR: 1
+        boolValue: 1
+        intValue: 2
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EnableAudioLink
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission3CenterOutBand
+      propertyCheckType: 0
+      desiredValue:
+        type: 1
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _EnableAudioLink
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL0MultipliersBand
+      propertyCheckType: 1
+      desiredValue:
+        type: 1
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission0CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL1MultipliersBand
+      propertyCheckType: 1
+      desiredValue:
+        type: 1
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission1CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL2MultipliersBand
+      propertyCheckType: 1
+      desiredValue:
+        type: 1
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission2CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL3MultipliersBand
+      propertyCheckType: 1
+      desiredValue:
+        type: 1
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL0StrengthBand
+      propertyCheckType: 1
+      desiredValue:
+        type: 1
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission0CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL1StrengthBand
+      propertyCheckType: 1
+      desiredValue:
+        type: 1
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission1CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL2StrengthBand
+      propertyCheckType: 1
+      desiredValue:
+        type: 1
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission2CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL3StrengthBand
+      propertyCheckType: 1
+      desiredValue:
+        type: 1
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: -0.08, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission0CenterOut
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 1, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission1CenterOut
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 1, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission2CenterOut
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 1, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission3CenterOut
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 1, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL0Multipliers
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL1Multipliers
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL2Multipliers
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL3Multipliers
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL0StrengthMod
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL1StrengthMod
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL2StrengthMod
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _EmissionAL3StrengthMod
+      propertyCheckType: 0
+      desiredValue:
+        type: 4
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission0CenterOutSize
+      propertyCheckType: 0
+      desiredValue:
+        type: 2
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission1CenterOutSize
+      propertyCheckType: 0
+      desiredValue:
+        type: 2
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission2CenterOutSize
+      propertyCheckType: 0
+      desiredValue:
+        type: 2
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission3CenterOutSize
+      propertyCheckType: 0
+      desiredValue:
+        type: 2
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission0CenterOutDuration
+      propertyCheckType: 0
+      desiredValue:
+        type: 2
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0.4
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission1CenterOutDuration
+      propertyCheckType: 0
+      desiredValue:
+        type: 2
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0.4
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission2CenterOutDuration
+      propertyCheckType: 0
+      desiredValue:
+        type: 2
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0.4
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3
+    - propertyName: _AudioLinkEmission3CenterOutDuration
+      propertyCheckType: 0
+      desiredValue:
+        type: 2
+        isHDR: 1
+        boolValue: 1
+        intValue: 1
+        floatValue: 0.4
+        colorValue: {r: 1.0592737, g: 0.4991342, b: 1.0592738, a: 1}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      sameAsFieldName: _AudioLinkEmission3CenterOutBand
+      showPropertyIf: 1
+      showPropertyIfPropertyName: _EnableAudioLink
+      showPropertyIfPropertyValue:
+        type: 0
+        isHDR: 0
+        boolValue: 1
+        intValue: 0
+        floatValue: 0
+        colorValue: {r: 0, g: 0, b: 0, a: 0}
+        vector4Value: {x: 0, y: 0, z: 0, w: 0}
+        textureValue: {fileID: 0}
+      copyPropertyOnFix: 0
+      copyPropertyValueToPropertyName: _EmissionMap3

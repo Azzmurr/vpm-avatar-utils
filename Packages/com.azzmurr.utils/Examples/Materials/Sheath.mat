@@ -1,0 +1,3260 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sheath
+  m_Shader: {fileID: 4800000, guid: 8299891af0ed9594e936229efcaf2d3e, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    IGNOREPROJECTOR: False
+    RenderType: Opaque
+    VFG2_UnlockedShaderName: .ValueFactory/Goo 2/Goo
+    _MaskChannel_1_Name: Matcap 1 mask
+    _MaskChannel_2_Name: Matcap 3 mask
+    _MaskChannel_3_Name: Metallic mask
+    _MaskChannel_4_Name: Transparency mask
+  disabledShaderPasses: []
+  m_LockedProperties: _Mix_Matcap_3_Color
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Diffuse_LUT_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FakeCubemap_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Glitter_Texture_Map:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _GrabPass_Tint_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskChannel_1_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskChannel_2_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskChannel_3_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskChannel_4_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskChannel_5_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskChannel_6_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskChannel_7_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskChannel_8_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Matcap_1_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Matcap_2_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Matcap_3_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mix_BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mix_DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mix_EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mix_EmissionMap2:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mix_MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mix_Matcap_1_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mix_Matcap_2_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mix_Matcap_3_Texture:
+        m_Texture: {fileID: 2800000, guid: 8db27ba22c9f17c408dd81739495da48, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mix_OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Mix_SecondaryTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SecondaryTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TANoiseTex:
+        m_Texture: {fileID: 2800000, guid: 1d6fdb52de887e04eaa652b2ed465439, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TF_AnimationMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UVBus_1_Distortion_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UVBus_2_Distortion_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UVBus_3_Distortion_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UVBus_4_Distortion_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UVBus_5_Distortion_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _UVBus_6_Distortion_Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _AddedEmissionColor_ANIMATED: 0
+    - _AddedEmissionColor_MaskChannel: 0
+    - _AddedEmissionColor_MaskChannel_Brightness: 0
+    - _AddedEmissionColor_MaskChannel_Brightness_ANIMATED: 0
+    - _AddedEmissionColor_MaskChannel_Contrast: 1
+    - _AddedEmissionColor_MaskChannel_Contrast_ANIMATED: 0
+    - _AddedEmissionColor_MaskChannel_Inverted: 0
+    - _AddedEmissionColor_MaskChannel_Strength: 1
+    - _AddedEmissionColor_MaskChannel_Strength_ANIMATED: 0
+    - _AddedEmissionColor_Osci_Color_End_ANIMATED: 0
+    - _AddedEmissionColor_Osci_Color_Start_ANIMATED: 0
+    - _AddedEmissionColor_Osci_Enabled: 0
+    - _AddedEmissionColor_Osci_Slot: 0
+    - _AlbedoEmissionWeight: 0
+    - _AlbedoEmissionWeight_ANIMATED: 0
+    - _AlbedoEmissionWeight_MaskChannel: 0
+    - _AlbedoEmissionWeight_MaskChannel_Brightness: 0
+    - _AlbedoEmissionWeight_MaskChannel_Brightness_ANIMATED: 0
+    - _AlbedoEmissionWeight_MaskChannel_Contrast: 1
+    - _AlbedoEmissionWeight_MaskChannel_Contrast_ANIMATED: 0
+    - _AlbedoEmissionWeight_MaskChannel_Inverted: 0
+    - _AlbedoEmissionWeight_MaskChannel_Strength: 1
+    - _AlbedoEmissionWeight_MaskChannel_Strength_ANIMATED: 0
+    - _AlbedoEmissionWeight_Osci_Enabled: 0
+    - _AlbedoEmissionWeight_Osci_Slot: 0
+    - _AlbedoEmissionWeight_Osci_Value_End: 0
+    - _AlbedoEmissionWeight_Osci_Value_End_ANIMATED: 0
+    - _AlbedoEmissionWeight_Osci_Value_Start: 0
+    - _AlbedoEmissionWeight_Osci_Value_Start_ANIMATED: 0
+    - _AudioLink_Disabled: 0
+    - _AudioLink_Disabled_ANIMATED: 0
+    - _BackfaceFill_Color_ANIMATED: 0
+    - _BackfaceFill_Enabled: 0
+    - _BakedAtVersion: 7
+    - _BlendMask_1_BlendMode: 0
+    - _BlendMask_1_Mask_Back_MaskChannel: 0
+    - _BlendMask_1_Mask_Back_MaskChannel_Brightness: 0
+    - _BlendMask_1_Mask_Back_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_1_Mask_Back_MaskChannel_Contrast: 1
+    - _BlendMask_1_Mask_Back_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_1_Mask_Back_MaskChannel_Inverted: 0
+    - _BlendMask_1_Mask_Back_MaskChannel_Strength: 1
+    - _BlendMask_1_Mask_Back_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_1_Mask_Fore_MaskChannel: 0
+    - _BlendMask_1_Mask_Fore_MaskChannel_Brightness: 0
+    - _BlendMask_1_Mask_Fore_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_1_Mask_Fore_MaskChannel_Contrast: 1
+    - _BlendMask_1_Mask_Fore_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_1_Mask_Fore_MaskChannel_Inverted: 0
+    - _BlendMask_1_Mask_Fore_MaskChannel_Strength: 1
+    - _BlendMask_1_Mask_Fore_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_1_Opacity: 1
+    - _BlendMask_1_Opacity_ANIMATED: 0
+    - _BlendMask_1_Opacity_Osci_Enabled: 0
+    - _BlendMask_1_Opacity_Osci_Slot: 0
+    - _BlendMask_1_Opacity_Osci_Value_End: 1
+    - _BlendMask_1_Opacity_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_1_Opacity_Osci_Value_Start: 1
+    - _BlendMask_1_Opacity_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_1_Strength_PostInversion: 1
+    - _BlendMask_1_Strength_PostInversion_ANIMATED: 0
+    - _BlendMask_1_Strength_PostInversion_Osci_Enabled: 0
+    - _BlendMask_1_Strength_PostInversion_Osci_Slot: 0
+    - _BlendMask_1_Strength_PostInversion_Osci_Value_End: 1
+    - _BlendMask_1_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_1_Strength_PostInversion_Osci_Value_Start: 1
+    - _BlendMask_1_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_1_Strength_PreInversion: 1
+    - _BlendMask_1_Strength_PreInversion_ANIMATED: 0
+    - _BlendMask_1_Strength_PreInversion_Osci_Enabled: 0
+    - _BlendMask_1_Strength_PreInversion_Osci_Slot: 0
+    - _BlendMask_1_Strength_PreInversion_Osci_Value_End: 1
+    - _BlendMask_1_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_1_Strength_PreInversion_Osci_Value_Start: 1
+    - _BlendMask_1_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_2_BlendMode: 0
+    - _BlendMask_2_Mask_Back_MaskChannel: 0
+    - _BlendMask_2_Mask_Back_MaskChannel_Brightness: 0
+    - _BlendMask_2_Mask_Back_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_2_Mask_Back_MaskChannel_Contrast: 1
+    - _BlendMask_2_Mask_Back_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_2_Mask_Back_MaskChannel_Inverted: 0
+    - _BlendMask_2_Mask_Back_MaskChannel_Strength: 1
+    - _BlendMask_2_Mask_Back_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_2_Mask_Fore_MaskChannel: 0
+    - _BlendMask_2_Mask_Fore_MaskChannel_Brightness: 0
+    - _BlendMask_2_Mask_Fore_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_2_Mask_Fore_MaskChannel_Contrast: 1
+    - _BlendMask_2_Mask_Fore_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_2_Mask_Fore_MaskChannel_Inverted: 0
+    - _BlendMask_2_Mask_Fore_MaskChannel_Strength: 1
+    - _BlendMask_2_Mask_Fore_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_2_Opacity: 1
+    - _BlendMask_2_Opacity_ANIMATED: 0
+    - _BlendMask_2_Opacity_Osci_Enabled: 0
+    - _BlendMask_2_Opacity_Osci_Slot: 0
+    - _BlendMask_2_Opacity_Osci_Value_End: 1
+    - _BlendMask_2_Opacity_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_2_Opacity_Osci_Value_Start: 1
+    - _BlendMask_2_Opacity_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_2_Strength_PostInversion: 1
+    - _BlendMask_2_Strength_PostInversion_ANIMATED: 0
+    - _BlendMask_2_Strength_PostInversion_Osci_Enabled: 0
+    - _BlendMask_2_Strength_PostInversion_Osci_Slot: 0
+    - _BlendMask_2_Strength_PostInversion_Osci_Value_End: 1
+    - _BlendMask_2_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_2_Strength_PostInversion_Osci_Value_Start: 1
+    - _BlendMask_2_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_2_Strength_PreInversion: 1
+    - _BlendMask_2_Strength_PreInversion_ANIMATED: 0
+    - _BlendMask_2_Strength_PreInversion_Osci_Enabled: 0
+    - _BlendMask_2_Strength_PreInversion_Osci_Slot: 0
+    - _BlendMask_2_Strength_PreInversion_Osci_Value_End: 1
+    - _BlendMask_2_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_2_Strength_PreInversion_Osci_Value_Start: 1
+    - _BlendMask_2_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_3_BlendMode: 0
+    - _BlendMask_3_Mask_Back_MaskChannel: 0
+    - _BlendMask_3_Mask_Back_MaskChannel_Brightness: 0
+    - _BlendMask_3_Mask_Back_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_3_Mask_Back_MaskChannel_Contrast: 1
+    - _BlendMask_3_Mask_Back_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_3_Mask_Back_MaskChannel_Inverted: 0
+    - _BlendMask_3_Mask_Back_MaskChannel_Strength: 1
+    - _BlendMask_3_Mask_Back_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_3_Mask_Fore_MaskChannel: 0
+    - _BlendMask_3_Mask_Fore_MaskChannel_Brightness: 0
+    - _BlendMask_3_Mask_Fore_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_3_Mask_Fore_MaskChannel_Contrast: 1
+    - _BlendMask_3_Mask_Fore_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_3_Mask_Fore_MaskChannel_Inverted: 0
+    - _BlendMask_3_Mask_Fore_MaskChannel_Strength: 1
+    - _BlendMask_3_Mask_Fore_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_3_Opacity: 1
+    - _BlendMask_3_Opacity_ANIMATED: 0
+    - _BlendMask_3_Opacity_Osci_Enabled: 0
+    - _BlendMask_3_Opacity_Osci_Slot: 0
+    - _BlendMask_3_Opacity_Osci_Value_End: 1
+    - _BlendMask_3_Opacity_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_3_Opacity_Osci_Value_Start: 1
+    - _BlendMask_3_Opacity_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_3_Strength_PostInversion: 1
+    - _BlendMask_3_Strength_PostInversion_ANIMATED: 0
+    - _BlendMask_3_Strength_PostInversion_Osci_Enabled: 0
+    - _BlendMask_3_Strength_PostInversion_Osci_Slot: 0
+    - _BlendMask_3_Strength_PostInversion_Osci_Value_End: 1
+    - _BlendMask_3_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_3_Strength_PostInversion_Osci_Value_Start: 1
+    - _BlendMask_3_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_3_Strength_PreInversion: 1
+    - _BlendMask_3_Strength_PreInversion_ANIMATED: 0
+    - _BlendMask_3_Strength_PreInversion_Osci_Enabled: 0
+    - _BlendMask_3_Strength_PreInversion_Osci_Slot: 0
+    - _BlendMask_3_Strength_PreInversion_Osci_Value_End: 1
+    - _BlendMask_3_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_3_Strength_PreInversion_Osci_Value_Start: 1
+    - _BlendMask_3_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_4_BlendMode: 0
+    - _BlendMask_4_Mask_Back_MaskChannel: 0
+    - _BlendMask_4_Mask_Back_MaskChannel_Brightness: 0
+    - _BlendMask_4_Mask_Back_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_4_Mask_Back_MaskChannel_Contrast: 1
+    - _BlendMask_4_Mask_Back_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_4_Mask_Back_MaskChannel_Inverted: 0
+    - _BlendMask_4_Mask_Back_MaskChannel_Strength: 1
+    - _BlendMask_4_Mask_Back_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_4_Mask_Fore_MaskChannel: 0
+    - _BlendMask_4_Mask_Fore_MaskChannel_Brightness: 0
+    - _BlendMask_4_Mask_Fore_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_4_Mask_Fore_MaskChannel_Contrast: 1
+    - _BlendMask_4_Mask_Fore_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_4_Mask_Fore_MaskChannel_Inverted: 0
+    - _BlendMask_4_Mask_Fore_MaskChannel_Strength: 1
+    - _BlendMask_4_Mask_Fore_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_4_Opacity: 1
+    - _BlendMask_4_Opacity_ANIMATED: 0
+    - _BlendMask_4_Opacity_Osci_Enabled: 0
+    - _BlendMask_4_Opacity_Osci_Slot: 0
+    - _BlendMask_4_Opacity_Osci_Value_End: 1
+    - _BlendMask_4_Opacity_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_4_Opacity_Osci_Value_Start: 1
+    - _BlendMask_4_Opacity_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_4_Strength_PostInversion: 1
+    - _BlendMask_4_Strength_PostInversion_ANIMATED: 0
+    - _BlendMask_4_Strength_PostInversion_Osci_Enabled: 0
+    - _BlendMask_4_Strength_PostInversion_Osci_Slot: 0
+    - _BlendMask_4_Strength_PostInversion_Osci_Value_End: 1
+    - _BlendMask_4_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_4_Strength_PostInversion_Osci_Value_Start: 1
+    - _BlendMask_4_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_4_Strength_PreInversion: 1
+    - _BlendMask_4_Strength_PreInversion_ANIMATED: 0
+    - _BlendMask_4_Strength_PreInversion_Osci_Enabled: 0
+    - _BlendMask_4_Strength_PreInversion_Osci_Slot: 0
+    - _BlendMask_4_Strength_PreInversion_Osci_Value_End: 1
+    - _BlendMask_4_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_4_Strength_PreInversion_Osci_Value_Start: 1
+    - _BlendMask_4_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_5_BlendMode: 0
+    - _BlendMask_5_Mask_Back_MaskChannel: 0
+    - _BlendMask_5_Mask_Back_MaskChannel_Brightness: 0
+    - _BlendMask_5_Mask_Back_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_5_Mask_Back_MaskChannel_Contrast: 1
+    - _BlendMask_5_Mask_Back_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_5_Mask_Back_MaskChannel_Inverted: 0
+    - _BlendMask_5_Mask_Back_MaskChannel_Strength: 1
+    - _BlendMask_5_Mask_Back_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_5_Mask_Fore_MaskChannel: 0
+    - _BlendMask_5_Mask_Fore_MaskChannel_Brightness: 0
+    - _BlendMask_5_Mask_Fore_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_5_Mask_Fore_MaskChannel_Contrast: 1
+    - _BlendMask_5_Mask_Fore_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_5_Mask_Fore_MaskChannel_Inverted: 0
+    - _BlendMask_5_Mask_Fore_MaskChannel_Strength: 1
+    - _BlendMask_5_Mask_Fore_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_5_Opacity: 1
+    - _BlendMask_5_Opacity_ANIMATED: 0
+    - _BlendMask_5_Opacity_Osci_Enabled: 0
+    - _BlendMask_5_Opacity_Osci_Slot: 0
+    - _BlendMask_5_Opacity_Osci_Value_End: 1
+    - _BlendMask_5_Opacity_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_5_Opacity_Osci_Value_Start: 1
+    - _BlendMask_5_Opacity_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_5_Strength_PostInversion: 1
+    - _BlendMask_5_Strength_PostInversion_ANIMATED: 0
+    - _BlendMask_5_Strength_PostInversion_Osci_Enabled: 0
+    - _BlendMask_5_Strength_PostInversion_Osci_Slot: 0
+    - _BlendMask_5_Strength_PostInversion_Osci_Value_End: 1
+    - _BlendMask_5_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_5_Strength_PostInversion_Osci_Value_Start: 1
+    - _BlendMask_5_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_5_Strength_PreInversion: 1
+    - _BlendMask_5_Strength_PreInversion_ANIMATED: 0
+    - _BlendMask_5_Strength_PreInversion_Osci_Enabled: 0
+    - _BlendMask_5_Strength_PreInversion_Osci_Slot: 0
+    - _BlendMask_5_Strength_PreInversion_Osci_Value_End: 1
+    - _BlendMask_5_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_5_Strength_PreInversion_Osci_Value_Start: 1
+    - _BlendMask_5_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_6_BlendMode: 0
+    - _BlendMask_6_Mask_Back_MaskChannel: 0
+    - _BlendMask_6_Mask_Back_MaskChannel_Brightness: 0
+    - _BlendMask_6_Mask_Back_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_6_Mask_Back_MaskChannel_Contrast: 1
+    - _BlendMask_6_Mask_Back_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_6_Mask_Back_MaskChannel_Inverted: 0
+    - _BlendMask_6_Mask_Back_MaskChannel_Strength: 1
+    - _BlendMask_6_Mask_Back_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_6_Mask_Fore_MaskChannel: 0
+    - _BlendMask_6_Mask_Fore_MaskChannel_Brightness: 0
+    - _BlendMask_6_Mask_Fore_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_6_Mask_Fore_MaskChannel_Contrast: 1
+    - _BlendMask_6_Mask_Fore_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_6_Mask_Fore_MaskChannel_Inverted: 0
+    - _BlendMask_6_Mask_Fore_MaskChannel_Strength: 1
+    - _BlendMask_6_Mask_Fore_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_6_Opacity: 1
+    - _BlendMask_6_Opacity_ANIMATED: 0
+    - _BlendMask_6_Opacity_Osci_Enabled: 0
+    - _BlendMask_6_Opacity_Osci_Slot: 0
+    - _BlendMask_6_Opacity_Osci_Value_End: 1
+    - _BlendMask_6_Opacity_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_6_Opacity_Osci_Value_Start: 1
+    - _BlendMask_6_Opacity_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_6_Strength_PostInversion: 1
+    - _BlendMask_6_Strength_PostInversion_ANIMATED: 0
+    - _BlendMask_6_Strength_PostInversion_Osci_Enabled: 0
+    - _BlendMask_6_Strength_PostInversion_Osci_Slot: 0
+    - _BlendMask_6_Strength_PostInversion_Osci_Value_End: 1
+    - _BlendMask_6_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_6_Strength_PostInversion_Osci_Value_Start: 1
+    - _BlendMask_6_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_6_Strength_PreInversion: 1
+    - _BlendMask_6_Strength_PreInversion_ANIMATED: 0
+    - _BlendMask_6_Strength_PreInversion_Osci_Enabled: 0
+    - _BlendMask_6_Strength_PreInversion_Osci_Slot: 0
+    - _BlendMask_6_Strength_PreInversion_Osci_Value_End: 1
+    - _BlendMask_6_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_6_Strength_PreInversion_Osci_Value_Start: 1
+    - _BlendMask_6_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_7_BlendMode: 0
+    - _BlendMask_7_Mask_Back_MaskChannel: 0
+    - _BlendMask_7_Mask_Back_MaskChannel_Brightness: 0
+    - _BlendMask_7_Mask_Back_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_7_Mask_Back_MaskChannel_Contrast: 1
+    - _BlendMask_7_Mask_Back_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_7_Mask_Back_MaskChannel_Inverted: 0
+    - _BlendMask_7_Mask_Back_MaskChannel_Strength: 1
+    - _BlendMask_7_Mask_Back_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_7_Mask_Fore_MaskChannel: 0
+    - _BlendMask_7_Mask_Fore_MaskChannel_Brightness: 0
+    - _BlendMask_7_Mask_Fore_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_7_Mask_Fore_MaskChannel_Contrast: 1
+    - _BlendMask_7_Mask_Fore_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_7_Mask_Fore_MaskChannel_Inverted: 0
+    - _BlendMask_7_Mask_Fore_MaskChannel_Strength: 1
+    - _BlendMask_7_Mask_Fore_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_7_Opacity: 1
+    - _BlendMask_7_Opacity_ANIMATED: 0
+    - _BlendMask_7_Opacity_Osci_Enabled: 0
+    - _BlendMask_7_Opacity_Osci_Slot: 0
+    - _BlendMask_7_Opacity_Osci_Value_End: 1
+    - _BlendMask_7_Opacity_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_7_Opacity_Osci_Value_Start: 1
+    - _BlendMask_7_Opacity_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_7_Strength_PostInversion: 1
+    - _BlendMask_7_Strength_PostInversion_ANIMATED: 0
+    - _BlendMask_7_Strength_PostInversion_Osci_Enabled: 0
+    - _BlendMask_7_Strength_PostInversion_Osci_Slot: 0
+    - _BlendMask_7_Strength_PostInversion_Osci_Value_End: 1
+    - _BlendMask_7_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_7_Strength_PostInversion_Osci_Value_Start: 1
+    - _BlendMask_7_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_7_Strength_PreInversion: 1
+    - _BlendMask_7_Strength_PreInversion_ANIMATED: 0
+    - _BlendMask_7_Strength_PreInversion_Osci_Enabled: 0
+    - _BlendMask_7_Strength_PreInversion_Osci_Slot: 0
+    - _BlendMask_7_Strength_PreInversion_Osci_Value_End: 1
+    - _BlendMask_7_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_7_Strength_PreInversion_Osci_Value_Start: 1
+    - _BlendMask_7_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_8_BlendMode: 0
+    - _BlendMask_8_Mask_Back_MaskChannel: 0
+    - _BlendMask_8_Mask_Back_MaskChannel_Brightness: 0
+    - _BlendMask_8_Mask_Back_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_8_Mask_Back_MaskChannel_Contrast: 1
+    - _BlendMask_8_Mask_Back_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_8_Mask_Back_MaskChannel_Inverted: 0
+    - _BlendMask_8_Mask_Back_MaskChannel_Strength: 1
+    - _BlendMask_8_Mask_Back_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_8_Mask_Fore_MaskChannel: 0
+    - _BlendMask_8_Mask_Fore_MaskChannel_Brightness: 0
+    - _BlendMask_8_Mask_Fore_MaskChannel_Brightness_ANIMATED: 0
+    - _BlendMask_8_Mask_Fore_MaskChannel_Contrast: 1
+    - _BlendMask_8_Mask_Fore_MaskChannel_Contrast_ANIMATED: 0
+    - _BlendMask_8_Mask_Fore_MaskChannel_Inverted: 0
+    - _BlendMask_8_Mask_Fore_MaskChannel_Strength: 1
+    - _BlendMask_8_Mask_Fore_MaskChannel_Strength_ANIMATED: 0
+    - _BlendMask_8_Opacity: 1
+    - _BlendMask_8_Opacity_ANIMATED: 0
+    - _BlendMask_8_Opacity_Osci_Enabled: 0
+    - _BlendMask_8_Opacity_Osci_Slot: 0
+    - _BlendMask_8_Opacity_Osci_Value_End: 1
+    - _BlendMask_8_Opacity_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_8_Opacity_Osci_Value_Start: 1
+    - _BlendMask_8_Opacity_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_8_Strength_PostInversion: 1
+    - _BlendMask_8_Strength_PostInversion_ANIMATED: 0
+    - _BlendMask_8_Strength_PostInversion_Osci_Enabled: 0
+    - _BlendMask_8_Strength_PostInversion_Osci_Slot: 0
+    - _BlendMask_8_Strength_PostInversion_Osci_Value_End: 1
+    - _BlendMask_8_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_8_Strength_PostInversion_Osci_Value_Start: 1
+    - _BlendMask_8_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _BlendMask_8_Strength_PreInversion: 1
+    - _BlendMask_8_Strength_PreInversion_ANIMATED: 0
+    - _BlendMask_8_Strength_PreInversion_Osci_Enabled: 0
+    - _BlendMask_8_Strength_PreInversion_Osci_Slot: 0
+    - _BlendMask_8_Strength_PreInversion_Osci_Value_End: 1
+    - _BlendMask_8_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _BlendMask_8_Strength_PreInversion_Osci_Value_Start: 1
+    - _BlendMask_8_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _BumpMap_MaskChannel: 0
+    - _BumpMap_MaskChannel_Brightness: 0
+    - _BumpMap_MaskChannel_Brightness_ANIMATED: 0
+    - _BumpMap_MaskChannel_Contrast: 1
+    - _BumpMap_MaskChannel_Contrast_ANIMATED: 0
+    - _BumpMap_MaskChannel_Inverted: 0
+    - _BumpMap_MaskChannel_Strength: 1
+    - _BumpMap_MaskChannel_Strength_ANIMATED: 0
+    - _BumpMap_Offset_ANIMATED: 0
+    - _BumpMap_ScrollSpeed_ANIMATED: 0
+    - _BumpMap_ScrollSpeed_TimeBase: 0
+    - _BumpMap_Tiling_ANIMATED: 0
+    - _BumpMap_UVBus: 0
+    - _BumpScale: 1
+    - _BumpScale_ANIMATED: 0
+    - _BumpScale_Osci_Enabled: 0
+    - _BumpScale_Osci_Slot: 0
+    - _BumpScale_Osci_Value_End: 1
+    - _BumpScale_Osci_Value_End_ANIMATED: 0
+    - _BumpScale_Osci_Value_Start: 1
+    - _BumpScale_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_1_Axis_ANIMATED: 0
+    - _CapsuleMask_1_Axis_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_1_Axis_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_1_Axis_Osci_Enabled: 0
+    - _CapsuleMask_1_Axis_Osci_Slot: 0
+    - _CapsuleMask_1_Flip: 0
+    - _CapsuleMask_1_Height: 0.25
+    - _CapsuleMask_1_Height_ANIMATED: 0
+    - _CapsuleMask_1_Height_Osci_Enabled: 0
+    - _CapsuleMask_1_Height_Osci_Slot: 0
+    - _CapsuleMask_1_Height_Osci_Value_End: 0.25
+    - _CapsuleMask_1_Height_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_1_Height_Osci_Value_Start: 0.25
+    - _CapsuleMask_1_Height_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_1_Origin_ANIMATED: 0
+    - _CapsuleMask_1_Origin_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_1_Origin_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_1_Origin_Osci_Enabled: 0
+    - _CapsuleMask_1_Origin_Osci_Slot: 0
+    - _CapsuleMask_1_Radius: 0.125
+    - _CapsuleMask_1_Radius_ANIMATED: 0
+    - _CapsuleMask_1_Radius_Osci_Enabled: 0
+    - _CapsuleMask_1_Radius_Osci_Slot: 0
+    - _CapsuleMask_1_Radius_Osci_Value_End: 0.125
+    - _CapsuleMask_1_Radius_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_1_Radius_Osci_Value_Start: 0.125
+    - _CapsuleMask_1_Radius_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_1_Strength_PostInversion: 1
+    - _CapsuleMask_1_Strength_PostInversion_ANIMATED: 0
+    - _CapsuleMask_1_Strength_PostInversion_Osci_Enabled: 0
+    - _CapsuleMask_1_Strength_PostInversion_Osci_Slot: 0
+    - _CapsuleMask_1_Strength_PostInversion_Osci_Value_End: 1
+    - _CapsuleMask_1_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_1_Strength_PostInversion_Osci_Value_Start: 1
+    - _CapsuleMask_1_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_1_Strength_PreInversion: 1
+    - _CapsuleMask_1_Strength_PreInversion_ANIMATED: 0
+    - _CapsuleMask_1_Strength_PreInversion_Osci_Enabled: 0
+    - _CapsuleMask_1_Strength_PreInversion_Osci_Slot: 0
+    - _CapsuleMask_1_Strength_PreInversion_Osci_Value_End: 1
+    - _CapsuleMask_1_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_1_Strength_PreInversion_Osci_Value_Start: 1
+    - _CapsuleMask_1_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_2_Axis_ANIMATED: 0
+    - _CapsuleMask_2_Axis_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_2_Axis_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_2_Axis_Osci_Enabled: 0
+    - _CapsuleMask_2_Axis_Osci_Slot: 0
+    - _CapsuleMask_2_Flip: 0
+    - _CapsuleMask_2_Height: 0.25
+    - _CapsuleMask_2_Height_ANIMATED: 0
+    - _CapsuleMask_2_Height_Osci_Enabled: 0
+    - _CapsuleMask_2_Height_Osci_Slot: 0
+    - _CapsuleMask_2_Height_Osci_Value_End: 0.25
+    - _CapsuleMask_2_Height_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_2_Height_Osci_Value_Start: 0.25
+    - _CapsuleMask_2_Height_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_2_Origin_ANIMATED: 0
+    - _CapsuleMask_2_Origin_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_2_Origin_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_2_Origin_Osci_Enabled: 0
+    - _CapsuleMask_2_Origin_Osci_Slot: 0
+    - _CapsuleMask_2_Radius: 0.125
+    - _CapsuleMask_2_Radius_ANIMATED: 0
+    - _CapsuleMask_2_Radius_Osci_Enabled: 0
+    - _CapsuleMask_2_Radius_Osci_Slot: 0
+    - _CapsuleMask_2_Radius_Osci_Value_End: 0.125
+    - _CapsuleMask_2_Radius_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_2_Radius_Osci_Value_Start: 0.125
+    - _CapsuleMask_2_Radius_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_2_Strength_PostInversion: 1
+    - _CapsuleMask_2_Strength_PostInversion_ANIMATED: 0
+    - _CapsuleMask_2_Strength_PostInversion_Osci_Enabled: 0
+    - _CapsuleMask_2_Strength_PostInversion_Osci_Slot: 0
+    - _CapsuleMask_2_Strength_PostInversion_Osci_Value_End: 1
+    - _CapsuleMask_2_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_2_Strength_PostInversion_Osci_Value_Start: 1
+    - _CapsuleMask_2_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_2_Strength_PreInversion: 1
+    - _CapsuleMask_2_Strength_PreInversion_ANIMATED: 0
+    - _CapsuleMask_2_Strength_PreInversion_Osci_Enabled: 0
+    - _CapsuleMask_2_Strength_PreInversion_Osci_Slot: 0
+    - _CapsuleMask_2_Strength_PreInversion_Osci_Value_End: 1
+    - _CapsuleMask_2_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_2_Strength_PreInversion_Osci_Value_Start: 1
+    - _CapsuleMask_2_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_3_Axis_ANIMATED: 0
+    - _CapsuleMask_3_Axis_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_3_Axis_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_3_Axis_Osci_Enabled: 0
+    - _CapsuleMask_3_Axis_Osci_Slot: 0
+    - _CapsuleMask_3_Flip: 0
+    - _CapsuleMask_3_Height: 0.25
+    - _CapsuleMask_3_Height_ANIMATED: 0
+    - _CapsuleMask_3_Height_Osci_Enabled: 0
+    - _CapsuleMask_3_Height_Osci_Slot: 0
+    - _CapsuleMask_3_Height_Osci_Value_End: 0.25
+    - _CapsuleMask_3_Height_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_3_Height_Osci_Value_Start: 0.25
+    - _CapsuleMask_3_Height_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_3_Origin_ANIMATED: 0
+    - _CapsuleMask_3_Origin_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_3_Origin_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_3_Origin_Osci_Enabled: 0
+    - _CapsuleMask_3_Origin_Osci_Slot: 0
+    - _CapsuleMask_3_Radius: 0.125
+    - _CapsuleMask_3_Radius_ANIMATED: 0
+    - _CapsuleMask_3_Radius_Osci_Enabled: 0
+    - _CapsuleMask_3_Radius_Osci_Slot: 0
+    - _CapsuleMask_3_Radius_Osci_Value_End: 0.125
+    - _CapsuleMask_3_Radius_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_3_Radius_Osci_Value_Start: 0.125
+    - _CapsuleMask_3_Radius_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_3_Strength_PostInversion: 1
+    - _CapsuleMask_3_Strength_PostInversion_ANIMATED: 0
+    - _CapsuleMask_3_Strength_PostInversion_Osci_Enabled: 0
+    - _CapsuleMask_3_Strength_PostInversion_Osci_Slot: 0
+    - _CapsuleMask_3_Strength_PostInversion_Osci_Value_End: 1
+    - _CapsuleMask_3_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_3_Strength_PostInversion_Osci_Value_Start: 1
+    - _CapsuleMask_3_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_3_Strength_PreInversion: 1
+    - _CapsuleMask_3_Strength_PreInversion_ANIMATED: 0
+    - _CapsuleMask_3_Strength_PreInversion_Osci_Enabled: 0
+    - _CapsuleMask_3_Strength_PreInversion_Osci_Slot: 0
+    - _CapsuleMask_3_Strength_PreInversion_Osci_Value_End: 1
+    - _CapsuleMask_3_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_3_Strength_PreInversion_Osci_Value_Start: 1
+    - _CapsuleMask_3_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_4_Axis_ANIMATED: 0
+    - _CapsuleMask_4_Axis_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_4_Axis_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_4_Axis_Osci_Enabled: 0
+    - _CapsuleMask_4_Axis_Osci_Slot: 0
+    - _CapsuleMask_4_Flip: 0
+    - _CapsuleMask_4_Height: 0.25
+    - _CapsuleMask_4_Height_ANIMATED: 0
+    - _CapsuleMask_4_Height_Osci_Enabled: 0
+    - _CapsuleMask_4_Height_Osci_Slot: 0
+    - _CapsuleMask_4_Height_Osci_Value_End: 0.25
+    - _CapsuleMask_4_Height_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_4_Height_Osci_Value_Start: 0.25
+    - _CapsuleMask_4_Height_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_4_Origin_ANIMATED: 0
+    - _CapsuleMask_4_Origin_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_4_Origin_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_4_Origin_Osci_Enabled: 0
+    - _CapsuleMask_4_Origin_Osci_Slot: 0
+    - _CapsuleMask_4_Radius: 0.125
+    - _CapsuleMask_4_Radius_ANIMATED: 0
+    - _CapsuleMask_4_Radius_Osci_Enabled: 0
+    - _CapsuleMask_4_Radius_Osci_Slot: 0
+    - _CapsuleMask_4_Radius_Osci_Value_End: 0.125
+    - _CapsuleMask_4_Radius_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_4_Radius_Osci_Value_Start: 0.125
+    - _CapsuleMask_4_Radius_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_4_Strength_PostInversion: 1
+    - _CapsuleMask_4_Strength_PostInversion_ANIMATED: 0
+    - _CapsuleMask_4_Strength_PostInversion_Osci_Enabled: 0
+    - _CapsuleMask_4_Strength_PostInversion_Osci_Slot: 0
+    - _CapsuleMask_4_Strength_PostInversion_Osci_Value_End: 1
+    - _CapsuleMask_4_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_4_Strength_PostInversion_Osci_Value_Start: 1
+    - _CapsuleMask_4_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_4_Strength_PreInversion: 1
+    - _CapsuleMask_4_Strength_PreInversion_ANIMATED: 0
+    - _CapsuleMask_4_Strength_PreInversion_Osci_Enabled: 0
+    - _CapsuleMask_4_Strength_PreInversion_Osci_Slot: 0
+    - _CapsuleMask_4_Strength_PreInversion_Osci_Value_End: 1
+    - _CapsuleMask_4_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_4_Strength_PreInversion_Osci_Value_Start: 1
+    - _CapsuleMask_4_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_5_Axis_ANIMATED: 0
+    - _CapsuleMask_5_Axis_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_5_Axis_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_5_Axis_Osci_Enabled: 0
+    - _CapsuleMask_5_Axis_Osci_Slot: 0
+    - _CapsuleMask_5_Flip: 0
+    - _CapsuleMask_5_Height: 0.25
+    - _CapsuleMask_5_Height_ANIMATED: 0
+    - _CapsuleMask_5_Height_Osci_Enabled: 0
+    - _CapsuleMask_5_Height_Osci_Slot: 0
+    - _CapsuleMask_5_Height_Osci_Value_End: 0.25
+    - _CapsuleMask_5_Height_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_5_Height_Osci_Value_Start: 0.25
+    - _CapsuleMask_5_Height_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_5_Origin_ANIMATED: 0
+    - _CapsuleMask_5_Origin_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_5_Origin_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_5_Origin_Osci_Enabled: 0
+    - _CapsuleMask_5_Origin_Osci_Slot: 0
+    - _CapsuleMask_5_Radius: 0.125
+    - _CapsuleMask_5_Radius_ANIMATED: 0
+    - _CapsuleMask_5_Radius_Osci_Enabled: 0
+    - _CapsuleMask_5_Radius_Osci_Slot: 0
+    - _CapsuleMask_5_Radius_Osci_Value_End: 0.125
+    - _CapsuleMask_5_Radius_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_5_Radius_Osci_Value_Start: 0.125
+    - _CapsuleMask_5_Radius_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_5_Strength_PostInversion: 1
+    - _CapsuleMask_5_Strength_PostInversion_ANIMATED: 0
+    - _CapsuleMask_5_Strength_PostInversion_Osci_Enabled: 0
+    - _CapsuleMask_5_Strength_PostInversion_Osci_Slot: 0
+    - _CapsuleMask_5_Strength_PostInversion_Osci_Value_End: 1
+    - _CapsuleMask_5_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_5_Strength_PostInversion_Osci_Value_Start: 1
+    - _CapsuleMask_5_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_5_Strength_PreInversion: 1
+    - _CapsuleMask_5_Strength_PreInversion_ANIMATED: 0
+    - _CapsuleMask_5_Strength_PreInversion_Osci_Enabled: 0
+    - _CapsuleMask_5_Strength_PreInversion_Osci_Slot: 0
+    - _CapsuleMask_5_Strength_PreInversion_Osci_Value_End: 1
+    - _CapsuleMask_5_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_5_Strength_PreInversion_Osci_Value_Start: 1
+    - _CapsuleMask_5_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_6_Axis_ANIMATED: 0
+    - _CapsuleMask_6_Axis_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_6_Axis_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_6_Axis_Osci_Enabled: 0
+    - _CapsuleMask_6_Axis_Osci_Slot: 0
+    - _CapsuleMask_6_Flip: 0
+    - _CapsuleMask_6_Height: 0.25
+    - _CapsuleMask_6_Height_ANIMATED: 0
+    - _CapsuleMask_6_Height_Osci_Enabled: 0
+    - _CapsuleMask_6_Height_Osci_Slot: 0
+    - _CapsuleMask_6_Height_Osci_Value_End: 0.25
+    - _CapsuleMask_6_Height_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_6_Height_Osci_Value_Start: 0.25
+    - _CapsuleMask_6_Height_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_6_Origin_ANIMATED: 0
+    - _CapsuleMask_6_Origin_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_6_Origin_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_6_Origin_Osci_Enabled: 0
+    - _CapsuleMask_6_Origin_Osci_Slot: 0
+    - _CapsuleMask_6_Radius: 0.125
+    - _CapsuleMask_6_Radius_ANIMATED: 0
+    - _CapsuleMask_6_Radius_Osci_Enabled: 0
+    - _CapsuleMask_6_Radius_Osci_Slot: 0
+    - _CapsuleMask_6_Radius_Osci_Value_End: 0.125
+    - _CapsuleMask_6_Radius_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_6_Radius_Osci_Value_Start: 0.125
+    - _CapsuleMask_6_Radius_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_6_Strength_PostInversion: 1
+    - _CapsuleMask_6_Strength_PostInversion_ANIMATED: 0
+    - _CapsuleMask_6_Strength_PostInversion_Osci_Enabled: 0
+    - _CapsuleMask_6_Strength_PostInversion_Osci_Slot: 0
+    - _CapsuleMask_6_Strength_PostInversion_Osci_Value_End: 1
+    - _CapsuleMask_6_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_6_Strength_PostInversion_Osci_Value_Start: 1
+    - _CapsuleMask_6_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_6_Strength_PreInversion: 1
+    - _CapsuleMask_6_Strength_PreInversion_ANIMATED: 0
+    - _CapsuleMask_6_Strength_PreInversion_Osci_Enabled: 0
+    - _CapsuleMask_6_Strength_PreInversion_Osci_Slot: 0
+    - _CapsuleMask_6_Strength_PreInversion_Osci_Value_End: 1
+    - _CapsuleMask_6_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_6_Strength_PreInversion_Osci_Value_Start: 1
+    - _CapsuleMask_6_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_7_Axis_ANIMATED: 0
+    - _CapsuleMask_7_Axis_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_7_Axis_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_7_Axis_Osci_Enabled: 0
+    - _CapsuleMask_7_Axis_Osci_Slot: 0
+    - _CapsuleMask_7_Flip: 0
+    - _CapsuleMask_7_Height: 0.25
+    - _CapsuleMask_7_Height_ANIMATED: 0
+    - _CapsuleMask_7_Height_Osci_Enabled: 0
+    - _CapsuleMask_7_Height_Osci_Slot: 0
+    - _CapsuleMask_7_Height_Osci_Value_End: 0.25
+    - _CapsuleMask_7_Height_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_7_Height_Osci_Value_Start: 0.25
+    - _CapsuleMask_7_Height_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_7_Origin_ANIMATED: 0
+    - _CapsuleMask_7_Origin_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_7_Origin_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_7_Origin_Osci_Enabled: 0
+    - _CapsuleMask_7_Origin_Osci_Slot: 0
+    - _CapsuleMask_7_Radius: 0.125
+    - _CapsuleMask_7_Radius_ANIMATED: 0
+    - _CapsuleMask_7_Radius_Osci_Enabled: 0
+    - _CapsuleMask_7_Radius_Osci_Slot: 0
+    - _CapsuleMask_7_Radius_Osci_Value_End: 0.125
+    - _CapsuleMask_7_Radius_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_7_Radius_Osci_Value_Start: 0.125
+    - _CapsuleMask_7_Radius_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_7_Strength_PostInversion: 1
+    - _CapsuleMask_7_Strength_PostInversion_ANIMATED: 0
+    - _CapsuleMask_7_Strength_PostInversion_Osci_Enabled: 0
+    - _CapsuleMask_7_Strength_PostInversion_Osci_Slot: 0
+    - _CapsuleMask_7_Strength_PostInversion_Osci_Value_End: 1
+    - _CapsuleMask_7_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_7_Strength_PostInversion_Osci_Value_Start: 1
+    - _CapsuleMask_7_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_7_Strength_PreInversion: 1
+    - _CapsuleMask_7_Strength_PreInversion_ANIMATED: 0
+    - _CapsuleMask_7_Strength_PreInversion_Osci_Enabled: 0
+    - _CapsuleMask_7_Strength_PreInversion_Osci_Slot: 0
+    - _CapsuleMask_7_Strength_PreInversion_Osci_Value_End: 1
+    - _CapsuleMask_7_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_7_Strength_PreInversion_Osci_Value_Start: 1
+    - _CapsuleMask_7_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_8_Axis_ANIMATED: 0
+    - _CapsuleMask_8_Axis_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_8_Axis_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_8_Axis_Osci_Enabled: 0
+    - _CapsuleMask_8_Axis_Osci_Slot: 0
+    - _CapsuleMask_8_Flip: 0
+    - _CapsuleMask_8_Height: 0.25
+    - _CapsuleMask_8_Height_ANIMATED: 0
+    - _CapsuleMask_8_Height_Osci_Enabled: 0
+    - _CapsuleMask_8_Height_Osci_Slot: 0
+    - _CapsuleMask_8_Height_Osci_Value_End: 0.25
+    - _CapsuleMask_8_Height_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_8_Height_Osci_Value_Start: 0.25
+    - _CapsuleMask_8_Height_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_8_Origin_ANIMATED: 0
+    - _CapsuleMask_8_Origin_Osci_Color_End_ANIMATED: 0
+    - _CapsuleMask_8_Origin_Osci_Color_Start_ANIMATED: 0
+    - _CapsuleMask_8_Origin_Osci_Enabled: 0
+    - _CapsuleMask_8_Origin_Osci_Slot: 0
+    - _CapsuleMask_8_Radius: 0.125
+    - _CapsuleMask_8_Radius_ANIMATED: 0
+    - _CapsuleMask_8_Radius_Osci_Enabled: 0
+    - _CapsuleMask_8_Radius_Osci_Slot: 0
+    - _CapsuleMask_8_Radius_Osci_Value_End: 0.125
+    - _CapsuleMask_8_Radius_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_8_Radius_Osci_Value_Start: 0.125
+    - _CapsuleMask_8_Radius_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_8_Strength_PostInversion: 1
+    - _CapsuleMask_8_Strength_PostInversion_ANIMATED: 0
+    - _CapsuleMask_8_Strength_PostInversion_Osci_Enabled: 0
+    - _CapsuleMask_8_Strength_PostInversion_Osci_Slot: 0
+    - _CapsuleMask_8_Strength_PostInversion_Osci_Value_End: 1
+    - _CapsuleMask_8_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_8_Strength_PostInversion_Osci_Value_Start: 1
+    - _CapsuleMask_8_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _CapsuleMask_8_Strength_PreInversion: 1
+    - _CapsuleMask_8_Strength_PreInversion_ANIMATED: 0
+    - _CapsuleMask_8_Strength_PreInversion_Osci_Enabled: 0
+    - _CapsuleMask_8_Strength_PreInversion_Osci_Slot: 0
+    - _CapsuleMask_8_Strength_PreInversion_Osci_Value_End: 1
+    - _CapsuleMask_8_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _CapsuleMask_8_Strength_PreInversion_Osci_Value_Start: 1
+    - _CapsuleMask_8_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _Color_ANIMATED: 0
+    - _Color_Osci_Color_End_ANIMATED: 0
+    - _Color_Osci_Color_Start_ANIMATED: 0
+    - _Color_Osci_Enabled: 0
+    - _Color_Osci_Slot: 0
+    - _CullMode: 0
+    - _Cutoff: 0.5
+    - _Cutoff_ANIMATED: 0
+    - _Cutoff_Osci_Enabled: 0
+    - _Cutoff_Osci_Slot: 0
+    - _Cutoff_Osci_Value_End: 0.5
+    - _Cutoff_Osci_Value_End_ANIMATED: 0
+    - _Cutoff_Osci_Value_Start: 0.5
+    - _Cutoff_Osci_Value_Start_ANIMATED: 0
+    - _DebugVisualisation_MaskChannel: 4
+    - _DebugVisualisation_MaskChannel_Brightness: 0
+    - _DebugVisualisation_MaskChannel_Brightness_ANIMATED: 0
+    - _DebugVisualisation_MaskChannel_Contrast: 1
+    - _DebugVisualisation_MaskChannel_Contrast_ANIMATED: 0
+    - _DebugVisualisation_MaskChannel_Inverted: 0
+    - _DebugVisualisation_MaskChannel_Strength: 1
+    - _DebugVisualisation_MaskChannel_Strength_ANIMATED: 0
+    - _DebugVisualisation_Type: 0
+    - _DebugVisualisation_UVBus: 0
+    - _DestinationBlend: 0
+    - _DetailBumpScale: 1
+    - _DetailBumpScale_ANIMATED: 0
+    - _DetailBumpScale_Osci_Enabled: 0
+    - _DetailBumpScale_Osci_Slot: 0
+    - _DetailBumpScale_Osci_Value_End: 1
+    - _DetailBumpScale_Osci_Value_End_ANIMATED: 0
+    - _DetailBumpScale_Osci_Value_Start: 1
+    - _DetailBumpScale_Osci_Value_Start_ANIMATED: 0
+    - _DetailNormalMapScale: 1
+    - _DetailNormalMap_MaskChannel: 0
+    - _DetailNormalMap_MaskChannel_Brightness: 0
+    - _DetailNormalMap_MaskChannel_Brightness_ANIMATED: 0
+    - _DetailNormalMap_MaskChannel_Contrast: 1
+    - _DetailNormalMap_MaskChannel_Contrast_ANIMATED: 0
+    - _DetailNormalMap_MaskChannel_Inverted: 0
+    - _DetailNormalMap_MaskChannel_Strength: 1
+    - _DetailNormalMap_MaskChannel_Strength_ANIMATED: 0
+    - _DetailNormalMap_Offset_ANIMATED: 0
+    - _DetailNormalMap_ScrollSpeed_ANIMATED: 0
+    - _DetailNormalMap_ScrollSpeed_TimeBase: 0
+    - _DetailNormalMap_Tiling_ANIMATED: 0
+    - _DetailNormalMap_UVBus: 0
+    - _Diffuse_Ramp_1_End: 1
+    - _Diffuse_Ramp_1_End_ANIMATED: 0
+    - _Diffuse_Ramp_1_Offset: 0
+    - _Diffuse_Ramp_1_Offset_ANIMATED: 0
+    - _Diffuse_Ramp_1_Start: 0
+    - _Diffuse_Ramp_1_Start_ANIMATED: 0
+    - _Diffuse_Ramp_2_End: 1
+    - _Diffuse_Ramp_2_End_ANIMATED: 0
+    - _Diffuse_Ramp_2_Offset: 0
+    - _Diffuse_Ramp_2_Offset_ANIMATED: 0
+    - _Diffuse_Ramp_2_Start: 0
+    - _Diffuse_Ramp_2_Start_ANIMATED: 0
+    - _Diffuse_Ramp_Blend: 0
+    - _Diffuse_Ramp_Blend_ANIMATED: 0
+    - _Diffuse_Shadow_Tint_Color_ANIMATED: 0
+    - _Diffuse_Type: 0
+    - _DistanceDither_Back_Bias: 0
+    - _DistanceDither_Back_Bias_ANIMATED: 0
+    - _DistanceDither_Back_Distance_End: 0
+    - _DistanceDither_Back_Distance_End_ANIMATED: 0
+    - _DistanceDither_Back_Distance_Start: 0.01
+    - _DistanceDither_Back_Distance_Start_ANIMATED: 0
+    - _DistanceDither_Enabled: 0
+    - _DistanceDither_Front_Bias: 0
+    - _DistanceDither_Front_Bias_ANIMATED: 0
+    - _DistanceDither_Front_Distance_End: 0
+    - _DistanceDither_Front_Distance_End_ANIMATED: 0
+    - _DistanceDither_Front_Distance_Start: 0.1
+    - _DistanceDither_Front_Distance_Start_ANIMATED: 0
+    - _DistanceDither_MaskChannel: 0
+    - _DistanceDither_MaskChannel_Brightness: 0
+    - _DistanceDither_MaskChannel_Brightness_ANIMATED: 0
+    - _DistanceDither_MaskChannel_Contrast: 1
+    - _DistanceDither_MaskChannel_Contrast_ANIMATED: 0
+    - _DistanceDither_MaskChannel_Inverted: 0
+    - _DistanceDither_MaskChannel_Strength: 1
+    - _DistanceDither_MaskChannel_Strength_ANIMATED: 0
+    - _DistanceDither_Separate_Faces: 1
+    - _DistanceMask_1_Distance_End: 0
+    - _DistanceMask_1_Distance_End_ANIMATED: 0
+    - _DistanceMask_1_Distance_End_Osci_Enabled: 0
+    - _DistanceMask_1_Distance_End_Osci_Slot: 0
+    - _DistanceMask_1_Distance_End_Osci_Value_End: 0
+    - _DistanceMask_1_Distance_End_Osci_Value_End_ANIMATED: 0
+    - _DistanceMask_1_Distance_End_Osci_Value_Start: 0
+    - _DistanceMask_1_Distance_End_Osci_Value_Start_ANIMATED: 0
+    - _DistanceMask_1_Distance_Start: 1
+    - _DistanceMask_1_Distance_Start_ANIMATED: 0
+    - _DistanceMask_1_Distance_Start_Osci_Enabled: 0
+    - _DistanceMask_1_Distance_Start_Osci_Slot: 0
+    - _DistanceMask_1_Distance_Start_Osci_Value_End: 1
+    - _DistanceMask_1_Distance_Start_Osci_Value_End_ANIMATED: 0
+    - _DistanceMask_1_Distance_Start_Osci_Value_Start: 1
+    - _DistanceMask_1_Distance_Start_Osci_Value_Start_ANIMATED: 0
+    - _DistanceMask_1_Strength_PostInversion: 1
+    - _DistanceMask_1_Strength_PostInversion_ANIMATED: 0
+    - _DistanceMask_1_Strength_PostInversion_Osci_Enabled: 0
+    - _DistanceMask_1_Strength_PostInversion_Osci_Slot: 0
+    - _DistanceMask_1_Strength_PostInversion_Osci_Value_End: 1
+    - _DistanceMask_1_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _DistanceMask_1_Strength_PostInversion_Osci_Value_Start: 1
+    - _DistanceMask_1_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _DistanceMask_1_Strength_PreInversion: 1
+    - _DistanceMask_1_Strength_PreInversion_ANIMATED: 0
+    - _DistanceMask_1_Strength_PreInversion_Osci_Enabled: 0
+    - _DistanceMask_1_Strength_PreInversion_Osci_Slot: 0
+    - _DistanceMask_1_Strength_PreInversion_Osci_Value_End: 1
+    - _DistanceMask_1_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _DistanceMask_1_Strength_PreInversion_Osci_Value_Start: 1
+    - _DistanceMask_1_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _DistanceMask_2_Distance_End: 0
+    - _DistanceMask_2_Distance_End_ANIMATED: 0
+    - _DistanceMask_2_Distance_End_Osci_Enabled: 0
+    - _DistanceMask_2_Distance_End_Osci_Slot: 0
+    - _DistanceMask_2_Distance_End_Osci_Value_End: 0
+    - _DistanceMask_2_Distance_End_Osci_Value_End_ANIMATED: 0
+    - _DistanceMask_2_Distance_End_Osci_Value_Start: 0
+    - _DistanceMask_2_Distance_End_Osci_Value_Start_ANIMATED: 0
+    - _DistanceMask_2_Distance_Start: 1
+    - _DistanceMask_2_Distance_Start_ANIMATED: 0
+    - _DistanceMask_2_Distance_Start_Osci_Enabled: 0
+    - _DistanceMask_2_Distance_Start_Osci_Slot: 0
+    - _DistanceMask_2_Distance_Start_Osci_Value_End: 1
+    - _DistanceMask_2_Distance_Start_Osci_Value_End_ANIMATED: 0
+    - _DistanceMask_2_Distance_Start_Osci_Value_Start: 1
+    - _DistanceMask_2_Distance_Start_Osci_Value_Start_ANIMATED: 0
+    - _DistanceMask_2_Strength_PostInversion: 1
+    - _DistanceMask_2_Strength_PostInversion_ANIMATED: 0
+    - _DistanceMask_2_Strength_PostInversion_Osci_Enabled: 0
+    - _DistanceMask_2_Strength_PostInversion_Osci_Slot: 0
+    - _DistanceMask_2_Strength_PostInversion_Osci_Value_End: 1
+    - _DistanceMask_2_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _DistanceMask_2_Strength_PostInversion_Osci_Value_Start: 1
+    - _DistanceMask_2_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _DistanceMask_2_Strength_PreInversion: 1
+    - _DistanceMask_2_Strength_PreInversion_ANIMATED: 0
+    - _DistanceMask_2_Strength_PreInversion_Osci_Enabled: 0
+    - _DistanceMask_2_Strength_PreInversion_Osci_Slot: 0
+    - _DistanceMask_2_Strength_PreInversion_Osci_Value_End: 1
+    - _DistanceMask_2_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _DistanceMask_2_Strength_PreInversion_Osci_Value_Start: 1
+    - _DistanceMask_2_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _DstBlend: 0
+    - _EarlyZ_Enabled: 0
+    - _EmissionColor2_ANIMATED: 0
+    - _EmissionColor2_Osci_Color_End_ANIMATED: 0
+    - _EmissionColor2_Osci_Color_Start_ANIMATED: 0
+    - _EmissionColor2_Osci_Enabled: 0
+    - _EmissionColor2_Osci_Slot: 0
+    - _EmissionColor_ANIMATED: 0
+    - _EmissionColor_Osci_Color_End_ANIMATED: 0
+    - _EmissionColor_Osci_Color_Start_ANIMATED: 0
+    - _EmissionColor_Osci_Enabled: 0
+    - _EmissionColor_Osci_Slot: 0
+    - _EmissionMap2_AlphaIsMask: 0
+    - _EmissionMap2_MaskChannel: 0
+    - _EmissionMap2_MaskChannel_Brightness: 0
+    - _EmissionMap2_MaskChannel_Brightness_ANIMATED: 0
+    - _EmissionMap2_MaskChannel_Contrast: 1
+    - _EmissionMap2_MaskChannel_Contrast_ANIMATED: 0
+    - _EmissionMap2_MaskChannel_Inverted: 0
+    - _EmissionMap2_MaskChannel_Strength: 1
+    - _EmissionMap2_MaskChannel_Strength_ANIMATED: 0
+    - _EmissionMap2_Offset_ANIMATED: 0
+    - _EmissionMap2_ScrollSpeed_ANIMATED: 0
+    - _EmissionMap2_ScrollSpeed_TimeBase: 0
+    - _EmissionMap2_Tiling_ANIMATED: 0
+    - _EmissionMap2_UVBus: 0
+    - _EmissionMap_AlphaIsMask: 0
+    - _EmissionMap_MaskChannel: 0
+    - _EmissionMap_MaskChannel_Brightness: 0
+    - _EmissionMap_MaskChannel_Brightness_ANIMATED: 0
+    - _EmissionMap_MaskChannel_Contrast: 1
+    - _EmissionMap_MaskChannel_Contrast_ANIMATED: 0
+    - _EmissionMap_MaskChannel_Inverted: 0
+    - _EmissionMap_MaskChannel_Strength: 1
+    - _EmissionMap_MaskChannel_Strength_ANIMATED: 0
+    - _EmissionMap_Offset_ANIMATED: 0
+    - _EmissionMap_ScrollSpeed_ANIMATED: 0
+    - _EmissionMap_ScrollSpeed_TimeBase: 0
+    - _EmissionMap_Tiling_ANIMATED: 0
+    - _EmissionMap_UVBus: 0
+    - _FakeCubemap_AppearsOnMaterial: 0
+    - _FakeCubemap_ApplyOnlyOnBase: 0
+    - _FakeCubemap_Blend: 1
+    - _FakeCubemap_Blend_ANIMATED: 0
+    - _FakeCubemap_Enabled: 0
+    - _FakeCubemap_Enabled_ANIMATED: 0
+    - _FakeCubemap_Exposure: 1
+    - _FakeCubemap_Exposure_ANIMATED: 0
+    - _FakeCubemap_Tint2_ANIMATED: 0
+    - _FallbackLight_Color_ANIMATED: 0
+    - _FallbackLight_Direction_ANIMATED: 0
+    - _FallbackLight_Enabled: 0
+    - _FlipNormalsOnBackFacingTris: 1
+    - _GSAA_Enabled: 1
+    - _Glitter_Amount: 0.5
+    - _Glitter_Amount_ANIMATED: 0
+    - _Glitter_Amount_Osci_Enabled: 0
+    - _Glitter_Amount_Osci_Slot: 0
+    - _Glitter_Amount_Osci_Value_End: 0.5
+    - _Glitter_Amount_Osci_Value_End_ANIMATED: 0
+    - _Glitter_Amount_Osci_Value_Start: 0.5
+    - _Glitter_Amount_Osci_Value_Start_ANIMATED: 0
+    - _Glitter_AppearsOnMaterial: 0
+    - _Glitter_AutoBlink_Randomness: 1000
+    - _Glitter_AutoBlink_Speed: 3
+    - _Glitter_AutoBlink_Speed_ANIMATED: 0
+    - _Glitter_AutoBlink_Speed_TimeBase: 0
+    - _Glitter_Brightness_MinMax_ANIMATED: 0
+    - _Glitter_Brightness_MinMax_Osci_Color_End_ANIMATED: 0
+    - _Glitter_Brightness_MinMax_Osci_Color_Start_ANIMATED: 0
+    - _Glitter_Brightness_MinMax_Osci_Enabled: 0
+    - _Glitter_Brightness_MinMax_Osci_Slot: 0
+    - _Glitter_Color_ANIMATED: 0
+    - _Glitter_Color_FromAlbedo: 0
+    - _Glitter_Color_FromAlbedo_ANIMATED: 0
+    - _Glitter_Color_FromAlbedo_Osci_Enabled: 0
+    - _Glitter_Color_FromAlbedo_Osci_Slot: 0
+    - _Glitter_Color_FromAlbedo_Osci_Value_End: 0
+    - _Glitter_Color_FromAlbedo_Osci_Value_End_ANIMATED: 0
+    - _Glitter_Color_FromAlbedo_Osci_Value_Start: 0
+    - _Glitter_Color_FromAlbedo_Osci_Value_Start_ANIMATED: 0
+    - _Glitter_Color_Osci_Color_End_ANIMATED: 0
+    - _Glitter_Color_Osci_Color_Start_ANIMATED: 0
+    - _Glitter_Color_Osci_Enabled: 0
+    - _Glitter_Color_Osci_Slot: 0
+    - _Glitter_Density: 700
+    - _Glitter_Density_ANIMATED: 0
+    - _Glitter_Disorder: 1
+    - _Glitter_HSV_Enabled: 0
+    - _Glitter_HSV_Hue_MinMax_ANIMATED: 0
+    - _Glitter_HSV_Hue_MinMax_Osci_Color_End_ANIMATED: 0
+    - _Glitter_HSV_Hue_MinMax_Osci_Color_Start_ANIMATED: 0
+    - _Glitter_HSV_Hue_MinMax_Osci_Enabled: 0
+    - _Glitter_HSV_Hue_MinMax_Osci_Slot: 0
+    - _Glitter_HSV_Hue_Shift: 0
+    - _Glitter_HSV_Hue_Shift_ANIMATED: 0
+    - _Glitter_HSV_Hue_Shift_Osci_Enabled: 0
+    - _Glitter_HSV_Hue_Shift_Osci_Slot: 0
+    - _Glitter_HSV_Hue_Shift_Osci_Value_End: 0
+    - _Glitter_HSV_Hue_Shift_Osci_Value_End_ANIMATED: 0
+    - _Glitter_HSV_Hue_Shift_Osci_Value_Start: 0
+    - _Glitter_HSV_Hue_Shift_Osci_Value_Start_ANIMATED: 0
+    - _Glitter_HSV_Hue_Speed: 0
+    - _Glitter_HSV_Hue_Speed_ANIMATED: 0
+    - _Glitter_HSV_Hue_Speed_TimeBase: 0
+    - _Glitter_HSV_Saturation_MinMax_ANIMATED: 0
+    - _Glitter_HSV_Saturation_MinMax_Osci_Color_End_ANIMATED: 0
+    - _Glitter_HSV_Saturation_MinMax_Osci_Color_Start_ANIMATED: 0
+    - _Glitter_HSV_Saturation_MinMax_Osci_Enabled: 0
+    - _Glitter_HSV_Saturation_MinMax_Osci_Slot: 0
+    - _Glitter_ManualBlink_Enabled: 0
+    - _Glitter_ManualBlink_Offset: 0
+    - _Glitter_ManualBlink_Offset_ANIMATED: 0
+    - _Glitter_ManualBlink_Offset_Osci_Enabled: 0
+    - _Glitter_ManualBlink_Offset_Osci_Slot: 0
+    - _Glitter_ManualBlink_Offset_Osci_Value_End: 0
+    - _Glitter_ManualBlink_Offset_Osci_Value_End_ANIMATED: 0
+    - _Glitter_ManualBlink_Offset_Osci_Value_Start: 0
+    - _Glitter_ManualBlink_Offset_Osci_Value_Start_ANIMATED: 0
+    - _Glitter_ManualBlink_Offset_Randomness: 20000
+    - _Glitter_MaskChannel: 0
+    - _Glitter_MaskChannel_Brightness: 0
+    - _Glitter_MaskChannel_Brightness_ANIMATED: 0
+    - _Glitter_MaskChannel_Contrast: 1
+    - _Glitter_MaskChannel_Contrast_ANIMATED: 0
+    - _Glitter_MaskChannel_Inverted: 0
+    - _Glitter_MaskChannel_Strength: 1
+    - _Glitter_MaskChannel_Strength_ANIMATED: 0
+    - _Glitter_Opacity_MinMax_ANIMATED: 0
+    - _Glitter_Opacity_MinMax_Osci_Color_End_ANIMATED: 0
+    - _Glitter_Opacity_MinMax_Osci_Color_Start_ANIMATED: 0
+    - _Glitter_Opacity_MinMax_Osci_Enabled: 0
+    - _Glitter_Opacity_MinMax_Osci_Slot: 0
+    - _Glitter_Size_MinMax_ANIMATED: 0
+    - _Glitter_Size_MinMax_Osci_Color_End_ANIMATED: 0
+    - _Glitter_Size_MinMax_Osci_Color_Start_ANIMATED: 0
+    - _Glitter_Size_MinMax_Osci_Enabled: 0
+    - _Glitter_Size_MinMax_Osci_Slot: 0
+    - _Glitter_Texture_Enabled: 0
+    - _Glitter_Texture_Map_AlphaIsMask: 1
+    - _Glitter_Texture_Map_Offset_ANIMATED: 0
+    - _Glitter_Texture_Map_Tiling_ANIMATED: 0
+    - _Glitter_Texture_Rotation_Random_Enabled: 1
+    - _Glitter_Texture_Rotation_Speed: 0
+    - _Glitter_Texture_Rotation_Speed_ANIMATED: 0
+    - _Glitter_Texture_Rotation_Speed_TimeBase: 0
+    - _Glitter_Texture_Zoom_MinMax_ANIMATED: 0
+    - _Glitter_Texture_Zoom_MinMax_Osci_Color_End_ANIMATED: 0
+    - _Glitter_Texture_Zoom_MinMax_Osci_Color_Start_ANIMATED: 0
+    - _Glitter_Texture_Zoom_MinMax_Osci_Enabled: 0
+    - _Glitter_Texture_Zoom_MinMax_Osci_Slot: 0
+    - _Glitter_UVBus: 0
+    - _Glitter_UV_Scroll_Speed_ANIMATED: 0
+    - _Glitter_UV_Scroll_Speed_TimeBase: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0
+    - _Glossiness_ANIMATED: 0
+    - _Glossiness_MaskChannel: 0
+    - _Glossiness_MaskChannel_Brightness: 0
+    - _Glossiness_MaskChannel_Brightness_ANIMATED: 0
+    - _Glossiness_MaskChannel_Contrast: 1
+    - _Glossiness_MaskChannel_Contrast_ANIMATED: 0
+    - _Glossiness_MaskChannel_Inverted: 0
+    - _Glossiness_MaskChannel_Strength: 1
+    - _Glossiness_MaskChannel_Strength_ANIMATED: 0
+    - _GlossyReflections: 1
+    - _GlossyReflections_Enabled: 1
+    - _Goo_Deformation_ApplyOnMaterialMix: 0
+    - _Goo_Deformation_Enabled: 0
+    - _Goo_Deformation_MeshNormal_MaskChannel: 0
+    - _Goo_Deformation_MeshNormal_MaskChannel_Brightness: 0
+    - _Goo_Deformation_MeshNormal_MaskChannel_Brightness_ANIMATED: 0
+    - _Goo_Deformation_MeshNormal_MaskChannel_Contrast: 1
+    - _Goo_Deformation_MeshNormal_MaskChannel_Contrast_ANIMATED: 0
+    - _Goo_Deformation_MeshNormal_MaskChannel_Inverted: 0
+    - _Goo_Deformation_MeshNormal_MaskChannel_Strength: 1
+    - _Goo_Deformation_MeshNormal_MaskChannel_Strength_ANIMATED: 0
+    - _Goo_Deformation_MeshNormal_Offset_Max: 0
+    - _Goo_Deformation_MeshNormal_Offset_Max_ANIMATED: 0
+    - _Goo_Deformation_MeshNormal_Offset_Max_Osci_Enabled: 0
+    - _Goo_Deformation_MeshNormal_Offset_Max_Osci_Slot: 0
+    - _Goo_Deformation_MeshNormal_Offset_Max_Osci_Value_End: 0
+    - _Goo_Deformation_MeshNormal_Offset_Max_Osci_Value_End_ANIMATED: 0
+    - _Goo_Deformation_MeshNormal_Offset_Max_Osci_Value_Start: 0
+    - _Goo_Deformation_MeshNormal_Offset_Max_Osci_Value_Start_ANIMATED: 0
+    - _Goo_Deformation_MeshNormal_Offset_Min: 0
+    - _Goo_Deformation_MeshNormal_Offset_Min_ANIMATED: 0
+    - _Goo_Deformation_MeshNormal_Offset_Min_Osci_Enabled: 0
+    - _Goo_Deformation_MeshNormal_Offset_Min_Osci_Slot: 0
+    - _Goo_Deformation_MeshNormal_Offset_Min_Osci_Value_End: 0
+    - _Goo_Deformation_MeshNormal_Offset_Min_Osci_Value_End_ANIMATED: 0
+    - _Goo_Deformation_MeshNormal_Offset_Min_Osci_Value_Start: 0
+    - _Goo_Deformation_MeshNormal_Offset_Min_Osci_Value_Start_ANIMATED: 0
+    - _Goo_Deformation_ProceduralNormal_Size: 1.5
+    - _Goo_Deformation_ProceduralNormal_Size_ANIMATED: 0
+    - _Goo_Deformation_ProceduralNormal_Size_Osci_Enabled: 0
+    - _Goo_Deformation_ProceduralNormal_Size_Osci_Slot: 0
+    - _Goo_Deformation_ProceduralNormal_Size_Osci_Value_End: 1.5
+    - _Goo_Deformation_ProceduralNormal_Size_Osci_Value_End_ANIMATED: 0
+    - _Goo_Deformation_ProceduralNormal_Size_Osci_Value_Start: 1.5
+    - _Goo_Deformation_ProceduralNormal_Size_Osci_Value_Start_ANIMATED: 0
+    - _Goo_Drip_Amount: 1
+    - _Goo_Drip_Amount_ANIMATED: 0
+    - _Goo_Drip_Amount_Osci_Enabled: 0
+    - _Goo_Drip_Amount_Osci_Slot: 0
+    - _Goo_Drip_Amount_Osci_Value_End: 1
+    - _Goo_Drip_Amount_Osci_Value_End_ANIMATED: 0
+    - _Goo_Drip_Amount_Osci_Value_Start: 1
+    - _Goo_Drip_Amount_Osci_Value_Start_ANIMATED: 0
+    - _Goo_Drip_ApplyOnMaterialMix: 0
+    - _Goo_Drip_Enabled: 0
+    - _Goo_Drip_End: 1
+    - _Goo_Drip_End_ANIMATED: 0
+    - _Goo_Drip_End_Osci_Enabled: 0
+    - _Goo_Drip_End_Osci_Slot: 0
+    - _Goo_Drip_End_Osci_Value_End: 1
+    - _Goo_Drip_End_Osci_Value_End_ANIMATED: 0
+    - _Goo_Drip_End_Osci_Value_Start: 1
+    - _Goo_Drip_End_Osci_Value_Start_ANIMATED: 0
+    - _Goo_Drip_Gravity_Vector_ANIMATED: 0
+    - _Goo_Drip_MaskChannel: 0
+    - _Goo_Drip_MaskChannel_Brightness: 0
+    - _Goo_Drip_MaskChannel_Brightness_ANIMATED: 0
+    - _Goo_Drip_MaskChannel_Contrast: 1
+    - _Goo_Drip_MaskChannel_Contrast_ANIMATED: 0
+    - _Goo_Drip_MaskChannel_Inverted: 0
+    - _Goo_Drip_MaskChannel_Strength: 1
+    - _Goo_Drip_MaskChannel_Strength_ANIMATED: 0
+    - _Goo_Drip_Size: 0.2
+    - _Goo_Drip_Size_ANIMATED: 0
+    - _Goo_Drip_Size_Osci_Enabled: 0
+    - _Goo_Drip_Size_Osci_Slot: 0
+    - _Goo_Drip_Size_Osci_Value_End: 0.2
+    - _Goo_Drip_Size_Osci_Value_End_ANIMATED: 0
+    - _Goo_Drip_Size_Osci_Value_Start: 0.2
+    - _Goo_Drip_Size_Osci_Value_Start_ANIMATED: 0
+    - _Goo_Drip_Start: 0.6
+    - _Goo_Drip_Start_ANIMATED: 0
+    - _Goo_Drip_Start_Osci_Enabled: 0
+    - _Goo_Drip_Start_Osci_Slot: 0
+    - _Goo_Drip_Start_Osci_Value_End: 0.6
+    - _Goo_Drip_Start_Osci_Value_End_ANIMATED: 0
+    - _Goo_Drip_Start_Osci_Value_Start: 0.6
+    - _Goo_Drip_Start_Osci_Value_Start_ANIMATED: 0
+    - _Goo_Enabled: 0
+    - _Goo_Normal_Offset_Max_Degrees: 10
+    - _Goo_Normal_Offset_Max_Degrees_ANIMATED: 0
+    - _Goo_Normal_Offset_Min_Degrees: -10
+    - _Goo_Normal_Offset_Min_Degrees_ANIMATED: 0
+    - _Goo_Offset_ANIMATED: 0
+    - _Goo_Offset_Osci_Color_End_ANIMATED: 0
+    - _Goo_Offset_Osci_Color_Start_ANIMATED: 0
+    - _Goo_Offset_Osci_Enabled: 0
+    - _Goo_Offset_Osci_Slot: 0
+    - _Goo_Size: 7.5
+    - _Goo_Size_ANIMATED: 0
+    - _Goo_Size_Osci_Enabled: 0
+    - _Goo_Size_Osci_Slot: 0
+    - _Goo_Size_Osci_Value_End: 7.5
+    - _Goo_Size_Osci_Value_End_ANIMATED: 0
+    - _Goo_Size_Osci_Value_Start: 7.5
+    - _Goo_Size_Osci_Value_Start_ANIMATED: 0
+    - _Goo_Speed_ANIMATED: 0
+    - _Goo_Speed_TimeBase: 0
+    - _GrabPass_Blur_Dispersion: 2
+    - _GrabPass_Blur_Enabled: 0
+    - _GrabPass_Blur_Enabled_ANIMATED: 0
+    - _GrabPass_Blur_Weight_MaskChannel: 0
+    - _GrabPass_Blur_Weight_MaskChannel_Brightness: 0
+    - _GrabPass_Blur_Weight_MaskChannel_Brightness_ANIMATED: 0
+    - _GrabPass_Blur_Weight_MaskChannel_Contrast: 1
+    - _GrabPass_Blur_Weight_MaskChannel_Contrast_ANIMATED: 0
+    - _GrabPass_Blur_Weight_MaskChannel_Inverted: 0
+    - _GrabPass_Blur_Weight_MaskChannel_Strength: 1
+    - _GrabPass_Blur_Weight_MaskChannel_Strength_ANIMATED: 0
+    - _GrabPass_Distortion_Amount: 0.01
+    - _GrabPass_Distortion_Amount_ANIMATED: 0
+    - _GrabPass_Distortion_Amount_MaskChannel: 0
+    - _GrabPass_Distortion_Amount_MaskChannel_Brightness: 0
+    - _GrabPass_Distortion_Amount_MaskChannel_Brightness_ANIMATED: 0
+    - _GrabPass_Distortion_Amount_MaskChannel_Contrast: 1
+    - _GrabPass_Distortion_Amount_MaskChannel_Contrast_ANIMATED: 0
+    - _GrabPass_Distortion_Amount_MaskChannel_Inverted: 0
+    - _GrabPass_Distortion_Amount_MaskChannel_Strength: 1
+    - _GrabPass_Distortion_Amount_MaskChannel_Strength_ANIMATED: 0
+    - _GrabPass_Tint_Color_ANIMATED: 0
+    - _GrabPass_Tint_MaskChannel: 0
+    - _GrabPass_Tint_MaskChannel_Brightness: 0
+    - _GrabPass_Tint_MaskChannel_Brightness_ANIMATED: 0
+    - _GrabPass_Tint_MaskChannel_Contrast: 1
+    - _GrabPass_Tint_MaskChannel_Contrast_ANIMATED: 0
+    - _GrabPass_Tint_MaskChannel_Inverted: 0
+    - _GrabPass_Tint_MaskChannel_Strength: 1
+    - _GrabPass_Tint_MaskChannel_Strength_ANIMATED: 0
+    - _GrabPass_Tint_Texture_AlphaIsMask: 0
+    - _GrabPass_Tint_Texture_Offset_ANIMATED: 0
+    - _GrabPass_Tint_Texture_ScrollSpeed_ANIMATED: 0
+    - _GrabPass_Tint_Texture_ScrollSpeed_TimeBase: 0
+    - _GrabPass_Tint_Texture_Tiling_ANIMATED: 0
+    - _GrabPass_Tint_Texture_UVBus: 0
+    - _GrabPass_Zoom_Amount: 1
+    - _GrabPass_Zoom_Amount_ANIMATED: 0
+    - _IndirectLighting_Amount: 1
+    - _IndirectLighting_Amount_ANIMATED: 0
+    - _IntersectionModulation_Color_Enabled: 0
+    - _IntersectionModulation_Color_Target_ANIMATED: 0
+    - _IntersectionModulation_Depth_End: 0.2
+    - _IntersectionModulation_Depth_Start: 0
+    - _IntersectionModulation_HSV_Enabled: 0
+    - _IntersectionModulation_HSV_Hue_Amount: 0.5
+    - _IntersectionModulation_HSV_Hue_Amount_ANIMATED: 0
+    - _IntersectionModulation_HSV_Saturation_Amount: 0
+    - _IntersectionModulation_HSV_Saturation_Amount_ANIMATED: 0
+    - _IntersectionModulation_HSV_Value_Amount: 0
+    - _IntersectionModulation_HSV_Value_Amount_ANIMATED: 0
+    - _IntersectionModulation_Opacity_Amount: 1
+    - _IntersectionModulation_Opacity_Enabled: 0
+    - _LTCGI: 0
+    - _LightColor_Weight: 1
+    - _LightColor_Weight_ANIMATED: 0
+    - _LightMix_Sensitivity: 0.5
+    - _LightMix_Sensitivity_ANIMATED: 0
+    - _LightMix_Sensitivity_Osci_Enabled: 0
+    - _LightMix_Sensitivity_Osci_Slot: 0
+    - _LightMix_Sensitivity_Osci_Value_End: 0.5
+    - _LightMix_Sensitivity_Osci_Value_End_ANIMATED: 0
+    - _LightMix_Sensitivity_Osci_Value_Start: 0.5
+    - _LightMix_Sensitivity_Osci_Value_Start_ANIMATED: 0
+    - _LightProbeWeight: 1
+    - _LightProbeWeight_ANIMATED: 0
+    - _LightProbe_Shadow_Tint_Color_ANIMATED: 0
+    - _MainTex_AlphaIsMask: 0
+    - _MainTex_MaskChannel: 0
+    - _MainTex_MaskChannel_Brightness: 0
+    - _MainTex_MaskChannel_Brightness_ANIMATED: 0
+    - _MainTex_MaskChannel_Contrast: 1
+    - _MainTex_MaskChannel_Contrast_ANIMATED: 0
+    - _MainTex_MaskChannel_Inverted: 0
+    - _MainTex_MaskChannel_Strength: 1
+    - _MainTex_MaskChannel_Strength_ANIMATED: 0
+    - _MainTex_Offset_ANIMATED: 0
+    - _MainTex_ScrollSpeed_ANIMATED: 0
+    - _MainTex_ScrollSpeed_TimeBase: 0
+    - _MainTex_Tiling_ANIMATED: 0
+    - _MainTex_UVBus: 0
+    - _MaskChannel_1_Strength_PostInversion: 1
+    - _MaskChannel_1_Strength_PostInversion_ANIMATED: 0
+    - _MaskChannel_1_Strength_PostInversion_Osci_Enabled: 0
+    - _MaskChannel_1_Strength_PostInversion_Osci_Slot: 0
+    - _MaskChannel_1_Strength_PostInversion_Osci_Value_End: 1
+    - _MaskChannel_1_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_1_Strength_PostInversion_Osci_Value_Start: 1
+    - _MaskChannel_1_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_1_Strength_PreInversion: 1
+    - _MaskChannel_1_Strength_PreInversion_ANIMATED: 0
+    - _MaskChannel_1_Strength_PreInversion_Osci_Enabled: 0
+    - _MaskChannel_1_Strength_PreInversion_Osci_Slot: 0
+    - _MaskChannel_1_Strength_PreInversion_Osci_Value_End: 1
+    - _MaskChannel_1_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_1_Strength_PreInversion_Osci_Value_Start: 1
+    - _MaskChannel_1_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_1_Texture_Offset_ANIMATED: 0
+    - _MaskChannel_1_Texture_ScrollSpeed_ANIMATED: 0
+    - _MaskChannel_1_Texture_ScrollSpeed_TimeBase: 0
+    - _MaskChannel_1_Texture_Tiling_ANIMATED: 0
+    - _MaskChannel_1_Texture_UVBus: 0
+    - _MaskChannel_2_Strength_PostInversion: 1
+    - _MaskChannel_2_Strength_PostInversion_ANIMATED: 0
+    - _MaskChannel_2_Strength_PostInversion_Osci_Enabled: 0
+    - _MaskChannel_2_Strength_PostInversion_Osci_Slot: 0
+    - _MaskChannel_2_Strength_PostInversion_Osci_Value_End: 1
+    - _MaskChannel_2_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_2_Strength_PostInversion_Osci_Value_Start: 1
+    - _MaskChannel_2_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_2_Strength_PreInversion: 1
+    - _MaskChannel_2_Strength_PreInversion_ANIMATED: 0
+    - _MaskChannel_2_Strength_PreInversion_Osci_Enabled: 0
+    - _MaskChannel_2_Strength_PreInversion_Osci_Slot: 0
+    - _MaskChannel_2_Strength_PreInversion_Osci_Value_End: 1
+    - _MaskChannel_2_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_2_Strength_PreInversion_Osci_Value_Start: 1
+    - _MaskChannel_2_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_2_Texture_Offset_ANIMATED: 0
+    - _MaskChannel_2_Texture_ScrollSpeed_ANIMATED: 0
+    - _MaskChannel_2_Texture_ScrollSpeed_TimeBase: 0
+    - _MaskChannel_2_Texture_Tiling_ANIMATED: 0
+    - _MaskChannel_2_Texture_UVBus: 0
+    - _MaskChannel_3_Strength_PostInversion: 1
+    - _MaskChannel_3_Strength_PostInversion_ANIMATED: 0
+    - _MaskChannel_3_Strength_PostInversion_Osci_Enabled: 0
+    - _MaskChannel_3_Strength_PostInversion_Osci_Slot: 0
+    - _MaskChannel_3_Strength_PostInversion_Osci_Value_End: 1
+    - _MaskChannel_3_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_3_Strength_PostInversion_Osci_Value_Start: 1
+    - _MaskChannel_3_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_3_Strength_PreInversion: 1
+    - _MaskChannel_3_Strength_PreInversion_ANIMATED: 0
+    - _MaskChannel_3_Strength_PreInversion_Osci_Enabled: 0
+    - _MaskChannel_3_Strength_PreInversion_Osci_Slot: 0
+    - _MaskChannel_3_Strength_PreInversion_Osci_Value_End: 1
+    - _MaskChannel_3_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_3_Strength_PreInversion_Osci_Value_Start: 1
+    - _MaskChannel_3_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_3_Texture_Offset_ANIMATED: 0
+    - _MaskChannel_3_Texture_ScrollSpeed_ANIMATED: 0
+    - _MaskChannel_3_Texture_ScrollSpeed_TimeBase: 0
+    - _MaskChannel_3_Texture_Tiling_ANIMATED: 0
+    - _MaskChannel_3_Texture_UVBus: 0
+    - _MaskChannel_4_Strength_PostInversion: 1
+    - _MaskChannel_4_Strength_PostInversion_ANIMATED: 0
+    - _MaskChannel_4_Strength_PostInversion_Osci_Enabled: 0
+    - _MaskChannel_4_Strength_PostInversion_Osci_Slot: 0
+    - _MaskChannel_4_Strength_PostInversion_Osci_Value_End: 1
+    - _MaskChannel_4_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_4_Strength_PostInversion_Osci_Value_Start: 1
+    - _MaskChannel_4_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_4_Strength_PreInversion: 1
+    - _MaskChannel_4_Strength_PreInversion_ANIMATED: 0
+    - _MaskChannel_4_Strength_PreInversion_Osci_Enabled: 0
+    - _MaskChannel_4_Strength_PreInversion_Osci_Slot: 0
+    - _MaskChannel_4_Strength_PreInversion_Osci_Value_End: 1
+    - _MaskChannel_4_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_4_Strength_PreInversion_Osci_Value_Start: 1
+    - _MaskChannel_4_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_4_Texture_Offset_ANIMATED: 0
+    - _MaskChannel_4_Texture_ScrollSpeed_ANIMATED: 0
+    - _MaskChannel_4_Texture_ScrollSpeed_TimeBase: 0
+    - _MaskChannel_4_Texture_Tiling_ANIMATED: 0
+    - _MaskChannel_4_Texture_UVBus: 0
+    - _MaskChannel_5_Strength_PostInversion: 1
+    - _MaskChannel_5_Strength_PostInversion_ANIMATED: 0
+    - _MaskChannel_5_Strength_PostInversion_Osci_Enabled: 0
+    - _MaskChannel_5_Strength_PostInversion_Osci_Slot: 0
+    - _MaskChannel_5_Strength_PostInversion_Osci_Value_End: 1
+    - _MaskChannel_5_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_5_Strength_PostInversion_Osci_Value_Start: 1
+    - _MaskChannel_5_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_5_Strength_PreInversion: 1
+    - _MaskChannel_5_Strength_PreInversion_ANIMATED: 0
+    - _MaskChannel_5_Strength_PreInversion_Osci_Enabled: 0
+    - _MaskChannel_5_Strength_PreInversion_Osci_Slot: 0
+    - _MaskChannel_5_Strength_PreInversion_Osci_Value_End: 1
+    - _MaskChannel_5_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_5_Strength_PreInversion_Osci_Value_Start: 1
+    - _MaskChannel_5_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_5_Texture_Offset_ANIMATED: 0
+    - _MaskChannel_5_Texture_ScrollSpeed_ANIMATED: 0
+    - _MaskChannel_5_Texture_ScrollSpeed_TimeBase: 0
+    - _MaskChannel_5_Texture_Tiling_ANIMATED: 0
+    - _MaskChannel_5_Texture_UVBus: 0
+    - _MaskChannel_6_Strength_PostInversion: 1
+    - _MaskChannel_6_Strength_PostInversion_ANIMATED: 0
+    - _MaskChannel_6_Strength_PostInversion_Osci_Enabled: 0
+    - _MaskChannel_6_Strength_PostInversion_Osci_Slot: 0
+    - _MaskChannel_6_Strength_PostInversion_Osci_Value_End: 1
+    - _MaskChannel_6_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_6_Strength_PostInversion_Osci_Value_Start: 1
+    - _MaskChannel_6_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_6_Strength_PreInversion: 1
+    - _MaskChannel_6_Strength_PreInversion_ANIMATED: 0
+    - _MaskChannel_6_Strength_PreInversion_Osci_Enabled: 0
+    - _MaskChannel_6_Strength_PreInversion_Osci_Slot: 0
+    - _MaskChannel_6_Strength_PreInversion_Osci_Value_End: 1
+    - _MaskChannel_6_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_6_Strength_PreInversion_Osci_Value_Start: 1
+    - _MaskChannel_6_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_6_Texture_Offset_ANIMATED: 0
+    - _MaskChannel_6_Texture_ScrollSpeed_ANIMATED: 0
+    - _MaskChannel_6_Texture_ScrollSpeed_TimeBase: 0
+    - _MaskChannel_6_Texture_Tiling_ANIMATED: 0
+    - _MaskChannel_6_Texture_UVBus: 0
+    - _MaskChannel_7_Strength_PostInversion: 1
+    - _MaskChannel_7_Strength_PostInversion_ANIMATED: 0
+    - _MaskChannel_7_Strength_PostInversion_Osci_Enabled: 0
+    - _MaskChannel_7_Strength_PostInversion_Osci_Slot: 0
+    - _MaskChannel_7_Strength_PostInversion_Osci_Value_End: 1
+    - _MaskChannel_7_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_7_Strength_PostInversion_Osci_Value_Start: 1
+    - _MaskChannel_7_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_7_Strength_PreInversion: 1
+    - _MaskChannel_7_Strength_PreInversion_ANIMATED: 0
+    - _MaskChannel_7_Strength_PreInversion_Osci_Enabled: 0
+    - _MaskChannel_7_Strength_PreInversion_Osci_Slot: 0
+    - _MaskChannel_7_Strength_PreInversion_Osci_Value_End: 1
+    - _MaskChannel_7_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_7_Strength_PreInversion_Osci_Value_Start: 1
+    - _MaskChannel_7_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_7_Texture_Offset_ANIMATED: 0
+    - _MaskChannel_7_Texture_ScrollSpeed_ANIMATED: 0
+    - _MaskChannel_7_Texture_ScrollSpeed_TimeBase: 0
+    - _MaskChannel_7_Texture_Tiling_ANIMATED: 0
+    - _MaskChannel_7_Texture_UVBus: 0
+    - _MaskChannel_8_Strength_PostInversion: 1
+    - _MaskChannel_8_Strength_PostInversion_ANIMATED: 0
+    - _MaskChannel_8_Strength_PostInversion_Osci_Enabled: 0
+    - _MaskChannel_8_Strength_PostInversion_Osci_Slot: 0
+    - _MaskChannel_8_Strength_PostInversion_Osci_Value_End: 1
+    - _MaskChannel_8_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_8_Strength_PostInversion_Osci_Value_Start: 1
+    - _MaskChannel_8_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_8_Strength_PreInversion: 1
+    - _MaskChannel_8_Strength_PreInversion_ANIMATED: 0
+    - _MaskChannel_8_Strength_PreInversion_Osci_Enabled: 0
+    - _MaskChannel_8_Strength_PreInversion_Osci_Slot: 0
+    - _MaskChannel_8_Strength_PreInversion_Osci_Value_End: 1
+    - _MaskChannel_8_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _MaskChannel_8_Strength_PreInversion_Osci_Value_Start: 1
+    - _MaskChannel_8_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _MaskChannel_8_Texture_Offset_ANIMATED: 0
+    - _MaskChannel_8_Texture_ScrollSpeed_ANIMATED: 0
+    - _MaskChannel_8_Texture_ScrollSpeed_TimeBase: 0
+    - _MaskChannel_8_Texture_Tiling_ANIMATED: 0
+    - _MaskChannel_8_Texture_UVBus: 0
+    - _MassBlendMask_1_1_MaskChannel: 0
+    - _MassBlendMask_1_1_MaskChannel_Brightness: 0
+    - _MassBlendMask_1_1_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_1_1_MaskChannel_Contrast: 1
+    - _MassBlendMask_1_1_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_1_1_MaskChannel_Inverted: 0
+    - _MassBlendMask_1_1_MaskChannel_Strength: 1
+    - _MassBlendMask_1_1_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_1_2_MaskChannel: 0
+    - _MassBlendMask_1_2_MaskChannel_Brightness: 0
+    - _MassBlendMask_1_2_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_1_2_MaskChannel_Contrast: 1
+    - _MassBlendMask_1_2_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_1_2_MaskChannel_Inverted: 0
+    - _MassBlendMask_1_2_MaskChannel_Strength: 1
+    - _MassBlendMask_1_2_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_1_3_MaskChannel: 0
+    - _MassBlendMask_1_3_MaskChannel_Brightness: 0
+    - _MassBlendMask_1_3_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_1_3_MaskChannel_Contrast: 1
+    - _MassBlendMask_1_3_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_1_3_MaskChannel_Inverted: 0
+    - _MassBlendMask_1_3_MaskChannel_Strength: 1
+    - _MassBlendMask_1_3_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_1_4_MaskChannel: 0
+    - _MassBlendMask_1_4_MaskChannel_Brightness: 0
+    - _MassBlendMask_1_4_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_1_4_MaskChannel_Contrast: 1
+    - _MassBlendMask_1_4_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_1_4_MaskChannel_Inverted: 0
+    - _MassBlendMask_1_4_MaskChannel_Strength: 1
+    - _MassBlendMask_1_4_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_1_5_MaskChannel: 0
+    - _MassBlendMask_1_5_MaskChannel_Brightness: 0
+    - _MassBlendMask_1_5_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_1_5_MaskChannel_Contrast: 1
+    - _MassBlendMask_1_5_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_1_5_MaskChannel_Inverted: 0
+    - _MassBlendMask_1_5_MaskChannel_Strength: 1
+    - _MassBlendMask_1_5_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_1_6_MaskChannel: 0
+    - _MassBlendMask_1_6_MaskChannel_Brightness: 0
+    - _MassBlendMask_1_6_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_1_6_MaskChannel_Contrast: 1
+    - _MassBlendMask_1_6_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_1_6_MaskChannel_Inverted: 0
+    - _MassBlendMask_1_6_MaskChannel_Strength: 1
+    - _MassBlendMask_1_6_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_1_7_MaskChannel: 0
+    - _MassBlendMask_1_7_MaskChannel_Brightness: 0
+    - _MassBlendMask_1_7_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_1_7_MaskChannel_Contrast: 1
+    - _MassBlendMask_1_7_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_1_7_MaskChannel_Inverted: 0
+    - _MassBlendMask_1_7_MaskChannel_Strength: 1
+    - _MassBlendMask_1_7_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_1_8_MaskChannel: 0
+    - _MassBlendMask_1_8_MaskChannel_Brightness: 0
+    - _MassBlendMask_1_8_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_1_8_MaskChannel_Contrast: 1
+    - _MassBlendMask_1_8_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_1_8_MaskChannel_Inverted: 0
+    - _MassBlendMask_1_8_MaskChannel_Strength: 1
+    - _MassBlendMask_1_8_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_1_BlendMode: 0
+    - _MassBlendMask_1_Strength: 1
+    - _MassBlendMask_1_Strength_ANIMATED: 0
+    - _MassBlendMask_1_Strength_Osci_Enabled: 0
+    - _MassBlendMask_1_Strength_Osci_Slot: 0
+    - _MassBlendMask_1_Strength_Osci_Value_End: 1
+    - _MassBlendMask_1_Strength_Osci_Value_End_ANIMATED: 0
+    - _MassBlendMask_1_Strength_Osci_Value_Start: 1
+    - _MassBlendMask_1_Strength_Osci_Value_Start_ANIMATED: 0
+    - _MassBlendMask_1_Strength_PostInversion: 1
+    - _MassBlendMask_1_Strength_PostInversion_ANIMATED: 0
+    - _MassBlendMask_1_Strength_PostInversion_Osci_Enabled: 0
+    - _MassBlendMask_1_Strength_PostInversion_Osci_Slot: 0
+    - _MassBlendMask_1_Strength_PostInversion_Osci_Value_End: 1
+    - _MassBlendMask_1_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _MassBlendMask_1_Strength_PostInversion_Osci_Value_Start: 1
+    - _MassBlendMask_1_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _MassBlendMask_2_1_MaskChannel: 0
+    - _MassBlendMask_2_1_MaskChannel_Brightness: 0
+    - _MassBlendMask_2_1_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_2_1_MaskChannel_Contrast: 1
+    - _MassBlendMask_2_1_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_2_1_MaskChannel_Inverted: 0
+    - _MassBlendMask_2_1_MaskChannel_Strength: 1
+    - _MassBlendMask_2_1_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_2_2_MaskChannel: 0
+    - _MassBlendMask_2_2_MaskChannel_Brightness: 0
+    - _MassBlendMask_2_2_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_2_2_MaskChannel_Contrast: 1
+    - _MassBlendMask_2_2_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_2_2_MaskChannel_Inverted: 0
+    - _MassBlendMask_2_2_MaskChannel_Strength: 1
+    - _MassBlendMask_2_2_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_2_3_MaskChannel: 0
+    - _MassBlendMask_2_3_MaskChannel_Brightness: 0
+    - _MassBlendMask_2_3_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_2_3_MaskChannel_Contrast: 1
+    - _MassBlendMask_2_3_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_2_3_MaskChannel_Inverted: 0
+    - _MassBlendMask_2_3_MaskChannel_Strength: 1
+    - _MassBlendMask_2_3_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_2_4_MaskChannel: 0
+    - _MassBlendMask_2_4_MaskChannel_Brightness: 0
+    - _MassBlendMask_2_4_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_2_4_MaskChannel_Contrast: 1
+    - _MassBlendMask_2_4_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_2_4_MaskChannel_Inverted: 0
+    - _MassBlendMask_2_4_MaskChannel_Strength: 1
+    - _MassBlendMask_2_4_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_2_5_MaskChannel: 0
+    - _MassBlendMask_2_5_MaskChannel_Brightness: 0
+    - _MassBlendMask_2_5_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_2_5_MaskChannel_Contrast: 1
+    - _MassBlendMask_2_5_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_2_5_MaskChannel_Inverted: 0
+    - _MassBlendMask_2_5_MaskChannel_Strength: 1
+    - _MassBlendMask_2_5_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_2_6_MaskChannel: 0
+    - _MassBlendMask_2_6_MaskChannel_Brightness: 0
+    - _MassBlendMask_2_6_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_2_6_MaskChannel_Contrast: 1
+    - _MassBlendMask_2_6_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_2_6_MaskChannel_Inverted: 0
+    - _MassBlendMask_2_6_MaskChannel_Strength: 1
+    - _MassBlendMask_2_6_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_2_7_MaskChannel: 0
+    - _MassBlendMask_2_7_MaskChannel_Brightness: 0
+    - _MassBlendMask_2_7_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_2_7_MaskChannel_Contrast: 1
+    - _MassBlendMask_2_7_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_2_7_MaskChannel_Inverted: 0
+    - _MassBlendMask_2_7_MaskChannel_Strength: 1
+    - _MassBlendMask_2_7_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_2_8_MaskChannel: 0
+    - _MassBlendMask_2_8_MaskChannel_Brightness: 0
+    - _MassBlendMask_2_8_MaskChannel_Brightness_ANIMATED: 0
+    - _MassBlendMask_2_8_MaskChannel_Contrast: 1
+    - _MassBlendMask_2_8_MaskChannel_Contrast_ANIMATED: 0
+    - _MassBlendMask_2_8_MaskChannel_Inverted: 0
+    - _MassBlendMask_2_8_MaskChannel_Strength: 1
+    - _MassBlendMask_2_8_MaskChannel_Strength_ANIMATED: 0
+    - _MassBlendMask_2_BlendMode: 0
+    - _MassBlendMask_2_Strength: 1
+    - _MassBlendMask_2_Strength_ANIMATED: 0
+    - _MassBlendMask_2_Strength_Osci_Enabled: 0
+    - _MassBlendMask_2_Strength_Osci_Slot: 0
+    - _MassBlendMask_2_Strength_Osci_Value_End: 1
+    - _MassBlendMask_2_Strength_Osci_Value_End_ANIMATED: 0
+    - _MassBlendMask_2_Strength_Osci_Value_Start: 1
+    - _MassBlendMask_2_Strength_Osci_Value_Start_ANIMATED: 0
+    - _MassBlendMask_2_Strength_PostInversion: 1
+    - _MassBlendMask_2_Strength_PostInversion_ANIMATED: 0
+    - _MassBlendMask_2_Strength_PostInversion_Osci_Enabled: 0
+    - _MassBlendMask_2_Strength_PostInversion_Osci_Slot: 0
+    - _MassBlendMask_2_Strength_PostInversion_Osci_Value_End: 1
+    - _MassBlendMask_2_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _MassBlendMask_2_Strength_PostInversion_Osci_Value_Start: 1
+    - _MassBlendMask_2_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _Matcap_1_Color_ANIMATED: 0
+    - _Matcap_1_Color_Osci_Color_End_ANIMATED: 0
+    - _Matcap_1_Color_Osci_Color_Start_ANIMATED: 0
+    - _Matcap_1_Color_Osci_Enabled: 0
+    - _Matcap_1_Color_Osci_Slot: 0
+    - _Matcap_1_Lighting_Enabled: 1
+    - _Matcap_1_Lighting_Enabled_ANIMATED: 0
+    - _Matcap_1_Size: 0.43
+    - _Matcap_1_Size_ANIMATED: 0
+    - _Matcap_1_Texture_AlphaIsMask: 0
+    - _Matcap_1_Texture_MaskChannel: 0
+    - _Matcap_1_Texture_MaskChannel_Brightness: 0
+    - _Matcap_1_Texture_MaskChannel_Brightness_ANIMATED: 0
+    - _Matcap_1_Texture_MaskChannel_Contrast: 1
+    - _Matcap_1_Texture_MaskChannel_Contrast_ANIMATED: 0
+    - _Matcap_1_Texture_MaskChannel_Inverted: 0
+    - _Matcap_1_Texture_MaskChannel_Strength: 1
+    - _Matcap_1_Texture_MaskChannel_Strength_ANIMATED: 0
+    - _Matcap_2_Color_ANIMATED: 0
+    - _Matcap_2_Color_Osci_Color_End_ANIMATED: 0
+    - _Matcap_2_Color_Osci_Color_Start_ANIMATED: 0
+    - _Matcap_2_Color_Osci_Enabled: 0
+    - _Matcap_2_Color_Osci_Slot: 0
+    - _Matcap_2_Lighting_Enabled: 1
+    - _Matcap_2_Lighting_Enabled_ANIMATED: 0
+    - _Matcap_2_Size: 0.43
+    - _Matcap_2_Size_ANIMATED: 0
+    - _Matcap_2_Texture_AlphaIsMask: 0
+    - _Matcap_2_Texture_MaskChannel: 0
+    - _Matcap_2_Texture_MaskChannel_Brightness: 0
+    - _Matcap_2_Texture_MaskChannel_Brightness_ANIMATED: 0
+    - _Matcap_2_Texture_MaskChannel_Contrast: 1
+    - _Matcap_2_Texture_MaskChannel_Contrast_ANIMATED: 0
+    - _Matcap_2_Texture_MaskChannel_Inverted: 0
+    - _Matcap_2_Texture_MaskChannel_Strength: 1
+    - _Matcap_2_Texture_MaskChannel_Strength_ANIMATED: 0
+    - _Matcap_3_Color_ANIMATED: 0
+    - _Matcap_3_Color_Osci_Color_End_ANIMATED: 0
+    - _Matcap_3_Color_Osci_Color_Start_ANIMATED: 0
+    - _Matcap_3_Color_Osci_Enabled: 0
+    - _Matcap_3_Color_Osci_Slot: 0
+    - _Matcap_3_Lighting_Enabled: 1
+    - _Matcap_3_Lighting_Enabled_ANIMATED: 0
+    - _Matcap_3_Size: 0.43
+    - _Matcap_3_Size_ANIMATED: 0
+    - _Matcap_3_Texture_AlphaIsMask: 0
+    - _Matcap_3_Texture_MaskChannel: 0
+    - _Matcap_3_Texture_MaskChannel_Brightness: 0
+    - _Matcap_3_Texture_MaskChannel_Brightness_ANIMATED: 0
+    - _Matcap_3_Texture_MaskChannel_Contrast: 1
+    - _Matcap_3_Texture_MaskChannel_Contrast_ANIMATED: 0
+    - _Matcap_3_Texture_MaskChannel_Inverted: 0
+    - _Matcap_3_Texture_MaskChannel_Strength: 1
+    - _Matcap_3_Texture_MaskChannel_Strength_ANIMATED: 0
+    - _Metallic: 0
+    - _Metallic_ANIMATED: 0
+    - _Metallic_MaskChannel: 0
+    - _Metallic_MaskChannel_Brightness: 0
+    - _Metallic_MaskChannel_Brightness_ANIMATED: 0
+    - _Metallic_MaskChannel_Contrast: 1
+    - _Metallic_MaskChannel_Contrast_ANIMATED: 0
+    - _Metallic_MaskChannel_Inverted: 0
+    - _Metallic_MaskChannel_Strength: 1
+    - _Metallic_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_AddedEmissionColor_ANIMATED: 0
+    - _Mix_AddedEmissionColor_MaskChannel: 0
+    - _Mix_AddedEmissionColor_MaskChannel_Brightness: 0
+    - _Mix_AddedEmissionColor_MaskChannel_Brightness_ANIMATED: 0
+    - _Mix_AddedEmissionColor_MaskChannel_Contrast: 1
+    - _Mix_AddedEmissionColor_MaskChannel_Contrast_ANIMATED: 0
+    - _Mix_AddedEmissionColor_MaskChannel_Inverted: 0
+    - _Mix_AddedEmissionColor_MaskChannel_Strength: 1
+    - _Mix_AddedEmissionColor_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_AddedEmissionColor_Osci_Color_End_ANIMATED: 0
+    - _Mix_AddedEmissionColor_Osci_Color_Start_ANIMATED: 0
+    - _Mix_AddedEmissionColor_Osci_Enabled: 0
+    - _Mix_AddedEmissionColor_Osci_Slot: 0
+    - _Mix_AlbedoEmissionWeight: 0
+    - _Mix_AlbedoEmissionWeight_ANIMATED: 0
+    - _Mix_AlbedoEmissionWeight_MaskChannel: 0
+    - _Mix_AlbedoEmissionWeight_MaskChannel_Brightness: 0
+    - _Mix_AlbedoEmissionWeight_MaskChannel_Brightness_ANIMATED: 0
+    - _Mix_AlbedoEmissionWeight_MaskChannel_Contrast: 1
+    - _Mix_AlbedoEmissionWeight_MaskChannel_Contrast_ANIMATED: 0
+    - _Mix_AlbedoEmissionWeight_MaskChannel_Inverted: 0
+    - _Mix_AlbedoEmissionWeight_MaskChannel_Strength: 1
+    - _Mix_AlbedoEmissionWeight_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_AlbedoEmissionWeight_Osci_Enabled: 0
+    - _Mix_AlbedoEmissionWeight_Osci_Slot: 0
+    - _Mix_AlbedoEmissionWeight_Osci_Value_End: 0
+    - _Mix_AlbedoEmissionWeight_Osci_Value_End_ANIMATED: 0
+    - _Mix_AlbedoEmissionWeight_Osci_Value_Start: 0
+    - _Mix_AlbedoEmissionWeight_Osci_Value_Start_ANIMATED: 0
+    - _Mix_BumpMap_MaskChannel: 0
+    - _Mix_BumpMap_MaskChannel_Brightness: 0
+    - _Mix_BumpMap_MaskChannel_Brightness_ANIMATED: 0
+    - _Mix_BumpMap_MaskChannel_Contrast: 1
+    - _Mix_BumpMap_MaskChannel_Contrast_ANIMATED: 0
+    - _Mix_BumpMap_MaskChannel_Inverted: 0
+    - _Mix_BumpMap_MaskChannel_Strength: 1
+    - _Mix_BumpMap_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_BumpMap_Offset_ANIMATED: 0
+    - _Mix_BumpMap_ScrollSpeed_ANIMATED: 0
+    - _Mix_BumpMap_ScrollSpeed_TimeBase: 0
+    - _Mix_BumpMap_Tiling_ANIMATED: 0
+    - _Mix_BumpMap_UVBus: 0
+    - _Mix_BumpScale: 1
+    - _Mix_BumpScale_ANIMATED: 0
+    - _Mix_BumpScale_Osci_Enabled: 0
+    - _Mix_BumpScale_Osci_Slot: 0
+    - _Mix_BumpScale_Osci_Value_End: 1
+    - _Mix_BumpScale_Osci_Value_End_ANIMATED: 0
+    - _Mix_BumpScale_Osci_Value_Start: 1
+    - _Mix_BumpScale_Osci_Value_Start_ANIMATED: 0
+    - _Mix_Color_ANIMATED: 0
+    - _Mix_Color_Osci_Color_End_ANIMATED: 0
+    - _Mix_Color_Osci_Color_Start_ANIMATED: 0
+    - _Mix_Color_Osci_Enabled: 0
+    - _Mix_Color_Osci_Slot: 0
+    - _Mix_DetailBumpScale: 1
+    - _Mix_DetailBumpScale_ANIMATED: 0
+    - _Mix_DetailBumpScale_Osci_Enabled: 0
+    - _Mix_DetailBumpScale_Osci_Slot: 0
+    - _Mix_DetailBumpScale_Osci_Value_End: 1
+    - _Mix_DetailBumpScale_Osci_Value_End_ANIMATED: 0
+    - _Mix_DetailBumpScale_Osci_Value_Start: 1
+    - _Mix_DetailBumpScale_Osci_Value_Start_ANIMATED: 0
+    - _Mix_DetailNormalMap_MaskChannel: 0
+    - _Mix_DetailNormalMap_MaskChannel_Brightness: 0
+    - _Mix_DetailNormalMap_MaskChannel_Brightness_ANIMATED: 0
+    - _Mix_DetailNormalMap_MaskChannel_Contrast: 1
+    - _Mix_DetailNormalMap_MaskChannel_Contrast_ANIMATED: 0
+    - _Mix_DetailNormalMap_MaskChannel_Inverted: 0
+    - _Mix_DetailNormalMap_MaskChannel_Strength: 1
+    - _Mix_DetailNormalMap_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_DetailNormalMap_Offset_ANIMATED: 0
+    - _Mix_DetailNormalMap_ScrollSpeed_ANIMATED: 0
+    - _Mix_DetailNormalMap_ScrollSpeed_TimeBase: 0
+    - _Mix_DetailNormalMap_Tiling_ANIMATED: 0
+    - _Mix_DetailNormalMap_UVBus: 0
+    - _Mix_EmissionColor2_ANIMATED: 0
+    - _Mix_EmissionColor2_Osci_Color_End_ANIMATED: 0
+    - _Mix_EmissionColor2_Osci_Color_Start_ANIMATED: 0
+    - _Mix_EmissionColor2_Osci_Enabled: 0
+    - _Mix_EmissionColor2_Osci_Slot: 0
+    - _Mix_EmissionColor_ANIMATED: 0
+    - _Mix_EmissionColor_Osci_Color_End_ANIMATED: 0
+    - _Mix_EmissionColor_Osci_Color_Start_ANIMATED: 0
+    - _Mix_EmissionColor_Osci_Enabled: 0
+    - _Mix_EmissionColor_Osci_Slot: 0
+    - _Mix_EmissionMap2_AlphaIsMask: 0
+    - _Mix_EmissionMap2_MaskChannel: 0
+    - _Mix_EmissionMap2_MaskChannel_Brightness: 0
+    - _Mix_EmissionMap2_MaskChannel_Brightness_ANIMATED: 0
+    - _Mix_EmissionMap2_MaskChannel_Contrast: 1
+    - _Mix_EmissionMap2_MaskChannel_Contrast_ANIMATED: 0
+    - _Mix_EmissionMap2_MaskChannel_Inverted: 0
+    - _Mix_EmissionMap2_MaskChannel_Strength: 1
+    - _Mix_EmissionMap2_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_EmissionMap2_Offset_ANIMATED: 0
+    - _Mix_EmissionMap2_ScrollSpeed_ANIMATED: 0
+    - _Mix_EmissionMap2_ScrollSpeed_TimeBase: 0
+    - _Mix_EmissionMap2_Tiling_ANIMATED: 0
+    - _Mix_EmissionMap2_UVBus: 0
+    - _Mix_EmissionMap_AlphaIsMask: 0
+    - _Mix_EmissionMap_MaskChannel: 0
+    - _Mix_EmissionMap_MaskChannel_Brightness: 0
+    - _Mix_EmissionMap_MaskChannel_Brightness_ANIMATED: 0
+    - _Mix_EmissionMap_MaskChannel_Contrast: 1
+    - _Mix_EmissionMap_MaskChannel_Contrast_ANIMATED: 0
+    - _Mix_EmissionMap_MaskChannel_Inverted: 0
+    - _Mix_EmissionMap_MaskChannel_Strength: 1
+    - _Mix_EmissionMap_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_EmissionMap_Offset_ANIMATED: 0
+    - _Mix_EmissionMap_ScrollSpeed_ANIMATED: 0
+    - _Mix_EmissionMap_ScrollSpeed_TimeBase: 0
+    - _Mix_EmissionMap_Tiling_ANIMATED: 0
+    - _Mix_EmissionMap_UVBus: 0
+    - _Mix_Glossiness: 0
+    - _Mix_Glossiness_ANIMATED: 0
+    - _Mix_Glossiness_MaskChannel: 0
+    - _Mix_Glossiness_MaskChannel_Brightness: 0
+    - _Mix_Glossiness_MaskChannel_Brightness_ANIMATED: 0
+    - _Mix_Glossiness_MaskChannel_Contrast: 1
+    - _Mix_Glossiness_MaskChannel_Contrast_ANIMATED: 0
+    - _Mix_Glossiness_MaskChannel_Inverted: 0
+    - _Mix_Glossiness_MaskChannel_Strength: 1
+    - _Mix_Glossiness_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_MainTex_AlphaIsMask: 0
+    - _Mix_MainTex_MaskChannel: 0
+    - _Mix_MainTex_MaskChannel_Brightness: 0
+    - _Mix_MainTex_MaskChannel_Brightness_ANIMATED: 0
+    - _Mix_MainTex_MaskChannel_Contrast: 1
+    - _Mix_MainTex_MaskChannel_Contrast_ANIMATED: 0
+    - _Mix_MainTex_MaskChannel_Inverted: 0
+    - _Mix_MainTex_MaskChannel_Strength: 1
+    - _Mix_MainTex_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_MainTex_Offset_ANIMATED: 0
+    - _Mix_MainTex_ScrollSpeed_ANIMATED: 0
+    - _Mix_MainTex_ScrollSpeed_TimeBase: 0
+    - _Mix_MainTex_Tiling_ANIMATED: 0
+    - _Mix_MainTex_UVBus: 0
+    - _Mix_Matcap_1_Color_ANIMATED: 0
+    - _Mix_Matcap_1_Color_Osci_Color_End_ANIMATED: 0
+    - _Mix_Matcap_1_Color_Osci_Color_Start_ANIMATED: 0
+    - _Mix_Matcap_1_Color_Osci_Enabled: 0
+    - _Mix_Matcap_1_Color_Osci_Slot: 0
+    - _Mix_Matcap_1_Lighting_Enabled: 1
+    - _Mix_Matcap_1_Lighting_Enabled_ANIMATED: 0
+    - _Mix_Matcap_1_Size: 0.76
+    - _Mix_Matcap_1_Size_ANIMATED: 0
+    - _Mix_Matcap_1_Texture_AlphaIsMask: 0
+    - _Mix_Matcap_1_Texture_MaskChannel: 1
+    - _Mix_Matcap_1_Texture_MaskChannel_Brightness: 0
+    - _Mix_Matcap_1_Texture_MaskChannel_Brightness_ANIMATED: 0
+    - _Mix_Matcap_1_Texture_MaskChannel_Contrast: 1
+    - _Mix_Matcap_1_Texture_MaskChannel_Contrast_ANIMATED: 0
+    - _Mix_Matcap_1_Texture_MaskChannel_Inverted: 0
+    - _Mix_Matcap_1_Texture_MaskChannel_Strength: 1
+    - _Mix_Matcap_1_Texture_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_Matcap_2_Color_ANIMATED: 0
+    - _Mix_Matcap_2_Color_Osci_Color_End_ANIMATED: 0
+    - _Mix_Matcap_2_Color_Osci_Color_Start_ANIMATED: 0
+    - _Mix_Matcap_2_Color_Osci_Enabled: 0
+    - _Mix_Matcap_2_Color_Osci_Slot: 0
+    - _Mix_Matcap_2_Lighting_Enabled: 1
+    - _Mix_Matcap_2_Lighting_Enabled_ANIMATED: 0
+    - _Mix_Matcap_2_Size: 1.44
+    - _Mix_Matcap_2_Size_ANIMATED: 0
+    - _Mix_Matcap_2_Texture_AlphaIsMask: 0
+    - _Mix_Matcap_2_Texture_MaskChannel: 5
+    - _Mix_Matcap_2_Texture_MaskChannel_Brightness: 0
+    - _Mix_Matcap_2_Texture_MaskChannel_Brightness_ANIMATED: 0
+    - _Mix_Matcap_2_Texture_MaskChannel_Contrast: 1
+    - _Mix_Matcap_2_Texture_MaskChannel_Contrast_ANIMATED: 0
+    - _Mix_Matcap_2_Texture_MaskChannel_Inverted: 0
+    - _Mix_Matcap_2_Texture_MaskChannel_Strength: 1
+    - _Mix_Matcap_2_Texture_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_Matcap_3_Color_ANIMATED: 0
+    - _Mix_Matcap_3_Color_Osci_Color_End_ANIMATED: 0
+    - _Mix_Matcap_3_Color_Osci_Color_Start_ANIMATED: 0
+    - _Mix_Matcap_3_Color_Osci_Enabled: 0
+    - _Mix_Matcap_3_Color_Osci_Slot: 0
+    - _Mix_Matcap_3_Lighting_Enabled: 1
+    - _Mix_Matcap_3_Lighting_Enabled_ANIMATED: 0
+    - _Mix_Matcap_3_Size: 0.43
+    - _Mix_Matcap_3_Size_ANIMATED: 0
+    - _Mix_Matcap_3_Texture_AlphaIsMask: 0
+    - _Mix_Matcap_3_Texture_MaskChannel: 5
+    - _Mix_Matcap_3_Texture_MaskChannel_Brightness: 0
+    - _Mix_Matcap_3_Texture_MaskChannel_Brightness_ANIMATED: 0
+    - _Mix_Matcap_3_Texture_MaskChannel_Contrast: 1
+    - _Mix_Matcap_3_Texture_MaskChannel_Contrast_ANIMATED: 0
+    - _Mix_Matcap_3_Texture_MaskChannel_Inverted: 0
+    - _Mix_Matcap_3_Texture_MaskChannel_Strength: 1
+    - _Mix_Matcap_3_Texture_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_Metallic: 0
+    - _Mix_Metallic_ANIMATED: 0
+    - _Mix_Metallic_MaskChannel: 0
+    - _Mix_Metallic_MaskChannel_Brightness: 0
+    - _Mix_Metallic_MaskChannel_Brightness_ANIMATED: 0
+    - _Mix_Metallic_MaskChannel_Contrast: 1
+    - _Mix_Metallic_MaskChannel_Contrast_ANIMATED: 0
+    - _Mix_Metallic_MaskChannel_Inverted: 0
+    - _Mix_Metallic_MaskChannel_Strength: 1
+    - _Mix_Metallic_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_OcclusionMap_MaskChannel: 0
+    - _Mix_OcclusionMap_MaskChannel_Brightness: 0
+    - _Mix_OcclusionMap_MaskChannel_Brightness_ANIMATED: 0
+    - _Mix_OcclusionMap_MaskChannel_Contrast: 1
+    - _Mix_OcclusionMap_MaskChannel_Contrast_ANIMATED: 0
+    - _Mix_OcclusionMap_MaskChannel_Inverted: 0
+    - _Mix_OcclusionMap_MaskChannel_Strength: 1
+    - _Mix_OcclusionMap_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_OcclusionMap_Offset_ANIMATED: 0
+    - _Mix_OcclusionMap_ScrollSpeed_ANIMATED: 0
+    - _Mix_OcclusionMap_ScrollSpeed_TimeBase: 0
+    - _Mix_OcclusionMap_Tiling_ANIMATED: 0
+    - _Mix_OcclusionMap_UVBus: 0
+    - _Mix_OcclusionStrength: 1
+    - _Mix_OcclusionStrength_ANIMATED: 0
+    - _Mix_Opacity: 1
+    - _Mix_Opacity_ANIMATED: 0
+    - _Mix_Opacity_MaskChannel: 0
+    - _Mix_Opacity_MaskChannel_Brightness: 0
+    - _Mix_Opacity_MaskChannel_Brightness_ANIMATED: 0
+    - _Mix_Opacity_MaskChannel_Contrast: 1
+    - _Mix_Opacity_MaskChannel_Contrast_ANIMATED: 0
+    - _Mix_Opacity_MaskChannel_Inverted: 0
+    - _Mix_Opacity_MaskChannel_Strength: 1
+    - _Mix_Opacity_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_Opacity_Osci_Enabled: 0
+    - _Mix_Opacity_Osci_Slot: 0
+    - _Mix_Opacity_Osci_Value_End: 1
+    - _Mix_Opacity_Osci_Value_End_ANIMATED: 0
+    - _Mix_Opacity_Osci_Value_Start: 1
+    - _Mix_Opacity_Osci_Value_Start_ANIMATED: 0
+    - _Mix_SecondaryTex_AlphaIsMask: 0
+    - _Mix_SecondaryTex_BlendMode: 0
+    - _Mix_SecondaryTex_Color_ANIMATED: 0
+    - _Mix_SecondaryTex_Color_Osci_Color_End_ANIMATED: 0
+    - _Mix_SecondaryTex_Color_Osci_Color_Start_ANIMATED: 0
+    - _Mix_SecondaryTex_Color_Osci_Enabled: 0
+    - _Mix_SecondaryTex_Color_Osci_Slot: 0
+    - _Mix_SecondaryTex_MaskChannel: 0
+    - _Mix_SecondaryTex_MaskChannel_Brightness: 0
+    - _Mix_SecondaryTex_MaskChannel_Brightness_ANIMATED: 0
+    - _Mix_SecondaryTex_MaskChannel_Contrast: 1
+    - _Mix_SecondaryTex_MaskChannel_Contrast_ANIMATED: 0
+    - _Mix_SecondaryTex_MaskChannel_Inverted: 0
+    - _Mix_SecondaryTex_MaskChannel_Strength: 1
+    - _Mix_SecondaryTex_MaskChannel_Strength_ANIMATED: 0
+    - _Mix_SecondaryTex_Offset_ANIMATED: 0
+    - _Mix_SecondaryTex_ScrollSpeed_ANIMATED: 0
+    - _Mix_SecondaryTex_ScrollSpeed_TimeBase: 0
+    - _Mix_SecondaryTex_Tiling_ANIMATED: 0
+    - _Mix_SecondaryTex_UVBus: 0
+    - _Mix_Separate_BumpMap: 0
+    - _Mix_Separate_DetailNormalMap: 0
+    - _Mix_Separate_Emission_1: 0
+    - _Mix_Separate_Emission_2: 0
+    - _Mix_Separate_Emission_Const: 0
+    - _Mix_Separate_MainTex: 1
+    - _Mix_Separate_Matcap_1: 0
+    - _Mix_Separate_Matcap_2: 0
+    - _Mix_Separate_Matcap_3: 0
+    - _Mix_Separate_MetallicGlossiness: 0
+    - _Mix_Separate_Occlusion: 0
+    - _Mix_Separate_Opacity: 0
+    - _Mix_Separate_SecondaryTex: 0
+    - _Mode: 0
+    - _NormalOffset_Amount: 0
+    - _OcclusionMap_MaskChannel: 0
+    - _OcclusionMap_MaskChannel_Brightness: 0
+    - _OcclusionMap_MaskChannel_Brightness_ANIMATED: 0
+    - _OcclusionMap_MaskChannel_Contrast: 1
+    - _OcclusionMap_MaskChannel_Contrast_ANIMATED: 0
+    - _OcclusionMap_MaskChannel_Inverted: 0
+    - _OcclusionMap_MaskChannel_Strength: 1
+    - _OcclusionMap_MaskChannel_Strength_ANIMATED: 0
+    - _OcclusionMap_Offset_ANIMATED: 0
+    - _OcclusionMap_ScrollSpeed_ANIMATED: 0
+    - _OcclusionMap_ScrollSpeed_TimeBase: 0
+    - _OcclusionMap_Tiling_ANIMATED: 0
+    - _OcclusionMap_UVBus: 0
+    - _OcclusionStrength: 1
+    - _OcclusionStrength_ANIMATED: 0
+    - _Opacity: 1
+    - _Opacity_ANIMATED: 0
+    - _Opacity_MaskChannel: 0
+    - _Opacity_MaskChannel_Brightness: 0
+    - _Opacity_MaskChannel_Brightness_ANIMATED: 0
+    - _Opacity_MaskChannel_Contrast: 1
+    - _Opacity_MaskChannel_Contrast_ANIMATED: 0
+    - _Opacity_MaskChannel_Inverted: 0
+    - _Opacity_MaskChannel_Strength: 1
+    - _Opacity_MaskChannel_Strength_ANIMATED: 0
+    - _Opacity_Osci_Enabled: 0
+    - _Opacity_Osci_Slot: 0
+    - _Opacity_Osci_Value_End: 1
+    - _Opacity_Osci_Value_End_ANIMATED: 0
+    - _Opacity_Osci_Value_Start: 1
+    - _Opacity_Osci_Value_Start_ANIMATED: 0
+    - _Osci_ALBand_1_Band: 0
+    - _Osci_ALBand_1_Band_ANIMATED: 0
+    - _Osci_ALBand_1_Fallback_Osci: 0
+    - _Osci_ALBand_1_Fallback_Type: 0
+    - _Osci_ALBand_1_Fallback_Value: 0
+    - _Osci_ALBand_1_Smoothness_Enabled: 0
+    - _Osci_ALBand_1_Smoothness_Level: 0
+    - _Osci_ALBand_1_Smoothness_Level_ANIMATED: 0
+    - _Osci_ALBand_2_Band: 0
+    - _Osci_ALBand_2_Band_ANIMATED: 0
+    - _Osci_ALBand_2_Fallback_Osci: 0
+    - _Osci_ALBand_2_Fallback_Type: 0
+    - _Osci_ALBand_2_Fallback_Value: 0
+    - _Osci_ALBand_2_Smoothness_Enabled: 0
+    - _Osci_ALBand_2_Smoothness_Level: 0
+    - _Osci_ALBand_2_Smoothness_Level_ANIMATED: 0
+    - _Osci_ALBand_3_Band: 0
+    - _Osci_ALBand_3_Band_ANIMATED: 0
+    - _Osci_ALBand_3_Fallback_Osci: 0
+    - _Osci_ALBand_3_Fallback_Type: 0
+    - _Osci_ALBand_3_Fallback_Value: 0
+    - _Osci_ALBand_3_Smoothness_Enabled: 0
+    - _Osci_ALBand_3_Smoothness_Level: 0
+    - _Osci_ALBand_3_Smoothness_Level_ANIMATED: 0
+    - _Osci_ALBand_4_Band: 0
+    - _Osci_ALBand_4_Band_ANIMATED: 0
+    - _Osci_ALBand_4_Fallback_Osci: 0
+    - _Osci_ALBand_4_Fallback_Type: 0
+    - _Osci_ALBand_4_Fallback_Value: 0
+    - _Osci_ALBand_4_Smoothness_Enabled: 0
+    - _Osci_ALBand_4_Smoothness_Level: 0
+    - _Osci_ALBand_4_Smoothness_Level_ANIMATED: 0
+    - _Osci_ALBand_5_Band: 0
+    - _Osci_ALBand_5_Band_ANIMATED: 0
+    - _Osci_ALBand_5_Fallback_Osci: 0
+    - _Osci_ALBand_5_Fallback_Type: 0
+    - _Osci_ALBand_5_Fallback_Value: 0
+    - _Osci_ALBand_5_Smoothness_Enabled: 0
+    - _Osci_ALBand_5_Smoothness_Level: 0
+    - _Osci_ALBand_5_Smoothness_Level_ANIMATED: 0
+    - _Osci_ALBand_6_Band: 0
+    - _Osci_ALBand_6_Band_ANIMATED: 0
+    - _Osci_ALBand_6_Fallback_Osci: 0
+    - _Osci_ALBand_6_Fallback_Type: 0
+    - _Osci_ALBand_6_Fallback_Value: 0
+    - _Osci_ALBand_6_Smoothness_Enabled: 0
+    - _Osci_ALBand_6_Smoothness_Level: 0
+    - _Osci_ALBand_6_Smoothness_Level_ANIMATED: 0
+    - _Osci_ALEnergy_1_Fallback_Osci: 0
+    - _Osci_ALEnergy_1_Fallback_Type: 0
+    - _Osci_ALEnergy_1_Fallback_Value: 0
+    - _Osci_ALEnergy_1_Smoothness_Enabled: 1
+    - _Osci_ALEnergy_1_Smoothness_Level: 1
+    - _Osci_ALEnergy_1_Smoothness_Level_ANIMATED: 0
+    - _Osci_ALEnergy_2_Fallback_Osci: 0
+    - _Osci_ALEnergy_2_Fallback_Type: 0
+    - _Osci_ALEnergy_2_Fallback_Value: 0
+    - _Osci_ALEnergy_2_Smoothness_Enabled: 1
+    - _Osci_ALEnergy_2_Smoothness_Level: 1
+    - _Osci_ALEnergy_2_Smoothness_Level_ANIMATED: 0
+    - _Osci_Mask_1_MaskChannel: 0
+    - _Osci_Mask_1_MaskChannel_Brightness: 0
+    - _Osci_Mask_1_MaskChannel_Brightness_ANIMATED: 0
+    - _Osci_Mask_1_MaskChannel_Contrast: 1
+    - _Osci_Mask_1_MaskChannel_Contrast_ANIMATED: 0
+    - _Osci_Mask_1_MaskChannel_Inverted: 0
+    - _Osci_Mask_1_MaskChannel_Strength: 1
+    - _Osci_Mask_1_MaskChannel_Strength_ANIMATED: 0
+    - _Osci_Mask_2_MaskChannel: 0
+    - _Osci_Mask_2_MaskChannel_Brightness: 0
+    - _Osci_Mask_2_MaskChannel_Brightness_ANIMATED: 0
+    - _Osci_Mask_2_MaskChannel_Contrast: 1
+    - _Osci_Mask_2_MaskChannel_Contrast_ANIMATED: 0
+    - _Osci_Mask_2_MaskChannel_Inverted: 0
+    - _Osci_Mask_2_MaskChannel_Strength: 1
+    - _Osci_Mask_2_MaskChannel_Strength_ANIMATED: 0
+    - _Osci_Mask_3_MaskChannel: 0
+    - _Osci_Mask_3_MaskChannel_Brightness: 0
+    - _Osci_Mask_3_MaskChannel_Brightness_ANIMATED: 0
+    - _Osci_Mask_3_MaskChannel_Contrast: 1
+    - _Osci_Mask_3_MaskChannel_Contrast_ANIMATED: 0
+    - _Osci_Mask_3_MaskChannel_Inverted: 0
+    - _Osci_Mask_3_MaskChannel_Strength: 1
+    - _Osci_Mask_3_MaskChannel_Strength_ANIMATED: 0
+    - _Osci_Mask_4_MaskChannel: 0
+    - _Osci_Mask_4_MaskChannel_Brightness: 0
+    - _Osci_Mask_4_MaskChannel_Brightness_ANIMATED: 0
+    - _Osci_Mask_4_MaskChannel_Contrast: 1
+    - _Osci_Mask_4_MaskChannel_Contrast_ANIMATED: 0
+    - _Osci_Mask_4_MaskChannel_Inverted: 0
+    - _Osci_Mask_4_MaskChannel_Strength: 1
+    - _Osci_Mask_4_MaskChannel_Strength_ANIMATED: 0
+    - _Osci_Mask_5_MaskChannel: 0
+    - _Osci_Mask_5_MaskChannel_Brightness: 0
+    - _Osci_Mask_5_MaskChannel_Brightness_ANIMATED: 0
+    - _Osci_Mask_5_MaskChannel_Contrast: 1
+    - _Osci_Mask_5_MaskChannel_Contrast_ANIMATED: 0
+    - _Osci_Mask_5_MaskChannel_Inverted: 0
+    - _Osci_Mask_5_MaskChannel_Strength: 1
+    - _Osci_Mask_5_MaskChannel_Strength_ANIMATED: 0
+    - _Osci_Mask_6_MaskChannel: 0
+    - _Osci_Mask_6_MaskChannel_Brightness: 0
+    - _Osci_Mask_6_MaskChannel_Brightness_ANIMATED: 0
+    - _Osci_Mask_6_MaskChannel_Contrast: 1
+    - _Osci_Mask_6_MaskChannel_Contrast_ANIMATED: 0
+    - _Osci_Mask_6_MaskChannel_Inverted: 0
+    - _Osci_Mask_6_MaskChannel_Strength: 1
+    - _Osci_Mask_6_MaskChannel_Strength_ANIMATED: 0
+    - _Osci_Mask_7_MaskChannel: 0
+    - _Osci_Mask_7_MaskChannel_Brightness: 0
+    - _Osci_Mask_7_MaskChannel_Brightness_ANIMATED: 0
+    - _Osci_Mask_7_MaskChannel_Contrast: 1
+    - _Osci_Mask_7_MaskChannel_Contrast_ANIMATED: 0
+    - _Osci_Mask_7_MaskChannel_Inverted: 0
+    - _Osci_Mask_7_MaskChannel_Strength: 1
+    - _Osci_Mask_7_MaskChannel_Strength_ANIMATED: 0
+    - _Osci_Mask_8_MaskChannel: 0
+    - _Osci_Mask_8_MaskChannel_Brightness: 0
+    - _Osci_Mask_8_MaskChannel_Brightness_ANIMATED: 0
+    - _Osci_Mask_8_MaskChannel_Contrast: 1
+    - _Osci_Mask_8_MaskChannel_Contrast_ANIMATED: 0
+    - _Osci_Mask_8_MaskChannel_Inverted: 0
+    - _Osci_Mask_8_MaskChannel_Strength: 1
+    - _Osci_Mask_8_MaskChannel_Strength_ANIMATED: 0
+    - _Osci_Slot_1_Sine_HalfWave: 0
+    - _Osci_Slot_1_Speed: 1
+    - _Osci_Slot_1_Speed_ANIMATED: 0
+    - _Osci_Slot_1_Speed_TimeBase: 0
+    - _Osci_Slot_1_Square_DutyCycle: 0.5
+    - _Osci_Slot_1_Square_DutyCycle_ANIMATED: 0
+    - _Osci_Slot_1_Type: 0
+    - _Osci_Slot_2_Sine_HalfWave: 0
+    - _Osci_Slot_2_Speed: 1
+    - _Osci_Slot_2_Speed_ANIMATED: 0
+    - _Osci_Slot_2_Speed_TimeBase: 0
+    - _Osci_Slot_2_Square_DutyCycle: 0.5
+    - _Osci_Slot_2_Square_DutyCycle_ANIMATED: 0
+    - _Osci_Slot_2_Type: 0
+    - _Osci_Slot_3_Sine_HalfWave: 0
+    - _Osci_Slot_3_Speed: 1
+    - _Osci_Slot_3_Speed_ANIMATED: 0
+    - _Osci_Slot_3_Speed_TimeBase: 0
+    - _Osci_Slot_3_Square_DutyCycle: 0.5
+    - _Osci_Slot_3_Square_DutyCycle_ANIMATED: 0
+    - _Osci_Slot_3_Type: 0
+    - _Osci_Slot_4_Sine_HalfWave: 0
+    - _Osci_Slot_4_Speed: 1
+    - _Osci_Slot_4_Speed_ANIMATED: 0
+    - _Osci_Slot_4_Speed_TimeBase: 0
+    - _Osci_Slot_4_Square_DutyCycle: 0.5
+    - _Osci_Slot_4_Square_DutyCycle_ANIMATED: 0
+    - _Osci_Slot_4_Type: 0
+    - _Osci_Slot_5_Sine_HalfWave: 0
+    - _Osci_Slot_5_Speed: 1
+    - _Osci_Slot_5_Speed_ANIMATED: 0
+    - _Osci_Slot_5_Speed_TimeBase: 0
+    - _Osci_Slot_5_Square_DutyCycle: 0.5
+    - _Osci_Slot_5_Square_DutyCycle_ANIMATED: 0
+    - _Osci_Slot_5_Type: 0
+    - _Osci_Slot_6_Sine_HalfWave: 0
+    - _Osci_Slot_6_Speed: 1
+    - _Osci_Slot_6_Speed_ANIMATED: 0
+    - _Osci_Slot_6_Speed_TimeBase: 0
+    - _Osci_Slot_6_Square_DutyCycle: 0.5
+    - _Osci_Slot_6_Square_DutyCycle_ANIMATED: 0
+    - _Osci_Slot_6_Type: 0
+    - _OutlineStencil_Comparison: 8
+    - _OutlineStencil_ComparisonBack: 8
+    - _OutlineStencil_ComparisonFront: 8
+    - _OutlineStencil_Fail: 0
+    - _OutlineStencil_FailBack: 0
+    - _OutlineStencil_FailFront: 0
+    - _OutlineStencil_Pass: 0
+    - _OutlineStencil_PassBack: 0
+    - _OutlineStencil_PassFront: 0
+    - _OutlineStencil_ReadMask: 255
+    - _OutlineStencil_Ref: 0
+    - _OutlineStencil_WriteMask: 255
+    - _OutlineStencil_ZFail: 0
+    - _OutlineStencil_ZFailBack: 0
+    - _OutlineStencil_ZFailFront: 0
+    - _Outline_AppearsOnMaterial: 0
+    - _Outline_Color_ANIMATED: 0
+    - _Outline_Enabled: 0
+    - _Outline_MaskChannel: 0
+    - _Outline_MaskChannel_Brightness: 0
+    - _Outline_MaskChannel_Brightness_ANIMATED: 0
+    - _Outline_MaskChannel_Contrast: 1
+    - _Outline_MaskChannel_Contrast_ANIMATED: 0
+    - _Outline_MaskChannel_Inverted: 0
+    - _Outline_MaskChannel_Strength: 1
+    - _Outline_MaskChannel_Strength_ANIMATED: 0
+    - _Outline_Mask_Cutoff: 0.5
+    - _Outline_Mask_Cutoff_ANIMATED: 0
+    - _Outline_Size: 0.01
+    - _Outline_Size_ANIMATED: 0
+    - _Parallax: 0.02
+    - _Physbone_1_Enabled: 0
+    - _Physbone_1_MaskChannel: 0
+    - _Physbone_1_MaskChannel_Brightness: 0
+    - _Physbone_1_MaskChannel_Brightness_ANIMATED: 0
+    - _Physbone_1_MaskChannel_Contrast: 1
+    - _Physbone_1_MaskChannel_Contrast_ANIMATED: 0
+    - _Physbone_1_MaskChannel_Inverted: 0
+    - _Physbone_1_MaskChannel_Strength: 1
+    - _Physbone_1_MaskChannel_Strength_ANIMATED: 0
+    - _Physbone_1_Proximity_X: 0
+    - _Physbone_1_Proximity_X_ANIMATED: 0
+    - _Physbone_1_Proximity_Y: 0
+    - _Physbone_1_Proximity_Y_ANIMATED: 0
+    - _Physbone_1_Proximity_Z: 0
+    - _Physbone_1_Proximity_Z_ANIMATED: 0
+    - _Physbone_2_Enabled: 0
+    - _Physbone_2_MaskChannel: 0
+    - _Physbone_2_MaskChannel_Brightness: 0
+    - _Physbone_2_MaskChannel_Brightness_ANIMATED: 0
+    - _Physbone_2_MaskChannel_Contrast: 1
+    - _Physbone_2_MaskChannel_Contrast_ANIMATED: 0
+    - _Physbone_2_MaskChannel_Inverted: 0
+    - _Physbone_2_MaskChannel_Strength: 1
+    - _Physbone_2_MaskChannel_Strength_ANIMATED: 0
+    - _Physbone_2_Proximity_X: 0
+    - _Physbone_2_Proximity_X_ANIMATED: 0
+    - _Physbone_2_Proximity_Y: 0
+    - _Physbone_2_Proximity_Y_ANIMATED: 0
+    - _Physbone_2_Proximity_Z: 0
+    - _Physbone_2_Proximity_Z_ANIMATED: 0
+    - _Physbone_3_Enabled: 0
+    - _Physbone_3_MaskChannel: 0
+    - _Physbone_3_MaskChannel_Brightness: 0
+    - _Physbone_3_MaskChannel_Brightness_ANIMATED: 0
+    - _Physbone_3_MaskChannel_Contrast: 1
+    - _Physbone_3_MaskChannel_Contrast_ANIMATED: 0
+    - _Physbone_3_MaskChannel_Inverted: 0
+    - _Physbone_3_MaskChannel_Strength: 1
+    - _Physbone_3_MaskChannel_Strength_ANIMATED: 0
+    - _Physbone_3_Proximity_X: 0
+    - _Physbone_3_Proximity_X_ANIMATED: 0
+    - _Physbone_3_Proximity_Y: 0
+    - _Physbone_3_Proximity_Y_ANIMATED: 0
+    - _Physbone_3_Proximity_Z: 0
+    - _Physbone_3_Proximity_Z_ANIMATED: 0
+    - _Physbone_4_Enabled: 0
+    - _Physbone_4_MaskChannel: 0
+    - _Physbone_4_MaskChannel_Brightness: 0
+    - _Physbone_4_MaskChannel_Brightness_ANIMATED: 0
+    - _Physbone_4_MaskChannel_Contrast: 1
+    - _Physbone_4_MaskChannel_Contrast_ANIMATED: 0
+    - _Physbone_4_MaskChannel_Inverted: 0
+    - _Physbone_4_MaskChannel_Strength: 1
+    - _Physbone_4_MaskChannel_Strength_ANIMATED: 0
+    - _Physbone_4_Proximity_X: 0
+    - _Physbone_4_Proximity_X_ANIMATED: 0
+    - _Physbone_4_Proximity_Y: 0
+    - _Physbone_4_Proximity_Y_ANIMATED: 0
+    - _Physbone_4_Proximity_Z: 0
+    - _Physbone_4_Proximity_Z_ANIMATED: 0
+    - _Physbone_Body_DragForce_Strength: 0.05
+    - _Physbone_Body_DragForce_Strength_ANIMATED: 0
+    - _Physbone_Body_MaskChannel: 0
+    - _Physbone_Body_MaskChannel_Brightness: 0
+    - _Physbone_Body_MaskChannel_Brightness_ANIMATED: 0
+    - _Physbone_Body_MaskChannel_Contrast: 1
+    - _Physbone_Body_MaskChannel_Contrast_ANIMATED: 0
+    - _Physbone_Body_MaskChannel_Inverted: 0
+    - _Physbone_Body_MaskChannel_Strength: 1
+    - _Physbone_Body_MaskChannel_Strength_ANIMATED: 0
+    - _Physbone_Drip_DragForce_Strength: 4
+    - _Physbone_Drip_DragForce_Strength_ANIMATED: 0
+    - _Physbone_Drip_MaskChannel: 0
+    - _Physbone_Drip_MaskChannel_Brightness: 0
+    - _Physbone_Drip_MaskChannel_Brightness_ANIMATED: 0
+    - _Physbone_Drip_MaskChannel_Contrast: 1
+    - _Physbone_Drip_MaskChannel_Contrast_ANIMATED: 0
+    - _Physbone_Drip_MaskChannel_Inverted: 0
+    - _Physbone_Drip_MaskChannel_Strength: 1
+    - _Physbone_Drip_MaskChannel_Strength_ANIMATED: 0
+    - _Physics_Body_ApplyOnMaterialMix: 0
+    - _PostProcessHSV_Hue_Shift: 0
+    - _PostProcessHSV_Hue_Shift_ANIMATED: 0
+    - _PostProcessHSV_Hue_Shift_Osci_Enabled: 0
+    - _PostProcessHSV_Hue_Shift_Osci_Slot: 0
+    - _PostProcessHSV_Hue_Shift_Osci_Value_End: 0
+    - _PostProcessHSV_Hue_Shift_Osci_Value_End_ANIMATED: 0
+    - _PostProcessHSV_Hue_Shift_Osci_Value_Start: 0
+    - _PostProcessHSV_Hue_Shift_Osci_Value_Start_ANIMATED: 0
+    - _PostProcessHSV_Hue_Speed: 0
+    - _PostProcessHSV_Hue_Speed_ANIMATED: 0
+    - _PostProcessHSV_Hue_Speed_TimeBase: 0
+    - _PostProcessHSV_Sat_Shift: 0
+    - _PostProcessHSV_Sat_Shift_ANIMATED: 0
+    - _PostProcessHSV_Sat_Shift_Osci_Enabled: 0
+    - _PostProcessHSV_Sat_Shift_Osci_Slot: 0
+    - _PostProcessHSV_Sat_Shift_Osci_Value_End: 0
+    - _PostProcessHSV_Sat_Shift_Osci_Value_End_ANIMATED: 0
+    - _PostProcessHSV_Sat_Shift_Osci_Value_Start: 0
+    - _PostProcessHSV_Sat_Shift_Osci_Value_Start_ANIMATED: 0
+    - _PostProcessHSV_Value_Shift: 0
+    - _PostProcessHSV_Value_Shift_ANIMATED: 0
+    - _PostProcessHSV_Value_Shift_Osci_Enabled: 0
+    - _PostProcessHSV_Value_Shift_Osci_Slot: 0
+    - _PostProcessHSV_Value_Shift_Osci_Value_End: 0
+    - _PostProcessHSV_Value_Shift_Osci_Value_End_ANIMATED: 0
+    - _PostProcessHSV_Value_Shift_Osci_Value_Start: 0
+    - _PostProcessHSV_Value_Shift_Osci_Value_Start_ANIMATED: 0
+    - _PreviewMirror: 0
+    - _ProximityDistortion_Depth_End: 0.225
+    - _ProximityDistortion_Depth_End_ANIMATED: 0
+    - _ProximityDistortion_Depth_Start: 0.05
+    - _ProximityDistortion_Depth_Start_ANIMATED: 0
+    - _ProximityDistortion_Enabled: 0
+    - _ProximityDistortion_MaskChannel: 0
+    - _ProximityDistortion_MaskChannel_Brightness: 0
+    - _ProximityDistortion_MaskChannel_Brightness_ANIMATED: 0
+    - _ProximityDistortion_MaskChannel_Contrast: 1
+    - _ProximityDistortion_MaskChannel_Contrast_ANIMATED: 0
+    - _ProximityDistortion_MaskChannel_Inverted: 0
+    - _ProximityDistortion_MaskChannel_Strength: 1
+    - _ProximityDistortion_MaskChannel_Strength_ANIMATED: 0
+    - _RenderingMode: 0
+    - _RimMask_1_End: 0.5
+    - _RimMask_1_End_ANIMATED: 0
+    - _RimMask_1_End_Osci_Enabled: 0
+    - _RimMask_1_End_Osci_Slot: 0
+    - _RimMask_1_End_Osci_Value_End: 0.5
+    - _RimMask_1_End_Osci_Value_End_ANIMATED: 0
+    - _RimMask_1_End_Osci_Value_Start: 0.5
+    - _RimMask_1_End_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_1_Smoothing: 1
+    - _RimMask_1_Smoothing_ANIMATED: 0
+    - _RimMask_1_Smoothing_Osci_Enabled: 0
+    - _RimMask_1_Smoothing_Osci_Slot: 0
+    - _RimMask_1_Smoothing_Osci_Value_End: 1
+    - _RimMask_1_Smoothing_Osci_Value_End_ANIMATED: 0
+    - _RimMask_1_Smoothing_Osci_Value_Start: 1
+    - _RimMask_1_Smoothing_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_1_Start: 1
+    - _RimMask_1_Start_ANIMATED: 0
+    - _RimMask_1_Start_Osci_Enabled: 0
+    - _RimMask_1_Start_Osci_Slot: 0
+    - _RimMask_1_Start_Osci_Value_End: 1
+    - _RimMask_1_Start_Osci_Value_End_ANIMATED: 0
+    - _RimMask_1_Start_Osci_Value_Start: 1
+    - _RimMask_1_Start_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_1_Strength_PostInversion: 1
+    - _RimMask_1_Strength_PostInversion_ANIMATED: 0
+    - _RimMask_1_Strength_PostInversion_Osci_Enabled: 0
+    - _RimMask_1_Strength_PostInversion_Osci_Slot: 0
+    - _RimMask_1_Strength_PostInversion_Osci_Value_End: 1
+    - _RimMask_1_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _RimMask_1_Strength_PostInversion_Osci_Value_Start: 1
+    - _RimMask_1_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_1_Strength_PreInversion: 1
+    - _RimMask_1_Strength_PreInversion_ANIMATED: 0
+    - _RimMask_1_Strength_PreInversion_Osci_Enabled: 0
+    - _RimMask_1_Strength_PreInversion_Osci_Slot: 0
+    - _RimMask_1_Strength_PreInversion_Osci_Value_End: 1
+    - _RimMask_1_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _RimMask_1_Strength_PreInversion_Osci_Value_Start: 1
+    - _RimMask_1_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_2_End: 0.5
+    - _RimMask_2_End_ANIMATED: 0
+    - _RimMask_2_End_Osci_Enabled: 0
+    - _RimMask_2_End_Osci_Slot: 0
+    - _RimMask_2_End_Osci_Value_End: 0.5
+    - _RimMask_2_End_Osci_Value_End_ANIMATED: 0
+    - _RimMask_2_End_Osci_Value_Start: 0.5
+    - _RimMask_2_End_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_2_Smoothing: 1
+    - _RimMask_2_Smoothing_ANIMATED: 0
+    - _RimMask_2_Smoothing_Osci_Enabled: 0
+    - _RimMask_2_Smoothing_Osci_Slot: 0
+    - _RimMask_2_Smoothing_Osci_Value_End: 1
+    - _RimMask_2_Smoothing_Osci_Value_End_ANIMATED: 0
+    - _RimMask_2_Smoothing_Osci_Value_Start: 1
+    - _RimMask_2_Smoothing_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_2_Start: 1
+    - _RimMask_2_Start_ANIMATED: 0
+    - _RimMask_2_Start_Osci_Enabled: 0
+    - _RimMask_2_Start_Osci_Slot: 0
+    - _RimMask_2_Start_Osci_Value_End: 1
+    - _RimMask_2_Start_Osci_Value_End_ANIMATED: 0
+    - _RimMask_2_Start_Osci_Value_Start: 1
+    - _RimMask_2_Start_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_2_Strength_PostInversion: 1
+    - _RimMask_2_Strength_PostInversion_ANIMATED: 0
+    - _RimMask_2_Strength_PostInversion_Osci_Enabled: 0
+    - _RimMask_2_Strength_PostInversion_Osci_Slot: 0
+    - _RimMask_2_Strength_PostInversion_Osci_Value_End: 1
+    - _RimMask_2_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _RimMask_2_Strength_PostInversion_Osci_Value_Start: 1
+    - _RimMask_2_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_2_Strength_PreInversion: 1
+    - _RimMask_2_Strength_PreInversion_ANIMATED: 0
+    - _RimMask_2_Strength_PreInversion_Osci_Enabled: 0
+    - _RimMask_2_Strength_PreInversion_Osci_Slot: 0
+    - _RimMask_2_Strength_PreInversion_Osci_Value_End: 1
+    - _RimMask_2_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _RimMask_2_Strength_PreInversion_Osci_Value_Start: 1
+    - _RimMask_2_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_3_End: 0.5
+    - _RimMask_3_End_ANIMATED: 0
+    - _RimMask_3_End_Osci_Enabled: 0
+    - _RimMask_3_End_Osci_Slot: 0
+    - _RimMask_3_End_Osci_Value_End: 0.5
+    - _RimMask_3_End_Osci_Value_End_ANIMATED: 0
+    - _RimMask_3_End_Osci_Value_Start: 0.5
+    - _RimMask_3_End_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_3_Smoothing: 1
+    - _RimMask_3_Smoothing_ANIMATED: 0
+    - _RimMask_3_Smoothing_Osci_Enabled: 0
+    - _RimMask_3_Smoothing_Osci_Slot: 0
+    - _RimMask_3_Smoothing_Osci_Value_End: 1
+    - _RimMask_3_Smoothing_Osci_Value_End_ANIMATED: 0
+    - _RimMask_3_Smoothing_Osci_Value_Start: 1
+    - _RimMask_3_Smoothing_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_3_Start: 1
+    - _RimMask_3_Start_ANIMATED: 0
+    - _RimMask_3_Start_Osci_Enabled: 0
+    - _RimMask_3_Start_Osci_Slot: 0
+    - _RimMask_3_Start_Osci_Value_End: 1
+    - _RimMask_3_Start_Osci_Value_End_ANIMATED: 0
+    - _RimMask_3_Start_Osci_Value_Start: 1
+    - _RimMask_3_Start_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_3_Strength_PostInversion: 1
+    - _RimMask_3_Strength_PostInversion_ANIMATED: 0
+    - _RimMask_3_Strength_PostInversion_Osci_Enabled: 0
+    - _RimMask_3_Strength_PostInversion_Osci_Slot: 0
+    - _RimMask_3_Strength_PostInversion_Osci_Value_End: 1
+    - _RimMask_3_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _RimMask_3_Strength_PostInversion_Osci_Value_Start: 1
+    - _RimMask_3_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_3_Strength_PreInversion: 1
+    - _RimMask_3_Strength_PreInversion_ANIMATED: 0
+    - _RimMask_3_Strength_PreInversion_Osci_Enabled: 0
+    - _RimMask_3_Strength_PreInversion_Osci_Slot: 0
+    - _RimMask_3_Strength_PreInversion_Osci_Value_End: 1
+    - _RimMask_3_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _RimMask_3_Strength_PreInversion_Osci_Value_Start: 1
+    - _RimMask_3_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_4_End: 0.5
+    - _RimMask_4_End_ANIMATED: 0
+    - _RimMask_4_End_Osci_Enabled: 0
+    - _RimMask_4_End_Osci_Slot: 0
+    - _RimMask_4_End_Osci_Value_End: 0.5
+    - _RimMask_4_End_Osci_Value_End_ANIMATED: 0
+    - _RimMask_4_End_Osci_Value_Start: 0.5
+    - _RimMask_4_End_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_4_Smoothing: 1
+    - _RimMask_4_Smoothing_ANIMATED: 0
+    - _RimMask_4_Smoothing_Osci_Enabled: 0
+    - _RimMask_4_Smoothing_Osci_Slot: 0
+    - _RimMask_4_Smoothing_Osci_Value_End: 1
+    - _RimMask_4_Smoothing_Osci_Value_End_ANIMATED: 0
+    - _RimMask_4_Smoothing_Osci_Value_Start: 1
+    - _RimMask_4_Smoothing_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_4_Start: 1
+    - _RimMask_4_Start_ANIMATED: 0
+    - _RimMask_4_Start_Osci_Enabled: 0
+    - _RimMask_4_Start_Osci_Slot: 0
+    - _RimMask_4_Start_Osci_Value_End: 1
+    - _RimMask_4_Start_Osci_Value_End_ANIMATED: 0
+    - _RimMask_4_Start_Osci_Value_Start: 1
+    - _RimMask_4_Start_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_4_Strength_PostInversion: 1
+    - _RimMask_4_Strength_PostInversion_ANIMATED: 0
+    - _RimMask_4_Strength_PostInversion_Osci_Enabled: 0
+    - _RimMask_4_Strength_PostInversion_Osci_Slot: 0
+    - _RimMask_4_Strength_PostInversion_Osci_Value_End: 1
+    - _RimMask_4_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _RimMask_4_Strength_PostInversion_Osci_Value_Start: 1
+    - _RimMask_4_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _RimMask_4_Strength_PreInversion: 1
+    - _RimMask_4_Strength_PreInversion_ANIMATED: 0
+    - _RimMask_4_Strength_PreInversion_Osci_Enabled: 0
+    - _RimMask_4_Strength_PreInversion_Osci_Slot: 0
+    - _RimMask_4_Strength_PreInversion_Osci_Value_End: 1
+    - _RimMask_4_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _RimMask_4_Strength_PreInversion_Osci_Value_Start: 1
+    - _RimMask_4_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _ScrollMask_1_Axis_ANIMATED: 0
+    - _ScrollMask_1_Frequency: 1
+    - _ScrollMask_1_Frequency_ANIMATED: 0
+    - _ScrollMask_1_Frequency_Osci_Enabled: 0
+    - _ScrollMask_1_Frequency_Osci_Slot: 0
+    - _ScrollMask_1_Frequency_Osci_Value_End: 1
+    - _ScrollMask_1_Frequency_Osci_Value_End_ANIMATED: 0
+    - _ScrollMask_1_Frequency_Osci_Value_Start: 1
+    - _ScrollMask_1_Frequency_Osci_Value_Start_ANIMATED: 0
+    - _ScrollMask_1_Gap: 0.5
+    - _ScrollMask_1_Gap_ANIMATED: 0
+    - _ScrollMask_1_Gap_Osci_Enabled: 0
+    - _ScrollMask_1_Gap_Osci_Slot: 0
+    - _ScrollMask_1_Gap_Osci_Value_End: 0.5
+    - _ScrollMask_1_Gap_Osci_Value_End_ANIMATED: 0
+    - _ScrollMask_1_Gap_Osci_Value_Start: 0.5
+    - _ScrollMask_1_Gap_Osci_Value_Start_ANIMATED: 0
+    - _ScrollMask_1_Offset: 0
+    - _ScrollMask_1_Offset_ANIMATED: 0
+    - _ScrollMask_1_Offset_Osci_Enabled: 0
+    - _ScrollMask_1_Offset_Osci_Slot: 0
+    - _ScrollMask_1_Offset_Osci_Value_End: 0
+    - _ScrollMask_1_Offset_Osci_Value_End_ANIMATED: 0
+    - _ScrollMask_1_Offset_Osci_Value_Start: 0
+    - _ScrollMask_1_Offset_Osci_Value_Start_ANIMATED: 0
+    - _ScrollMask_1_Speed: 1
+    - _ScrollMask_1_Speed_ANIMATED: 0
+    - _ScrollMask_1_Speed_TimeBase: 0
+    - _ScrollMask_1_Strength_PostInversion: 1
+    - _ScrollMask_1_Strength_PostInversion_ANIMATED: 0
+    - _ScrollMask_1_Strength_PostInversion_Osci_Enabled: 0
+    - _ScrollMask_1_Strength_PostInversion_Osci_Slot: 0
+    - _ScrollMask_1_Strength_PostInversion_Osci_Value_End: 1
+    - _ScrollMask_1_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _ScrollMask_1_Strength_PostInversion_Osci_Value_Start: 1
+    - _ScrollMask_1_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _ScrollMask_1_Strength_PreInversion: 1
+    - _ScrollMask_1_Strength_PreInversion_ANIMATED: 0
+    - _ScrollMask_1_Strength_PreInversion_Osci_Enabled: 0
+    - _ScrollMask_1_Strength_PreInversion_Osci_Slot: 0
+    - _ScrollMask_1_Strength_PreInversion_Osci_Value_End: 1
+    - _ScrollMask_1_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _ScrollMask_1_Strength_PreInversion_Osci_Value_Start: 1
+    - _ScrollMask_1_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _ScrollMask_2_Axis_ANIMATED: 0
+    - _ScrollMask_2_Frequency: 1
+    - _ScrollMask_2_Frequency_ANIMATED: 0
+    - _ScrollMask_2_Frequency_Osci_Enabled: 0
+    - _ScrollMask_2_Frequency_Osci_Slot: 0
+    - _ScrollMask_2_Frequency_Osci_Value_End: 1
+    - _ScrollMask_2_Frequency_Osci_Value_End_ANIMATED: 0
+    - _ScrollMask_2_Frequency_Osci_Value_Start: 1
+    - _ScrollMask_2_Frequency_Osci_Value_Start_ANIMATED: 0
+    - _ScrollMask_2_Gap: 0.5
+    - _ScrollMask_2_Gap_ANIMATED: 0
+    - _ScrollMask_2_Gap_Osci_Enabled: 0
+    - _ScrollMask_2_Gap_Osci_Slot: 0
+    - _ScrollMask_2_Gap_Osci_Value_End: 0.5
+    - _ScrollMask_2_Gap_Osci_Value_End_ANIMATED: 0
+    - _ScrollMask_2_Gap_Osci_Value_Start: 0.5
+    - _ScrollMask_2_Gap_Osci_Value_Start_ANIMATED: 0
+    - _ScrollMask_2_Offset: 0
+    - _ScrollMask_2_Offset_ANIMATED: 0
+    - _ScrollMask_2_Offset_Osci_Enabled: 0
+    - _ScrollMask_2_Offset_Osci_Slot: 0
+    - _ScrollMask_2_Offset_Osci_Value_End: 0
+    - _ScrollMask_2_Offset_Osci_Value_End_ANIMATED: 0
+    - _ScrollMask_2_Offset_Osci_Value_Start: 0
+    - _ScrollMask_2_Offset_Osci_Value_Start_ANIMATED: 0
+    - _ScrollMask_2_Speed: 1
+    - _ScrollMask_2_Speed_ANIMATED: 0
+    - _ScrollMask_2_Speed_TimeBase: 0
+    - _ScrollMask_2_Strength_PostInversion: 1
+    - _ScrollMask_2_Strength_PostInversion_ANIMATED: 0
+    - _ScrollMask_2_Strength_PostInversion_Osci_Enabled: 0
+    - _ScrollMask_2_Strength_PostInversion_Osci_Slot: 0
+    - _ScrollMask_2_Strength_PostInversion_Osci_Value_End: 1
+    - _ScrollMask_2_Strength_PostInversion_Osci_Value_End_ANIMATED: 0
+    - _ScrollMask_2_Strength_PostInversion_Osci_Value_Start: 1
+    - _ScrollMask_2_Strength_PostInversion_Osci_Value_Start_ANIMATED: 0
+    - _ScrollMask_2_Strength_PreInversion: 1
+    - _ScrollMask_2_Strength_PreInversion_ANIMATED: 0
+    - _ScrollMask_2_Strength_PreInversion_Osci_Enabled: 0
+    - _ScrollMask_2_Strength_PreInversion_Osci_Slot: 0
+    - _ScrollMask_2_Strength_PreInversion_Osci_Value_End: 1
+    - _ScrollMask_2_Strength_PreInversion_Osci_Value_End_ANIMATED: 0
+    - _ScrollMask_2_Strength_PreInversion_Osci_Value_Start: 1
+    - _ScrollMask_2_Strength_PreInversion_Osci_Value_Start_ANIMATED: 0
+    - _SecondaryTex_AlphaIsMask: 0
+    - _SecondaryTex_BlendMode: 0
+    - _SecondaryTex_Color_ANIMATED: 0
+    - _SecondaryTex_Color_Osci_Color_End_ANIMATED: 0
+    - _SecondaryTex_Color_Osci_Color_Start_ANIMATED: 0
+    - _SecondaryTex_Color_Osci_Enabled: 0
+    - _SecondaryTex_Color_Osci_Slot: 0
+    - _SecondaryTex_MaskChannel: 0
+    - _SecondaryTex_MaskChannel_Brightness: 0
+    - _SecondaryTex_MaskChannel_Brightness_ANIMATED: 0
+    - _SecondaryTex_MaskChannel_Contrast: 1
+    - _SecondaryTex_MaskChannel_Contrast_ANIMATED: 0
+    - _SecondaryTex_MaskChannel_Inverted: 0
+    - _SecondaryTex_MaskChannel_Strength: 1
+    - _SecondaryTex_MaskChannel_Strength_ANIMATED: 0
+    - _SecondaryTex_Offset_ANIMATED: 0
+    - _SecondaryTex_ScrollSpeed_ANIMATED: 0
+    - _SecondaryTex_ScrollSpeed_TimeBase: 0
+    - _SecondaryTex_Tiling_ANIMATED: 0
+    - _SecondaryTex_UVBus: 0
+    - _SmoothnessTextureChannel: 0
+    - _SourceBlend: 1
+    - _SpecularHighlights: 1
+    - _SpecularHightlights_Enabled: 1
+    - _Specular_Tint_ANIMATED: 0
+    - _SrcBlend: 1
+    - _Stencil_Comparison: 8
+    - _Stencil_ComparisonBack: 8
+    - _Stencil_ComparisonFront: 8
+    - _Stencil_Fail: 0
+    - _Stencil_FailBack: 0
+    - _Stencil_FailFront: 0
+    - _Stencil_Pass: 0
+    - _Stencil_PassBack: 0
+    - _Stencil_PassFront: 0
+    - _Stencil_ReadMask: 255
+    - _Stencil_Ref: 0
+    - _Stencil_WriteMask: 255
+    - _Stencil_ZFail: 0
+    - _Stencil_ZFailBack: 0
+    - _Stencil_ZFailFront: 0
+    - _TF_AnimationMap_Mip: 3
+    - _TF_AnimationMap_Mip_ANIMATED: 0
+    - _TF_AnimationMap_Offset_ANIMATED: 0
+    - _TF_AnimationMap_Scale_ANIMATED: 0
+    - _TF_AnimationMap_UVBus: 0
+    - _TF_AnimationMap_UseUVBus: 1
+    - _TF_Animation_Blur_PS: 0.093391895
+    - _TF_Animation_Blur_PS_ANIMATED: 0
+    - _TF_Animation_Blur_VS: 0.16535044
+    - _TF_Animation_Blur_VS_ANIMATED: 0
+    - _TF_Animation_Bulging_Offset: 0
+    - _TF_Animation_Bulging_Offset_ANIMATED: 0
+    - _TF_Animation_CenterOut_Invert: 0
+    - _TF_Animation_Radial_LegacyNoise_Enabled: 0
+    - _TF_Animation_Radial_Origin_ANIMATED: 0
+    - _TF_Animation_Radial_Radius: 0.2546132
+    - _TF_Animation_Radial_Radius_ANIMATED: 0
+    - _TF_Bulging_Enabled: 0
+    - _TF_Bulging_MaskChannel: 0
+    - _TF_Bulging_MaskChannel_Brightness: 0
+    - _TF_Bulging_MaskChannel_Brightness_ANIMATED: 0
+    - _TF_Bulging_MaskChannel_Contrast: 1
+    - _TF_Bulging_MaskChannel_Contrast_ANIMATED: 0
+    - _TF_Bulging_MaskChannel_Inverted: 0
+    - _TF_Bulging_MaskChannel_Strength: 1
+    - _TF_Bulging_MaskChannel_Strength_ANIMATED: 0
+    - _TF_Bulging_Size: 5
+    - _TF_Bulging_Size_ANIMATED: 0
+    - _TF_Enabled: 1
+    - _TF_ManualBuiltin_BlendMode: 0
+    - _TF_Manual_MaskChannel: 0
+    - _TF_Manual_MaskChannel_Brightness: 0
+    - _TF_Manual_MaskChannel_Brightness_ANIMATED: 0
+    - _TF_Manual_MaskChannel_Contrast: 1
+    - _TF_Manual_MaskChannel_Contrast_ANIMATED: 0
+    - _TF_Manual_MaskChannel_Inverted: 0
+    - _TF_Manual_MaskChannel_Strength: 1
+    - _TF_Manual_MaskChannel_Strength_ANIMATED: 0
+    - _TF_Manual_Osci_Enabled: 0
+    - _TF_Manual_Osci_Slot: 0
+    - _TF_Manual_Osci_Value_End: 0
+    - _TF_Manual_Osci_Value_End_ANIMATED: 0
+    - _TF_Manual_Osci_Value_Start: 0
+    - _TF_Manual_Osci_Value_Start_ANIMATED: 0
+    - _TF_Mode: 3
+    - _TF_Time: 0
+    - _TF_Time_ANIMATED: 1
+    - _TF_Time_Osci_Enabled: 0
+    - _TF_Time_Osci_Slot: 0
+    - _TF_Time_Osci_Value_End: 0
+    - _TF_Time_Osci_Value_End_ANIMATED: 0
+    - _TF_Time_Osci_Value_Start: 0
+    - _TF_Time_Osci_Value_Start_ANIMATED: 0
+    - _TF_Visualisation_Enabled: 0
+    - _TF_Visualisation_Speed: 1
+    - _Temp: 0
+    - _Temp2: 0
+    - _TimeBase_AL_Slot_1_AddTime: 0
+    - _TimeBase_AL_Slot_1_Band: 0
+    - _TimeBase_AL_Slot_1_Strength: 1
+    - _TimeBase_AL_Slot_1_Type: 0
+    - _TimeBase_AL_Slot_1_UseTimeAsFallback: 0
+    - _TimeBase_AL_Slot_2_AddTime: 0
+    - _TimeBase_AL_Slot_2_Band: 0
+    - _TimeBase_AL_Slot_2_Strength: 1
+    - _TimeBase_AL_Slot_2_Type: 0
+    - _TimeBase_AL_Slot_2_UseTimeAsFallback: 0
+    - _TimeBase_AL_Slot_3_AddTime: 0
+    - _TimeBase_AL_Slot_3_Band: 0
+    - _TimeBase_AL_Slot_3_Strength: 1
+    - _TimeBase_AL_Slot_3_Type: 0
+    - _TimeBase_AL_Slot_3_UseTimeAsFallback: 0
+    - _TimeBase_AL_Slot_4_AddTime: 0
+    - _TimeBase_AL_Slot_4_Band: 0
+    - _TimeBase_AL_Slot_4_Strength: 1
+    - _TimeBase_AL_Slot_4_Type: 0
+    - _TimeBase_AL_Slot_4_UseTimeAsFallback: 0
+    - _TimeBase_AL_Slot_5_AddTime: 0
+    - _TimeBase_AL_Slot_5_Band: 0
+    - _TimeBase_AL_Slot_5_Strength: 1
+    - _TimeBase_AL_Slot_5_Type: 0
+    - _TimeBase_AL_Slot_5_UseTimeAsFallback: 0
+    - _TimeBase_AL_Slot_6_AddTime: 0
+    - _TimeBase_AL_Slot_6_Band: 0
+    - _TimeBase_AL_Slot_6_Strength: 1
+    - _TimeBase_AL_Slot_6_Type: 0
+    - _TimeBase_AL_Slot_6_UseTimeAsFallback: 0
+    - _TouchReactivityInteractionMask_Intensity: 1
+    - _TouchReactivityInteractionMask_Intensity_ANIMATED: 0
+    - _TouchReactivityInteractionMask_Intensity_Osci_Enabled: 0
+    - _TouchReactivityInteractionMask_Intensity_Osci_Slot: 0
+    - _TouchReactivityInteractionMask_Intensity_Osci_Value_End: 1
+    - _TouchReactivityInteractionMask_Intensity_Osci_Value_End_ANIMATED: 0
+    - _TouchReactivityInteractionMask_Intensity_Osci_Value_Start: 1
+    - _TouchReactivityInteractionMask_Intensity_Osci_Value_Start_ANIMATED: 0
+    - _TouchReactivityInteractionMask_Intensity_Pre: 20
+    - _TouchReactivityInteractionMask_Intensity_Pre_ANIMATED: 0
+    - _TouchReactivityInteractionMask_Intensity_Pre_Osci_Enabled: 0
+    - _TouchReactivityInteractionMask_Intensity_Pre_Osci_Slot: 0
+    - _TouchReactivityInteractionMask_Intensity_Pre_Osci_Value_End: 20
+    - _TouchReactivityInteractionMask_Intensity_Pre_Osci_Value_End_ANIMATED: 0
+    - _TouchReactivityInteractionMask_Intensity_Pre_Osci_Value_Start: 20
+    - _TouchReactivityInteractionMask_Intensity_Pre_Osci_Value_Start_ANIMATED: 0
+    - _TouchReactivity_And_PD_ApplyOnMaterialMix: 0
+    - _TouchReactivity_Bypassed: 0
+    - _TouchReactivity_Bypassed_ANIMATED: 0
+    - _TouchReactivity_Dispersion: 1
+    - _TouchReactivity_Dispersion_ANIMATED: 0
+    - _TouchReactivity_MaskChannel: 0
+    - _TouchReactivity_MaskChannel_Brightness: 0
+    - _TouchReactivity_MaskChannel_Brightness_ANIMATED: 0
+    - _TouchReactivity_MaskChannel_Contrast: 1
+    - _TouchReactivity_MaskChannel_Contrast_ANIMATED: 0
+    - _TouchReactivity_MaskChannel_Inverted: 0
+    - _TouchReactivity_MaskChannel_Strength: 1
+    - _TouchReactivity_MaskChannel_Strength_ANIMATED: 0
+    - _TouchReactivity_Mode: 0
+    - _TouchReactivity_Remap_End: 0.1
+    - _TouchReactivity_Remap_End_ANIMATED: 0
+    - _TouchReactivity_SafeMode4000: 0
+    - _TouchReactivity_Strength: 0.035
+    - _TouchReactivity_Strength_ANIMATED: 0
+    - _UVBus_1_BakedVertex_XComponent: 0
+    - _UVBus_1_BakedVertex_YComponent: 2
+    - _UVBus_1_Distortion_Texture_Offset_ANIMATED: 0
+    - _UVBus_1_Distortion_Texture_ScrollSpeed_ANIMATED: 0
+    - _UVBus_1_Distortion_Texture_ScrollSpeed_TimeBase: 0
+    - _UVBus_1_Distortion_Texture_Strength: 0.1
+    - _UVBus_1_Distortion_Texture_Strength_ANIMATED: 0
+    - _UVBus_1_Distortion_Texture_Strength_Osci_Enabled: 0
+    - _UVBus_1_Distortion_Texture_Strength_Osci_Slot: 0
+    - _UVBus_1_Distortion_Texture_Strength_Osci_Value_End: 0.1
+    - _UVBus_1_Distortion_Texture_Strength_Osci_Value_End_ANIMATED: 0
+    - _UVBus_1_Distortion_Texture_Strength_Osci_Value_Start: 0.1
+    - _UVBus_1_Distortion_Texture_Strength_Osci_Value_Start_ANIMATED: 0
+    - _UVBus_1_Distortion_Texture_Tiling_ANIMATED: 0
+    - _UVBus_1_Distortion_Texture_UVBus: 0
+    - _UVBus_1_SkinnedVertex_XComponent: 0
+    - _UVBus_1_SkinnedVertex_YComponent: 2
+    - _UVBus_1_Source: 0
+    - _UVBus_1_VertexChannel_Channel: 0
+    - _UVBus_1_WorldLocation_XComponent: 0
+    - _UVBus_1_WorldLocation_YComponent: 2
+    - _UVBus_2_BakedVertex_XComponent: 0
+    - _UVBus_2_BakedVertex_YComponent: 2
+    - _UVBus_2_Distortion_Texture_Offset_ANIMATED: 0
+    - _UVBus_2_Distortion_Texture_ScrollSpeed_ANIMATED: 0
+    - _UVBus_2_Distortion_Texture_ScrollSpeed_TimeBase: 0
+    - _UVBus_2_Distortion_Texture_Strength: 0.1
+    - _UVBus_2_Distortion_Texture_Strength_ANIMATED: 0
+    - _UVBus_2_Distortion_Texture_Strength_Osci_Enabled: 0
+    - _UVBus_2_Distortion_Texture_Strength_Osci_Slot: 0
+    - _UVBus_2_Distortion_Texture_Strength_Osci_Value_End: 0.1
+    - _UVBus_2_Distortion_Texture_Strength_Osci_Value_End_ANIMATED: 0
+    - _UVBus_2_Distortion_Texture_Strength_Osci_Value_Start: 0.1
+    - _UVBus_2_Distortion_Texture_Strength_Osci_Value_Start_ANIMATED: 0
+    - _UVBus_2_Distortion_Texture_Tiling_ANIMATED: 0
+    - _UVBus_2_Distortion_Texture_UVBus: 0
+    - _UVBus_2_SkinnedVertex_XComponent: 0
+    - _UVBus_2_SkinnedVertex_YComponent: 2
+    - _UVBus_2_Source: 0
+    - _UVBus_2_VertexChannel_Channel: 0
+    - _UVBus_2_WorldLocation_XComponent: 0
+    - _UVBus_2_WorldLocation_YComponent: 2
+    - _UVBus_3_BakedVertex_XComponent: 0
+    - _UVBus_3_BakedVertex_YComponent: 2
+    - _UVBus_3_Distortion_Texture_Offset_ANIMATED: 0
+    - _UVBus_3_Distortion_Texture_ScrollSpeed_ANIMATED: 0
+    - _UVBus_3_Distortion_Texture_ScrollSpeed_TimeBase: 0
+    - _UVBus_3_Distortion_Texture_Strength: 0.1
+    - _UVBus_3_Distortion_Texture_Strength_ANIMATED: 0
+    - _UVBus_3_Distortion_Texture_Strength_Osci_Enabled: 0
+    - _UVBus_3_Distortion_Texture_Strength_Osci_Slot: 0
+    - _UVBus_3_Distortion_Texture_Strength_Osci_Value_End: 0.1
+    - _UVBus_3_Distortion_Texture_Strength_Osci_Value_End_ANIMATED: 0
+    - _UVBus_3_Distortion_Texture_Strength_Osci_Value_Start: 0.1
+    - _UVBus_3_Distortion_Texture_Strength_Osci_Value_Start_ANIMATED: 0
+    - _UVBus_3_Distortion_Texture_Tiling_ANIMATED: 0
+    - _UVBus_3_Distortion_Texture_UVBus: 0
+    - _UVBus_3_SkinnedVertex_XComponent: 0
+    - _UVBus_3_SkinnedVertex_YComponent: 2
+    - _UVBus_3_Source: 0
+    - _UVBus_3_VertexChannel_Channel: 0
+    - _UVBus_3_WorldLocation_XComponent: 0
+    - _UVBus_3_WorldLocation_YComponent: 2
+    - _UVBus_4_BakedVertex_XComponent: 0
+    - _UVBus_4_BakedVertex_YComponent: 2
+    - _UVBus_4_Distortion_Texture_Offset_ANIMATED: 0
+    - _UVBus_4_Distortion_Texture_ScrollSpeed_ANIMATED: 0
+    - _UVBus_4_Distortion_Texture_ScrollSpeed_TimeBase: 0
+    - _UVBus_4_Distortion_Texture_Strength: 0.1
+    - _UVBus_4_Distortion_Texture_Strength_ANIMATED: 0
+    - _UVBus_4_Distortion_Texture_Strength_Osci_Enabled: 0
+    - _UVBus_4_Distortion_Texture_Strength_Osci_Slot: 0
+    - _UVBus_4_Distortion_Texture_Strength_Osci_Value_End: 0.1
+    - _UVBus_4_Distortion_Texture_Strength_Osci_Value_End_ANIMATED: 0
+    - _UVBus_4_Distortion_Texture_Strength_Osci_Value_Start: 0.1
+    - _UVBus_4_Distortion_Texture_Strength_Osci_Value_Start_ANIMATED: 0
+    - _UVBus_4_Distortion_Texture_Tiling_ANIMATED: 0
+    - _UVBus_4_Distortion_Texture_UVBus: 0
+    - _UVBus_4_SkinnedVertex_XComponent: 0
+    - _UVBus_4_SkinnedVertex_YComponent: 2
+    - _UVBus_4_Source: 0
+    - _UVBus_4_VertexChannel_Channel: 0
+    - _UVBus_4_WorldLocation_XComponent: 0
+    - _UVBus_4_WorldLocation_YComponent: 2
+    - _UVBus_5_BakedVertex_XComponent: 0
+    - _UVBus_5_BakedVertex_YComponent: 2
+    - _UVBus_5_Distortion_Texture_Offset_ANIMATED: 0
+    - _UVBus_5_Distortion_Texture_ScrollSpeed_ANIMATED: 0
+    - _UVBus_5_Distortion_Texture_ScrollSpeed_TimeBase: 0
+    - _UVBus_5_Distortion_Texture_Strength: 0.1
+    - _UVBus_5_Distortion_Texture_Strength_ANIMATED: 0
+    - _UVBus_5_Distortion_Texture_Strength_Osci_Enabled: 0
+    - _UVBus_5_Distortion_Texture_Strength_Osci_Slot: 0
+    - _UVBus_5_Distortion_Texture_Strength_Osci_Value_End: 0.1
+    - _UVBus_5_Distortion_Texture_Strength_Osci_Value_End_ANIMATED: 0
+    - _UVBus_5_Distortion_Texture_Strength_Osci_Value_Start: 0.1
+    - _UVBus_5_Distortion_Texture_Strength_Osci_Value_Start_ANIMATED: 0
+    - _UVBus_5_Distortion_Texture_Tiling_ANIMATED: 0
+    - _UVBus_5_Distortion_Texture_UVBus: 0
+    - _UVBus_5_SkinnedVertex_XComponent: 0
+    - _UVBus_5_SkinnedVertex_YComponent: 2
+    - _UVBus_5_Source: 0
+    - _UVBus_5_VertexChannel_Channel: 0
+    - _UVBus_5_WorldLocation_XComponent: 0
+    - _UVBus_5_WorldLocation_YComponent: 2
+    - _UVBus_6_BakedVertex_XComponent: 0
+    - _UVBus_6_BakedVertex_YComponent: 2
+    - _UVBus_6_Distortion_Texture_Offset_ANIMATED: 0
+    - _UVBus_6_Distortion_Texture_ScrollSpeed_ANIMATED: 0
+    - _UVBus_6_Distortion_Texture_ScrollSpeed_TimeBase: 0
+    - _UVBus_6_Distortion_Texture_Strength: 0.1
+    - _UVBus_6_Distortion_Texture_Strength_ANIMATED: 0
+    - _UVBus_6_Distortion_Texture_Strength_Osci_Enabled: 0
+    - _UVBus_6_Distortion_Texture_Strength_Osci_Slot: 0
+    - _UVBus_6_Distortion_Texture_Strength_Osci_Value_End: 0.1
+    - _UVBus_6_Distortion_Texture_Strength_Osci_Value_End_ANIMATED: 0
+    - _UVBus_6_Distortion_Texture_Strength_Osci_Value_Start: 0.1
+    - _UVBus_6_Distortion_Texture_Strength_Osci_Value_Start_ANIMATED: 0
+    - _UVBus_6_Distortion_Texture_Tiling_ANIMATED: 0
+    - _UVBus_6_Distortion_Texture_UVBus: 0
+    - _UVBus_6_SkinnedVertex_XComponent: 0
+    - _UVBus_6_SkinnedVertex_YComponent: 2
+    - _UVBus_6_Source: 0
+    - _UVBus_6_VertexChannel_Channel: 0
+    - _UVBus_6_WorldLocation_XComponent: 0
+    - _UVBus_6_WorldLocation_YComponent: 2
+    - _UVSec: 0
+    - _VFGOO_ENABLE_GLITTER: 0
+    - _VFGOO_ENABLE_HSV_POSTPROCESSING: 0
+    - _VFGOO_ENABLE_MASK_BLEND_1: 0
+    - _VFGOO_ENABLE_MASK_BLEND_2: 0
+    - _VFGOO_ENABLE_MASK_BLEND_3: 0
+    - _VFGOO_ENABLE_MASK_BLEND_4: 0
+    - _VFGOO_ENABLE_MASK_BLEND_5: 0
+    - _VFGOO_ENABLE_MASK_BLEND_6: 0
+    - _VFGOO_ENABLE_MASK_BLEND_7: 0
+    - _VFGOO_ENABLE_MASK_BLEND_8: 0
+    - _VFGOO_ENABLE_MASK_CAPSULE_1: 0
+    - _VFGOO_ENABLE_MASK_CAPSULE_2: 0
+    - _VFGOO_ENABLE_MASK_CAPSULE_3: 0
+    - _VFGOO_ENABLE_MASK_CAPSULE_4: 0
+    - _VFGOO_ENABLE_MASK_CAPSULE_5: 0
+    - _VFGOO_ENABLE_MASK_CAPSULE_6: 0
+    - _VFGOO_ENABLE_MASK_CAPSULE_7: 0
+    - _VFGOO_ENABLE_MASK_CAPSULE_8: 0
+    - _VFGOO_ENABLE_MASK_DISTANCE_1: 0
+    - _VFGOO_ENABLE_MASK_DISTANCE_2: 0
+    - _VFGOO_ENABLE_MASK_MASSBLEND_1: 0
+    - _VFGOO_ENABLE_MASK_MASSBLEND_2: 0
+    - _VFGOO_ENABLE_MASK_POINT_LIGHTS: 0
+    - _VFGOO_ENABLE_MASK_RIM_1: 0
+    - _VFGOO_ENABLE_MASK_RIM_2: 0
+    - _VFGOO_ENABLE_MASK_RIM_3: 0
+    - _VFGOO_ENABLE_MASK_RIM_4: 0
+    - _VFGOO_ENABLE_MASK_SCROLL_1: 0
+    - _VFGOO_ENABLE_MASK_SCROLL_2: 0
+    - _VFGOO_ENABLE_MASK_TEXTURE_1: 1
+    - _VFGOO_ENABLE_MASK_TEXTURE_2: 1
+    - _VFGOO_ENABLE_MASK_TEXTURE_3: 0
+    - _VFGOO_ENABLE_MASK_TEXTURE_4: 0
+    - _VFGOO_ENABLE_MASK_TEXTURE_5: 0
+    - _VFGOO_ENABLE_MASK_TEXTURE_6: 0
+    - _VFGOO_ENABLE_MASK_TEXTURE_7: 0
+    - _VFGOO_ENABLE_MASK_TEXTURE_8: 0
+    - _VFGOO_ENABLE_MASK_TOUCH_REACTIVITY: 0
+    - _VFGOO_ENABLE_UV_BUS_1: 0
+    - _VFGOO_ENABLE_UV_BUS_2: 0
+    - _VFGOO_ENABLE_UV_BUS_3: 0
+    - _VFGOO_ENABLE_UV_BUS_4: 0
+    - _VFGOO_ENABLE_UV_BUS_5: 0
+    - _VFGOO_ENABLE_UV_BUS_6: 0
+    - _VFGOO_SHADOWCASTER_DISABLED: 0
+    - _World_ReflectionProbe_Tint_ANIMATED: 0
+    - _ZTest: 4
+    - _ZWrite: 1
+    m_Colors:
+    - _AddedEmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _AddedEmissionColor_Osci_Color_End: {r: 0, g: 0, b: 0, a: 1}
+    - _AddedEmissionColor_Osci_Color_Start: {r: 0, g: 0, b: 0, a: 1}
+    - _BackfaceFill_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _BumpMap_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _BumpMap_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _BumpMap_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _CapsuleMask_1_Axis: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_1_Axis_Osci_Color_End: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_1_Axis_Osci_Color_Start: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_1_Origin: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_1_Origin_Osci_Color_End: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_1_Origin_Osci_Color_Start: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_2_Axis: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_2_Axis_Osci_Color_End: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_2_Axis_Osci_Color_Start: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_2_Origin: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_2_Origin_Osci_Color_End: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_2_Origin_Osci_Color_Start: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_3_Axis: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_3_Axis_Osci_Color_End: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_3_Axis_Osci_Color_Start: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_3_Origin: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_3_Origin_Osci_Color_End: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_3_Origin_Osci_Color_Start: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_4_Axis: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_4_Axis_Osci_Color_End: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_4_Axis_Osci_Color_Start: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_4_Origin: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_4_Origin_Osci_Color_End: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_4_Origin_Osci_Color_Start: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_5_Axis: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_5_Axis_Osci_Color_End: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_5_Axis_Osci_Color_Start: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_5_Origin: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_5_Origin_Osci_Color_End: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_5_Origin_Osci_Color_Start: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_6_Axis: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_6_Axis_Osci_Color_End: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_6_Axis_Osci_Color_Start: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_6_Origin: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_6_Origin_Osci_Color_End: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_6_Origin_Osci_Color_Start: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_7_Axis: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_7_Axis_Osci_Color_End: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_7_Axis_Osci_Color_Start: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_7_Origin: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_7_Origin_Osci_Color_End: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_7_Origin_Osci_Color_Start: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_8_Axis: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_8_Axis_Osci_Color_End: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_8_Axis_Osci_Color_Start: {r: 0, g: 1, b: 0, a: 0}
+    - _CapsuleMask_8_Origin: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_8_Origin_Osci_Color_End: {r: 0, g: 0, b: 0, a: 0}
+    - _CapsuleMask_8_Origin_Osci_Color_Start: {r: 0, g: 0, b: 0, a: 0}
+    - _Color: {r: 0, g: 0.24313726, b: 0.7490196, a: 1}
+    - _Color_Osci_Color_End: {r: 1, g: 1, b: 1, a: 1}
+    - _Color_Osci_Color_Start: {r: 1, g: 1, b: 1, a: 1}
+    - _DetailNormalMap_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _DetailNormalMap_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _DetailNormalMap_Tiling: {r: 3.2, g: 3.2, b: 0, a: 0}
+    - _Diffuse_Shadow_Tint_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _EmissionColor2: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor2_Osci_Color_End: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor2_Osci_Color_Start: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor_Osci_Color_End: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor_Osci_Color_Start: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionMap2_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionMap2_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionMap2_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _EmissionMap_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionMap_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionMap_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _FakeCubemap_Tint2: {r: 1, g: 1, b: 1, a: 1}
+    - _FallbackLight_Color: {r: 1, g: 0.9568626, b: 0.8392157, a: 1}
+    - _FallbackLight_Direction: {r: 0.57735026, g: 0.57735026, b: 0.57735026, a: 1}
+    - _Glitter_Brightness_MinMax: {r: 0, g: 1, b: 0, a: 0}
+    - _Glitter_Brightness_MinMax_Osci_Color_End: {r: 0, g: 1, b: 0, a: 0}
+    - _Glitter_Brightness_MinMax_Osci_Color_Start: {r: 0, g: 1, b: 0, a: 0}
+    - _Glitter_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Glitter_Color_Osci_Color_End: {r: 1, g: 1, b: 1, a: 1}
+    - _Glitter_Color_Osci_Color_Start: {r: 1, g: 1, b: 1, a: 1}
+    - _Glitter_HSV_Hue_MinMax: {r: 0, g: 0.2, b: 0, a: 0}
+    - _Glitter_HSV_Hue_MinMax_Osci_Color_End: {r: 0, g: 0.2, b: 0, a: 0}
+    - _Glitter_HSV_Hue_MinMax_Osci_Color_Start: {r: 0, g: 0.2, b: 0, a: 0}
+    - _Glitter_HSV_Saturation_MinMax: {r: -0.1, g: 1, b: 0, a: 0}
+    - _Glitter_HSV_Saturation_MinMax_Osci_Color_End: {r: -0.1, g: 1, b: 0, a: 0}
+    - _Glitter_HSV_Saturation_MinMax_Osci_Color_Start: {r: -0.1, g: 1, b: 0, a: 0}
+    - _Glitter_Opacity_MinMax: {r: 0.5, g: 1, b: 0, a: 0}
+    - _Glitter_Opacity_MinMax_Osci_Color_End: {r: 0.5, g: 1, b: 0, a: 0}
+    - _Glitter_Opacity_MinMax_Osci_Color_Start: {r: 0.5, g: 1, b: 0, a: 0}
+    - _Glitter_Size_MinMax: {r: 0.25, g: 0.5, b: 0, a: 0}
+    - _Glitter_Size_MinMax_Osci_Color_End: {r: 0.25, g: 0.5, b: 0, a: 0}
+    - _Glitter_Size_MinMax_Osci_Color_Start: {r: 0.25, g: 0.5, b: 0, a: 0}
+    - _Glitter_Texture_Map_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Glitter_Texture_Map_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Glitter_Texture_Zoom_MinMax: {r: 1, g: 1, b: 0, a: 0}
+    - _Glitter_Texture_Zoom_MinMax_Osci_Color_End: {r: 1, g: 1, b: 0, a: 0}
+    - _Glitter_Texture_Zoom_MinMax_Osci_Color_Start: {r: 1, g: 1, b: 0, a: 0}
+    - _Glitter_UV_Scroll_Speed: {r: 0, g: 0, b: 0, a: 0}
+    - _Goo_Drip_Gravity_Vector: {r: 0, g: -1, b: 0, a: 0}
+    - _Goo_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Goo_Offset_Osci_Color_End: {r: 0, g: 0, b: 0, a: 0}
+    - _Goo_Offset_Osci_Color_Start: {r: 0, g: 0, b: 0, a: 0}
+    - _Goo_Speed: {r: 0, g: 0.5, b: 0.5, a: 0}
+    - _GrabPass_Tint_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _GrabPass_Tint_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _GrabPass_Tint_Texture_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _GrabPass_Tint_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _IntersectionModulation_Color_Target: {r: 1, g: 1, b: 1, a: 1}
+    - _LightProbe_Shadow_Tint_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _MainTex_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _MainTex_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _MainTex_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _MaskChannel_1_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_1_Texture_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_1_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _MaskChannel_2_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_2_Texture_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_2_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _MaskChannel_3_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_3_Texture_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_3_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _MaskChannel_4_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_4_Texture_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_4_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _MaskChannel_5_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_5_Texture_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_5_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _MaskChannel_6_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_6_Texture_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_6_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _MaskChannel_7_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_7_Texture_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_7_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _MaskChannel_8_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_8_Texture_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _MaskChannel_8_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Matcap_1_Color: {r: 0.4056604, g: 0.4037469, b: 0.4037469, a: 1}
+    - _Matcap_1_Color_Osci_Color_End: {r: 1, g: 1, b: 1, a: 1}
+    - _Matcap_1_Color_Osci_Color_Start: {r: 1, g: 1, b: 1, a: 1}
+    - _Matcap_2_Color: {r: 0.4056604, g: 0.39991993, b: 0.39991993, a: 1}
+    - _Matcap_2_Color_Osci_Color_End: {r: 1, g: 1, b: 1, a: 1}
+    - _Matcap_2_Color_Osci_Color_Start: {r: 1, g: 1, b: 1, a: 1}
+    - _Matcap_3_Color: {r: 0.4339623, g: 0.4278213, b: 0.4278213, a: 1}
+    - _Matcap_3_Color_Osci_Color_End: {r: 1, g: 1, b: 1, a: 1}
+    - _Matcap_3_Color_Osci_Color_Start: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_AddedEmissionColor: {r: 0, g: 1.3532083, b: 5.656854, a: 1}
+    - _Mix_AddedEmissionColor_Osci_Color_End: {r: 0, g: 0, b: 0, a: 1}
+    - _Mix_AddedEmissionColor_Osci_Color_Start: {r: 0, g: 0, b: 0, a: 1}
+    - _Mix_BumpMap_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_BumpMap_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_BumpMap_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Mix_Color: {r: 0.7490196, g: 0.3529412, b: 0.7490196, a: 1}
+    - _Mix_Color_Osci_Color_End: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_Color_Osci_Color_Start: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_DetailNormalMap_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_DetailNormalMap_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_DetailNormalMap_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Mix_EmissionColor: {r: 0, g: 1.3532083, b: 5.656854, a: 1}
+    - _Mix_EmissionColor2: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_EmissionColor2_Osci_Color_End: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_EmissionColor2_Osci_Color_Start: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_EmissionColor_Osci_Color_End: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_EmissionColor_Osci_Color_Start: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_EmissionMap2_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_EmissionMap2_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_EmissionMap2_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Mix_EmissionMap_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_EmissionMap_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_EmissionMap_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Mix_MainTex_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_MainTex_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_MainTex_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Mix_Matcap_1_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_Matcap_1_Color_Osci_Color_End: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_Matcap_1_Color_Osci_Color_Start: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_Matcap_2_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_Matcap_2_Color_Osci_Color_End: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_Matcap_2_Color_Osci_Color_Start: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_Matcap_3_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_Matcap_3_Color_Osci_Color_End: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_Matcap_3_Color_Osci_Color_Start: {r: 1, g: 1, b: 1, a: 1}
+    - _Mix_OcclusionMap_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_OcclusionMap_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_OcclusionMap_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Mix_SecondaryTex_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_SecondaryTex_Color_Osci_Color_End: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_SecondaryTex_Color_Osci_Color_Start: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_SecondaryTex_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_SecondaryTex_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _Mix_SecondaryTex_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _OcclusionMap_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _OcclusionMap_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _OcclusionMap_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Outline_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _ScrollMask_1_Axis: {r: 0, g: 1, b: 0, a: 0}
+    - _ScrollMask_2_Axis: {r: 0, g: 1, b: 0, a: 0}
+    - _SecondaryTex_Color: {r: 0, g: 0, b: 0, a: 0}
+    - _SecondaryTex_Color_Osci_Color_End: {r: 0, g: 0, b: 0, a: 0}
+    - _SecondaryTex_Color_Osci_Color_Start: {r: 0, g: 0, b: 0, a: 0}
+    - _SecondaryTex_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _SecondaryTex_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _SecondaryTex_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Specular_Tint: {r: 1, g: 1, b: 1, a: 1}
+    - _TF_AnimationMap_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _TF_AnimationMap_Scale: {r: 6, g: 6, b: 6, a: 0}
+    - _TF_Animation_Radial_Origin: {r: 0, g: 0.86484325, b: 0.1665348, a: 0}
+    - _UVBus_1_Distortion_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _UVBus_1_Distortion_Texture_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _UVBus_1_Distortion_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _UVBus_2_Distortion_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _UVBus_2_Distortion_Texture_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _UVBus_2_Distortion_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _UVBus_3_Distortion_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _UVBus_3_Distortion_Texture_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _UVBus_3_Distortion_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _UVBus_4_Distortion_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _UVBus_4_Distortion_Texture_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _UVBus_4_Distortion_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _UVBus_5_Distortion_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _UVBus_5_Distortion_Texture_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _UVBus_5_Distortion_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _UVBus_6_Distortion_Texture_Offset: {r: 0, g: 0, b: 0, a: 0}
+    - _UVBus_6_Distortion_Texture_ScrollSpeed: {r: 0, g: 0, b: 0, a: 0}
+    - _UVBus_6_Distortion_Texture_Tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _World_ReflectionProbe_Tint: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []

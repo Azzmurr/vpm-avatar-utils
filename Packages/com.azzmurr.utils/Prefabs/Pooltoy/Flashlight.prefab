@@ -1,0 +1,547 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3243202641412897613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1515626287944058904}
+  - component: {fileID: 1532570197983577551}
+  m_Layer: 0
+  m_Name: Lightbulb
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1515626287944058904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243202641412897613}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.342661e-11, y: 0.043104123, z: -0.0000000036627226}
+  m_LocalScale: {x: 1.0581884, y: 1.0581884, z: 1.0581892}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1127615002502481103}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!137 &1532570197983577551
+SkinnedMeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3243202641412897613}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 3
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 232978bfcb3a9a34aa382d7e3fac6c12, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  serializedVersion: 2
+  m_Quality: 0
+  m_UpdateWhenOffscreen: 1
+  m_SkinnedMotionVectors: 1
+  m_Mesh: {fileID: -8677152096842172617, guid: 6496f608622396248a128804b44fedfd, type: 3}
+  m_Bones: []
+  m_BlendShapeWeights:
+  - 0
+  - 100
+  - 100
+  - 100
+  - 0
+  m_RootBone: {fileID: 0}
+  m_AABB:
+    m_Center: {x: 0.0000032708049, y: -0.056675337, z: -0.000000404194}
+    m_Extent: {x: 0.028994258, y: 0.05704528, z: 0.028924758}
+  m_DirtyAABB: 0
+--- !u!1 &4623004624249968348
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6042350322962964144}
+  - component: {fileID: 7040424832691861833}
+  m_Layer: 0
+  m_Name: Ring
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &6042350322962964144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4623004624249968348}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.0738, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 6703948819653985469}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &7040424832691861833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4623004624249968348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 703106f8586c4f64b5aa39b6b4676684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 8
+  unityVersion: 2022.3.22f1
+  vrcfuryVersion: 1.1249.0
+  addLight: 4
+  name: Flashlight Ring
+  enableHandTouchZone2: 0
+  length: 0
+  unitsInMeters: 0
+  addMenuItem: 1
+  menuIcon:
+    version: 1
+    fileID: 0
+    guid: 
+    id: 
+    objRef: {fileID: 0}
+  enableAuto: 1
+  position: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 0, z: 0}
+  depthActions2:
+  - actionSet:
+      actions:
+      - rid: 0
+    range: {x: 0.005, y: 0.015}
+    units: 2
+    enableSelf: 1
+    smoothingSeconds: 0
+    reverseClip: 0
+  - actionSet:
+      actions:
+      - rid: 1
+    range: {x: -0.005, y: 0.005}
+    units: 2
+    enableSelf: 1
+    smoothingSeconds: 0
+    reverseClip: 0
+  - actionSet:
+      actions:
+      - rid: 2
+    range: {x: -0.02, y: -0.005}
+    units: 2
+    enableSelf: 1
+    smoothingSeconds: 0
+    reverseClip: 0
+  - actionSet:
+      actions:
+      - rid: 3
+    range: {x: -0.03, y: -0.02}
+    units: 2
+    enableSelf: 1
+    smoothingSeconds: 0
+    reverseClip: 0
+  activeActions:
+    actions:
+    - rid: 7690906338585214976
+  useHipAvoidance: 1
+  enablePlugLengthParameter: 0
+  plugLengthParameterName: 
+  enablePlugWidthParameter: 0
+  plugWidthParameterName: 
+  enableDepthAnimations: 1
+  depthActions: []
+  enableActiveAnimation: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 0
+      type: {class: BlendShapeAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 0
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        blendShape: Close
+        blendShapeValue: 0
+        renderer: {fileID: 1532570197983577551}
+        allRenderers: 0
+    - rid: 1
+      type: {class: BlendShapeAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 0
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        blendShape: Smaller
+        blendShapeValue: 0
+        renderer: {fileID: 1532570197983577551}
+        allRenderers: 0
+    - rid: 2
+      type: {class: BlendShapeAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 0
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        blendShape: Small
+        blendShapeValue: 0
+        renderer: {fileID: 1532570197983577551}
+        allRenderers: 0
+    - rid: 3
+      type: {class: BlendShapeAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 0
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        blendShape: Big
+        blendShapeValue: 100
+        renderer: {fileID: 1532570197983577551}
+        allRenderers: 0
+    - rid: 7690906338585214976
+      type: {class: ObjectToggleAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 1
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        obj: {fileID: 3243202641412897613}
+        mode: 0
+--- !u!1 &6881349624217101003
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1127615002502481103}
+  - component: {fileID: 8641386236787148531}
+  m_Layer: 0
+  m_Name: Flashlight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1127615002502481103
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6881349624217101003}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.01745245, y: -0, z: -0, w: 0.99984777}
+  m_LocalPosition: {x: 0, y: 0.9463, z: -0.0287}
+  m_LocalScale: {x: 1.5, y: 1.5000001, z: 1.5000001}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1515626287944058904}
+  - {fileID: 6703948819653985469}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 2, y: 0, z: 0}
+--- !u!114 &8641386236787148531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6881349624217101003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e94e501a2d4c95bff3d5601013d923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  unityVersion: 2022.3.22f1
+  vrcfuryVersion: 1.1249.0
+  somethingIsBroken: 0
+  config:
+    features: []
+  content:
+    rid: 7690906335650513154
+  references:
+    version: 2
+    RefIds:
+    - rid: 7690906335650513154
+      type: {class: ArmatureLink, ns: VF.Model.Feature, asm: VRCFury}
+      data:
+        version: 7
+        propBone: {fileID: 6881349624217101003}
+        linkTo:
+        - useBone: 1
+          bone: 0
+          useObj: 0
+          obj: {fileID: 0}
+          offset: 
+        removeBoneSuffix: 
+        removeParentConstraints: 1
+        forceMergedName: 
+        forceOneWorldScale: 0
+        recursive: 0
+        alignPosition: 0
+        alignRotation: 0
+        alignScale: 0
+        autoScaleFactor: 0
+        scalingFactorPowersOf10Only: 1
+        skinRewriteScalingFactor: 1
+        useOptimizedUpload: 0
+        useBoneMerging: 0
+        keepBoneOffsets: 0
+        physbonesOnAvatarBones: 0
+        boneOnAvatar: 0
+        bonePathOnAvatar: 
+        fallbackBones: 
+        keepBoneOffsets2: 0
+        linkMode: 4
+--- !u!1 &7124604671301449158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2565802908690256045}
+  - component: {fileID: 2851939291222336093}
+  m_Layer: 0
+  m_Name: Hole
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2565802908690256045
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7124604671301449158}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.0738, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 6703948819653985469}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &2851939291222336093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7124604671301449158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 703106f8586c4f64b5aa39b6b4676684, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 8
+  unityVersion: 2022.3.22f1
+  vrcfuryVersion: 1.1249.0
+  addLight: 1
+  name: Flashlight Hole
+  enableHandTouchZone2: 0
+  length: 0
+  unitsInMeters: 0
+  addMenuItem: 1
+  menuIcon:
+    version: 1
+    fileID: 0
+    guid: 
+    id: 
+    objRef: {fileID: 0}
+  enableAuto: 1
+  position: {x: 0, y: 0, z: 0}
+  rotation: {x: 0, y: 0, z: 0}
+  depthActions2:
+  - actionSet:
+      actions:
+      - rid: 0
+    range: {x: 0.005, y: 0.015}
+    units: 2
+    enableSelf: 1
+    smoothingSeconds: 0
+    reverseClip: 0
+  - actionSet:
+      actions:
+      - rid: 1
+    range: {x: -0.005, y: 0.005}
+    units: 2
+    enableSelf: 1
+    smoothingSeconds: 0
+    reverseClip: 0
+  - actionSet:
+      actions:
+      - rid: 2
+    range: {x: -0.02, y: -0.005}
+    units: 2
+    enableSelf: 1
+    smoothingSeconds: 0
+    reverseClip: 0
+  - actionSet:
+      actions:
+      - rid: 3
+    range: {x: -0.03, y: -0.02}
+    units: 2
+    enableSelf: 1
+    smoothingSeconds: 0
+    reverseClip: 0
+  activeActions:
+    actions:
+    - rid: 7690906335650513152
+  useHipAvoidance: 1
+  enablePlugLengthParameter: 0
+  plugLengthParameterName: 
+  enablePlugWidthParameter: 0
+  plugWidthParameterName: 
+  enableDepthAnimations: 1
+  depthActions: []
+  enableActiveAnimation: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: 0
+      type: {class: BlendShapeAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 0
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        blendShape: Close
+        blendShapeValue: 0
+        renderer: {fileID: 1532570197983577551}
+        allRenderers: 0
+    - rid: 1
+      type: {class: BlendShapeAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 0
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        blendShape: Smaller
+        blendShapeValue: 0
+        renderer: {fileID: 1532570197983577551}
+        allRenderers: 0
+    - rid: 2
+      type: {class: BlendShapeAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 0
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        blendShape: Small
+        blendShapeValue: 0
+        renderer: {fileID: 1532570197983577551}
+        allRenderers: 0
+    - rid: 3
+      type: {class: BlendShapeAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 0
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        blendShape: Big
+        blendShapeValue: 100
+        renderer: {fileID: 1532570197983577551}
+        allRenderers: 0
+    - rid: 7690906335650513152
+      type: {class: ObjectToggleAction, ns: VF.Model.StateAction, asm: VRCFury}
+      data:
+        version: 1
+        desktopActive: 0
+        androidActive: 0
+        localOnly: 0
+        remoteOnly: 0
+        obj: {fileID: 3243202641412897613}
+        mode: 0
+--- !u!1 &8448998540566150992
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6703948819653985469}
+  m_Layer: 0
+  m_Name: SPS Sockets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6703948819653985469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8448998540566150992}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 6042350322962964144}
+  - {fileID: 2565802908690256045}
+  m_Father: {fileID: 1127615002502481103}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

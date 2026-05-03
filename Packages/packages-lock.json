@@ -1,7 +1,7 @@
 {
   "dependencies": {
-    "com.azzmurr.common": {
-      "version": "file:com.azzmurr.avatar-bootstrap",
+    "com.azzmurr.utils": {
+      "version": "file:com.azzmurr.utils",
       "depth": 0,
       "source": "embedded",
       "dependencies": {}
@@ -90,8 +90,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.postprocessing": {
-      "version": "3.4.0",
-      "depth": 1,
+      "version": "3.2.2",
+      "depth": 0,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.physics": "1.0.0"
@@ -219,6 +219,12 @@
       "dependencies": {
         "com.unity.nuget.newtonsoft-json": "3.0.2"
       }
+    },
+    "gay.shader.goo_2": {
+      "version": "file:gay.shader.goo_2",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {}
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
