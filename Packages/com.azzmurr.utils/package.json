@@ -7,9 +7,9 @@
   "vrchatVersion": "2022.1.1",
   "vpmDependencies": {},
   "legacyFolders": {
-    "Pacages\\com.azzmurr.transformation-controller": "",
-    "Pacages\\com.azzmurr.avatar-bootstrap": "",
-    "Pacages\\com.azzmurr.com.azzmurr.texture-manager": ""
+    "Packages\\com.azzmurr.transformation-controller": "",
+    "Packages\\com.azzmurr.avatar-bootstrap": "",
+    "Packages\\com.azzmurr.com.azzmurr.texture-manager": ""
   },
   "author": {
     "name": "Azzmurr",
