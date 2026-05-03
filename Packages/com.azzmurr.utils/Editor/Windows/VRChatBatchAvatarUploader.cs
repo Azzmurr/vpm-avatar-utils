@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEditor.UIElements;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 using VRC.Core;
 using VRC.SDK3.Avatars.Components;
@@ -193,7 +194,7 @@ namespace Azzmurr.Utils {
             avatarList.columns.Add(new Column {
                 title = "Game Object",
                 width = 200,
-                makeCell = () => new Label(),
+                makeCell = () => new Label { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft, marginLeft = 8 } },
                 bindCell = (element, index) => {
                     var avatarEntry = (AvatarEntry)avatarList.viewController.GetItemForIndex(index);
                     ((Label)element).text = avatarEntry.Name;
@@ -203,7 +204,7 @@ namespace Azzmurr.Utils {
             avatarList.columns.Add(new Column {
                 title = "Blueprint ID",
                 width = 200,
-                makeCell = () => new Label(),
+                makeCell = () => new Label { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft, marginLeft = 8 } },
                 bindCell = (element, index) => {
                     var avatarEntry = (AvatarEntry)avatarList.viewController.GetItemForIndex(index);
                     var hasBlueprint = string.IsNullOrEmpty(avatarEntry.BlueprintId);
@@ -220,16 +221,26 @@ namespace Azzmurr.Utils {
             avatarList.columns.Add(new Column {
                 title = "Status",
                 width = 200,
-                makeCell = () => new Label(),
+                makeCell = () => new Label { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft, marginLeft = 8 } },
                 bindCell = (element, index) => {
                     var avatarEntry = (AvatarEntry)avatarList.viewController.GetItemForIndex(index);
-                    ((Label)element).text = avatarEntry.Status;
+                    ((Label)element).text = avatarEntry.State switch {
+                        "InProgress" => $"○ {avatarEntry.Status}",
+                        "Error" => $"✗ {avatarEntry.Status}",
+                        "Success" => $"✓ {avatarEntry.Status}",
+                        _ => avatarEntry.Status
+                    };
+
+                    ((Label)element).style.color = avatarEntry.State switch {
+                        "InProgress" => new Color(0.9f, 0.4f, 0.0f),
+                        "Error" => new Color(0.8f, 0.2f, 0.2f),
+                        "Success" => new Color(0.2f, 0.8f, 0.2f),
+                        _ => Color.white
+                    };
                 }
             });
 
             _avatarsGUI = avatarList;
-
-            RescanSelectedFolder();
 
             return avatarList;
         }
@@ -279,6 +290,8 @@ namespace Azzmurr.Utils {
                 return new List<AvatarEntry>();
             }
 
+            var currentScene = SceneManager.GetActiveScene();
+
             var folderPath = AssetDatabase.GetAssetPath(folder);
             var sceneGUIDs = AssetDatabase.FindAssets("t:Scene", new[] { folderPath });
             var allAvatars = new List<AvatarEntry>();
@@ -292,6 +305,8 @@ namespace Azzmurr.Utils {
 
                 EditorSceneManager.CloseScene(scene, true);
             }
+
+            EditorSceneManager.OpenScene(currentScene.path, OpenSceneMode.Single);
 
             return allAvatars;
         }
@@ -364,6 +379,7 @@ namespace Azzmurr.Utils {
         private async Task<bool> UploadAvatar(IVRCSdkAvatarBuilderApi builder, AvatarEntry entry, CancellationToken ct) {
             try {
                 entry.Status = "Uploading...";
+                entry.State = "InProgress";
                 _avatarsGUI.RefreshItems();
                 await AddCopyrightAgreement(entry.BlueprintId);
 
@@ -392,15 +408,22 @@ namespace Azzmurr.Utils {
                     _avatarsGUI.RefreshItems();
                 };
 
+                builder.OnSdkUploadProgress += (sender, message) => {
+                    entry.Status = $"{message.status} / {message.percentage}";
+                    _avatarsGUI.RefreshItems();
+                };
+
                 var av = await VRCApi.GetAvatar(entry.BlueprintId, false, ct);
                 await builder.BuildAndUpload(targetDescriptor.gameObject, av, cancellationToken: ct);
 
                 entry.Status = "Done";
+                entry.State = "Success";
                 _avatarsGUI.RefreshItems();
                 return true;
             }
             catch (NullReferenceException e) {
                 entry.Status = "SDK Control Panel not opened";
+                entry.State = "Error";
                 EditorUtility.DisplayDialog("Batch Avatar Uploader", "SDK Control Panel hasn't been opened yet. Please open the SDK Control Panel and try again.", "OK");
                 Debug.LogError(e.Message + e.StackTrace);
                 return false;
@@ -410,6 +433,7 @@ namespace Azzmurr.Utils {
                 Debug.LogError(e.Message + e.StackTrace);
                 if (e.Message.Contains("Avatar validation failed")) {
                     entry.Status = "Validation Failed";
+                    entry.State = "Error";
                     _avatarsGUI.RefreshItems();
                     EditorUtility.DisplayDialog("Batch Avatar Uploader", "Validation Failed for " + entry.Name + ".\nPlease fix the errors and try again.", "OK");
                 }
@@ -418,6 +442,7 @@ namespace Azzmurr.Utils {
             }
             catch (ValidationException e) {
                 entry.Status = e.Message;
+                entry.State = "Error";
                 _avatarsGUI.RefreshItems();
                 EditorUtility.DisplayDialog("Batch Avatar Uploader", e.Message + "\n" + string.Join("\n", e.Errors), "OK");
                 Debug.LogError(e.Message + e.StackTrace);
@@ -426,6 +451,7 @@ namespace Azzmurr.Utils {
             }
             catch (OwnershipException e) {
                 entry.Status = e.Message;
+                entry.State = "Error";
                 _avatarsGUI.RefreshItems();
                 EditorUtility.DisplayDialog("Batch Avatar Uploader", e.Message, "OK");
                 Debug.LogError(e.Message + e.StackTrace);
@@ -433,6 +459,7 @@ namespace Azzmurr.Utils {
             }
             catch (UploadException e) {
                 entry.Status = e.Message;
+                entry.State = "Error";
                 _avatarsGUI.RefreshItems();
                 EditorUtility.DisplayDialog("Batch Avatar Uploader", e.Message, "OK");
                 Debug.LogError(e.Message + e.StackTrace);
@@ -440,11 +467,13 @@ namespace Azzmurr.Utils {
             }
             catch (OperationCanceledException) {
                 entry.Status = "Cancelled";
+                entry.State = "Error";
                 _avatarsGUI.RefreshItems();
                 return false;
             }
             catch (Exception e) {
                 entry.Status = "Unknown Error";
+                entry.State = "Error";
                 _avatarsGUI.RefreshItems();
                 Debug.LogError(e.Message + e.StackTrace);
                 EditorUtility.DisplayDialog("Batch Avatar Uploader", e.Message + "\n" + e.StackTrace, "OK");
@@ -478,6 +507,7 @@ namespace Azzmurr.Utils {
             public readonly string BlueprintId;
             public readonly string Name;
             public bool Selected;
+            public string State;
             public string Status;
 
             public AvatarEntry(GameObject avatar) {
@@ -491,6 +521,7 @@ namespace Azzmurr.Utils {
 
                 Selected = false;
                 Status = "Pending";
+                State = "Pending";
             }
         }
     }
