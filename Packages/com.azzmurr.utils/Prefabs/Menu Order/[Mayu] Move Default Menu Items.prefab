@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4973148609861640340}
   - component: {fileID: 932698445332461192}
   - component: {fileID: -2861348764349043714}
+  - component: {fileID: 1802427627745989900}
   - component: {fileID: 4542414896831147263}
   - component: {fileID: 2145560202272022940}
   - component: {fileID: 922695604074685153}
@@ -53,7 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 3
   unityVersion: 2022.3.22f1
-  vrcfuryVersion: 1.1238.0
+  vrcfuryVersion: 1.1334.0
   somethingIsBroken: 0
   config:
     features: []
@@ -82,7 +83,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 3
   unityVersion: 2022.3.22f1
-  vrcfuryVersion: 1.1238.0
+  vrcfuryVersion: 1.1334.0
   somethingIsBroken: 0
   config:
     features: []
@@ -96,7 +97,7 @@ MonoBehaviour:
       data:
         version: 3
         fromPath: Body Controls/Locomotion
-        toPath: Locomotion
+        toPath: GoGo Loco
 --- !u!114 &-2861348764349043714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 3
   unityVersion: 2022.3.22f1
-  vrcfuryVersion: 1.1238.0
+  vrcfuryVersion: 1.1334.0
   somethingIsBroken: 0
   config:
     features: []
@@ -125,7 +126,36 @@ MonoBehaviour:
       data:
         version: 3
         fromPath: Body Controls/Poses
-        toPath: Locomotion/Poses
+        toPath: GoGo Loco/Poses
+--- !u!114 &1802427627745989900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3331046038407145092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e94e501a2d4c95bff3d5601013d923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  unityVersion: 2022.3.22f1
+  vrcfuryVersion: 1.1334.0
+  somethingIsBroken: 0
+  config:
+    features: []
+  content:
+    rid: 6988697823829819602
+  references:
+    version: 2
+    RefIds:
+    - rid: 6988697823829819602
+      type: {class: MoveMenuItem, ns: VF.Model.Feature, asm: VRCFury}
+      data:
+        version: 3
+        fromPath: Body Controls/Emotes
+        toPath: GoGo Loco/Emotes
 --- !u!114 &4542414896831147263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 3
   unityVersion: 2022.3.22f1
-  vrcfuryVersion: 1.1238.0
+  vrcfuryVersion: 1.1334.0
   somethingIsBroken: 0
   config:
     features: []
@@ -169,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 3
   unityVersion: 2022.3.22f1
-  vrcfuryVersion: 1.1238.0
+  vrcfuryVersion: 1.1334.0
   somethingIsBroken: 0
   config:
     features: []
@@ -198,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 3
   unityVersion: 2022.3.22f1
-  vrcfuryVersion: 1.1238.0
+  vrcfuryVersion: 1.1334.0
   somethingIsBroken: 0
   config:
     features: []
@@ -227,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 3
   unityVersion: 2022.3.22f1
-  vrcfuryVersion: 1.1238.0
+  vrcfuryVersion: 1.1334.0
   somethingIsBroken: 0
   config:
     features: []
@@ -256,7 +286,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 3
   unityVersion: 2022.3.22f1
-  vrcfuryVersion: 1.1238.0
+  vrcfuryVersion: 1.1334.0
   somethingIsBroken: 0
   config:
     features: []
