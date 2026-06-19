@@ -120,28 +120,30 @@ namespace Azzmurr.Utils {
                 new() {
                     Name = "Poiyomi",
                     Actions = new List<Button> {
-                        new(() => { DoAndRedraw(() => _avatar.UnlockMaterials()); }) { text = "Unlock" },
-                        new(() => { DoAndRedraw(() => _avatar.UpdateMaterials()); }) { text = "Update" },
-                        new(() => { DoAndRedraw(() => _avatar.LockMaterials()); }) { text = "Lock" },
+                        new(() => { DoAndRedraw(() => _avatar.UnlockMaterials()); }) { text = "Unlock", style = { maxWidth = 162 }},
+                        new(() => { DoAndRedraw(() => _avatar.UpdateMaterials()); }) { text = "Update", style = { maxWidth = 150 }},
+                        new(() => { DoAndRedraw(() => _avatar.LockMaterials()); }) { text = "Lock", style = { maxWidth = 150 }},
                     }
                 },
                 new() {
                     Name = "PC Textures",
                     Actions = new List<Button> {
-                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(1024)); }) { text = "-> 1k" },
-                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(2048)); }) { text = "-> 2k" },
-                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(4096)); }) { text = "-> 4k" },
-                        new(() => { DoAndRedraw(() => _avatar.SetBestPCFormat()); }) { text = "Set Best Format" },
-                        new(() => { DoAndRedraw(() => _avatar.CrunchThemAll()); }) { text = "CRUNCH THEM ALL" },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(1024)); }) { text = "-> 1k", style = { maxWidth = 50}},
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(2048)); }) { text = "-> 2k", style = { maxWidth = 50}},
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(4096)); }) { text = "-> 4k", style = { maxWidth = 50}},
+                        new(() => { DoAndRedraw(() => _avatar.SetBestPCFormat()); }) { text = "Set Best Format", style = { maxWidth = 150 }},
+                        new(() => { DoAndRedraw(() => _avatar.CrunchThemAll()); }) { text = "CRUNCH THEM ALL", style = { maxWidth = 150 }},
                     }
                 },
                 new() {
                     Name = "Android Textures",
                     Actions = new List<Button> {
-                        new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(1024)); }) { text = "-> 1k" },
-                        new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(2048)); }) { text = "-> 2k" },
-                        new(() => { DoAndRedraw(() => _avatar.MakeTexturesReadyForAndroid()); }) { text = "Prepare for Android" },
-                        new(() => { DoAndRedraw(() => _avatar.CreateQuestMaterialPresets()); }) { text = "Create Quest Material Presets" },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(1024)); }) { text = "-> 1k", style = { maxWidth = 50}},
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(2048)); }) { text = "-> 2k", style = { maxWidth = 50}},
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(4096)); }) { text = "-> 4k", style = { maxWidth = 50}},
+                        new(() => { DoAndRedraw(() => _avatar.SetBestAndroidFormat()); }) { text = "Set Best Format", style = { maxWidth = 150 }},
+                        new(() => { DoAndRedraw(() => _avatar.MakeTexturesReadyForAndroid()); }) { text = "Prepare for Android", style = { maxWidth = 150 }},
+                        new(() => { DoAndRedraw(() => _avatar.CreateQuestMaterialPresets()); }) { text = "Create Quest Material Presets", style = { maxWidth = 200 }},
                     }
                 },
             };

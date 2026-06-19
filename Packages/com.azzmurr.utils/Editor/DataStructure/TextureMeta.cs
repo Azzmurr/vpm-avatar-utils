@@ -68,7 +68,7 @@ namespace Azzmurr.Utils {
             Importer.SaveAndReimport();
         }
 
-        public void ChangeImportSizeAndroid(int size) {
+        public void ChangeAndroidImportSize(int size) {
             if (!TextureWithChangeableResolution) return;
 
             var settings = Importer.GetPlatformTextureSettings("Android");

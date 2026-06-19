@@ -51,7 +51,7 @@ namespace Azzmurr.Utils {
 
         public void ChangeAllPCTexturesSize(int size = 2048) {
             ForeachTexture(texture => {
-                if (texture.PcResolution > size) texture.ChangePCImportSize(size);
+                if (texture.PcResolution != size) texture.ChangePCImportSize(size);
             });
 
             Recalculate();
@@ -59,7 +59,7 @@ namespace Azzmurr.Utils {
 
         public void ChangeAllAndroidTexturesSize(int size = 1024) {
             ForeachTexture(texture => {
-                if (texture.AndroidResolution > size) texture.ChangePCImportSize(size);
+                if (texture.AndroidResolution != size) texture.ChangeAndroidImportSize(size);
             });
 
             Recalculate();
@@ -68,7 +68,7 @@ namespace Azzmurr.Utils {
         public void MakeTexturesReadyForAndroid() {
             ForeachTexture(texture => {
                 if (texture.AndroidResolution > texture.PcResolution / 2 && texture.PcResolution > 512)
-                    texture.ChangeImportSizeAndroid(texture.PcResolution / 2);
+                    texture.ChangeAndroidImportSize(texture.PcResolution / 2);
             });
 
             Recalculate();
@@ -87,7 +87,17 @@ namespace Azzmurr.Utils {
         public void SetBestPCFormat() {
             ForeachTexture(texture => {
                 if (texture.BestPCTextureFormat != null && texture.PCFormat != null && texture.PCFormat != texture.BestPCTextureFormat) {
-                    texture.ChangePCImporterFormat((TextureImporterFormat)texture.BestPCTextureFormat);
+                    texture.ChangePCImporterFormat(texture.BestPCTextureFormat);
+                }
+            });
+
+            Recalculate();
+        }
+
+        public void SetBestAndroidFormat() {
+            ForeachTexture(texture => {
+                if (texture.BestAndroidTextureFormat != null && texture.AndroidFormat != null && texture.AndroidFormat != texture.BestAndroidTextureFormat) {
+                    texture.ChangePCImporterFormat(texture.BestAndroidTextureFormat);
                 }
             });
 
