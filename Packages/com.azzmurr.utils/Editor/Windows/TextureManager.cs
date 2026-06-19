@@ -8,13 +8,20 @@ using UnityEngine.UIElements;
 
 namespace Azzmurr.Utils {
     internal class TextureManager : EditorWindow {
-        private readonly List<TextureImporterFormat> _compressionFormatOptions = new() {
+        private readonly List<TextureImporterFormat> _compressionPCFormatOptions = new() {
             TextureImporterFormat.Automatic,
             TextureImporterFormat.BC7,
+            TextureImporterFormat.BC5,
             TextureImporterFormat.DXT1,
             TextureImporterFormat.DXT5,
             TextureImporterFormat.DXT1Crunched,
             TextureImporterFormat.DXT5Crunched
+        };
+
+        private readonly List<TextureImporterFormat> _compressionAndroidFormatOptions = new() {
+            TextureImporterFormat.Automatic,
+            TextureImporterFormat.ASTC_6x6,
+            TextureImporterFormat.ASTC_4x4,
         };
 
         private readonly Dictionary<int, EventCallback<ChangeEvent<TextureImporterFormat>>> _registeredCallbacksFormat =
@@ -90,7 +97,7 @@ namespace Azzmurr.Utils {
 
             actions.columns.Add(new Column {
                 title = "Type",
-                width = 80,
+                width = 120,
                 makeCell = () => new Label { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft } },
                 bindCell = (element, index) => {
                     var label = (Label)element;
@@ -101,8 +108,7 @@ namespace Azzmurr.Utils {
 
             actions.columns.Add(new Column {
                 title = "Actions",
-
-                width = 400,
+                minWidth = 800,
                 makeCell = () => new VisualElement { style = { flexDirection = FlexDirection.Row } },
                 bindCell = (element, index) => {
                     var actionGroup = (ActionGroup)actions.viewController.GetItemForIndex(index);
@@ -120,16 +126,17 @@ namespace Azzmurr.Utils {
                 new() {
                     Name = "Avatar",
                     Actions = new List<Button> {
-                        new(() => { DoAndRedraw(() => _avatar.Recalculate()); }) { text = "Recalculate" },
+                        new(() => { DoAndRedraw(() => _avatar.Recalculate()); }) { text = "Reload" },
                     }
                 },
                 new() {
-                    Name = "Textures",
+                    Name = "PC Textures",
                     Actions = new List<Button> {
-                        new(() => { DoAndRedraw(() => _avatar.MakeAllTextures2K()); }) { text = "-> 2k" },
-                        new(() => { DoAndRedraw(() => _avatar.MakeTexturesReadyForAndroid()); })
-                            { text = "Prepare for Android" },
-                        new(() => { DoAndRedraw(() => _avatar.CrunchTextures()); }) { text = "Crunch" },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(1024)); }) { text = "-> 1k" },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(2048)); }) { text = "-> 2k" },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(4096)); }) { text = "-> 4k" },
+                        new(() => { DoAndRedraw(() => _avatar.SetBestPCFormat()); }) { text = "Set Best Format" },
+                        new(() => { DoAndRedraw(() => _avatar.CrunchThemAll()); }) { text = "CRUNCH THEM ALL" },
                         new(() => {
                             DoAndRedraw((textures) => {
                                 var list = _avatar.textures;
@@ -141,10 +148,12 @@ namespace Azzmurr.Utils {
                     }
                 },
                 new() {
-                    Name = "Quest",
+                    Name = "Android Textures",
                     Actions = new List<Button> {
-                        new(() => { DoAndRedraw(() => _avatar.CreateQuestMaterialPresets()); })
-                            { text = "Create Quest Presets" },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(1024)); }) { text = "-> 1k" },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(2048)); }) { text = "-> 2k" },
+                        new(() => { DoAndRedraw(() => _avatar.MakeTexturesReadyForAndroid()); }) { text = "Prepare for Android" },
+                        new(() => { DoAndRedraw(() => _avatar.CreateQuestMaterialPresets()); }) { text = "Create Quest Material Presets" },
                     }
                 },
             };
@@ -219,6 +228,31 @@ namespace Azzmurr.Utils {
             });
 
             textureListGUI.columns.Add(new Column {
+                title = "Default Resolution",
+                width = 150,
+                stretchable = false,
+                resizable = false,
+                makeCell = () => new PopupField<int> {
+                    choices = _textureSizeOptions,
+                },
+                bindCell = (element, index) => {
+                    var popup = (PopupField<int>)element;
+                    var texture = (TextureMeta)textureListGUI.viewController.GetItemForIndex(index);
+                    popup.SetValueWithoutNotify(texture.DefaultResolution);
+                    popup.SetEnabled(texture.TextureWithChangeableResolution);
+
+                    RegisterCallBack(popup, (e) => {
+                        texture.ChangeDefaultImportSize(e.newValue);
+                        DoAndRedraw(textureListGUI, index, () => _avatar.Recalculate());
+                    });
+                },
+                unbindCell = (element, index) => {
+                    var popup = (PopupField<int>)element;
+                    UnregisterCallBack(popup);
+                }
+            });
+
+            textureListGUI.columns.Add(new Column {
                 title = "PC Resolution",
                 width = 100,
                 stretchable = false,
@@ -233,7 +267,7 @@ namespace Azzmurr.Utils {
                     popup.SetEnabled(texture.TextureWithChangeableResolution);
 
                     RegisterCallBack(popup, (e) => {
-                        texture.ChangeImportSize(e.newValue);
+                        texture.ChangePCImportSize(e.newValue);
                         DoAndRedraw(textureListGUI, index, () => _avatar.Recalculate());
                     });
                 },
@@ -245,7 +279,7 @@ namespace Azzmurr.Utils {
 
             textureListGUI.columns.Add(new Column {
                 title = "Android Resolution",
-                width = 100,
+                width = 150,
                 stretchable = false,
                 resizable = false,
                 makeCell = () => new PopupField<int> {
@@ -269,21 +303,54 @@ namespace Azzmurr.Utils {
             });
 
             textureListGUI.columns.Add(new Column {
-                title = "Format",
+                title = "PC Format",
                 width = 150,
                 stretchable = false,
                 resizable = true,
                 makeCell = () => new PopupField<TextureImporterFormat> {
-                    choices = _compressionFormatOptions,
+                    choices = _compressionPCFormatOptions,
                 },
                 bindCell = (element, index) => {
                     var popup = (PopupField<TextureImporterFormat>)element;
                     var texture = (TextureMeta)textureListGUI.viewController.GetItemForIndex(index);
-                    popup.SetValueWithoutNotify((TextureImporterFormat)texture.Format);
+
+                    if (texture.PCFormat != null) {
+                        popup.SetValueWithoutNotify(texture.PCFormat.Value);
+                    }
+
                     popup.SetEnabled(texture.TextureWithChangeableFormat);
 
                     RegisterCallBack(popup, (e) => {
-                        texture.ChangeImporterFormat(e.newValue);
+                        texture.ChangePCImporterFormat(e.newValue);
+                        DoAndRedraw(textureListGUI, index, () => _avatar.Recalculate());
+                    });
+                },
+                unbindCell = (element, index) => {
+                    var popup = (PopupField<TextureImporterFormat>)element;
+                    UnregisterCallBack(popup);
+                }
+            });
+
+            textureListGUI.columns.Add(new Column {
+                title = "Android Format",
+                width = 150,
+                stretchable = false,
+                resizable = true,
+                makeCell = () => new PopupField<TextureImporterFormat> {
+                    choices = _compressionAndroidFormatOptions,
+                },
+                bindCell = (element, index) => {
+                    var popup = (PopupField<TextureImporterFormat>)element;
+                    var texture = (TextureMeta)textureListGUI.viewController.GetItemForIndex(index);
+
+                    if (texture.AndroidFormat != null) {
+                        popup.SetValueWithoutNotify(texture.AndroidFormat.Value);
+                    }
+
+                    popup.SetEnabled(texture.TextureWithChangeableFormat);
+
+                    RegisterCallBack(popup, (e) => {
+                        texture.ChangeAndroidImporterFormat(e.newValue);
                         DoAndRedraw(textureListGUI, index, () => _avatar.Recalculate());
                     });
                 },
@@ -306,26 +373,10 @@ namespace Azzmurr.Utils {
                         element.Add(new Label { text = "Poiyomi textures are ignored and can't be changed", style = { flexGrow = 1 } });
                     }
 
-                    if (texture.BetterTextureFormat != null) {
-                        element.Add(new Button(() => {
-                            var changeFormatPopup = EditorUtility.DisplayDialog(
-                                "Confirm Compression Format Change!",
-                                $"You are about to change the compression format of texture '{texture.Texture.name}' from {texture.Format} => {texture.BetterTextureFormat}\n\n" +
-                                $"If you wish to return this texture's compression to {texture.FormatString}, you will have to do so manually as this action is not undo-able.\n\nAre you sure?",
-                                "Yes",
-                                "No"
-                            );
-
-                            if (!changeFormatPopup) return;
-
-                            texture.ChangeImporterFormat((TextureImporterFormat)texture.BetterTextureFormat);
-                            DoAndRedraw(textureListGUI, index, () => _avatar.Recalculate());
-                        }) { text = $"{texture.BetterTextureFormat} → -{texture.SavedSizeWithBetterTextureFormat}" });
-                    }
 
                     if (texture.TextureTooBig) {
                         element.Add(new Button(() => {
-                            texture.ChangeImportSize(2048);
+                            texture.ChangePCImportSize(2048);
                             DoAndRedraw(textureListGUI, index, () => _avatar.Recalculate());
                         }) { text = $"2k → -{texture.SaveSizeWithSmallerTexture}" });
                     }

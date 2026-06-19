@@ -84,7 +84,7 @@ namespace Azzmurr.Utils {
 
             actions.columns.Add(new Column {
                 title = "Type",
-                width = 80,
+                width = 120,
                 makeCell = () => new Label { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft } },
                 bindCell = (element, index) => {
                     var label = (Label)element;
@@ -96,7 +96,7 @@ namespace Azzmurr.Utils {
             actions.columns.Add(new Column {
                 title = "Actions",
 
-                width = 400,
+                width = 800,
                 makeCell = () => new VisualElement { style = { flexDirection = FlexDirection.Row } },
                 bindCell = (element, index) => {
                     var actionGroup = (ActionGroup)actions.viewController.GetItemForIndex(index);
@@ -126,19 +126,22 @@ namespace Azzmurr.Utils {
                     }
                 },
                 new() {
-                    Name = "Textures",
+                    Name = "PC Textures",
                     Actions = new List<Button> {
-                        new(() => { DoAndRedraw(() => _avatar.MakeAllTextures2K()); }) { text = "-> 2k" },
-                        new(() => { DoAndRedraw(() => _avatar.MakeTexturesReadyForAndroid()); })
-                            { text = "Prepare for Android" },
-                        new(() => { DoAndRedraw(() => _avatar.CrunchTextures()); }) { text = "Crunch" },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(1024)); }) { text = "-> 1k" },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(2048)); }) { text = "-> 2k" },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(4096)); }) { text = "-> 4k" },
+                        new(() => { DoAndRedraw(() => _avatar.SetBestPCFormat()); }) { text = "Set Best Format" },
+                        new(() => { DoAndRedraw(() => _avatar.CrunchThemAll()); }) { text = "CRUNCH THEM ALL" },
                     }
                 },
                 new() {
-                    Name = "Quest",
+                    Name = "Android Textures",
                     Actions = new List<Button> {
-                        new(() => { DoAndRedraw(() => _avatar.CreateQuestMaterialPresets()); })
-                            { text = "Create Quest Presets" },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(1024)); }) { text = "-> 1k" },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(2048)); }) { text = "-> 2k" },
+                        new(() => { DoAndRedraw(() => _avatar.MakeTexturesReadyForAndroid()); }) { text = "Prepare for Android" },
+                        new(() => { DoAndRedraw(() => _avatar.CreateQuestMaterialPresets()); }) { text = "Create Quest Material Presets" },
                     }
                 },
             };

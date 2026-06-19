@@ -49,9 +49,17 @@ namespace Azzmurr.Utils {
             foreach (var material in MaterialsRelatedToTextures[texture.Texture]) action.Invoke(material);
         }
 
-        public void MakeAllTextures2K() {
+        public void ChangeAllPCTexturesSize(int size = 2048) {
             ForeachTexture(texture => {
-                if (texture.PcResolution > 2048) texture.ChangeImportSize(2048);
+                if (texture.PcResolution > size) texture.ChangePCImportSize(size);
+            });
+
+            Recalculate();
+        }
+
+        public void ChangeAllAndroidTexturesSize(int size = 1024) {
+            ForeachTexture(texture => {
+                if (texture.AndroidResolution > size) texture.ChangePCImportSize(size);
             });
 
             Recalculate();
@@ -66,11 +74,21 @@ namespace Azzmurr.Utils {
             Recalculate();
         }
 
-        public void CrunchTextures() {
+        public void CrunchThemAll() {
             ForeachTexture(texture => {
-                if (texture.BestTextureFormat != null && texture.Format != null &&
-                    (TextureImporterFormat)texture.Format != texture.BestTextureFormat)
-                    texture.ChangeImporterFormat((TextureImporterFormat)texture.BestTextureFormat);
+                if (texture.CrunchPCTextureFormat != null && texture.PCFormat != null && texture.PCFormat != texture.CrunchPCTextureFormat) {
+                    texture.ChangePCImporterFormat(texture.CrunchPCTextureFormat);
+                }
+            });
+
+            Recalculate();
+        }
+
+        public void SetBestPCFormat() {
+            ForeachTexture(texture => {
+                if (texture.BestPCTextureFormat != null && texture.PCFormat != null && texture.PCFormat != texture.BestPCTextureFormat) {
+                    texture.ChangePCImporterFormat((TextureImporterFormat)texture.BestPCTextureFormat);
+                }
             });
 
             Recalculate();
