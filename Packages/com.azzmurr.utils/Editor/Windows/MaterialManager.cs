@@ -131,7 +131,7 @@ namespace Azzmurr.Utils {
                         new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(1024)); }) { text = "-> 1k", style = { maxWidth = 50}},
                         new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(2048)); }) { text = "-> 2k", style = { maxWidth = 50}},
                         new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(4096)); }) { text = "-> 4k", style = { maxWidth = 50}},
-                        new(() => { DoAndRedraw(() => _avatar.SetBestPCFormat()); }) { text = "Set Best Format", style = { maxWidth = 150 }},
+                        new(() => { DoAndRedraw(() => _avatar.SetBestPCTexturesFormat()); }) { text = "Set Best Format", style = { maxWidth = 150 }},
                         new(() => { DoAndRedraw(() => _avatar.CrunchThemAll()); }) { text = "CRUNCH THEM ALL", style = { maxWidth = 150 }},
                     }
                 },
@@ -141,7 +141,7 @@ namespace Azzmurr.Utils {
                         new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(1024)); }) { text = "-> 1k", style = { maxWidth = 50}},
                         new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(2048)); }) { text = "-> 2k", style = { maxWidth = 50}},
                         new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(4096)); }) { text = "-> 4k", style = { maxWidth = 50}},
-                        new(() => { DoAndRedraw(() => _avatar.SetBestAndroidFormat()); }) { text = "Set Best Format", style = { maxWidth = 150 }},
+                        new(() => { DoAndRedraw(() => _avatar.SetBestAndroidTexturesFormat()); }) { text = "Set Best Format", style = { maxWidth = 150 }},
                         new(() => { DoAndRedraw(() => _avatar.MakeTexturesReadyForAndroid()); }) { text = "Prepare for Android", style = { maxWidth = 150 }},
                         new(() => { DoAndRedraw(() => _avatar.CreateQuestMaterialPresets()); }) { text = "Create Quest Material Presets", style = { maxWidth = 200 }},
                     }

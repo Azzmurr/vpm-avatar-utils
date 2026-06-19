@@ -20,7 +20,7 @@ using Object = UnityEngine.Object;
 
 namespace Azzmurr.Utils {
     internal class VRChatBatchAvatarUploader : EditorWindow {
-        public static readonly string AgreementText = "By clicking OK, I certify that I have the necessary rights to upload this content and that it will not infringe on any third-party legal or intellectual property rights.";
+        private const string AgreementText = "By clicking OK, I certify that I have the necessary rights to upload this content and that it will not infringe on any third-party legal or intellectual property rights.";
 
         private readonly Queue<Action> _mainThreadQueue = new();
         private MultiColumnListView _actionsGUI;
@@ -30,6 +30,8 @@ namespace Azzmurr.Utils {
 
         private ObjectField _folderSelectorField;
         private Label _statusLabel;
+        private bool _setBestPCTextureFormatBeforeUpload;
+        private bool _setCrunchPCTextureFormatBeforeUpload;
 
         private void OnEnable() => EditorApplication.update += FlushMainThreadQueue;
         private void OnDisable() => EditorApplication.update -= FlushMainThreadQueue;
@@ -42,6 +44,7 @@ namespace Azzmurr.Utils {
             var root = CreateRootElement();
             root.Add(CreateFolderSelector());
             root.Add(CreateActionsGUI());
+            root.Add(CreateTextureUpdateCheckbox());
             root.Add(CreateStatusLabel());
             root.Add(CreateAvatarListView());
         }
@@ -257,6 +260,26 @@ namespace Azzmurr.Utils {
             return _statusLabel;
         }
 
+        private VisualElement CreateTextureUpdateCheckbox() {
+            var visualElement = new VisualElement { style = { flexShrink = 0, marginTop = 8 } };
+
+            var setBestPCTextureFormatBeforeUpload = new Toggle("Set best PC texture format before upload") { value = false };
+            setBestPCTextureFormatBeforeUpload.RegisterValueChangedCallback(evt => {
+                _setBestPCTextureFormatBeforeUpload = evt.newValue;
+            });
+
+            visualElement.Add(setBestPCTextureFormatBeforeUpload);
+
+            var setCrunchPCTextureFormatBeforeUpload = new Toggle("Set crunch PC texture format before upload") { value = false };
+            setCrunchPCTextureFormatBeforeUpload.RegisterValueChangedCallback(evt => {
+                _setCrunchPCTextureFormatBeforeUpload = evt.newValue;
+            });
+
+            visualElement.Add(setCrunchPCTextureFormatBeforeUpload);
+
+            return visualElement;
+        }
+
         [MenuItem("Azzmurr/Batch Avatar Uploader")]
         public static void ShowWindow() {
             var window = GetWindow<VRChatBatchAvatarUploader>("Batch Avatar Uploader");
@@ -297,13 +320,13 @@ namespace Azzmurr.Utils {
             return AssetDatabase.LoadAssetAtPath<DefaultAsset>(path);
         }
 
-        private List<AvatarEntry> ScanFolder(Object folder) {
+        private static List<AvatarEntry> ScanFolder(Object folder) {
             if (folder == null) {
                 return new List<AvatarEntry>();
             }
 
             var currentScene = SceneManager.GetSceneAt(0);
-            var currentScenePath = currentScene != null ? currentScene.path : null;
+            var currentScenePath = currentScene.path;
 
             var folderPath = AssetDatabase.GetAssetPath(folder);
             var sceneGUIDs = AssetDatabase.FindAssets("t:Scene", new[] { folderPath });
@@ -341,75 +364,80 @@ namespace Azzmurr.Utils {
         }
 
         private async void UploadAvatars(bool all) {
-            var currentScene = SceneManager.GetSceneAt(0);
-            var currentScenePath = currentScene != null ? currentScene.path : null;
+            try {
+                var currentScene = SceneManager.GetSceneAt(0);
+                var currentScenePath = currentScene.path;
 
-            EditorApplication.ExecuteMenuItem("VRChat SDK/Show Control Panel");
+                EditorApplication.ExecuteMenuItem("VRChat SDK/Show Control Panel");
 
-            if (!VRCSdkControlPanel.TryGetBuilder<IVRCSdkAvatarBuilderApi>(out var builder)) {
-                EditorUtility.DisplayDialog("Batch Avatar Uploader", "VRChat SDK Builder not found. Please open the VRChat SDK Control Panel first.", "OK");
-                return;
-            }
-
-            if (_avatarsGUI.itemsSource is not List<AvatarEntry> avatars) {
-                EditorUtility.DisplayDialog("Batch Avatar Uploader", "No avatars found in selected folder", "OK");
-                return;
-            }
-
-            var toUpload = all ? avatars : avatars.Where(a => a.Selected).ToList();
-            if (toUpload.Count == 0) {
-                EditorUtility.DisplayDialog("Batch Avatar Uploader", "No avatars selected for upload.", "OK");
-                return;
-            }
-
-            var confirm = EditorUtility.DisplayDialog(
-                "Upload Avatars",
-                $"{AgreementText} \n\n You are about to upload {toUpload.Count} avatar(s).\n\nEach avatar's scene will be opened, the VRCSDK builder triggered, and the scene closed.",
-                "OK", "Cancel");
-
-            if (!confirm) return;
-
-            _cts = new CancellationTokenSource();
-            _actionsGUI.SetEnabled(false);
-
-            var completed = 0;
-            var failed = 0;
-            var sw = Stopwatch.StartNew();
-
-            foreach (var entry in avatars) {
-                entry.State = "Pending";
-                entry.Status = "";
-            }
-
-            foreach (var entry in toUpload) {
-                entry.Status = "Pending";
-            }
-
-            _avatarsGUI.RefreshItems();
-
-            foreach (var entry in toUpload) {
-                if (_cts.IsCancellationRequested) {
-                    entry.Status = "Cancelled";
-                    _avatarsGUI.RefreshItems();
-                    continue;
+                if (!VRCSdkControlPanel.TryGetBuilder<IVRCSdkAvatarBuilderApi>(out var builder)) {
+                    EditorUtility.DisplayDialog("Batch Avatar Uploader", "VRChat SDK Builder not found. Please open the VRChat SDK Control Panel first.", "OK");
+                    return;
                 }
 
-                _statusLabel.text = $"Uploading {completed + failed + 1}/{toUpload.Count}: {entry.Name}...";
+                if (_avatarsGUI.itemsSource is not List<AvatarEntry> avatars) {
+                    EditorUtility.DisplayDialog("Batch Avatar Uploader", "No avatars found in selected folder", "OK");
+                    return;
+                }
 
-                var success = await UploadAvatar(builder, entry, _cts.Token);
-                if (success) completed++;
-                else failed++;
+                var toUpload = all ? avatars : avatars.Where(a => a.Selected).ToList();
+                if (toUpload.Count == 0) {
+                    EditorUtility.DisplayDialog("Batch Avatar Uploader", "No avatars selected for upload.", "OK");
+                    return;
+                }
+
+                var confirm = EditorUtility.DisplayDialog(
+                    "Upload Avatars",
+                    $"{AgreementText} \n\n You are about to upload {toUpload.Count} avatar(s).\n\nEach avatar's scene will be opened, the VRCSDK builder triggered, and the scene closed.",
+                    "OK", "Cancel");
+
+                if (!confirm) return;
+
+                _cts = new CancellationTokenSource();
+                _actionsGUI.SetEnabled(false);
+
+                var completed = 0;
+                var failed = 0;
+                var sw = Stopwatch.StartNew();
+
+                foreach (var entry in avatars) {
+                    entry.State = "Pending";
+                    entry.Status = "";
+                }
+
+                foreach (var entry in toUpload) {
+                    entry.Status = "Pending";
+                }
+
+                _avatarsGUI.RefreshItems();
+
+                foreach (var entry in toUpload) {
+                    if (_cts.IsCancellationRequested) {
+                        entry.Status = "Cancelled";
+                        _avatarsGUI.RefreshItems();
+                        continue;
+                    }
+
+                    _statusLabel.text = $"Uploading {completed + failed + 1}/{toUpload.Count}: {entry.Name}...";
+
+                    var success = await UploadAvatar(builder, entry, _cts.Token);
+                    if (success) completed++;
+                    else failed++;
+                }
+
+                sw.Stop();
+                var t = sw.Elapsed;
+
+                _statusLabel.text = $"Done. {completed} uploaded, {failed} failed. Time taken: {t.Hours:D2} hour(s) {t.Minutes:D2} minute(s) {t.Seconds:D2} second(s)";
+                _cts = null;
+                _actionsGUI.SetEnabled(true);
+
+                if (!string.IsNullOrEmpty(currentScenePath)) {
+                    EditorSceneManager.OpenScene(currentScenePath, OpenSceneMode.Single);
+                }
             }
-
-            sw.Stop();
-            var t = sw.Elapsed;
-
-            _statusLabel.text = $"Done. {completed} uploaded, {failed} failed. Time taken: {t.Hours:D2} hour(s) {t.Minutes:D2} minute(s) {t.Seconds:D2} second(s)";
-            _cts = null;
-            _actionsGUI.SetEnabled(true);
-
-            if (!string.IsNullOrEmpty(currentScenePath)) {
-                EditorSceneManager.OpenScene(currentScenePath, OpenSceneMode.Single);
+            catch (Exception e) {
+                Debug.LogException(e);
             }
         }
 
@@ -427,6 +455,8 @@ namespace Azzmurr.Utils {
             EventHandler<(string status, float percentage)> onUploadProgress = null;
 
             try {
+                GameObject avatarObject = null;
+
                 _avatarsGUI.RefreshItems();
                 await AddCopyrightAgreement(entry.BlueprintId);
 
@@ -434,7 +464,18 @@ namespace Azzmurr.Utils {
                 foreach (var root in scene.GetRootGameObjects()) {
                     var descs = root.GetComponentsInChildren<VRCAvatarDescriptor>(true);
                     targetDescriptor = descs.FirstOrDefault(d => d.GetComponent<PipelineManager>().blueprintId == entry.BlueprintId);
-                    if (targetDescriptor != null) break;
+                    if (targetDescriptor != null) {
+                        avatarObject = root;
+                        break;
+                    };
+                }
+
+                if (_setBestPCTextureFormatBeforeUpload) {
+                    new AvatarMeta(avatarObject).SetBestPCTexturesFormat();
+                }
+
+                if (_setCrunchPCTextureFormatBeforeUpload) {
+                    new AvatarMeta(avatarObject).CrunchThemAll();
                 }
 
                 if (targetDescriptor == null) {

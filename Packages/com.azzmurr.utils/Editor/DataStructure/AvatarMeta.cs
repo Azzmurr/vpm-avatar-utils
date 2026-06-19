@@ -84,7 +84,7 @@ namespace Azzmurr.Utils {
             Recalculate();
         }
 
-        public void SetBestPCFormat() {
+        public void SetBestPCTexturesFormat() {
             ForeachTexture(texture => {
                 if (texture.BestPCTextureFormat != null && texture.PCFormat != null && texture.PCFormat != texture.BestPCTextureFormat) {
                     texture.ChangePCImporterFormat(texture.BestPCTextureFormat);
@@ -94,7 +94,7 @@ namespace Azzmurr.Utils {
             Recalculate();
         }
 
-        public void SetBestAndroidFormat() {
+        public void SetBestAndroidTexturesFormat() {
             ForeachTexture(texture => {
                 if (texture.BestAndroidTextureFormat != null && texture.AndroidFormat != null && texture.AndroidFormat != texture.BestAndroidTextureFormat) {
                     texture.ChangePCImporterFormat(texture.BestAndroidTextureFormat);
