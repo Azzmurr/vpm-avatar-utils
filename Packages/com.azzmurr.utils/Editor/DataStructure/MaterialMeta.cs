@@ -57,17 +57,23 @@ namespace Azzmurr.Utils {
         }
 
         private List<TextureMeta> GetTextures() {
-            HashSet<Texture> textures = new();
+            var textureNames = Material.GetTexturePropertyNames();
             var textureIds = Material.GetTexturePropertyNameIDs();
-            foreach (var id in textureIds) {
+
+            var seen = new HashSet<Texture>();
+            var result = new List<TextureMeta>();
+
+            for (var i = 0; i < textureIds.Length; i++) {
+                var id = textureIds[i];
                 if (!Material.HasProperty(id)) continue;
                 var texture = Material.GetTexture(id);
                 if (texture == null) continue;
+                if (!seen.Add(texture)) continue; // skip duplicates
 
-                textures.Add(texture);
+                result.Add(new TextureMeta(texture, textureNames[i]));
             }
 
-            return textures.ToList().ConvertAll(texture => new TextureMeta(texture));
+            return result;
         }
 
         private string GetShaderVersion() {

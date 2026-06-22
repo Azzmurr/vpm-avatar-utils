@@ -9,9 +9,11 @@ namespace Azzmurr.Utils {
     [Serializable]
     internal class TextureMeta : IEqualityComparer<TextureMeta> {
         public readonly Texture Texture;
+        public readonly string PropertyName;
 
-        public TextureMeta(Texture t) {
+        public TextureMeta(Texture t, string propertyName) {
             Texture = t;
+            PropertyName = propertyName;
         }
 
         public string Path => AssetDatabase.GetAssetPath(Texture);
@@ -26,7 +28,7 @@ namespace Azzmurr.Utils {
         public int MinBpp => GetMinBpp();
         public bool HasAlpha => GetHasAlpha();
 
-        public int DefaultResolution => GetMaxResolution("Default");
+        public int DefaultResolution => GetDefaultResolution();
 
         public int PcResolution => GetMaxResolution("PC");
         public TextureImporterFormat? BestPCTextureFormat => GetTheBestPCFormat();
@@ -136,7 +138,7 @@ namespace Azzmurr.Utils {
             if (Importer)
                 return Importer.GetPlatformTextureSettings(platform).overridden
                     ? Importer.GetPlatformTextureSettings(platform).maxTextureSize
-                    : Importer.GetDefaultPlatformTextureSettings().maxTextureSize;
+                    : -1;
 
             return 0;
         }

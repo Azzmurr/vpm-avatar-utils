@@ -12,8 +12,8 @@ using VRC.SDK3.Avatars.Components;
 namespace Azzmurr.Utils {
     [Serializable]
     internal class AvatarMeta {
-        public List<MaterialMeta> materials;
-        public List<TextureMeta> textures;
+        public List<MaterialMeta> materials = new();
+        public List<TextureMeta> textures = new();
         public Dictionary<Texture, HashSet<Material>> MaterialsRelatedToTextures = new();
 
         public AvatarMeta(GameObject gameObject) {
@@ -28,10 +28,12 @@ namespace Azzmurr.Utils {
 
         public void Recalculate() {
             EditorUtility.DisplayProgressBar("Getting Avatar Data", "Getting Materials", 0.3f);
-            materials = GetMaterials();
+            materials.Clear();
+            materials.AddRange(GetMaterials());
 
             EditorUtility.DisplayProgressBar("Getting Avatar Data", "Getting Textures", 0.6f);
-            textures = GetTextures();
+            textures.Clear();
+            textures.AddRange(GetTextures());
 
             EditorUtility.ClearProgressBar();
         }
@@ -97,7 +99,7 @@ namespace Azzmurr.Utils {
         public void SetBestAndroidTexturesFormat() {
             ForeachTexture(texture => {
                 if (texture.BestAndroidTextureFormat != null && texture.AndroidFormat != null && texture.AndroidFormat != texture.BestAndroidTextureFormat) {
-                    texture.ChangePCImporterFormat(texture.BestAndroidTextureFormat);
+                    texture.ChangeAndroidImporterFormat(texture.BestAndroidTextureFormat);
                 }
             });
 

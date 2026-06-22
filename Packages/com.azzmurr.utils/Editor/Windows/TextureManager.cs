@@ -38,11 +38,16 @@ namespace Azzmurr.Utils {
             set {
                 _avatar = value;
                 AvatarSelector.value = _avatar?.GameObject;
+                Actions.SetEnabled(value != null);
             }
         }
 
         private ObjectField AvatarSelector =>
             rootVisualElement.Q<ObjectField>("AvatarGameObject");
+
+        private MultiColumnListView Actions => rootVisualElement.Q<MultiColumnListView>("Actions");
+
+        private MultiColumnListView TexturesListView => rootVisualElement.Q<MultiColumnListView>("Textures List");
 
         public void CreateGUI() {
             var root = rootVisualElement;
@@ -95,6 +100,8 @@ namespace Azzmurr.Utils {
                 }
             };
 
+            actions.SetEnabled(false);
+
             actions.columns.Add(new Column {
                 title = "Type",
                 width = 120,
@@ -126,36 +133,32 @@ namespace Azzmurr.Utils {
                 new() {
                     Name = "Avatar",
                     Actions = new List<Button> {
-                        new(() => { DoAndRedraw(() => _avatar.Recalculate()); }) { text = "Reload" },
+                        new(() => { DoAndRedraw(() => {
+                            TexturesListView.itemsSource = null;
+                            _avatar.Recalculate();
+                            TexturesListView.itemsSource = _avatar.textures;
+                        }); }) { text = "Reload" },
                     }
                 },
                 new() {
                     Name = "PC Textures",
                     Actions = new List<Button> {
-                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(1024)); }) { text = "-> 1k", style = { maxWidth = 50}},
-                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(2048)); }) { text = "-> 2k", style = { maxWidth = 50}},
-                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(4096)); }) { text = "-> 4k", style = { maxWidth = 50}},
-                        new(() => { DoAndRedraw(() => _avatar.SetBestPCTexturesFormat()); }) { text = "Set Best Format", style = { maxWidth = 150 }},
-                        new(() => { DoAndRedraw(() => _avatar.CrunchThemAll()); }) { text = "CRUNCH THEM ALL", style = { maxWidth = 150 }},
-                        new(() => {
-                            DoAndRedraw((textures) => {
-                                var list = _avatar.textures;
-                                list.Sort((t1, t2) => t1.Size > t2.Size ? -1 : 1);
-
-                                textures.itemsSource = list;
-                            });
-                        }) { text = "Sort by size", style = { maxWidth = 200 }},
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(1024)); }) { text = "-> 1k", style = { maxWidth = 50 } },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(2048)); }) { text = "-> 2k", style = { maxWidth = 50 } },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllPCTexturesSize(4096)); }) { text = "-> 4k", style = { maxWidth = 50 } },
+                        new(() => { DoAndRedraw(() => _avatar.SetBestPCTexturesFormat()); }) { text = "Set Best Format", style = { maxWidth = 150 } },
+                        new(() => { DoAndRedraw(() => _avatar.CrunchThemAll()); }) { text = "CRUNCH THEM ALL", style = { maxWidth = 150 } },
                     }
                 },
                 new() {
                     Name = "Android Textures",
                     Actions = new List<Button> {
-                        new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(1024)); }) { text = "-> 1k", style = { maxWidth = 50}},
-                        new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(2048)); }) { text = "-> 2k", style = { maxWidth = 50}},
-                        new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(4096)); }) { text = "-> 4k", style = { maxWidth = 50}},
-                        new(() => { DoAndRedraw(() => _avatar.SetBestAndroidTexturesFormat()); }) { text = "Set Best Format", style = { maxWidth = 150 }},
-                        new(() => { DoAndRedraw(() => _avatar.MakeTexturesReadyForAndroid()); }) { text = "Prepare for Android", style = { maxWidth = 150 }},
-                        new(() => { DoAndRedraw(() => _avatar.CreateQuestMaterialPresets()); }) { text = "Create Quest Material Presets", style = { maxWidth = 200 }},
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(1024)); }) { text = "-> 1k", style = { maxWidth = 50 } },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(2048)); }) { text = "-> 2k", style = { maxWidth = 50 } },
+                        new(() => { DoAndRedraw(() => _avatar.ChangeAllAndroidTexturesSize(4096)); }) { text = "-> 4k", style = { maxWidth = 50 } },
+                        new(() => { DoAndRedraw(() => _avatar.SetBestAndroidTexturesFormat()); }) { text = "Set Best Format", style = { maxWidth = 150 } },
+                        new(() => { DoAndRedraw(() => _avatar.MakeTexturesReadyForAndroid()); }) { text = "Prepare for Android", style = { maxWidth = 150 } },
+                        new(() => { DoAndRedraw(() => _avatar.CreateQuestMaterialPresets()); }) { text = "Create Quest Material Presets", style = { maxWidth = 200 } },
                     }
                 },
             };
@@ -171,13 +174,17 @@ namespace Azzmurr.Utils {
                 showBorder = true,
                 reorderMode = ListViewReorderMode.Animated,
                 virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight,
+                sortingEnabled = true,
                 style = {
                     marginTop = 8,
                 }
             };
 
+            textureListGUI.columnSortingChanged += OnSortingChanged;
+
             textureListGUI.columns.Add(new Column {
                 title = "Texture",
+                name = "Texture",
                 width = 200,
                 stretchable = true,
                 resizable = true,
@@ -188,6 +195,20 @@ namespace Azzmurr.Utils {
                     var field = (ObjectField)element;
                     var texture = (TextureMeta)textureListGUI.viewController.GetItemForIndex(index);
                     field.value = texture.Texture;
+                }
+            });
+
+            textureListGUI.columns.Add(new Column {
+                title = "Property Name",
+                name = "Property Name",
+                width = 100,
+                resizable = true,
+                sortable = true,
+                makeCell = () => new Label(),
+                bindCell = (element, index) => {
+                    var field = (Label)element;
+                    var texture = (TextureMeta)textureListGUI.viewController.GetItemForIndex(index);
+                    field.text = texture.PropertyName;
                 }
             });
 
@@ -218,9 +239,11 @@ namespace Azzmurr.Utils {
 
             textureListGUI.columns.Add(new Column {
                 title = "Size",
+                name = "Size",
                 width = 100,
                 stretchable = false,
                 resizable = false,
+                sortable = true,
                 makeCell = () => new Label { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft } },
                 bindCell = (element, index) => {
                     var label = (Label)element;
@@ -231,9 +254,11 @@ namespace Azzmurr.Utils {
 
             textureListGUI.columns.Add(new Column {
                 title = "Default Resolution",
-                width = 150,
+                name = "Default Resolution",
+                width = 100,
                 stretchable = false,
                 resizable = false,
+                sortable = true,
                 makeCell = () => new PopupField<int> {
                     choices = _textureSizeOptions,
                 },
@@ -256,9 +281,11 @@ namespace Azzmurr.Utils {
 
             textureListGUI.columns.Add(new Column {
                 title = "PC Resolution",
+                name = "PC Resolution",
                 width = 100,
                 stretchable = false,
                 resizable = false,
+                sortable = true,
                 makeCell = () => new PopupField<int> {
                     choices = _textureSizeOptions,
                 },
@@ -281,9 +308,11 @@ namespace Azzmurr.Utils {
 
             textureListGUI.columns.Add(new Column {
                 title = "Android Resolution",
-                width = 150,
+                name = "Android Resolution",
+                width = 100,
                 stretchable = false,
                 resizable = false,
+                sortable = true,
                 makeCell = () => new PopupField<int> {
                     choices = _textureSizeOptions,
                 },
@@ -306,7 +335,8 @@ namespace Azzmurr.Utils {
 
             textureListGUI.columns.Add(new Column {
                 title = "PC Format",
-                width = 150,
+                name = "PC Format",
+                width = 170,
                 stretchable = false,
                 resizable = true,
                 makeCell = () => new PopupField<TextureImporterFormat> {
@@ -335,7 +365,8 @@ namespace Azzmurr.Utils {
 
             textureListGUI.columns.Add(new Column {
                 title = "Android Format",
-                width = 150,
+                name = "Android Format",
+                width = 170,
                 stretchable = false,
                 resizable = true,
                 makeCell = () => new PopupField<TextureImporterFormat> {
@@ -386,6 +417,32 @@ namespace Azzmurr.Utils {
             });
 
             return textureListGUI;
+        }
+
+
+        private void OnSortingChanged() {
+            var sortedColumns = TexturesListView.sortedColumns.ToList();
+            if (sortedColumns.Count == 0) return;
+
+            var primary = sortedColumns[0];
+
+            _avatar.textures.Sort((a, b) => {
+                var result = primary.columnName switch {
+                    "Property Name" => string.Compare(a.PropertyName, b.PropertyName, StringComparison.Ordinal),
+                    "Size" => a.Size.CompareTo(b.Size),
+                    "Default Resolution" => a.DefaultResolution.CompareTo(b.DefaultResolution),
+                    "PC Resolution" => a.PcResolution.CompareTo(b.PcResolution),
+                    "Android Resolution" => a.AndroidResolution.CompareTo(b.AndroidResolution),
+                    "PC Format" => (a.PCFormat.HasValue ? (int)a.PCFormat.Value : int.MaxValue)
+                        .CompareTo(b.PCFormat.HasValue ? (int)b.PCFormat.Value : int.MaxValue),
+                    "Android Format" => (a.AndroidFormat.HasValue ? (int)a.AndroidFormat.Value : int.MaxValue)
+                        .CompareTo(b.AndroidFormat.HasValue ? (int)b.AndroidFormat.Value : int.MaxValue),
+                    _ => 0
+                };
+                return primary.direction == SortDirection.Descending ? -result : result;
+            });
+
+            TexturesListView.RefreshItems();
         }
 
         private void RegisterCallBack(PopupField<int> field, Action<ChangeEvent<int>> action) {
