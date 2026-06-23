@@ -204,6 +204,11 @@ namespace Azzmurr.Utils {
 
             var components = GameObject.GetComponentsInChildren<Component>(true)
                 .Where(component => component != null)
+                .Where(component => component
+                    .gameObject
+                    .GetComponentsInParent<Transform>(true)
+                    .All(transform => !transform.CompareTag("EditorOnly"))
+                )
                 .Where(component => component.GetType().FullName == "VF.Model.VRCFury");
 
             foreach (var componentObject in components) {
