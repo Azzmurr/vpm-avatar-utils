@@ -1,52 +1,41 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Collections;
+using System.Reflection;
 using UnityEngine;
 
 namespace Azzmurr.Utils {
-    public abstract class VFMetaCore {
-        protected readonly MonoBehaviour Component;
+    public class ObjectMeta {
+        public readonly object Object;
+        public Type Type => Object?.GetType();
+        public string TypeFullName => Type?.FullName;
 
-        protected VFMetaCore(MonoBehaviour behaviour) {
-            Component = behaviour;
+        public bool IsVrcFury => TypeFullName.StartsWith("VF");
+        public bool IsVrcFuryToggle => IsVrcFury && Get("content").TypeFullName == "VF.Model.Feature.Toggle";
+        public bool IsMaterialAction => TypeFullName == "VF.Model.StateAction.MaterialAction";
+        public bool IsFlipBookBuilderAction => TypeFullName == "VF.Model.StateAction.FlipBookBuilderAction";
+
+        public string VrcFuryGlobalParameter => Get("content").Get("globalParam").Object.ToString();
+        public Component Component => Object as Component;
+
+        public ObjectMeta(object component) {
+            Object = component;
         }
 
-        public GameObject GameObject => Component.gameObject;
+        public ObjectMeta Get(string fieldName) {
+            var field = Object?.GetType().GetField(
+                fieldName,
+                BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic
+            );
 
-        public abstract FieldInfo[] GetFields();
-    }
-
-    public class VFMeta : VFMetaCore {
-        public VFMeta(MonoBehaviour behaviour) : base(behaviour) {
+            return new ObjectMeta(field?.GetValue(Object));
         }
 
-        public bool IsToggle => VFToggleMeta.IsToggle(Component);
-        public VFToggleMeta Toggle => new(Component);
+        public void ForEach(Action<ObjectMeta> action) {
+            if (Object is not IEnumerable list) return;
 
-        public override FieldInfo[] GetFields() {
-            return Component.GetType().GetFields();
-        }
-    }
-
-    public class VFToggleMeta : VFMetaCore {
-        private const string Type = "VF.Model.Feature.Toggle";
-
-        public VFToggleMeta(MonoBehaviour behaviour) : base(behaviour) {
-        }
-
-        private object Content => Component.GetType().GetField("content").GetValue(Component);
-        public string GlobalParameter => Content.GetType().GetField("globalParam").GetValue(Content).ToString();
-
-        public override FieldInfo[] GetFields() {
-            return Content.GetType().GetFields();
-        }
-
-        public static bool IsToggle(MonoBehaviour component) {
-            var content = component.GetType().GetField("content");
-            if (content == null) return false;
-
-            var value = content.GetValue(component);
-            if (value == null) return false;
-
-            return value.GetType().ToString() == Type;
+            foreach (var listObject in list) {
+                action(new ObjectMeta(listObject));
+            }
         }
     }
 }

@@ -72,11 +72,11 @@ namespace Azzmurr.Utils {
                 }
 
                 var goList = gameObject
-                    .GetComponentsInChildren<MonoBehaviour>(true)
-                    .Where(c => c != null && c.GetType().Namespace != null && c.GetType().Namespace.StartsWith(VfNamespace))
+                    .GetComponentsInChildren<Component>(true)
                     .ToList()
-                    .ConvertAll(c => new VFMeta(c))
-                    .Where(meta => meta.IsToggle && meta.Toggle.GlobalParameter is "TF/Auto" or "TF/Manual" or "TF/Seat/Toggle" or "TF/Disable Mouth Transform")
+                    .ConvertAll(c => new ObjectMeta(c))
+                    .Where(c => c.IsVrcFury)
+                    .Where(meta => meta.IsVrcFuryToggle && meta.VrcFuryGlobalParameter is "TF/Auto" or "TF/Manual" or "TF/Seat/Toggle" or "TF/Disable Mouth Transform")
                     .ToList();
 
                 list.itemsSource = goList;
@@ -109,9 +109,9 @@ namespace Azzmurr.Utils {
                 },
                 bindCell = (element, index) => {
                     var field = (ObjectField)element;
-                    var meta = list.itemsSource[index] as VFMeta;
+                    var meta = list.itemsSource[index] as ObjectMeta;
 
-                    field.value = meta.GameObject;
+                    field.value = meta.Component.gameObject;
                 }
             });
 
@@ -121,9 +121,9 @@ namespace Azzmurr.Utils {
                 makeCell = () => new Label(),
                 bindCell = (element, index) => {
                     var field = (Label)element;
-                    var meta = list.itemsSource[index] as VFMeta;
+                    var meta = list.itemsSource[index] as ObjectMeta;
 
-                    field.text = meta.Toggle.GlobalParameter;
+                    field.text = meta.VrcFuryGlobalParameter;
                 }
             });
 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,6 +9,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VRC.SDK3.Avatars.Components;
+using Object = UnityEngine.Object;
 
 namespace Azzmurr.Utils {
     [Serializable]
@@ -162,38 +164,118 @@ namespace Azzmurr.Utils {
             Recalculate();
         }
 
-        private List<MaterialMeta> GetMaterials() {
-            var allBuiltRenderers = GameObject
+        private List<Material> GetRenderersMaterials() {
+            var renderers = GameObject
                 .GetComponentsInChildren<Renderer>(true)
-                .Where(renderer => renderer.gameObject.GetComponentsInParent<Transform>(true)
-                    .All(transform => !transform.CompareTag("EditorOnly")));
+                .Where(renderer => renderer
+                    .gameObject
+                    .GetComponentsInParent<Transform>(true)
+                    .All(transform => !transform.CompareTag("EditorOnly"))
+                );
 
-            var materialsAll = allBuiltRenderers.SelectMany(r => r.sharedMaterials)
-                .Where(material => material != null).ToList();
+            return renderers
+                .SelectMany(r => r.sharedMaterials)
+                .Where(material => material != null)
+                .ToList();
+
+        }
+
+        private List<Material> GetDescriptorMaterials() {
+            var materialsToReturn = new List<Material>();
             var descriptor = GameObject.GetComponent<VRCAvatarDescriptor>();
 
-            if (descriptor != null) {
-                var clips = descriptor
-                    .baseAnimationLayers
-                    .Select(layer => layer.animatorController)
-                    .Where(controller => controller != null)
-                    .SelectMany(controller => controller.animationClips)
-                    .Distinct();
+            if (descriptor == null) return materialsToReturn;
 
-                foreach (var clip in clips) {
-                    var clipMaterials = AnimationUtility
-                        .GetObjectReferenceCurveBindings(clip)
-                        .Where(binding =>
-                            binding.isPPtrCurve && binding.type.IsSubclassOf(typeof(Renderer)) &&
-                            binding.propertyName.StartsWith("m_Materials"))
-                        .SelectMany(binding => AnimationUtility.GetObjectReferenceCurve(clip, binding))
-                        .Select(r => r.value as Material);
+            var controllers = descriptor
+                .baseAnimationLayers
+                .Select(layer => layer.animatorController)
+                .Where(controller => controller != null)
+                .Distinct();
 
-                    materialsAll.AddRange(clipMaterials);
-                }
+            foreach (var controller in controllers) {
+                materialsToReturn.AddRange(GetMaterialsFromAnimatorController(controller));
             }
 
-            var materialMetas = materialsAll
+            return materialsToReturn;
+        }
+
+        private List<Material> GetVrcFuryMaterials() {
+            var materialsToReturn = new List<Material>();
+
+            var components = GameObject.GetComponentsInChildren<Component>(true)
+                .Where(component => component != null)
+                .Where(component => component.GetType().FullName == "VF.Model.VRCFury");
+
+            foreach (var componentObject in components) {
+                var component = new ObjectMeta(componentObject);
+                var content = component.Get("content");
+
+                content.Get("state").Get("actions").ForEach((action) => {
+                    if (action.IsMaterialAction) {
+                        var objRef = action.Get("mat").Get("objRef");
+
+                        if (objRef.Object is Material material) {
+                            materialsToReturn.Add(material);
+                        }
+                    }
+
+                    if (action.IsFlipBookBuilderAction) {
+                        action.Get("pages").ForEach((page) => {
+                            page.Get("state").Get("actions").ForEach((subAction) => {
+                                var objRef = subAction.Get("mat").Get("objRef");
+
+                                if (objRef.Object is Material material) {
+                                    materialsToReturn.Add(material);
+                                }
+                            });
+                        });
+                    }
+                });
+
+                content.Get("controllers").ForEach((controller) => {
+                    if (controller.Get("controller").Get("objRef").Object is RuntimeAnimatorController animatorController) {
+                        materialsToReturn.AddRange(GetMaterialsFromAnimatorController(animatorController));
+                    }
+                });
+            }
+
+            return materialsToReturn
+                .Where(material => material != null)
+                .Distinct()
+                .ToList();
+        }
+
+        private static IEnumerable<Material> GetMaterialsFromAnimatorController(RuntimeAnimatorController controller) {
+            if (controller == null) return Enumerable.Empty<Material>();
+
+            return controller.animationClips
+                .Where(clip => clip != null)
+                .Distinct()
+                .SelectMany(GetMaterialsFromAnimationClip);
+        }
+
+        private static IEnumerable<Material> GetMaterialsFromAnimationClip(AnimationClip clip) {
+            if (clip == null) return Enumerable.Empty<Material>();
+
+            return AnimationUtility
+                .GetObjectReferenceCurveBindings(clip)
+                .Where(binding =>
+                    binding.isPPtrCurve &&
+                    typeof(Renderer).IsAssignableFrom(binding.type) &&
+                    binding.propertyName.StartsWith("m_Materials"))
+                .SelectMany(binding => AnimationUtility.GetObjectReferenceCurve(clip, binding))
+                .Select(reference => reference.value as Material)
+                .Where(material => material != null);
+        }
+
+        private List<MaterialMeta> GetMaterials() {
+            var materialsToReturn = new List<Material>();
+
+            materialsToReturn.AddRange(GetRenderersMaterials());
+            materialsToReturn.AddRange(GetDescriptorMaterials());
+            materialsToReturn.AddRange(GetVrcFuryMaterials());
+
+            var materialMetas = materialsToReturn
                 .ToHashSet()
                 .ToList()
                 .ConvertAll(material => new MaterialMeta(material));
