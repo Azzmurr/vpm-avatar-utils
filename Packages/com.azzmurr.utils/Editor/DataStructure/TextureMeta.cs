@@ -20,7 +20,7 @@ namespace Azzmurr.Utils {
         public bool Poiyomi => Path.Contains("_PoiyomiShaders");
         public TextureImporter Importer => AssetImporter.GetAtPath(Path) as TextureImporter;
         public long Size => GetSize();
-        public string SizeString => ToMebiByteString(Size);
+        public string SizeString => Common.ToMebiByteString(Size);
         public TextureFormat? TextureFormat => GetTextureFormat();
         public RenderTextureFormat? RTFormat => GetRenderTextureFormat();
         public string FormatString => TextureFormat != null ? TextureFormat.ToString() : RTFormat != null ? RTFormat.ToString() : "";
@@ -44,7 +44,7 @@ namespace Azzmurr.Utils {
         public bool TextureTooBig => Importer != null && PcResolution > 2048;
 
         public string SaveSizeWithSmallerTexture =>
-            ToShortMebiByteString(Size - TextureToBytesUsingBpp(Texture, Bpp, 2048f / PcResolution));
+            Common.ToShortMebiByteString(Size - TextureToBytesUsingBpp(Texture, Bpp, 2048f / PcResolution));
 
         public bool Equals(TextureMeta x, TextureMeta y) {
             return x != null && y != null && x.Texture.Equals(y.Texture);
@@ -226,20 +226,6 @@ namespace Azzmurr.Utils {
                              Importer.textureType != TextureImporterType.SingleChannel && FormatString.Length > 0,
                 _ => false
             };
-        }
-
-        private static string ToMebiByteString(long l) {
-            if (l < Math.Pow(2, 10)) return l + " B";
-            if (l < Math.Pow(2, 20)) return (l / Math.Pow(2, 10)).ToString("n2") + " KiB";
-            if (l < Math.Pow(2, 30)) return (l / Math.Pow(2, 20)).ToString("n2") + " MiB";
-            return (l / Math.Pow(2, 30)).ToString("n2") + " GiB";
-        }
-
-        private static string ToShortMebiByteString(long l) {
-            if (l < Math.Pow(2, 10)) return l + " B";
-            if (l < Math.Pow(2, 20)) return (l / Math.Pow(2, 10)).ToString("n0") + " KiB";
-            if (l < Math.Pow(2, 30)) return (l / Math.Pow(2, 20)).ToString("n1") + " MiB";
-            return (l / Math.Pow(2, 30)).ToString("n1") + " GiB";
         }
 
         private static long TextureToBytesUsingBpp(Texture t, float bpp, float resolutionScale = 1) {

@@ -51,6 +51,11 @@ namespace Azzmurr.Utils {
             foreach (var material in MaterialsRelatedToTextures[texture.Texture]) action.Invoke(material);
         }
 
+        public string GetTexturesMemory() {
+            var memory = textures.Sum(texture => texture.Size);
+            return Common.ToMebiByteString(memory);
+        }
+
         public void ChangeAllPCTexturesSize(int size = 2048) {
             ForeachTexture(texture => {
                 if (texture.PcResolution != size) texture.ChangePCImportSize(size);

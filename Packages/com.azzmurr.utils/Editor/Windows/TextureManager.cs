@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Serilog;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -49,6 +50,8 @@ namespace Azzmurr.Utils {
 
         private MultiColumnListView TexturesListView => rootVisualElement.Q<MultiColumnListView>("Textures List");
 
+        private Label TexturesMemory => rootVisualElement.Q<Label>("Textures Memory");
+
         public void CreateGUI() {
             var root = rootVisualElement;
             root.style.paddingRight = 8;
@@ -72,6 +75,8 @@ namespace Azzmurr.Utils {
             var actions = CreateActionsGUI();
             root.Add(actions);
 
+            root.Add(CreateTexturesMemoryLabel());
+
             var textures = CreateTexturesGUI();
             root.Add(textures);
 
@@ -82,9 +87,22 @@ namespace Azzmurr.Utils {
 
                 if (_avatar == null) textures.itemsSource = null;
                 if (_avatar != null) textures.itemsSource = _avatar.textures;
+
+                refreshTexturesMemory();
+                OnSortingChanged();
             });
         }
 
+        private Label CreateTexturesMemoryLabel() {
+            var label = new Label {
+                name = "Textures Memory",
+                style = {
+                    marginTop = 8,
+                }
+            };
+
+            return label;
+        }
 
         private MultiColumnListView CreateActionsGUI() {
             var actions = new MultiColumnListView {
@@ -134,9 +152,8 @@ namespace Azzmurr.Utils {
                     Name = "Avatar",
                     Actions = new List<Button> {
                         new(() => { DoAndRedraw(() => {
-                            TexturesListView.itemsSource = null;
                             _avatar.Recalculate();
-                            TexturesListView.itemsSource = _avatar.textures;
+                            OnSortingChanged();
                         }); }) { text = "Reload" },
                     }
                 },
@@ -175,6 +192,9 @@ namespace Azzmurr.Utils {
                 reorderMode = ListViewReorderMode.Animated,
                 virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight,
                 sortingEnabled = true,
+                sortColumnDescriptions = {
+                    new SortColumnDescription("Size", SortDirection.Descending),
+                },
                 style = {
                     marginTop = 8,
                 }
@@ -188,6 +208,7 @@ namespace Azzmurr.Utils {
                 width = 200,
                 stretchable = true,
                 resizable = true,
+                sortable = false,
                 makeCell = () => new ObjectField {
                     objectType = typeof(Texture2D),
                 },
@@ -217,13 +238,16 @@ namespace Azzmurr.Utils {
                 width = 100,
                 stretchable = false,
                 resizable = true,
+                sortable = false,
                 makeCell = () => new Foldout { text = "Materials", value = false },
                 bindCell = (element, index) => {
                     var foldout = (Foldout)element;
                     var texture = (TextureMeta)textureListGUI.viewController.GetItemForIndex(index);
                     element.Clear();
+                    var count = 0;
 
                     _avatar.ForeachTextureMaterial(texture, material => {
+                        count++;
                         var materialField = new ObjectField {
                             objectType = typeof(Material),
                             value = material,
@@ -234,6 +258,8 @@ namespace Azzmurr.Utils {
                         };
                         foldout.Add(materialField);
                     });
+
+                    foldout.text = $"Materials ({count})";
                 }
             });
 
@@ -339,6 +365,7 @@ namespace Azzmurr.Utils {
                 width = 170,
                 stretchable = false,
                 resizable = true,
+                sortable = true,
                 makeCell = () => new PopupField<TextureImporterFormat> {
                     choices = _compressionPCFormatOptions,
                 },
@@ -369,6 +396,7 @@ namespace Azzmurr.Utils {
                 width = 170,
                 stretchable = false,
                 resizable = true,
+                sortable = true,
                 makeCell = () => new PopupField<TextureImporterFormat> {
                     choices = _compressionAndroidFormatOptions,
                 },
@@ -398,6 +426,7 @@ namespace Azzmurr.Utils {
                 minWidth = 200,
                 stretchable = true,
                 resizable = true,
+                sortable = false,
                 bindCell = (element, index) => {
                     element.Clear();
                     var texture = (TextureMeta)textureListGUI.viewController.GetItemForIndex(index);
@@ -475,22 +504,32 @@ namespace Azzmurr.Utils {
             var list = rootVisualElement.Q<MultiColumnListView>("Textures List");
             action.Invoke();
             list.RefreshItems();
+            refreshTexturesMemory();
         }
 
         private void DoAndRedraw(Action<MultiColumnListView> action) {
             var list = rootVisualElement.Q<MultiColumnListView>("Textures List");
             action.Invoke(list);
             list.RefreshItems();
+            refreshTexturesMemory();
         }
 
         private void DoAndRedraw(MultiColumnListView view, Action action) {
             action.Invoke();
             view.RefreshItems();
+            refreshTexturesMemory();
         }
 
         private void DoAndRedraw(MultiColumnListView view, int index, Action action) {
             action.Invoke();
             view.RefreshItem(index);
+            refreshTexturesMemory();
+        }
+
+        private void refreshTexturesMemory() {
+            Debug.Log("A");
+            if (_avatar != null) TexturesMemory.text = $"Textures Memory: {_avatar.GetTexturesMemory()}";
+            if (_avatar == null) TexturesMemory.text = $"No Avatar Selected";
         }
 
         [MenuItem("Azzmurr/Texture Manager")]
