@@ -34,10 +34,12 @@ namespace Azzmurr.Utils {
         public TextureImporterFormat? BestPCTextureFormat => GetTheBestPCFormat();
         public TextureImporterFormat? CrunchPCTextureFormat => GetCrunchPCTextureFormat();
         public TextureImporterFormat? PCFormat => GetPCTextureFormat();
+        public bool PCResolutionEqualsDefault => Importer == null || Poiyomi || PcResolution == DefaultResolution;
 
         public int AndroidResolution => GetMaxResolution("Android");
         public TextureImporterFormat? BestAndroidTextureFormat => GetTheBestAndroidFormat();
         public TextureImporterFormat? AndroidFormat => GetAndroidTextureFormat();
+        public bool AndroidResolutionEqualsPC => Importer == null || Poiyomi || AndroidResolution == PcResolution / 2;
 
         public bool TextureWithChangeableResolution => Importer != null && !Poiyomi;
         public bool TextureWithChangeableFormat => GetTextureHasChangeableFormat();
@@ -148,7 +150,7 @@ namespace Azzmurr.Utils {
             if (Importer)
                 return Importer.GetPlatformTextureSettings(platform).overridden
                     ? Importer.GetPlatformTextureSettings(platform).maxTextureSize
-                    : -1;
+                    : GetDefaultResolution();
 
             return 0;
         }
