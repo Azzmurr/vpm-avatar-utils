@@ -208,7 +208,7 @@ namespace Azzmurr.Utils {
                 width = 200,
                 stretchable = true,
                 resizable = true,
-                sortable = false,
+                sortable = true,
                 makeCell = () => new ObjectField {
                     objectType = typeof(Texture2D),
                 },
@@ -296,7 +296,7 @@ namespace Azzmurr.Utils {
 
                     RegisterCallBack(popup, (e) => {
                         texture.ChangeDefaultImportSize(e.newValue);
-                        DoAndRedraw(textureListGUI, index, () => _avatar.Recalculate());
+                        DoAndRedraw(() => _avatar.Recalculate());
                     });
                 },
                 unbindCell = (element, index) => {
@@ -323,7 +323,7 @@ namespace Azzmurr.Utils {
 
                     RegisterCallBack(popup, (e) => {
                         texture.ChangePCImportSize(e.newValue);
-                        DoAndRedraw(textureListGUI, index, () => _avatar.Recalculate());
+                        DoAndRedraw(() => _avatar.Recalculate());
                     });
                 },
                 unbindCell = (element, index) => {
@@ -350,7 +350,7 @@ namespace Azzmurr.Utils {
 
                     RegisterCallBack(popup, (e) => {
                         texture.ChangeAndroidImportSize(e.newValue);
-                        DoAndRedraw(textureListGUI, index, () => _avatar.Recalculate());
+                        DoAndRedraw(() => _avatar.Recalculate());
                     });
                 },
                 unbindCell = (element, index) => {
@@ -381,7 +381,7 @@ namespace Azzmurr.Utils {
 
                     RegisterCallBack(popup, (e) => {
                         texture.ChangePCImporterFormat(e.newValue);
-                        DoAndRedraw(textureListGUI, index, () => _avatar.Recalculate());
+                        DoAndRedraw(() => _avatar.Recalculate());
                     });
                 },
                 unbindCell = (element, index) => {
@@ -412,7 +412,7 @@ namespace Azzmurr.Utils {
 
                     RegisterCallBack(popup, (e) => {
                         texture.ChangeAndroidImporterFormat(e.newValue);
-                        DoAndRedraw(textureListGUI, index, () => _avatar.Recalculate());
+                        DoAndRedraw(() => _avatar.Recalculate());
                     });
                 },
                 unbindCell = (element, index) => {
@@ -439,7 +439,7 @@ namespace Azzmurr.Utils {
                     if (texture.TextureTooBig) {
                         element.Add(new Button(() => {
                             texture.ChangePCImportSize(2048);
-                            DoAndRedraw(textureListGUI, index, () => _avatar.Recalculate());
+                            DoAndRedraw(() => _avatar.Recalculate());
                         }) { text = $"2k → -{texture.SaveSizeWithSmallerTexture}" });
                     }
                 }
@@ -457,6 +457,7 @@ namespace Azzmurr.Utils {
 
             _avatar.textures.Sort((a, b) => {
                 var result = primary.columnName switch {
+                    "Texture" => string.Compare(a.Texture.name, b.Texture.name, StringComparison.Ordinal),
                     "Property Name" => string.Compare(a.PropertyName, b.PropertyName, StringComparison.Ordinal),
                     "Size" => a.Size.CompareTo(b.Size),
                     "Default Resolution" => a.DefaultResolution.CompareTo(b.DefaultResolution),
@@ -501,33 +502,12 @@ namespace Azzmurr.Utils {
 
 
         private void DoAndRedraw(Action action) {
-            var list = rootVisualElement.Q<MultiColumnListView>("Textures List");
             action.Invoke();
-            list.RefreshItems();
-            refreshTexturesMemory();
-        }
-
-        private void DoAndRedraw(Action<MultiColumnListView> action) {
-            var list = rootVisualElement.Q<MultiColumnListView>("Textures List");
-            action.Invoke(list);
-            list.RefreshItems();
-            refreshTexturesMemory();
-        }
-
-        private void DoAndRedraw(MultiColumnListView view, Action action) {
-            action.Invoke();
-            view.RefreshItems();
-            refreshTexturesMemory();
-        }
-
-        private void DoAndRedraw(MultiColumnListView view, int index, Action action) {
-            action.Invoke();
-            view.RefreshItem(index);
+            OnSortingChanged();
             refreshTexturesMemory();
         }
 
         private void refreshTexturesMemory() {
-            Debug.Log("A");
             if (_avatar != null) TexturesMemory.text = $"Textures Memory: {_avatar.GetTexturesMemory()}";
             if (_avatar == null) TexturesMemory.text = $"No Avatar Selected";
         }

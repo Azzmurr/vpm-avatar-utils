@@ -308,12 +308,7 @@ namespace Azzmurr.Utils {
             });
 
             var textureMetas = hashSet.ToList();
-            textureMetas.Sort((t1, t2) => {
-                var material1 = MaterialsRelatedToTextures[t1.Texture].ToList()[0].name;
-                var material2 = MaterialsRelatedToTextures[t2.Texture].ToList()[0].name;
-
-                return string.Compare(material1, material2, StringComparison.Ordinal);
-            });
+            textureMetas.Sort((t1, t2) => t1.Size.CompareTo(t2.Size));
 
             return textureMetas;
         }
