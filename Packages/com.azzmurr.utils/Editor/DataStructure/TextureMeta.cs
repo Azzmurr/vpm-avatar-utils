@@ -84,10 +84,15 @@ namespace Azzmurr.Utils {
             if (!TextureWithChangeableFormat || format == null) return;
 
             var settings = Importer.GetPlatformTextureSettings("PC");
+            var previouslyOverridden = settings.overridden;
 
             settings.overridden = (int)format.Value != -1;
             settings.format = format.Value;
             settings.compressionQuality = 100;
+
+            if (!previouslyOverridden && settings.overridden) {
+                settings.maxTextureSize = DefaultResolution;
+            }
 
             Importer.SetPlatformTextureSettings(settings);
             Importer.SaveAndReimport();
@@ -97,10 +102,15 @@ namespace Azzmurr.Utils {
             if (!TextureWithChangeableFormat || format == null) return;
 
             var settings = Importer.GetPlatformTextureSettings("Android");
+            var previouslyOverridden = settings.overridden;
 
             settings.overridden = (int)format.Value != -1;
             settings.format = format.Value;
             settings.compressionQuality = 100;
+
+            if (!previouslyOverridden && settings.overridden) {
+                settings.maxTextureSize = DefaultResolution;
+            }
 
             Importer.SetPlatformTextureSettings(settings);
             Importer.SaveAndReimport();

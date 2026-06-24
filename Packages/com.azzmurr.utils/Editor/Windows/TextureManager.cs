@@ -435,6 +435,18 @@ namespace Azzmurr.Utils {
                         element.Add(new Label { text = "Poiyomi textures are ignored and can't be changed", style = { flexGrow = 1 } });
                     }
 
+                    if (texture.PcResolution != texture.DefaultResolution) {
+                        element.Add(new Button(() => {
+                            texture.ChangePCImportSize(texture.DefaultResolution);
+                        }) { text = "Sync PC and Default resolutions", style = { flexGrow = 1 } });
+                    }
+
+                    if (texture.AndroidResolution > texture.PcResolution) {
+                        element.Add(new Button(() => {
+                            texture.ChangeAndroidImportSize(texture.PcResolution / 2);
+                        }) { text = "Make Android Resolution smaller than PC in 2 times", style = { flexGrow = 1 } });
+                    }
+
 
                     if (texture.TextureTooBig) {
                         element.Add(new Button(() => {
