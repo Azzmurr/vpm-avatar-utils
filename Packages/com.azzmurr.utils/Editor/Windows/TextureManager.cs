@@ -437,16 +437,9 @@ namespace Azzmurr.Utils {
 
                     if (!texture.PCResolutionEqualsDefault) {
                         element.Add(new Button(() => {
-                            texture.ChangePCImportSize(texture.DefaultResolution);
+                            DoAndRedraw(() => texture.ChangePCImportSize(texture.DefaultResolution));
                         }) { text = "Sync PC and Default resolutions", style = { flexGrow = 1 } });
                     }
-
-                    if (!texture.AndroidResolutionEqualsPC) {
-                        element.Add(new Button(() => {
-                            texture.ChangeAndroidImportSize(texture.PcResolution / 2);
-                        }) { text = "Make Android Resolution smaller than PC in 2 times", style = { flexGrow = 1 } });
-                    }
-
 
                     if (texture.TextureTooBig) {
                         element.Add(new Button(() => {
