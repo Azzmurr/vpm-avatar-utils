@@ -295,8 +295,7 @@ namespace Azzmurr.Utils {
                     popup.SetEnabled(texture.TextureWithChangeableResolution);
 
                     RegisterCallBack(popup, (e) => {
-                        texture.ChangeDefaultImportSize(e.newValue);
-                        DoAndRedraw(() => _avatar.Recalculate());
+                        DoAndRedraw(index, () => texture.ChangeDefaultImportSize(e.newValue));
                     });
                 },
                 unbindCell = (element, index) => {
@@ -322,8 +321,7 @@ namespace Azzmurr.Utils {
                     popup.SetEnabled(texture.TextureWithChangeableResolution);
 
                     RegisterCallBack(popup, (e) => {
-                        texture.ChangePCImportSize(e.newValue);
-                        DoAndRedraw(() => _avatar.Recalculate());
+                        DoAndRedraw(index, () => texture.ChangePCImportSize(e.newValue));
                     });
                 },
                 unbindCell = (element, index) => {
@@ -349,8 +347,7 @@ namespace Azzmurr.Utils {
                     popup.SetEnabled(texture.TextureWithChangeableResolution);
 
                     RegisterCallBack(popup, (e) => {
-                        texture.ChangeAndroidImportSize(e.newValue);
-                        DoAndRedraw(() => _avatar.Recalculate());
+                        DoAndRedraw(index, () => texture.ChangeAndroidImportSize(e.newValue));
                     });
                 },
                 unbindCell = (element, index) => {
@@ -380,8 +377,7 @@ namespace Azzmurr.Utils {
                     popup.SetEnabled(texture.TextureWithChangeableFormat);
 
                     RegisterCallBack(popup, (e) => {
-                        texture.ChangePCImporterFormat(e.newValue);
-                        DoAndRedraw(() => _avatar.Recalculate());
+                        DoAndRedraw(index, () => texture.ChangePCImporterFormat(e.newValue));
                     });
                 },
                 unbindCell = (element, index) => {
@@ -411,8 +407,7 @@ namespace Azzmurr.Utils {
                     popup.SetEnabled(texture.TextureWithChangeableFormat);
 
                     RegisterCallBack(popup, (e) => {
-                        texture.ChangeAndroidImporterFormat(e.newValue);
-                        DoAndRedraw(() => _avatar.Recalculate());
+                        DoAndRedraw(index, () => texture.ChangeAndroidImporterFormat(e.newValue));
                     });
                 },
                 unbindCell = (element, index) => {
@@ -437,14 +432,13 @@ namespace Azzmurr.Utils {
 
                     if (!texture.PCResolutionEqualsDefault) {
                         element.Add(new Button(() => {
-                            DoAndRedraw(() => texture.ChangePCImportSize(texture.DefaultResolution));
+                            DoAndRedraw(index, () => texture.ChangePCImportSize(texture.DefaultResolution));
                         }) { text = "Sync PC and Default resolutions", style = { flexGrow = 1 } });
                     }
 
                     if (texture.TextureTooBig) {
                         element.Add(new Button(() => {
-                            texture.ChangePCImportSize(2048);
-                            DoAndRedraw(() => _avatar.Recalculate());
+                            DoAndRedraw(index, () => texture.ChangePCImportSize(2048));
                         }) { text = $"2k → -{texture.SaveSizeWithSmallerTexture}" });
                     }
                 }
@@ -508,12 +502,18 @@ namespace Azzmurr.Utils {
 
         private void DoAndRedraw(Action action) {
             action.Invoke();
-            OnSortingChanged();
+            TexturesListView.RefreshItems();
+            refreshTexturesMemory();
+        }
+
+        private void DoAndRedraw(int index, Action action) {
+            action.Invoke();
+            TexturesListView.RefreshItem(index);
             refreshTexturesMemory();
         }
 
         private void refreshTexturesMemory() {
-            if (_avatar != null) TexturesMemory.text = $"Textures Memory: {_avatar.GetTexturesMemory()}";
+            if (_avatar != null) TexturesMemory.text = $"Textures Memory: {_avatar.TexturesMemory}";
             if (_avatar == null) TexturesMemory.text = $"No Avatar Selected";
         }
 

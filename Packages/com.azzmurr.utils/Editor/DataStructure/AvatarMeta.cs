@@ -27,6 +27,7 @@ namespace Azzmurr.Utils {
         public GameObject GameObject { get; }
         public int MaterialsCount => materials?.Count() ?? 0;
         public int TextureCount => textures?.Count() ?? 0;
+        public string TexturesMemory => GetTexturesMemory();
 
         public void Recalculate() {
             EditorUtility.DisplayProgressBar("Getting Avatar Data", "Getting Materials", 0.3f);
@@ -62,16 +63,12 @@ namespace Azzmurr.Utils {
             ForeachTexture(texture => {
                 if (texture.PcResolution != size) texture.ChangePCImportSize(size);
             });
-
-            Recalculate();
         }
 
         public void ChangeAllAndroidTexturesSize(int size = 1024) {
             ForeachTexture(texture => {
                 if (texture.AndroidResolution != size) texture.ChangeAndroidImportSize(size);
             });
-
-            Recalculate();
         }
 
         public void MakeTexturesReadyForAndroid() {
@@ -79,8 +76,6 @@ namespace Azzmurr.Utils {
                 if (texture.AndroidResolution > texture.PcResolution / 2 && texture.PcResolution > 512)
                     texture.ChangeAndroidImportSize(texture.PcResolution / 2);
             });
-
-            Recalculate();
         }
 
         public void CrunchThemAll() {
@@ -89,8 +84,6 @@ namespace Azzmurr.Utils {
                     texture.ChangePCImporterFormat(texture.CrunchPCTextureFormat);
                 }
             });
-
-            Recalculate();
         }
 
         public void SetBestPCTexturesFormat() {
@@ -99,8 +92,6 @@ namespace Azzmurr.Utils {
                     texture.ChangePCImporterFormat(texture.BestPCTextureFormat);
                 }
             });
-
-            Recalculate();
         }
 
         public void SetBestAndroidTexturesFormat() {
@@ -109,8 +100,6 @@ namespace Azzmurr.Utils {
                     texture.ChangeAndroidImporterFormat(texture.BestAndroidTextureFormat);
                 }
             });
-
-            Recalculate();
         }
 
         public void CreateQuestMaterialPresets() {
@@ -147,21 +136,17 @@ namespace Azzmurr.Utils {
         public void UnlockMaterials() {
             var poi = materials.Where(meta => meta.Poiyomi).ToList().ConvertAll(meta => meta.Material);
             ShaderOptimizer.UnlockMaterials(poi);
-            Recalculate();
         }
 
         public void UpdateMaterials() {
             var poi = materials.Where(meta => meta.Poiyomi && !meta.ShaderLocked).ToList()
                 .ConvertAll(meta => meta.Material);
             poi.ForEach(mat => { mat.shader = Shader.Find(".poiyomi/Poiyomi Pro"); });
-
-            Recalculate();
         }
 
         public void LockMaterials() {
             var poi = materials.Where(meta => meta.Poiyomi).ToList().ConvertAll(meta => meta.Material);
             ShaderOptimizer.LockMaterials(poi);
-            Recalculate();
         }
 
         private List<Material> GetRenderersMaterials() {

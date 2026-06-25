@@ -59,6 +59,15 @@ namespace Azzmurr.Utils {
         public void ChangeDefaultImportSize(int size) {
             if (!TextureWithChangeableResolution) return;
             Importer.maxTextureSize = size;
+
+            var settingsPC = Importer.GetPlatformTextureSettings("PC");
+            settingsPC.maxTextureSize = size;
+            Importer.SetPlatformTextureSettings(settingsPC);
+
+            var settingsAndroid = Importer.GetPlatformTextureSettings("Android");
+            settingsAndroid.maxTextureSize = size / 2;
+            Importer.SetPlatformTextureSettings(settingsAndroid);
+
             Importer.SaveAndReimport();
         }
 
