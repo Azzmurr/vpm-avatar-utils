@@ -4,6 +4,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Profiling;
 using UnityEngine.Rendering;
+using UnityEngine.UIElements;
 
 namespace Azzmurr.Utils {
     [Serializable]
@@ -125,6 +126,15 @@ namespace Azzmurr.Utils {
 
             Importer.SetPlatformTextureSettings(settings);
             Importer.SaveAndReimport();
+        }
+
+        public Background GetTextureBackground() {
+            return Texture switch {
+                Texture2D texture => Background.FromTexture2D(texture),
+                RenderTexture texture => Background.FromRenderTexture(texture),
+                _ => new Background(),
+
+            };
         }
 
         private TextureImporterFormat? GetTheBestPCFormat() {

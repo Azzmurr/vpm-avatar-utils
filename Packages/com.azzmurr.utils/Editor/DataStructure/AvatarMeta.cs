@@ -1,15 +1,12 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using HarmonyLib;
-using Thry.ThryEditor;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using VRC.SDK3.Avatars.Components;
-using Object = UnityEngine.Object;
 
 namespace Azzmurr.Utils {
     [Serializable]
@@ -134,19 +131,18 @@ namespace Azzmurr.Utils {
         }
 
         public void UnlockMaterials() {
-            var poi = materials.Where(meta => meta.Poiyomi).ToList().ConvertAll(meta => meta.Material);
-            ShaderOptimizer.UnlockMaterials(poi);
+            Selection.objects = materials.ToList().ConvertAll(meta => meta.Material).ToArray();
+            EditorApplication.ExecuteMenuItem("Assets/Thry/Materials/Unlock All");
         }
 
         public void UpdateMaterials() {
-            var poi = materials.Where(meta => meta.Poiyomi && !meta.ShaderLocked).ToList()
-                .ConvertAll(meta => meta.Material);
+            var poi = materials.Where(meta => meta.Poiyomi && !meta.ShaderLocked).ToList().ConvertAll(meta => meta.Material);
             poi.ForEach(mat => { mat.shader = Shader.Find(".poiyomi/Poiyomi Pro"); });
         }
 
         public void LockMaterials() {
-            var poi = materials.Where(meta => meta.Poiyomi).ToList().ConvertAll(meta => meta.Material);
-            ShaderOptimizer.LockMaterials(poi);
+            Selection.objects = materials.ToList().ConvertAll(meta => meta.Material).ToArray();
+            EditorApplication.ExecuteMenuItem("Assets/Thry/Materials/Lock All");
         }
 
         private List<Material> GetRenderersMaterials() {

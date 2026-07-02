@@ -118,11 +118,16 @@ namespace Azzmurr.Utils {
                     }
                 },
                 new() {
-                    Name = "Poiyomi",
+                    Name = "Thry",
                     Actions = new List<Button> {
-                        new(() => { DoAndRedraw(() => _avatar.UnlockMaterials()); }) { text = "Unlock", style = { maxWidth = 162 }},
-                        new(() => { DoAndRedraw(() => _avatar.UpdateMaterials()); }) { text = "Update", style = { maxWidth = 150 }},
-                        new(() => { DoAndRedraw(() => _avatar.LockMaterials()); }) { text = "Lock", style = { maxWidth = 150 }},
+                        new(() => { DoAndRedraw(() => _avatar.UnlockMaterials()); }) { text = "Unlock Materials", style = { maxWidth = 162 }},
+                        new(() => { DoAndRedraw(() => _avatar.LockMaterials()); }) { text = "Lock Materials", style = { maxWidth = 150 }},
+                    }
+                },
+                new() {
+                    Name = "Poiyomi",
+                    Actions = new List<Button>() {
+                        new(() => { DoAndRedraw(() => _avatar.UpdateMaterials()); }) { text = "Update To Latest", style = { maxWidth = 162 }},
                     }
                 },
                 new() {
@@ -310,7 +315,7 @@ namespace Azzmurr.Utils {
                                     height = 90,
                                     marginRight = 8,
                                     flexShrink = 0,
-                                    backgroundImage = Background.FromTexture2D((Texture2D)texture.Texture),
+                                    backgroundImage = texture.GetTextureBackground(),
                                 }
                             };
 

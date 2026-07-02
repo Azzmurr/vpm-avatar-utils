@@ -2,8 +2,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using Thry.ThryEditor;
+using UnityEditor;
 using UnityEngine;
 
 namespace Azzmurr.Utils {
@@ -99,8 +98,8 @@ namespace Azzmurr.Utils {
         }
 
         public void UnlockMaterial() {
-            if (!Poiyomi) return;
-            ShaderOptimizer.UnlockMaterials(new List<Material> { Material });
+            Selection.objects = new[] { Material };
+            EditorApplication.ExecuteMenuItem("Assets/Thry/Materials/Unlock All");
         }
 
         public void UpdateMaterial() {
@@ -109,8 +108,8 @@ namespace Azzmurr.Utils {
         }
 
         public void LockMaterial() {
-            if (!Poiyomi) return;
-            ShaderOptimizer.LockMaterials(new List<Material> { Material });
+            Selection.objects = new[] { Material };
+            EditorApplication.ExecuteMenuItem("Assets/Thry/Materials/Lock All");
         }
 
         public T? GetPropertyValue<T>(string propertyName) {
