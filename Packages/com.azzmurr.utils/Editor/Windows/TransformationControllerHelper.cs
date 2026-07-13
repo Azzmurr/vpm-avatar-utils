@@ -218,10 +218,7 @@ namespace Azzmurr.Utils {
 
             MainListView.columns.Add(new Column {
                 title = "Installed Modules",
-                width = Length.Auto(),
-                minWidth = 300,
-                stretchable = true,
-                resizable = true,
+                width = 500,
                 makeCell = () => new VisualElement(),
                 bindCell = (element, index) => {
                     var meta = MainListView.itemsSource[index] as SkinnedMeshRendererMeta;
@@ -260,6 +257,20 @@ namespace Azzmurr.Utils {
 
                             element.Add(physBoneModuls);
                         });
+                    }
+                }
+            });
+
+            MainListView.columns.Add(new Column {
+                title = "Warnings",
+                width = 400,
+                makeCell = () => new Label(),
+                bindCell = (element, index) => {
+                    var meta = MainListView.itemsSource[index] as SkinnedMeshRendererMeta;
+                    var label = (Label)element;
+
+                    if (meta.HasSlidersNotPassthrough) {
+                        label.text = "Some manual sliders have passthrough toggled off. It will result automatic TF not working";
                     }
                 }
             });
@@ -311,7 +322,9 @@ namespace Azzmurr.Utils {
 
         private void AddMainVrcFurryComponents(GameObject gameObject, AnimationClip[] clips) {
             AddMainVrcFurryComponent("TF/Auto", gameObject, clips);
-            AddMainVrcFurryComponent("TF/Manual", gameObject, clips).SetSlider();
+            var manualToggle = AddMainVrcFurryComponent("TF/Manual", gameObject, clips);
+            manualToggle.SetSlider();
+            new ObjectMeta(manualToggle).Get("c").Set("sliderInactiveAtZero", true);
         }
 
         private FuryToggle AddMainVrcFurryComponent(string toggleName, GameObject gameObject, AnimationClip[] clips) {

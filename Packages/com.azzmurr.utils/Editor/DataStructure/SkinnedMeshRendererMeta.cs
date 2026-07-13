@@ -10,6 +10,7 @@ namespace Azzmurr.Utils {
         public Transform RootBone => MeshRenderer.rootBone;
         public List<GameObject> PhysBones => GetPhysBones(RootBone.gameObject);
         public List<ObjectMeta> VrcFuryComponents => GetVrcFuryComponents(GameObject);
+        public bool HasSlidersNotPassthrough => VrcFuryComponents.Any(component => component.IsSlider && !component.IsSliderPassthrough);
         public bool Expanded = false;
 
         public SkinnedMeshRendererMeta(SkinnedMeshRenderer meshRenderer) {
