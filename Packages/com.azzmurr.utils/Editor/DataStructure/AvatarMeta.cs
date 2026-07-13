@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Algolia.Search.Models.Rules;
 using HarmonyLib;
 using UnityEditor;
 using UnityEngine;
@@ -13,6 +14,7 @@ namespace Azzmurr.Utils {
     internal class AvatarMeta {
         public List<MaterialMeta> materials = new();
         public List<TextureMeta> textures = new();
+        public List<SkinnedMeshRendererMeta> meshRenderers = new();
         public Dictionary<Texture, HashSet<Material>> MaterialsRelatedToTextures = new();
 
         public AvatarMeta(GameObject gameObject) {
@@ -34,6 +36,10 @@ namespace Azzmurr.Utils {
             EditorUtility.DisplayProgressBar("Getting Avatar Data", "Getting Textures", 0.6f);
             textures.Clear();
             textures.AddRange(GetTextures());
+
+            EditorUtility.DisplayProgressBar("Getting Avatar Data", "Getting MeshRenderers", 0.9f);
+            meshRenderers.Clear();
+            meshRenderers.AddRange(GetMeshRenderers());
 
             EditorUtility.ClearProgressBar();
         }
@@ -145,14 +151,32 @@ namespace Azzmurr.Utils {
             EditorApplication.ExecuteMenuItem("Assets/Thry/Materials/Lock All");
         }
 
-        private List<Material> GetRenderersMaterials() {
-            var renderers = GameObject
+        private IEnumerable<Renderer> GetRenderers() {
+            return GameObject
                 .GetComponentsInChildren<Renderer>(true)
                 .Where(renderer => renderer
                     .gameObject
                     .GetComponentsInParent<Transform>(true)
                     .All(transform => !transform.CompareTag("EditorOnly"))
-                );
+                )
+                .ToList();
+        }
+
+        private IEnumerable<SkinnedMeshRendererMeta> GetMeshRenderers() {
+            var meshRenderersToReturn = GameObject
+                .GetComponentsInChildren<SkinnedMeshRenderer>(true)
+                .Where(renderer => renderer
+                    .gameObject
+                    .GetComponentsInParent<Transform>(true)
+                    .All(transform => !transform.CompareTag("EditorOnly"))
+                )
+                .ToList();
+
+            return meshRenderersToReturn.ToHashSet().ToList().ConvertAll(meta => new SkinnedMeshRendererMeta(meta));
+        }
+
+        private List<Material> GetRenderersMaterials() {
+            var renderers = GetRenderers();
 
             return renderers
                 .SelectMany(r => r.sharedMaterials)

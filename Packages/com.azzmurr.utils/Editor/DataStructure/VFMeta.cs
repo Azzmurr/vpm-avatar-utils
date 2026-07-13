@@ -15,6 +15,7 @@ namespace Azzmurr.Utils {
         public bool IsFlipBookBuilderAction => TypeFullName == "VF.Model.StateAction.FlipBookBuilderAction";
 
         public string VrcFuryGlobalParameter => Get("content").Get("globalParam").Object.ToString();
+        public string VrcFuryExclusiveTag => Get("content").Get("exclusiveTag").Object.ToString();
         public Component Component => Object as Component;
 
         public ObjectMeta(object component) {

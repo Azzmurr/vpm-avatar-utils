@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using com.vrcfury.api;
 using com.vrcfury.api.Components;
 using UnityEditor;
@@ -7,239 +9,313 @@ using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Azzmurr.Utils {
-    public class TransformationControllerHelper : EditorWindow {
-        private const string VfNamespace = "VF";
+    internal class TransformationControllerHelper : CommonEditorWindow {
+        private string controllerAnimsPath;
+
+        // TF Time
+        private AnimationClip _tfTime20Animation;
+        private AnimationClip _tfTime15Animation;
+        private AnimationClip _tfTime10Animation;
+        private AnimationClip _tfTime5Animation;
+        private AnimationClip _tfTime2Animation;
+        private AnimationClip _tfTime1Animation;
+
+        //TF Time Reverse
+        private AnimationClip _tfTimeReverse20Animation;
+        private AnimationClip _tfTimeReverse15Animation;
+        private AnimationClip _tfTimeReverse10Animation;
+        private AnimationClip _tfTimeReverse5Animation;
+        private AnimationClip _tfTimeReverse2Animation;
+        private AnimationClip _tfTimeReverse1Animation;
 
         // COMMON
-        private static readonly AnimationClip TfTimeAnimationPath = AssetDatabase.LoadAssetAtPath<AnimationClip>("Packages/com.azzmurr.utils/Controller/Anims/TF Time.anim");
-        private static readonly AnimationClip TfTime50AnimationPath = AssetDatabase.LoadAssetAtPath<AnimationClip>("Packages/com.azzmurr.utils/Controller/Anims/TF Time 50%.anim");
-        private static readonly AnimationClip AudioSourceOnAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>("Packages/com.azzmurr.utils/Controller/Anims/Audio Source On.anim");
-        private static readonly AnimationClip PhysbonesOffAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>("Packages/com.azzmurr.utils/Controller/Anims/Physbones/Physbones Off.anim");
+        private AnimationClip _audioSourceOnAnimation;
+        private AnimationClip _physbonesOffAnimation;
 
         // CTF
-        private static readonly AnimationClip CookieTfAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>("Packages/com.azzmurr.utils/Controller/Anims/Cookie Transformation.anim");
-        private static readonly AnimationClip HorseTfAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>("Packages/com.azzmurr.utils/Controller/Anims/Horse Transformation.anim");
-        private static readonly AnimationClip KnotTfAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>("Packages/com.azzmurr.utils/Controller/Anims/Knot Trnasformation.anim");
-        private static readonly AnimationClip TapperTfAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>("Packages/com.azzmurr.utils/Controller/Anims/Tapper Transformation.anim");
+        private AnimationClip _cookieTfAnimation;
+        private AnimationClip _horseTfAnimation;
+        private AnimationClip _knotTfAnimation;
+        private AnimationClip _tapperTfAnimation;
 
         // POOL TOY
-        private static readonly AnimationClip AccessoriesAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>("Packages/com.azzmurr.utils/Controller/Anims/Accessories.anim");
-        private static readonly AnimationClip MouthDoNotOpenAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>("Packages/com.azzmurr.utils/Controller/Anims/Mouth Do Not Open.anim");
-        private static readonly AnimationClip MouthOpenAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>("Packages/com.azzmurr.utils/Controller/Anims/Mouth Open.anim");
-        private static readonly AnimationClip ValveDoNotLightbulbAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>("Packages/com.azzmurr.utils/Controller/Anims/Valve Do Not lightbulb.anim");
-        private static readonly AnimationClip ValveLightbulbAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>("Packages/com.azzmurr.utils/Controller/Anims/Valve lightbulb.anim");
-        private static readonly AnimationClip ValveDoNotShowAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>("Packages/com.azzmurr.utils/Controller/Anims/Valve Do Not Show.anim");
-        private static readonly AnimationClip ValveShowAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>("Packages/com.azzmurr.utils/Controller/Anims/Valve Show.anim");
+        private AnimationClip _accessoriesAnimation;
+        private AnimationClip _mouthDoNotOpenAnimation;
+        private AnimationClip _mouthOpenAnimation;
+        private AnimationClip _valveDoNotLightbulbAnimation;
+        private AnimationClip _valveLightbulbAnimation;
+        private AnimationClip _valveDoNotShowAnimation;
+        private AnimationClip _valveShowAnimation;
 
-        private GameObject _avatar;
+        private List<DropdownChoice<GameObject>> _choices;
+        private Dictionary<string, Func<ObjectMeta, bool>> _possibleModules;
 
-        public GameObject Avatar {
-            get => _avatar;
-            set {
-                _avatar = value;
-                AvatarSelector.value = _avatar;
-            }
-        }
+        private void OnEnable() {
+            controllerAnimsPath = $"{rootPath}/Controller/Anims";
 
-        private ObjectField AvatarSelector =>
-            rootVisualElement.Q<ObjectField>("AvatarGameObject");
+            _tfTime20Animation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/TF Time/TF Time 20 min.anim");
+            _tfTime15Animation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/TF Time/TF Time 15 min.anim");
+            _tfTime10Animation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/TF Time/TF Time 10 min.anim");
+            _tfTime5Animation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/TF Time/TF Time 5 min.anim");
+            _tfTime2Animation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/TF Time/TF Time 2 min.anim");
+            _tfTime1Animation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/TF Time/TF Time 1 min.anim");
 
-        private void CreateGUI() {
-            var root = rootVisualElement;
-            root.style.paddingRight = 8;
-            root.style.paddingLeft = 8;
+            _tfTimeReverse20Animation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/TF Time Reverse/TF Time Reverse 20 min.anim");
+            _tfTimeReverse15Animation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/TF Time Reverse/TF Time Reverse 15 min.anim");
+            _tfTimeReverse10Animation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/TF Time Reverse/TF Time Reverse 10 min.anim");
+            _tfTimeReverse5Animation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/TF Time Reverse/TF Time Reverse 5 min.anim");
+            _tfTimeReverse2Animation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/TF Time Reverse/TF Time Reverse 2 min.anim");
+            _tfTimeReverse1Animation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/TF Time Reverse/TF Time Reverse 1 min.anim");
 
-            var avatarSelector = new VisualElement { style = { flexShrink = 0 } };
-            var avatarGameObjectField = new ObjectField {
-                objectType = typeof(GameObject),
-                value = _avatar,
-                name = "AvatarGameObject",
-                label = "Avatar: ",
-                style = {
-                    flexShrink = 0,
-                    flexGrow = 1,
-                }
+            _audioSourceOnAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/Audio Source On.anim");
+            _physbonesOffAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/Physbones/Physbones Off.anim");
+
+            _cookieTfAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/CTF/Cookie Transformation.anim");
+            _horseTfAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/CTF/Horse Transformation.anim");
+            _knotTfAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/CTF/Knot Trnasformation.anim");
+            _tapperTfAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/CTF/Tapper Transformation.anim");
+
+            _accessoriesAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/Pool Toy/Accessories.anim");
+            _mouthDoNotOpenAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/Pool Toy/Mouth Do Not Open.anim");
+            _mouthOpenAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/Pool Toy/Mouth Open.anim");
+            _valveDoNotLightbulbAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/Pool Toy/Valve Do Not lightbulb.anim");
+            _valveLightbulbAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/Pool Toy/Valve lightbulb.anim");
+            _valveDoNotShowAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/Pool Toy/Valve Do Not Show.anim");
+            _valveShowAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/Pool Toy/Valve Show.anim");
+
+            _choices = new List<DropdownChoice<GameObject>> {
+                new("TF Time/20 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation })),
+                new("TF Time/15 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime15Animation })),
+                new("TF Time/10 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime10Animation })),
+                new("TF Time/5 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime5Animation })),
+                new("TF Time/2 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime2Animation })),
+                new("TF Time/1 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime1Animation })),
+
+                new("TF Time Reverse/20 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse20Animation })),
+                new("TF Time Reverse/15 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse15Animation })),
+                new("TF Time Reverse/10 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse10Animation })),
+                new("TF Time Reverse/5 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse5Animation })),
+                new("TF Time Reverse/2 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse2Animation })),
+                new("TF Time Reverse/1 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse1Animation })),
+
+                new("CTF/Canine", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation, _knotTfAnimation })),
+                new("CTF/Cookie", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation, _cookieTfAnimation })),
+                new("CTF/Taper", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation, _tapperTfAnimation })),
+                new("CTF/Horse", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation, _horseTfAnimation })),
+
+                new("Pooltoy/Body", (gameObject) => {
+                    AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation, _mouthOpenAnimation });
+                    AddMouthDoNotOpenComponents(gameObject, new[] { _mouthDoNotOpenAnimation });
+                }),
+                new("Pooltoy/Accessories", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _accessoriesAnimation })),
+                new("Pooltoy/Valve", (gameObject) => {
+                    AddMainVrcFurryComponents(gameObject, new[] { _valveShowAnimation });
+                    AddMouthDoNotOpenComponents(gameObject, new[] { _valveDoNotShowAnimation });
+                }),
+                new("Pooltoy/Valve Bulb", (gameObject) => {
+                    AddMainVrcFurryComponents(gameObject, new[] { _valveLightbulbAnimation });
+                    AddMouthDoNotOpenComponents(gameObject, new[] { _valveDoNotLightbulbAnimation });
+                }),
+
+
+                // new("Seat/Mat Swap on seat toggle", (gameObject) => ),
             };
 
+            _possibleModules = new Dictionary<string, Func<ObjectMeta, bool>> {
+                { "Automatic TF", component => component.IsVrcFury && component.VrcFuryGlobalParameter == "TF/Auto" },
+                { "Manual TF", component => component.IsVrcFury && component.VrcFuryGlobalParameter == "TF/Manual" },
+                { "Automatic TF Reversed", component => component.IsVrcFury && component.VrcFuryGlobalParameter == "TF/Auto Reverse" },
+                { "Material Swap", component => component.IsVrcFury && component.VrcFuryExclusiveTag == "TF/Material Swap" },
+                { "Position Swap", component => component.IsVrcFury && component.VrcFuryExclusiveTag == "TF/Start Position" },
+                { "Disabled Mouth transform", component => component.IsVrcFury && component.VrcFuryGlobalParameter == "TF/Disable Mouth Transform" },
+                { "Seat Toggle", component => component.IsVrcFury && component.VrcFuryGlobalParameter == "TF/Seat/Toggle" },
+            };
+        }
+
+        private void CreateGUI() {
+            var root = CreateRootUIElement();
+            var avatarSelector = CreateAvatarSelectorField(avatar => { MainListView.itemsSource = Avatar?.meshRenderers; });
+            var actions = CreateActionsGUI();
             var list = CreateListGUI();
 
-            avatarGameObjectField.RegisterValueChangedCallback((e) => {
-                var gameObject = e.newValue as GameObject;
 
-                if (gameObject == null) {
-                    list.itemsSource = null;
-                    return;
-                }
-
-                var goList = gameObject
-                    .GetComponentsInChildren<Component>(true)
-                    .ToList()
-                    .ConvertAll(c => new ObjectMeta(c))
-                    .Where(c => c.IsVrcFury)
-                    .Where(meta => meta.IsVrcFuryToggle && meta.VrcFuryGlobalParameter is "TF/Auto" or "TF/Manual" or "TF/Seat/Toggle" or "TF/Disable Mouth Transform")
-                    .ToList();
-
-                list.itemsSource = goList;
-            });
-
-            avatarSelector.Add(avatarGameObjectField);
             root.Add(avatarSelector);
+            root.Add(actions);
             root.Add(list);
         }
 
         private MultiColumnListView CreateListGUI() {
-            var list = new MultiColumnListView {
-                name = "List",
-                focusable = true,
-                showAlternatingRowBackgrounds = AlternatingRowBackground.All,
-                showBorder = true,
-                reorderMode = ListViewReorderMode.Animated,
-                virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight,
-                style = {
-                    marginTop = 8,
-                    flexShrink = 0,
-                }
-            };
+            CreateMainListGUI();
 
-            list.columns.Add(new Column {
-                title = "GameObject",
-                width = 80,
+            MainListView.columns.Add(new Column {
+                title = "Mesh Renderer",
+                width = 200,
                 makeCell = () => new ObjectField {
                     objectType = typeof(GameObject)
                 },
                 bindCell = (element, index) => {
                     var field = (ObjectField)element;
-                    var meta = list.itemsSource[index] as ObjectMeta;
-
-                    field.value = meta.Component.gameObject;
+                    var meta = MainListView.itemsSource[index] as SkinnedMeshRendererMeta;
+                    field.value = meta.GameObject;
                 }
             });
 
-            list.columns.Add(new Column {
-                title = "Global Parameter",
-                width = 80,
-                makeCell = () => new Label(),
+            MainListView.columns.Add(new Column {
+                title = "Related PhysBones",
+                width = 200,
+                makeCell = () => new Foldout { text = "PhysBones", value = false },
                 bindCell = (element, index) => {
-                    var field = (Label)element;
-                    var meta = list.itemsSource[index] as ObjectMeta;
+                    var foldout = (Foldout)element;
+                    var meta = MainListView.itemsSource[index] as SkinnedMeshRendererMeta;
+                    var count = 0;
 
-                    field.text = meta.VrcFuryGlobalParameter;
+                    RegisterCallBack<bool>(foldout, (e) => { DoAndRedraw(index, () => meta.Expanded = e.newValue); });
+
+                    foldout.Clear();
+
+                    meta.PhysBones.ForEach(physBone => {
+                        count++;
+
+                        foldout.Add(new ObjectField {
+                            objectType = typeof(GameObject),
+                            value = physBone,
+                            style = {
+                                flexGrow = 1,
+                                flexShrink = 1,
+                            }
+                        });
+                    });
+                },
+                unbindCell = (element, index) => {
+                    var foldout = (Foldout)element;
+                    UnregisterCallBack<bool>(foldout);
                 }
             });
 
-            return list;
+            MainListView.columns.Add(new Column {
+                title = "Add Modules",
+                width = 250,
+                makeCell = () => new VisualElement(),
+                bindCell = (element, index) => {
+                    var meta = MainListView.itemsSource[index] as SkinnedMeshRendererMeta;
+                    element.Clear();
+                    var button = new Button(() => {
+                        var menu = new GenericMenu();
+                        _choices.ForEach(choice => { menu.AddItem(new GUIContent(choice.Name), false, () => { DoAndRedraw(index, () => choice.Action(meta.GameObject)); }); });
+
+                        menu.ShowAsContext();
+                    }) { text = "Add Module" };
+
+                    element.Add(button);
+
+                    if (meta.Expanded) {
+                        meta.PhysBones.ForEach(physBone => {
+                            element.Add(new Button(() => { DoAndRedraw(index, () => AddSeatVrcFurryComponents(physBone, new[] { _physbonesOffAnimation })); }) { text = "Disable PhysBones when seat on" });
+                        });
+                    }
+                },
+            });
+
+            MainListView.columns.Add(new Column {
+                title = "Installed Modules",
+                width = Length.Auto(),
+                minWidth = 300,
+                stretchable = true,
+                resizable = true,
+                makeCell = () => new VisualElement(),
+                bindCell = (element, index) => {
+                    var meta = MainListView.itemsSource[index] as SkinnedMeshRendererMeta;
+                    element.Clear();
+
+                    var mainModules = new VisualElement() { style = { flexDirection = FlexDirection.Row } };
+
+                    meta.VrcFuryComponents.ForEach(vrcFuryComponent => {
+                        foreach (var (key, comparator) in _possibleModules) {
+                            if (comparator(vrcFuryComponent)) {
+                                mainModules.Add(new Button(() => DoAndRedraw(index, () => DestroyImmediate(vrcFuryComponent.Component))) { text = $"{key} (remove)" });
+                            }
+                        }
+                    });
+
+                    if (mainModules.childCount == 0) {
+                        mainModules.Add(new Button() { text = "None" });
+                    }
+
+                    element.Add(mainModules);
+
+                    if (meta.Expanded) {
+                        meta.PhysBones.ForEach(physBone => {
+                            var physBoneModuls = new VisualElement() { style = { flexDirection = FlexDirection.Row } };
+                            meta.GetVrcFuryComponents(physBone).ForEach(vrcFuryComponent => {
+                                foreach (var (key, comparator) in _possibleModules) {
+                                    if (comparator(vrcFuryComponent)) {
+                                        physBoneModuls.Add(new Button(() => DoAndRedraw(index, () => DestroyImmediate(vrcFuryComponent.Component))) { text = $"{key} (remove)" });
+                                    }
+                                }
+                            });
+
+                            if (physBoneModuls.childCount == 0) {
+                                physBoneModuls.Add(new Button() { text = "None" });
+                            }
+
+                            element.Add(physBoneModuls);
+                        });
+                    }
+                }
+            });
+
+            return MainListView;
         }
 
-        [MenuItem("Azzmurr/TF Controller/Helper")]
+        private MultiColumnListView CreateActionsGUI() {
+            CreateActionsListGUI();
+
+            ActionsListView.itemsSource = new List<ActionGroup> {
+                new() {
+                    Name = "Avatar",
+                    Actions = new List<Button> {
+                        new(() => { DoAndRedraw(() => { Avatar.Recalculate(); }); }) { text = "Reload" },
+                    }
+                },
+            };
+
+            return ActionsListView;
+        }
+
+        [MenuItem("Azzmurr/TF Controller")]
         public static void Init() {
             var window = (TransformationControllerHelper)GetWindow(typeof(TransformationControllerHelper));
             window.titleContent = new GUIContent("TF Controller Helper");
             window.Show();
         }
 
-        [MenuItem("GameObject/Azzmurr/TF Controller/Helper", true, 0)]
-        [MenuItem("GameObject/Azzmurr/TF Controller/Common/TF Time", true, 0)]
-        [MenuItem("GameObject/Azzmurr/TF Controller/Common/TF Time 50", true, 0)]
-        [MenuItem("GameObject/Azzmurr/TF Controller/CTF/Cookie TF", true, 0)]
-        [MenuItem("GameObject/Azzmurr/TF Controller/CTF/Horse TF", true, 0)]
-        [MenuItem("GameObject/Azzmurr/TF Controller/CTF/Tapper TF", true, 0)]
-        [MenuItem("GameObject/Azzmurr/TF Controller/CTF/Knot TF", true, 0)]
-        [MenuItem("GameObject/Azzmurr/TF Controller/CTF/Physbones Off when seat toggled", true, 0)]
-        [MenuItem("GameObject/Azzmurr/TF Controller/CTF/Add mat swap on seat toggle on", true, 0)]
-        [MenuItem("GameObject/Azzmurr/TF Controller/Pool Toy/Body", true, 0)]
-        [MenuItem("GameObject/Azzmurr/TF Controller/Pool Toy/Accessories", true, 0)]
-        [MenuItem("GameObject/Azzmurr/TF Controller/Pool Toy/Valve", true, 0)]
-        [MenuItem("GameObject/Azzmurr/TF Controller/Pool Toy/Valve Bulb", true, 0)]
-        public static bool CanShowFromSelection() {
-            return Selection.activeGameObject != null;
-        }
-
-        [MenuItem("GameObject/Azzmurr/TF Controller/Helper", false, 0)]
+        [MenuItem("GameObject/Azzmurr/TF Controller", false)]
         public static void ShowFromSelection() {
             var window = (TransformationControllerHelper)GetWindow(typeof(TransformationControllerHelper));
             window.titleContent = new GUIContent("Transformation Controller Helper");
-            window.Avatar = Selection.activeGameObject;
+            window.SetAvatar(Selection.activeGameObject);
             window.Show();
         }
 
-        [MenuItem("GameObject/Azzmurr/TF Controller/Common/TF Time", false, 0)]
-        public static void AddTfTime() {
-            AddMainVrcFurryComponents(new[] { TfTimeAnimationPath });
+        private void AddMouthDoNotOpenComponents(GameObject gameObject, AnimationClip[] clips) {
+            AddMainVrcFurryComponent("TF/Disable Mouth Transform", gameObject, clips);
         }
 
-        [MenuItem("GameObject/Azzmurr/TF Controller/Common/TF Time 50", false, 0)]
-        public static void AddTfTime50() {
-            AddMainVrcFurryComponents(new[] { TfTime50AnimationPath });
+        private FuryToggle AddSeatVrcFurryComponents(GameObject gameObject, AnimationClip[] clips) {
+            return AddMainVrcFurryComponent("TF/Seat/Toggle", gameObject, clips);
         }
 
-        [MenuItem("GameObject/Azzmurr/TF Controller/CTF/Cookie TF", false, 0)]
-        public static void AddCookieTf() {
-            AddMainVrcFurryComponents(new[] { TfTimeAnimationPath, CookieTfAnimation });
+        private void AddMainReversedVrcFuryComponent(GameObject gameObject, AnimationClip[] clips) {
+            AddMainVrcFurryComponent("TF/Auto Reverse", gameObject, clips);
         }
 
-        [MenuItem("GameObject/Azzmurr/TF Controller/CTF/Horse TF", false, 0)]
-        public static void AddHorseTf() {
-            AddMainVrcFurryComponents(new[] { TfTimeAnimationPath, HorseTfAnimation });
+        private void AddMainVrcFurryComponents(GameObject gameObject, AnimationClip[] clips) {
+            AddMainVrcFurryComponent("TF/Auto", gameObject, clips);
+            AddMainVrcFurryComponent("TF/Manual", gameObject, clips).SetSlider();
         }
 
-        [MenuItem("GameObject/Azzmurr/TF Controller/CTF/Tapper TF", false, 0)]
-        public static void AddTapperTf() {
-            AddMainVrcFurryComponents(new[] { TfTimeAnimationPath, TapperTfAnimation });
-        }
-
-        [MenuItem("GameObject/Azzmurr/TF Controller/CTF/Knot TF", false, 0)]
-        public static void AddKnotTf() {
-            AddMainVrcFurryComponents(new[] { TfTimeAnimationPath, KnotTfAnimation });
-        }
-
-        [MenuItem("GameObject/Azzmurr/TF Controller/CTF/Physbones Off when seat toggled", false, 0)]
-        public static void AddPhysbonesOffOnSeat() {
-            AddSeatVrcFurryComponents(new[] { PhysbonesOffAnimation });
-        }
-
-        [MenuItem("GameObject/Azzmurr/TF Controller/CTF/Add mat swap on seat toggle on", false, 0)]
-        public static void AddMatSwapOnSeat() {
-            AddSeatVrcFurryComponents(new AnimationClip[] { }).GetActions();
-        }
-
-        [MenuItem("GameObject/Azzmurr/TF Controller/Pool Toy/Body", false, 0)]
-        public static void AddBodyPoolToyPreset() {
-            AddMainVrcFurryComponents(new[] { TfTimeAnimationPath, MouthOpenAnimation });
-            AddMouthDoNotOpenComponents(new[] { MouthDoNotOpenAnimation });
-        }
-
-        [MenuItem("GameObject/Azzmurr/TF Controller/Pool Toy/Accessories", false, 0)]
-        public static void AddAccessoriesPoolToyPreset() {
-            AddMainVrcFurryComponents(new[] { AccessoriesAnimation });
-        }
-
-        [MenuItem("GameObject/Azzmurr/TF Controller/Pool Toy/Valve", false, 0)]
-        public static void AddValvePoolToyPreset() {
-            AddMainVrcFurryComponents(new[] { ValveShowAnimation });
-            AddMouthDoNotOpenComponents(new[] { ValveDoNotShowAnimation });
-        }
-
-        [MenuItem("GameObject/Azzmurr/TF Controller/Pool Toy/Valve Bulb", false, 0)]
-        public static void AddValveBulbPoolToyPreset() {
-            AddMainVrcFurryComponents(new[] { ValveLightbulbAnimation });
-            AddMouthDoNotOpenComponents(new[] { ValveDoNotLightbulbAnimation });
-        }
-
-        private static void AddMouthDoNotOpenComponents(AnimationClip[] clips) {
-            AddMainVrcFurryComponent("TF/Disable Mouth Transform", clips);
-        }
-
-        private static FuryToggle AddSeatVrcFurryComponents(AnimationClip[] clips) {
-            return AddMainVrcFurryComponent("TF/Seat/Toggle", clips);
-        }
-
-        private static void AddMainVrcFurryComponents(AnimationClip[] clips) {
-            AddMainVrcFurryComponent("TF/Auto", clips);
-            AddMainVrcFurryComponent("TF/Manual", clips).SetSlider();
-        }
-
-        private static FuryToggle AddMainVrcFurryComponent(string toggleName, AnimationClip[] clips) {
-            var toggle = FuryComponents.CreateToggle(Selection.activeGameObject);
+        private FuryToggle AddMainVrcFurryComponent(string toggleName, GameObject gameObject, AnimationClip[] clips) {
+            var toggle = FuryComponents.CreateToggle(gameObject);
             toggle.SetGlobalParameter(toggleName);
 
             clips.ToList().ForEach(clip => { toggle.GetActions().AddAnimationClip(clip); });

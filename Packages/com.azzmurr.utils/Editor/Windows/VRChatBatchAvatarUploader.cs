@@ -19,16 +19,13 @@ using Debug = UnityEngine.Debug;
 using Object = UnityEngine.Object;
 
 namespace Azzmurr.Utils {
-    internal class VRChatBatchAvatarUploader : EditorWindow {
+    internal class VRChatBatchAvatarUploader : CommonEditorWindow {
         private const string AgreementText = "By clicking OK, I certify that I have the necessary rights to upload this content and that it will not infringe on any third-party legal or intellectual property rights.";
 
         private readonly Queue<Action> _mainThreadQueue = new();
-        private MultiColumnListView _actionsGUI;
-        private MultiColumnListView _avatarsGUI;
 
         private CancellationTokenSource _cts;
 
-        private ObjectField _folderSelectorField;
         private Label _statusLabel;
         private bool _setBestPCTextureFormatBeforeUpload;
         private bool _setCrunchPCTextureFormatBeforeUpload;
@@ -41,8 +38,8 @@ namespace Azzmurr.Utils {
         }
 
         private void CreateGUI() {
-            var root = CreateRootElement();
-            root.Add(CreateFolderSelector());
+            var root = CreateRootUIElement();
+            root.Add(CreateFolderSelector(_ => {}));
             root.Add(CreateActionsGUI());
             root.Add(CreateTextureUpdateCheckbox());
             root.Add(CreateStatusLabel());
@@ -56,77 +53,10 @@ namespace Azzmurr.Utils {
 
         private void RunOnMainThread(Action action) => _mainThreadQueue.Enqueue(action);
 
-        private VisualElement CreateRootElement() {
-            var root = rootVisualElement;
-            root.style.paddingRight = 8;
-            root.style.paddingLeft = 8;
-
-            return root;
-        }
-
-        private VisualElement CreateFolderSelector() {
-            var folderSelector = new VisualElement { style = { flexShrink = 0 } };
-            var selectedFolder = GetSelectedFolder();
-            var folderSelectorField = new ObjectField {
-                objectType = typeof(DefaultAsset),
-                value = selectedFolder,
-                name = "Folder",
-                label = "Folder: ",
-                style = {
-                    flexShrink = 0,
-                    flexGrow = 1,
-                }
-            };
-
-            _folderSelectorField = folderSelectorField;
-
-            folderSelector.Add(folderSelectorField);
-            return folderSelector;
-        }
-
         private MultiColumnListView CreateActionsGUI() {
-            var actions = new MultiColumnListView {
-                name = "Actions",
-                focusable = true,
-                showAlternatingRowBackgrounds = AlternatingRowBackground.All,
-                showBorder = true,
-                reorderMode = ListViewReorderMode.Animated,
-                virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight,
-                style = {
-                    marginTop = 8,
-                    flexShrink = 0,
-                }
-            };
+            CreateActionsListGUI();
 
-            actions.columns.Add(new Column {
-                title = "Type",
-                width = 80,
-                makeCell = () => new Label { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft } },
-                bindCell = (element, index) => {
-                    var label = (Label)element;
-                    var actionGroup = (ActionGroup)actions.viewController.GetItemForIndex(index);
-                    label.text = actionGroup.Name;
-                }
-            });
-
-            actions.columns.Add(new Column {
-                title = "Actions",
-
-                width = 400,
-                makeCell = () => new VisualElement { style = { flexDirection = FlexDirection.Row } },
-                bindCell = (element, index) => {
-                    var actionGroup = (ActionGroup)actions.viewController.GetItemForIndex(index);
-                    actionGroup.Actions
-                        .ToList()
-                        .ConvertAll((action) => {
-                            action.style.flexGrow = 1;
-                            return action;
-                        })
-                        .ForEach(element.Add);
-                }
-            });
-
-            actions.itemsSource = new List<ActionGroup> {
+            ActionsListView.itemsSource = new List<ActionGroup> {
                 new() {
                     Name = "Folder",
                     Actions = new List<Button> {
@@ -150,30 +80,18 @@ namespace Azzmurr.Utils {
                 }
             };
 
-            _actionsGUI = actions;
-
-            return actions;
+            return ActionsListView;
         }
 
         private MultiColumnListView CreateAvatarListView() {
-            var avatarList = new MultiColumnListView {
-                name = "Avatars List",
-                focusable = true,
-                showAlternatingRowBackgrounds = AlternatingRowBackground.All,
-                showBorder = true,
-                reorderMode = ListViewReorderMode.Animated,
-                virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight,
-                style = {
-                    marginTop = 8,
-                }
-            };
+            CreateMainListGUI();
 
-            avatarList.columns.Add(new Column {
+            MainListView.columns.Add(new Column {
                 title = "",
                 width = 50,
                 makeCell = () => new Toggle(),
                 bindCell = (element, index) => {
-                    var avatarEntry = (AvatarEntry)avatarList.viewController.GetItemForIndex(index);
+                    var avatarEntry = (AvatarEntry)MainListView.viewController.GetItemForIndex(index);
                     var toggle = (Toggle)element;
                     toggle.value = avatarEntry.Selected;
 
@@ -181,7 +99,7 @@ namespace Azzmurr.Utils {
                 }
             });
 
-            avatarList.columns.Add(new Column {
+            MainListView.columns.Add(new Column {
                 title = "Scene",
                 width = 200,
                 makeCell = () => {
@@ -192,27 +110,27 @@ namespace Azzmurr.Utils {
                     return objectField;
                 },
                 bindCell = (element, index) => {
-                    var avatarEntry = (AvatarEntry)avatarList.viewController.GetItemForIndex(index);
+                    var avatarEntry = (AvatarEntry)MainListView.viewController.GetItemForIndex(index);
                     ((ObjectField)element).value = avatarEntry.AvatarScene;
                 }
             });
 
-            avatarList.columns.Add(new Column {
+            MainListView.columns.Add(new Column {
                 title = "Game Object",
                 width = 200,
                 makeCell = () => new Label { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft, marginLeft = 8 } },
                 bindCell = (element, index) => {
-                    var avatarEntry = (AvatarEntry)avatarList.viewController.GetItemForIndex(index);
+                    var avatarEntry = (AvatarEntry)MainListView.viewController.GetItemForIndex(index);
                     ((Label)element).text = avatarEntry.Name;
                 }
             });
 
-            avatarList.columns.Add(new Column {
+            MainListView.columns.Add(new Column {
                 title = "Blueprint ID",
                 width = 100,
                 makeCell = () => new Label { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft, marginLeft = 8 } },
                 bindCell = (element, index) => {
-                    var avatarEntry = (AvatarEntry)avatarList.viewController.GetItemForIndex(index);
+                    var avatarEntry = (AvatarEntry)MainListView.viewController.GetItemForIndex(index);
                     var hasBlueprint = string.IsNullOrEmpty(avatarEntry.BlueprintId);
                     ((Label)element).text = hasBlueprint
                         ? "○ No Blueprint ID"
@@ -224,12 +142,12 @@ namespace Azzmurr.Utils {
                 }
             });
 
-            avatarList.columns.Add(new Column {
+            MainListView.columns.Add(new Column {
                 title = "Status",
                 width = 300,
                 makeCell = () => new Label { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft, marginLeft = 8 } },
                 bindCell = (element, index) => {
-                    var avatarEntry = (AvatarEntry)avatarList.viewController.GetItemForIndex(index);
+                    var avatarEntry = (AvatarEntry)MainListView.viewController.GetItemForIndex(index);
                     var time = avatarEntry.TimeTaken.TotalSeconds > 0
                         ? $"({avatarEntry.TimeTaken.Minutes:D2}:{avatarEntry.TimeTaken.Seconds:D2})"
                         : "";
@@ -250,9 +168,7 @@ namespace Azzmurr.Utils {
                 }
             });
 
-            _avatarsGUI = avatarList;
-
-            return avatarList;
+            return MainListView;
         }
 
         private Label CreateStatusLabel() {
@@ -287,38 +203,14 @@ namespace Azzmurr.Utils {
         }
 
         private void RescanSelectedFolder() {
-            if (_folderSelectorField.value == null) {
-                _avatarsGUI.itemsSource = null;
+            if (SelectedFolder) {
+                MainListView.itemsSource = null;
             }
 
-            _avatarsGUI.itemsSource = ScanFolder(_folderSelectorField.value);
-            _avatarsGUI.RefreshItems();
+            MainListView.itemsSource = ScanFolder(SelectedFolder);
+            MainListView.RefreshItems();
         }
 
-        private DefaultAsset GetSelectedFolder() {
-            var selected = Selection.activeObject;
-
-            if (selected == null) {
-                return AssetDatabase.LoadAssetAtPath<DefaultAsset>("Assets");
-            }
-
-            var path = AssetDatabase.GetAssetPath(selected);
-
-            if (string.IsNullOrEmpty(path)) {
-                path = ((GameObject)selected).scene.path;
-            }
-
-            if (!AssetDatabase.IsValidFolder(path)) {
-                path = Path.GetDirectoryName(path);
-            }
-
-            if (string.IsNullOrEmpty(path)) {
-                EditorUtility.DisplayDialog("Batch Avatar Uploader", "Could not determine folder path.", "OK");
-                return null;
-            }
-
-            return AssetDatabase.LoadAssetAtPath<DefaultAsset>(path);
-        }
 
         private static List<AvatarEntry> ScanFolder(Object folder) {
             if (folder == null) {
@@ -350,17 +242,17 @@ namespace Azzmurr.Utils {
         }
 
         private void SetAllSelected(bool selected) {
-            if (_avatarsGUI.itemsSource is not List<AvatarEntry> avatars) return;
+            if (MainListView.itemsSource is not List<AvatarEntry> avatars) return;
 
             foreach (var entry in avatars) entry.Selected = selected;
-            _avatarsGUI.RefreshItems();
+            MainListView.RefreshItems();
         }
 
         private void FlipSelection() {
-            if (_avatarsGUI.itemsSource is not List<AvatarEntry> avatars) return;
+            if (MainListView.itemsSource is not List<AvatarEntry> avatars) return;
 
             foreach (var entry in avatars) entry.Selected = !entry.Selected;
-            _avatarsGUI.RefreshItems();
+            MainListView.RefreshItems();
         }
 
         private async void UploadAvatars(bool all) {
@@ -375,7 +267,7 @@ namespace Azzmurr.Utils {
                     return;
                 }
 
-                if (_avatarsGUI.itemsSource is not List<AvatarEntry> avatars) {
+                if (MainListView.itemsSource is not List<AvatarEntry> avatars) {
                     EditorUtility.DisplayDialog("Batch Avatar Uploader", "No avatars found in selected folder", "OK");
                     return;
                 }
@@ -394,7 +286,7 @@ namespace Azzmurr.Utils {
                 if (!confirm) return;
 
                 _cts = new CancellationTokenSource();
-                _actionsGUI.SetEnabled(false);
+                ActionsListView.SetEnabled(false);
 
                 var completed = 0;
                 var failed = 0;
@@ -409,12 +301,12 @@ namespace Azzmurr.Utils {
                     entry.Status = "Pending";
                 }
 
-                _avatarsGUI.RefreshItems();
+                MainListView.RefreshItems();
 
                 foreach (var entry in toUpload) {
                     if (_cts.IsCancellationRequested) {
                         entry.Status = "Cancelled";
-                        _avatarsGUI.RefreshItems();
+                        MainListView.RefreshItems();
                         continue;
                     }
 
@@ -430,7 +322,7 @@ namespace Azzmurr.Utils {
 
                 _statusLabel.text = $"Done. {completed} uploaded, {failed} failed. Time taken: {t.Hours:D2} hour(s) {t.Minutes:D2} minute(s) {t.Seconds:D2} second(s)";
                 _cts = null;
-                _actionsGUI.SetEnabled(true);
+                ActionsListView.SetEnabled(true);
 
                 if (!string.IsNullOrEmpty(currentScenePath)) {
                     EditorSceneManager.OpenScene(currentScenePath, OpenSceneMode.Single);
@@ -457,7 +349,7 @@ namespace Azzmurr.Utils {
             try {
                 GameObject avatarObject = null;
 
-                _avatarsGUI.RefreshItems();
+                MainListView.RefreshItems();
                 await AddCopyrightAgreement(entry.BlueprintId);
 
                 VRCAvatarDescriptor targetDescriptor = null;
@@ -482,51 +374,51 @@ namespace Azzmurr.Utils {
                     Debug.LogWarning($"Batch Avatar Uploader: Could not find avatar '{entry.Name}' in scene '{entry.AvatarScene.name}'");
                     entry.Status = "Failed to find avatar";
                     entry.State = "Failed";
-                    _avatarsGUI.RefreshItems();
+                    MainListView.RefreshItems();
                     return false;
                 }
 
                 onBuildStart = (_, _) => RunOnMainThread(() => {
                     entry.Status = "Building...";
                     entry.State = "InProgress";
-                    _avatarsGUI.RefreshItems();
+                    MainListView.RefreshItems();
                 });
                 onBuildProgress = (_, m) => RunOnMainThread(() => {
                     entry.Status = m;
-                    _avatarsGUI.RefreshItems();
+                    MainListView.RefreshItems();
                 });
                 onBuildSuccess = (_, m) => RunOnMainThread(() => {
                     entry.Status = m;
-                    _avatarsGUI.RefreshItems();
+                    MainListView.RefreshItems();
                 });
                 onBuildError = (_, m) => RunOnMainThread(() => {
                     sw.Stop();
                     entry.TimeTaken = sw.Elapsed;
                     entry.Status = m;
                     entry.State = "Error";
-                    _avatarsGUI.RefreshItems();
+                    MainListView.RefreshItems();
                 });
                 onUploadStart = (_, _) => RunOnMainThread(() => {
                     entry.Status = "Uploading...";
-                    _avatarsGUI.RefreshItems();
+                    MainListView.RefreshItems();
                 });
                 onUploadProgress = (_, m) => RunOnMainThread(() => {
                     entry.Status = m.status;
-                    _avatarsGUI.RefreshItems();
+                    MainListView.RefreshItems();
                 });
                 onUploadSuccess = (_, _) => RunOnMainThread(() => {
                     sw.Stop();
                     entry.TimeTaken = sw.Elapsed;
                     entry.Status = "Uploaded!";
                     entry.State = "Success";
-                    _avatarsGUI.RefreshItems();
+                    MainListView.RefreshItems();
                 });
                 onUploadError = (_, m) => RunOnMainThread(() => {
                     sw.Stop();
                     entry.TimeTaken = sw.Elapsed;
                     entry.Status = m;
                     entry.State = "Error";
-                    _avatarsGUI.RefreshItems();
+                    MainListView.RefreshItems();
                 });
 
                 builder.OnSdkBuildStart += onBuildStart;
@@ -549,7 +441,7 @@ namespace Azzmurr.Utils {
                     entry.TimeTaken = sw.Elapsed;
                     entry.State = "Error";
                     entry.Status = e.ErrorMessage;
-                    _avatarsGUI.RefreshItems();
+                    MainListView.RefreshItems();
                 }
 
                 Debug.LogError(e.Message + e.StackTrace);
@@ -562,7 +454,7 @@ namespace Azzmurr.Utils {
                     entry.TimeTaken = sw.Elapsed;
                     entry.State = "Error";
                     entry.Status = e.Message;
-                    _avatarsGUI.RefreshItems();
+                    MainListView.RefreshItems();
                 }
 
                 Debug.LogError(e.Message + e.StackTrace);
