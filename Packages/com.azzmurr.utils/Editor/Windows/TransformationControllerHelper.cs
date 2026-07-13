@@ -269,9 +269,7 @@ namespace Azzmurr.Utils {
                     var meta = MainListView.itemsSource[index] as SkinnedMeshRendererMeta;
                     var label = (Label)element;
 
-                    if (meta.HasSlidersNotPassthrough) {
-                        label.text = "Some manual sliders have passthrough toggled off. It will result automatic TF not working";
-                    }
+                    label.text = meta.HasSlidersNotPassthrough ? "Some manual sliders have passthrough toggled off. It will result automatic TF not working" : "";
                 }
             });
 
