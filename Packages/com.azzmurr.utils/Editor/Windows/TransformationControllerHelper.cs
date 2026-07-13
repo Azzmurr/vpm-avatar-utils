@@ -122,13 +122,13 @@ namespace Azzmurr.Utils {
             };
 
             _possibleModules = new Dictionary<string, Func<ObjectMeta, bool>> {
-                { "Automatic TF", component => component.IsVrcFury && component.VrcFuryGlobalParameter == "TF/Auto" },
-                { "Manual TF", component => component.IsVrcFury && component.VrcFuryGlobalParameter == "TF/Manual" },
-                { "Automatic TF Reversed", component => component.IsVrcFury && component.VrcFuryGlobalParameter == "TF/Auto Reverse" },
-                { "Material Swap", component => component.IsVrcFury && component.VrcFuryExclusiveTag == "TF/Material Swap" },
-                { "Position Swap", component => component.IsVrcFury && component.VrcFuryExclusiveTag == "TF/Start Position" },
-                { "Disabled Mouth transform", component => component.IsVrcFury && component.VrcFuryGlobalParameter == "TF/Disable Mouth Transform" },
-                { "Seat Toggle", component => component.IsVrcFury && component.VrcFuryGlobalParameter == "TF/Seat/Toggle" },
+                { "Automatic TF", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto" },
+                { "Manual TF", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Manual" },
+                { "Automatic TF Reversed", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto Reverse" },
+                { "Material Swap", component => component.IsVrcFuryToggle && component.VrcFuryExclusiveTag == "TF/Material Swap" },
+                { "Position Swap", component => component.IsVrcFuryToggle && component.VrcFuryExclusiveTag == "TF/Start Position" },
+                { "Disabled Mouth transform", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Disable Mouth Transform" },
+                { "Seat Toggle", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Seat/Toggle" },
             };
         }
 
