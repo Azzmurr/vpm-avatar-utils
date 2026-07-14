@@ -172,7 +172,7 @@ namespace Azzmurr.Utils {
                 )
                 .ToList();
 
-            return meshRenderersToReturn.ToHashSet().ToList().ConvertAll(meta => new SkinnedMeshRendererMeta(meta));
+            return meshRenderersToReturn.ToHashSet().ToList().ConvertAll(meta => new SkinnedMeshRendererMeta(meta, GameObject.transform));
         }
 
         private List<Material> GetRenderersMaterials() {
