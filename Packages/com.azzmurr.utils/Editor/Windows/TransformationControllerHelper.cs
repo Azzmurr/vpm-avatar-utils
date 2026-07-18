@@ -84,36 +84,134 @@ namespace Azzmurr.Utils {
             _valveShowAnimation = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{controllerAnimsPath}/Pool Toy/Valve Show.anim");
 
             _choices = new List<DropdownChoice<GameObject>> {
-                new("TF Time/20 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation })),
-                new("TF Time/15 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime15Animation })),
-                new("TF Time/10 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime10Animation })),
-                new("TF Time/5 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime5Animation })),
-                new("TF Time/2 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime2Animation })),
-                new("TF Time/1 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime1Animation })),
+                new("TF Time/1/20 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation }, 1)),
+                new("TF Time/1/15 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime15Animation }, 1)),
+                new("TF Time/1/10 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime10Animation }, 1)),
+                new("TF Time/1/5 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime5Animation }, 1)),
+                new("TF Time/1/2 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime2Animation }, 1)),
+                new("TF Time/1/1 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime1Animation }, 1)),
 
-                new("TF Time Reverse/20 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse20Animation })),
-                new("TF Time Reverse/15 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse15Animation })),
-                new("TF Time Reverse/10 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse10Animation })),
-                new("TF Time Reverse/5 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse5Animation })),
-                new("TF Time Reverse/2 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse2Animation })),
-                new("TF Time Reverse/1 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse1Animation })),
+                new("TF Time/2/20 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation }, 2)),
+                new("TF Time/2/15 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime15Animation }, 2)),
+                new("TF Time/2/10 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime10Animation }, 2)),
+                new("TF Time/2/5 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime5Animation }, 2)),
+                new("TF Time/2/2 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime2Animation }, 2)),
+                new("TF Time/2/1 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime1Animation }, 2)),
 
-                new("CTF/Canine", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation, _knotTfAnimation })),
-                new("CTF/Cookie", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation, _cookieTfAnimation })),
-                new("CTF/Taper", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation, _tapperTfAnimation })),
-                new("CTF/Horse", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation, _horseTfAnimation })),
+                new("TF Time/3/20 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation }, 3)),
+                new("TF Time/3/15 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime15Animation }, 3)),
+                new("TF Time/3/10 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime10Animation }, 3)),
+                new("TF Time/3/5 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime5Animation }, 3)),
+                new("TF Time/3/2 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime2Animation }, 3)),
+                new("TF Time/3/1 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime1Animation }, 3)),
+
+                new("TF Time/4/20 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation }, 4)),
+                new("TF Time/4/15 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime15Animation }, 4)),
+                new("TF Time/4/10 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime10Animation }, 4)),
+                new("TF Time/4/5 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime5Animation }, 4)),
+                new("TF Time/4/2 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime2Animation }, 4)),
+                new("TF Time/4/1 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime1Animation }, 4)),
+
+                new("TF Time/5/20 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation }, 5)),
+                new("TF Time/5/15 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime15Animation }, 5)),
+                new("TF Time/5/10 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime10Animation }, 5)),
+                new("TF Time/5/5 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime5Animation }, 5)),
+                new("TF Time/5/2 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime2Animation }, 5)),
+                new("TF Time/5/1 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime1Animation }, 5)),
+
+                new("TF Time/6/20 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation }, 6)),
+                new("TF Time/6/15 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime15Animation }, 6)),
+                new("TF Time/6/10 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime10Animation }, 6)),
+                new("TF Time/6/5 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime5Animation }, 6)),
+                new("TF Time/6/2 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime2Animation }, 6)),
+                new("TF Time/6/1 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime1Animation }, 6)),
+
+                new("TF Time/7/20 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation }, 7)),
+                new("TF Time/7/15 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime15Animation }, 7)),
+                new("TF Time/7/10 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime10Animation }, 7)),
+                new("TF Time/7/5 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime5Animation }, 7)),
+                new("TF Time/7/2 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime2Animation }, 7)),
+                new("TF Time/7/1 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime1Animation }, 7)),
+
+                new("TF Time/8/20 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation }, 8)),
+                new("TF Time/8/15 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime15Animation }, 8)),
+                new("TF Time/8/10 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime10Animation }, 8)),
+                new("TF Time/8/5 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime5Animation }, 8)),
+                new("TF Time/8/2 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime2Animation }, 8)),
+                new("TF Time/8/1 min", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime1Animation }, 8)),
+
+                new("TF Time Reverse/1/20 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse20Animation }, 1)),
+                new("TF Time Reverse/1/15 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse15Animation }, 1)),
+                new("TF Time Reverse/1/10 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse10Animation }, 1)),
+                new("TF Time Reverse/1/5 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse5Animation }, 1)),
+                new("TF Time Reverse/1/2 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse2Animation }, 1)),
+                new("TF Time Reverse/1/1 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse1Animation }, 1)),
+
+                new("TF Time Reverse/2/20 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse20Animation }, 2)),
+                new("TF Time Reverse/2/15 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse15Animation }, 2)),
+                new("TF Time Reverse/2/10 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse10Animation }, 2)),
+                new("TF Time Reverse/2/5 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse5Animation }, 2)),
+                new("TF Time Reverse/2/2 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse2Animation }, 2)),
+                new("TF Time Reverse/2/1 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse1Animation }, 2)),
+
+                new("TF Time Reverse/3/20 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse20Animation }, 3)),
+                new("TF Time Reverse/3/15 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse15Animation }, 3)),
+                new("TF Time Reverse/3/10 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse10Animation }, 3)),
+                new("TF Time Reverse/3/5 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse5Animation }, 3)),
+                new("TF Time Reverse/3/2 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse2Animation }, 3)),
+                new("TF Time Reverse/3/1 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse1Animation }, 3)),
+
+                new("TF Time Reverse/4/20 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse20Animation }, 4)),
+                new("TF Time Reverse/4/15 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse15Animation }, 4)),
+                new("TF Time Reverse/4/10 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse10Animation }, 4)),
+                new("TF Time Reverse/4/5 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse5Animation }, 4)),
+                new("TF Time Reverse/4/2 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse2Animation }, 4)),
+                new("TF Time Reverse/4/1 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse1Animation }, 4)),
+
+                new("TF Time Reverse/5/20 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse20Animation }, 5)),
+                new("TF Time Reverse/5/15 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse15Animation }, 5)),
+                new("TF Time Reverse/5/10 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse10Animation }, 5)),
+                new("TF Time Reverse/5/5 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse5Animation }, 5)),
+                new("TF Time Reverse/5/2 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse2Animation }, 5)),
+                new("TF Time Reverse/5/1 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse1Animation }, 5)),
+
+                new("TF Time Reverse/6/20 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse20Animation }, 6)),
+                new("TF Time Reverse/6/15 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse15Animation }, 6)),
+                new("TF Time Reverse/6/10 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse10Animation }, 6)),
+                new("TF Time Reverse/6/5 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse5Animation }, 6)),
+                new("TF Time Reverse/6/2 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse2Animation }, 6)),
+                new("TF Time Reverse/6/1 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse1Animation }, 6)),
+
+                new("TF Time Reverse/7/20 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse20Animation }, 7)),
+                new("TF Time Reverse/7/15 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse15Animation }, 7)),
+                new("TF Time Reverse/7/10 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse10Animation }, 7)),
+                new("TF Time Reverse/7/5 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse5Animation }, 7)),
+                new("TF Time Reverse/7/2 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse2Animation }, 7)),
+                new("TF Time Reverse/7/1 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse1Animation }, 7)),
+
+                new("TF Time Reverse/8/20 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse20Animation }, 8)),
+                new("TF Time Reverse/8/15 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse15Animation }, 8)),
+                new("TF Time Reverse/8/10 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse10Animation }, 8)),
+                new("TF Time Reverse/8/5 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse5Animation }, 8)),
+                new("TF Time Reverse/8/2 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse2Animation }, 8)),
+                new("TF Time Reverse/8/1 min", (gameObject) => AddMainReversedVrcFuryComponent(gameObject, new[] { _tfTimeReverse1Animation }, 8)),
+
+                new("CTF/Canine", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation, _knotTfAnimation }, 1)),
+                new("CTF/Cookie", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation, _cookieTfAnimation }, 1)),
+                new("CTF/Taper", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation, _tapperTfAnimation }, 1)),
+                new("CTF/Horse", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation, _horseTfAnimation }, 1)),
 
                 new("Pooltoy/Body", (gameObject) => {
-                    AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation, _mouthOpenAnimation });
+                    AddMainVrcFurryComponents(gameObject, new[] { _tfTime20Animation, _mouthOpenAnimation }, 1);
                     AddMouthDoNotOpenComponents(gameObject, new[] { _mouthDoNotOpenAnimation });
                 }),
-                new("Pooltoy/Accessories", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _accessoriesAnimation })),
+                new("Pooltoy/Accessories", (gameObject) => AddMainVrcFurryComponents(gameObject, new[] { _accessoriesAnimation }, 1)),
                 new("Pooltoy/Valve", (gameObject) => {
-                    AddMainVrcFurryComponents(gameObject, new[] { _valveShowAnimation });
+                    AddMainVrcFurryComponents(gameObject, new[] { _valveShowAnimation }, 1);
                     AddMouthDoNotOpenComponents(gameObject, new[] { _valveDoNotShowAnimation });
                 }),
                 new("Pooltoy/Valve Bulb", (gameObject) => {
-                    AddMainVrcFurryComponents(gameObject, new[] { _valveLightbulbAnimation });
+                    AddMainVrcFurryComponents(gameObject, new[] { _valveLightbulbAnimation }, 1);
                     AddMouthDoNotOpenComponents(gameObject, new[] { _valveDoNotLightbulbAnimation });
                 }),
 
@@ -123,12 +221,32 @@ namespace Azzmurr.Utils {
 
             _possibleModules = new Dictionary<string, Func<ObjectMeta, bool>> {
                 { "Automatic TF", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto" },
+                { "Automatic TF 2", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto 2" },
+                { "Automatic TF 3", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto 3" },
+                { "Automatic TF 4", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto 4" },
+                { "Automatic TF 5", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto 5" },
+                { "Automatic TF 6", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto 6" },
+                { "Automatic TF 7", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto 7" },
+                { "Automatic TF 8", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto 8" },
                 { "Manual TF", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Manual" },
+                { "Manual TF 2", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Manual 2" },
+                { "Manual TF 3", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Manual 3" },
+                { "Manual TF 4", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Manual 4" },
+                { "Manual TF 5", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Manual 5" },
+                { "Manual TF 6", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Manual 6" },
+                { "Manual TF 7", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Manual 7" },
+                { "Manual TF 8", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Manual 8" },
                 { "Automatic TF Reversed", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto Reverse" },
-                { "Material Swap", component => component.IsVrcFuryToggle && component.VrcFuryExclusiveTag == "TF/Material Swap" },
-                { "Position Swap", component => component.IsVrcFuryToggle && component.VrcFuryExclusiveTag == "TF/Start Position" },
+                { "Automatic TF Reversed 2", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto Reverse 2" },
+                { "Automatic TF Reversed 3", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto Reverse 3" },
+                { "Automatic TF Reversed 4", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto Reverse 4" },
+                { "Automatic TF Reversed 5", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto Reverse 5" },
+                { "Automatic TF Reversed 6", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto Reverse 6" },
+                { "Automatic TF Reversed 7", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto Reverse 7" },
+                { "Automatic TF Reversed 8", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Auto Reverse 8" },
                 { "Disabled Mouth transform", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Disable Mouth Transform" },
                 { "Seat Toggle", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter == "TF/Seat/Toggle" },
+                { "Unknown TF element", component => component.IsVrcFuryToggle && component.VrcFuryGlobalParameter.StartsWith("TF") },
             };
         }
 
@@ -228,9 +346,9 @@ namespace Azzmurr.Utils {
 
                     meta.VrcFuryComponents.ForEach(vrcFuryComponent => {
                         foreach (var (key, comparator) in _possibleModules) {
-                            if (comparator(vrcFuryComponent)) {
-                                mainModules.Add(new Button(() => DoAndRedraw(index, () => DestroyImmediate(vrcFuryComponent.Component))) { text = $"{key} (remove)" });
-                            }
+                            if (!comparator(vrcFuryComponent)) continue;
+                            mainModules.Add(new Button(() => DoAndRedraw(index, () => DestroyImmediate(vrcFuryComponent.Component))) { text = $"{key} (remove)" });
+                            break;
                         }
                     });
 
@@ -245,9 +363,9 @@ namespace Azzmurr.Utils {
                             var physBoneModuls = new VisualElement() { style = { flexDirection = FlexDirection.Row } };
                             meta.GetVrcFuryComponents(physBone).ForEach(vrcFuryComponent => {
                                 foreach (var (key, comparator) in _possibleModules) {
-                                    if (comparator(vrcFuryComponent)) {
-                                        physBoneModuls.Add(new Button(() => DoAndRedraw(index, () => DestroyImmediate(vrcFuryComponent.Component))) { text = $"{key} (remove)" });
-                                    }
+                                    if (!comparator(vrcFuryComponent)) continue;
+                                    physBoneModuls.Add(new Button(() => DoAndRedraw(index, () => DestroyImmediate(vrcFuryComponent.Component))) { text = $"{key} (remove)" });
+                                    break;
                                 }
                             });
 
@@ -314,13 +432,13 @@ namespace Azzmurr.Utils {
             return AddMainVrcFurryComponent("TF/Seat/Toggle", gameObject, clips);
         }
 
-        private void AddMainReversedVrcFuryComponent(GameObject gameObject, AnimationClip[] clips) {
-            AddMainVrcFurryComponent("TF/Auto Reverse", gameObject, clips);
+        private void AddMainReversedVrcFuryComponent(GameObject gameObject, AnimationClip[] clips, int index) {
+            AddMainVrcFurryComponent("TF/Auto Reverse" + (index > 1 ? $" {index}" : ""), gameObject, clips);
         }
 
-        private void AddMainVrcFurryComponents(GameObject gameObject, AnimationClip[] clips) {
-            AddMainVrcFurryComponent("TF/Auto", gameObject, clips);
-            var manualToggle = AddMainVrcFurryComponent("TF/Manual", gameObject, clips);
+        private void AddMainVrcFurryComponents(GameObject gameObject, AnimationClip[] clips, int index) {
+            AddMainVrcFurryComponent("TF/Auto" + (index > 1 ? $" {index}" : ""), gameObject, clips);
+            var manualToggle = AddMainVrcFurryComponent("TF/Manual"  + (index > 1 ? $" {index}" : ""), gameObject, clips);
             manualToggle.SetSlider();
             new ObjectMeta(manualToggle).Get("c").Set("sliderInactiveAtZero", true);
         }
