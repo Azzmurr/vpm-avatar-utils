@@ -105,6 +105,7 @@ namespace Azzmurr.Utils {
         private MultiColumnListView CreateTexturesGUI() {
             CreateMainListGUI();
 
+            MainListView.sortingEnabled = true;
             MainListView.columnSortingChanged += OnSortingChanged;
 
             MainListView.columns.Add(new Column {
