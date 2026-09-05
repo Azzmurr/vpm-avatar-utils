@@ -16,6 +16,9 @@ GameObject:
   - component: {fileID: 4024563217312092915}
   - component: {fileID: 1279402912575749795}
   - component: {fileID: 8487049096416224910}
+  - component: {fileID: 6278139437354624226}
+  - component: {fileID: 3766502832842606227}
+  - component: {fileID: -1032859330529459963}
   m_Layer: 0
   m_Name: '[Rex] Move Default Menu Items'
   m_TagString: Untagged
@@ -52,7 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 3
   unityVersion: 2022.3.22f1
-  vrcfuryVersion: 1.1238.0
+  vrcfuryVersion: 1.1418.0
   somethingIsBroken: 0
   config:
     features: []
@@ -81,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 3
   unityVersion: 2022.3.22f1
-  vrcfuryVersion: 1.1238.0
+  vrcfuryVersion: 1.1418.0
   somethingIsBroken: 0
   config:
     features: []
@@ -110,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 3
   unityVersion: 2022.3.22f1
-  vrcfuryVersion: 1.1238.0
+  vrcfuryVersion: 1.1418.0
   somethingIsBroken: 0
   config:
     features: []
@@ -139,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 3
   unityVersion: 2022.3.22f1
-  vrcfuryVersion: 1.1238.0
+  vrcfuryVersion: 1.1418.0
   somethingIsBroken: 0
   config:
     features: []
@@ -168,7 +171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 3
   unityVersion: 2022.3.22f1
-  vrcfuryVersion: 1.1238.0
+  vrcfuryVersion: 1.1418.0
   somethingIsBroken: 0
   config:
     features: []
@@ -197,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 3
   unityVersion: 2022.3.22f1
-  vrcfuryVersion: 1.1238.0
+  vrcfuryVersion: 1.1418.0
   somethingIsBroken: 0
   config:
     features: []
@@ -226,7 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 3
   unityVersion: 2022.3.22f1
-  vrcfuryVersion: 1.1238.0
+  vrcfuryVersion: 1.1418.0
   somethingIsBroken: 0
   config:
     features: []
@@ -241,3 +244,90 @@ MonoBehaviour:
         version: 3
         fromPath: Magpie controls
         toPath: SPS/Magpie controls
+--- !u!114 &6278139437354624226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204556556703644765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e94e501a2d4c95bff3d5601013d923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  unityVersion: 2022.3.22f1
+  vrcfuryVersion: 1.1418.0
+  somethingIsBroken: 0
+  config:
+    features: []
+  content:
+    rid: 7211943449279857128
+  references:
+    version: 2
+    RefIds:
+    - rid: 7211943449279857128
+      type: {class: MoveMenuItem, ns: VF.Model.Feature, asm: VRCFury}
+      data:
+        version: 3
+        fromPath: Mechanics
+        toPath: Avatar/Mechanics
+--- !u!114 &3766502832842606227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204556556703644765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e94e501a2d4c95bff3d5601013d923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  unityVersion: 2022.3.22f1
+  vrcfuryVersion: 1.1418.0
+  somethingIsBroken: 0
+  config:
+    features: []
+  content:
+    rid: 7211943449279857131
+  references:
+    version: 2
+    RefIds:
+    - rid: 7211943449279857131
+      type: {class: MoveMenuItem, ns: VF.Model.Feature, asm: VRCFury}
+      data:
+        version: 3
+        fromPath: Idles
+        toPath: Avatar/Idles
+--- !u!114 &-1032859330529459963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204556556703644765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9e94e501a2d4c95bff3d5601013d923, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 3
+  unityVersion: 2022.3.22f1
+  vrcfuryVersion: 1.1418.0
+  somethingIsBroken: 0
+  config:
+    features: []
+  content:
+    rid: 7211943449279857217
+  references:
+    version: 2
+    RefIds:
+    - rid: 7211943449279857217
+      type: {class: MoveMenuItem, ns: VF.Model.Feature, asm: VRCFury}
+      data:
+        version: 3
+        fromPath: Misc Face Controls
+        toPath: Avatar/Misc Face Controls
