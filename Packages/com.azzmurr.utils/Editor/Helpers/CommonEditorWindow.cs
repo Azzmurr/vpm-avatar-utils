@@ -151,6 +151,7 @@ namespace Azzmurr.Utils {
                 reorderMode = ListViewReorderMode.Animated,
                 virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight,
                 style = {
+                    flexShrink = 0,
                     marginTop = 8,
                 }
             };
