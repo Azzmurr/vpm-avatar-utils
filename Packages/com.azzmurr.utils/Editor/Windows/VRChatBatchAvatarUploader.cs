@@ -19,7 +19,8 @@ using Object = UnityEngine.Object;
 
 namespace Azzmurr.Utils {
     internal class VRChatBatchAvatarUploader : CommonEditorWindow {
-        private const string AgreementText = "By clicking OK, I certify that I have the necessary rights to upload this content and that it will not infringe on any third-party legal or intellectual property rights.";
+        private const string AgreementText =
+            "By clicking OK, I certify that I have the necessary rights to upload this content and that it will not infringe on any third-party legal or intellectual property rights.";
 
         private readonly Queue<Action> _mainThreadQueue = new();
 
@@ -37,12 +38,11 @@ namespace Azzmurr.Utils {
 
         private void OnDestroy() {
             _cts?.Cancel();
-            
         }
 
         private void CreateGUI() {
             var root = CreateRootUIElement();
-            root.Add(CreateFolderSelector(_ => {}));
+            root.Add(CreateFolderSelector(_ => { }));
             root.Add(CreateActionsGUI());
             root.Add(CreateTextureUpdateCheckbox());
             root.Add(CreateRetrySection());
@@ -100,13 +100,9 @@ namespace Azzmurr.Utils {
                     toggle.value = avatarEntry.Selected;
                     toggle.SetEnabled(!string.IsNullOrEmpty(avatarEntry.BlueprintId));
 
-                    RegisterCallBack<bool>(toggle, (evt) => {
-                        avatarEntry.Selected = evt.newValue;
-                    });
+                    RegisterCallBack<bool>(toggle, (evt) => { avatarEntry.Selected = evt.newValue; });
                 },
-                unbindCell = (toggle, index) => {
-                    UnregisterCallBack<bool>(toggle);
-                }
+                unbindCell = (toggle, index) => { UnregisterCallBack<bool>(toggle); }
             });
 
             MainListView.columns.Add(new Column {
@@ -128,7 +124,8 @@ namespace Azzmurr.Utils {
             MainListView.columns.Add(new Column {
                 title = "Game Object",
                 width = 200,
-                makeCell = () => new Label { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft, marginLeft = 8 } },
+                makeCell = () => new Label
+                    { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft, marginLeft = 8 } },
                 bindCell = (element, index) => {
                     var avatarEntry = (AvatarEntry)MainListView.viewController.GetItemForIndex(index);
                     ((Label)element).text = avatarEntry.Name;
@@ -138,7 +135,8 @@ namespace Azzmurr.Utils {
             MainListView.columns.Add(new Column {
                 title = "Blueprint ID",
                 width = 100,
-                makeCell = () => new Label { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft, marginLeft = 8 } },
+                makeCell = () => new Label
+                    { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft, marginLeft = 8 } },
                 bindCell = (element, index) => {
                     var avatarEntry = (AvatarEntry)MainListView.viewController.GetItemForIndex(index);
                     var noBlueprint = string.IsNullOrEmpty(avatarEntry.BlueprintId);
@@ -155,7 +153,8 @@ namespace Azzmurr.Utils {
             MainListView.columns.Add(new Column {
                 title = "Status",
                 width = 300,
-                makeCell = () => new Label { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft, marginLeft = 8 } },
+                makeCell = () => new Label
+                    { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft, marginLeft = 8 } },
                 bindCell = (element, index) => {
                     var avatarEntry = (AvatarEntry)MainListView.viewController.GetItemForIndex(index);
                     var time = avatarEntry.TimeTaken.TotalSeconds > 0
@@ -193,14 +192,16 @@ namespace Azzmurr.Utils {
         private VisualElement CreateTextureUpdateCheckbox() {
             var visualElement = new VisualElement { style = { flexShrink = 0, marginTop = 8 } };
 
-            var setBestPCTextureFormatBeforeUpload = new Toggle("Set best PC texture format before upload") { value = false };
+            var setBestPCTextureFormatBeforeUpload = new Toggle("Set best PC texture format before upload")
+                { value = false };
             setBestPCTextureFormatBeforeUpload.RegisterValueChangedCallback(evt => {
                 _setBestPCTextureFormatBeforeUpload = evt.newValue;
             });
 
             visualElement.Add(setBestPCTextureFormatBeforeUpload);
 
-            var setCrunchPCTextureFormatBeforeUpload = new Toggle("Set crunch PC texture format before upload") { value = false };
+            var setCrunchPCTextureFormatBeforeUpload = new Toggle("Set crunch PC texture format before upload")
+                { value = false };
             setCrunchPCTextureFormatBeforeUpload.RegisterValueChangedCallback(evt => {
                 _setCrunchPCTextureFormatBeforeUpload = evt.newValue;
             });
@@ -214,19 +215,15 @@ namespace Azzmurr.Utils {
             var visualElement = new VisualElement { style = { flexShrink = 0, marginTop = 8 } };
 
             var retryCheckbox = new Toggle("Retry failed uploads") { value = _retryFailedUploads };
-            retryCheckbox.RegisterValueChangedCallback(evt => {
-                _retryFailedUploads = evt.newValue;
-            });
+            retryCheckbox.RegisterValueChangedCallback(evt => { _retryFailedUploads = evt.newValue; });
 
             visualElement.Add(retryCheckbox);
-            
+
             var retryCountField = new IntegerField("Retry count") { value = _retryCount };
-            retryCountField.RegisterValueChangedCallback(evt => {
-                _retryCount = evt.newValue < 1 ? 1 : evt.newValue;
-            });
+            retryCountField.RegisterValueChangedCallback(evt => { _retryCount = evt.newValue < 1 ? 1 : evt.newValue; });
 
             visualElement.Add(retryCountField);
-            
+
             return visualElement;
         }
 
@@ -240,7 +237,7 @@ namespace Azzmurr.Utils {
             MainListView.itemsSource = ScanFolder(SelectedFolder);
             MainListView.RefreshItems();
         }
-        
+
         private static List<AvatarEntry> ScanFolder(Object folder) {
             if (folder == null) {
                 return new List<AvatarEntry>();
@@ -256,20 +253,22 @@ namespace Azzmurr.Utils {
             foreach (var guid in sceneGUIDs) {
                 var path = AssetDatabase.GUIDToAssetPath(guid);
                 var scene = EditorSceneManager.OpenScene(path, OpenSceneMode.Additive);
-                var descriptors = scene.GetRootGameObjects().SelectMany(go => go.GetComponentsInChildren<VRCAvatarDescriptor>());
+                var descriptors = scene.GetRootGameObjects()
+                    .SelectMany(go => go.GetComponentsInChildren<VRCAvatarDescriptor>());
 
-                allAvatars.AddRange(descriptors
-                    .Select(descriptor => new AvatarEntry(descriptor.gameObject))
-                    .Where(entry => !string.IsNullOrEmpty(entry.BlueprintId))
-                    .Select((entry, index) => {
-                        entry.Index = index;
-                        return entry;
-                    })
+                allAvatars.AddRange(
+                    descriptors
+                        .Select(descriptor => new AvatarEntry(descriptor.gameObject))
+                        .Where(entry => !string.IsNullOrEmpty(entry.BlueprintId))
                 );
 
                 EditorSceneManager.CloseScene(scene, true);
             }
 
+            foreach (var entry in allAvatars) {
+                entry.Index = allAvatars.IndexOf(entry);
+            }
+            
             EditorSceneManager.RestoreSceneManagerSetup(currentScene);
 
             return allAvatars;
@@ -291,7 +290,7 @@ namespace Azzmurr.Utils {
 
         private async void UploadAvatars(bool all) {
             var currentScene = EditorSceneManager.GetSceneManagerSetup();
-            
+
             try {
                 EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo();
 
@@ -388,11 +387,13 @@ namespace Azzmurr.Utils {
             return false;
         }
 
-        private async Task<bool> UploadAvatar(IVRCSdkAvatarBuilderApi builder, AvatarEntry entry, CancellationToken ct) {
-            var scene = EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(entry.AvatarScene), OpenSceneMode.Additive);
+        private async Task<bool> UploadAvatar(IVRCSdkAvatarBuilderApi builder, AvatarEntry entry,
+            CancellationToken ct) {
+            var scene = EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(entry.AvatarScene),
+                OpenSceneMode.Additive);
             entry.InProgress("Starting...");
             MainListView.RefreshItem(entry.Index);
-            
+
             EventHandler<object> onBuildStart = null;
             EventHandler<string> onBuildProgress = null;
             EventHandler<string> onBuildSuccess = null;
@@ -407,7 +408,7 @@ namespace Azzmurr.Utils {
 
                 MainListView.RefreshItems();
                 var added = await AddCopyrightAgreement(entry.BlueprintId);
-                
+
                 if (!added) {
                     entry.GenericError("Failed to add copyright agreement");
                     MainListView.RefreshItem(entry.Index);
@@ -417,22 +418,26 @@ namespace Azzmurr.Utils {
                 VRCAvatarDescriptor targetDescriptor = null;
                 foreach (var root in scene.GetRootGameObjects()) {
                     var descs = root.GetComponentsInChildren<VRCAvatarDescriptor>(true);
-                    targetDescriptor = descs.FirstOrDefault(d => d.TryGetComponent<PipelineManager>(out var p) && p.blueprintId == entry.BlueprintId);
+                    targetDescriptor = descs.FirstOrDefault(d =>
+                        d.TryGetComponent<PipelineManager>(out var p) && p.blueprintId == entry.BlueprintId);
                     if (targetDescriptor != null) {
                         avatarObject = targetDescriptor.gameObject;
                         break;
-                    };
+                    }
+
+                    ;
                 }
 
                 if (targetDescriptor == null) {
-                    Debug.LogWarning($"Batch Avatar Uploader: Could not find avatar '{entry.Name}' in scene '{entry.AvatarScene.name}'");
+                    Debug.LogWarning(
+                        $"Batch Avatar Uploader: Could not find avatar '{entry.Name}' in scene '{entry.AvatarScene.name}'");
                     entry.GenericError("Failed to find avatar");
                     MainListView.RefreshItems();
                     return false;
                 }
-                
+
                 var avatarMeta = new AvatarMeta(avatarObject);
-                
+
                 if (_setBestPCTextureFormatBeforeUpload) {
                     avatarMeta.SetBestPCTexturesFormat();
                 }
@@ -499,7 +504,8 @@ namespace Azzmurr.Utils {
             }
 
             catch (Exception e) {
-                if (entry.State is not (AvatarEntryState.BuildError or AvatarEntryState.UploadError or AvatarEntryState.GenericError)) {
+                if (entry.State is not (AvatarEntryState.BuildError or AvatarEntryState.UploadError
+                    or AvatarEntryState.GenericError)) {
                     entry.GenericError(e.Message);
                     MainListView.RefreshItems();
                 }
@@ -507,7 +513,7 @@ namespace Azzmurr.Utils {
                 Debug.LogError(e.Message + e.StackTrace);
                 return false;
             }
-            
+
             finally {
                 builder.OnSdkBuildStart -= onBuildStart;
                 builder.OnSdkBuildProgress -= onBuildProgress;
@@ -535,14 +541,14 @@ namespace Azzmurr.Utils {
                 var list = string.IsNullOrEmpty(keyText)
                     ? new List<string>()
                     : SessionState.GetString(key, "").Split(';').ToList();
-                
+
                 if (list.Contains(blueprint)) {
                     return true;
                 }
-                
+
                 list.Add(blueprint);
                 SessionState.SetString(key, string.Join(";", list));
-                
+
                 return true;
             }
             catch (Exception e) {
@@ -559,7 +565,7 @@ namespace Azzmurr.Utils {
             public string Message;
             public TimeSpan TimeTaken;
             public int Index;
-            
+
             private Stopwatch _stopwatch;
 
             public AvatarEntry(GameObject avatar) {
@@ -572,51 +578,61 @@ namespace Azzmurr.Utils {
                 }
 
                 Selected = false;
-                State = AvatarEntryState.Pending;   
+                State = AvatarEntryState.Pending;
             }
 
             public void Pending(string message) {
                 State = AvatarEntryState.Pending;
                 Message = message;
             }
-            
+
             public void BuildError(string message) {
                 State = AvatarEntryState.BuildError;
                 Message = message;
                 _stopwatch.Stop();
                 TimeTaken = _stopwatch.Elapsed;
+                _stopwatch = null;
             }
-            
+
             public void UploadError(string message) {
                 State = AvatarEntryState.UploadError;
                 Message = message;
                 _stopwatch.Stop();
                 TimeTaken = _stopwatch.Elapsed;
+                _stopwatch = null;
             }
-            
+
             public void GenericError(string message) {
                 State = AvatarEntryState.GenericError;
                 Message = message;
                 _stopwatch.Stop();
                 TimeTaken = _stopwatch.Elapsed;
+                _stopwatch = null;
             }
-            
+
             public void Success(string message) {
                 State = AvatarEntryState.Success;
                 Message = message;
                 _stopwatch.Stop();
                 TimeTaken = _stopwatch.Elapsed;
+                _stopwatch = null;
             }
-            
+
             public void InProgress(string message) {
                 State = AvatarEntryState.InProgress;
                 Message = message;
-                _stopwatch = Stopwatch.StartNew();
+                
+                _stopwatch ??= Stopwatch.StartNew();
             }
         }
-        
+
         private enum AvatarEntryState {
-            Pending, GenericError, BuildError, UploadError, InProgress, Success,
+            Pending,
+            GenericError,
+            BuildError,
+            UploadError,
+            InProgress,
+            Success,
         }
     }
 }
