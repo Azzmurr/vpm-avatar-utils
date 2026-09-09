@@ -258,7 +258,14 @@ namespace Azzmurr.Utils {
                 var scene = EditorSceneManager.OpenScene(path, OpenSceneMode.Additive);
                 var descriptors = scene.GetRootGameObjects().SelectMany(go => go.GetComponentsInChildren<VRCAvatarDescriptor>());
 
-                allAvatars.AddRange(descriptors.Select((descriptor, index) => new AvatarEntry(descriptor.gameObject, index)));
+                allAvatars.AddRange(descriptors
+                    .Select(descriptor => new AvatarEntry(descriptor.gameObject))
+                    .Where(entry => !string.IsNullOrEmpty(entry.BlueprintId))
+                    .Select((entry, index) => {
+                        entry.Index = index;
+                        return entry;
+                    })
+                );
 
                 EditorSceneManager.CloseScene(scene, true);
             }
@@ -384,6 +391,7 @@ namespace Azzmurr.Utils {
         private async Task<bool> UploadAvatar(IVRCSdkAvatarBuilderApi builder, AvatarEntry entry, CancellationToken ct) {
             var scene = EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(entry.AvatarScene), OpenSceneMode.Additive);
             entry.InProgress("Starting...");
+            MainListView.RefreshItem(entry.Index);
             
             EventHandler<object> onBuildStart = null;
             EventHandler<string> onBuildProgress = null;
@@ -398,7 +406,13 @@ namespace Azzmurr.Utils {
                 GameObject avatarObject = null;
 
                 MainListView.RefreshItems();
-                await AddCopyrightAgreement(entry.BlueprintId);
+                var added = await AddCopyrightAgreement(entry.BlueprintId);
+                
+                if (!added) {
+                    entry.GenericError("Failed to add copyright agreement");
+                    MainListView.RefreshItem(entry.Index);
+                    return false;
+                }
 
                 VRCAvatarDescriptor targetDescriptor = null;
                 foreach (var root in scene.GetRootGameObjects()) {
@@ -507,20 +521,33 @@ namespace Azzmurr.Utils {
             }
         }
 
-        private static async Task AddCopyrightAgreement(string blueprint) {
-            await VRCApi.ContentUploadConsent(new VRCAgreement {
-                AgreementCode = "content.copyright.owned",
-                AgreementFulltext = AgreementText,
-                ContentId = blueprint,
-                Version = 1,
-            });
-            
-            const string key = "VRCSdkControlPanel.CopyrightAgreement.ContentList";
-            var keyText = SessionState.GetString(key, "");
-            var list = string.IsNullOrEmpty(keyText) ? new List<string>() : SessionState.GetString(key, "").Split(';').ToList();
-            if (list.Contains(blueprint)) return;
-            list.Add(blueprint);
-            SessionState.SetString(key, string.Join(";", list));
+        private static async Task<bool> AddCopyrightAgreement(string blueprint) {
+            try {
+                await VRCApi.ContentUploadConsent(new VRCAgreement {
+                    AgreementCode = "content.copyright.owned",
+                    AgreementFulltext = AgreementText,
+                    ContentId = blueprint,
+                    Version = 1,
+                });
+
+                const string key = "VRCSdkControlPanel.CopyrightAgreement.ContentList";
+                var keyText = SessionState.GetString(key, "");
+                var list = string.IsNullOrEmpty(keyText)
+                    ? new List<string>()
+                    : SessionState.GetString(key, "").Split(';').ToList();
+                
+                if (list.Contains(blueprint)) {
+                    return true;
+                }
+                
+                list.Add(blueprint);
+                SessionState.SetString(key, string.Join(";", list));
+                
+                return true;
+            }
+            catch (Exception e) {
+                return false;
+            }
         }
 
         private class AvatarEntry {
@@ -535,7 +562,7 @@ namespace Azzmurr.Utils {
             
             private Stopwatch _stopwatch;
 
-            public AvatarEntry(GameObject avatar, int index) {
+            public AvatarEntry(GameObject avatar) {
                 Name = avatar.name;
                 AvatarScene = AssetDatabase.LoadAssetAtPath<SceneAsset>(avatar.scene.path);
 
@@ -546,7 +573,6 @@ namespace Azzmurr.Utils {
 
                 Selected = false;
                 State = AvatarEntryState.Pending;   
-                Index = index;
             }
 
             public void Pending(string message) {
