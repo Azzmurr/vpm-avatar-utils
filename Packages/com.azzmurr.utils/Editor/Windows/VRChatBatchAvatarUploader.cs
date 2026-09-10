@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Dynamic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -157,20 +158,20 @@ namespace Azzmurr.Utils {
                     { style = { flexGrow = 1, unityTextAlign = TextAnchor.MiddleLeft, marginLeft = 8 } },
                 bindCell = (element, index) => {
                     var avatarEntry = (AvatarEntry)MainListView.viewController.GetItemForIndex(index);
-                    var time = avatarEntry.TimeTaken.TotalSeconds > 0
-                        ? $"({avatarEntry.TimeTaken.Minutes:D2}:{avatarEntry.TimeTaken.Seconds:D2})"
+                    var time = avatarEntry.GetTimeTaken().TotalSeconds > 0
+                        ? $"({avatarEntry.GetTimeTaken().Minutes:D2}:{avatarEntry.GetTimeTaken().Seconds:D2})"
                         : "";
 
-                    ((Label)element).text = avatarEntry.State switch {
-                        AvatarEntryState.InProgress => $"○ {avatarEntry.Message}",
-                        AvatarEntryState.GenericError => $"✗ {avatarEntry.Message}. {time}",
-                        AvatarEntryState.BuildError => $"✗ {avatarEntry.Message}. {time}",
-                        AvatarEntryState.UploadError => $"✗ {avatarEntry.Message}. {time}",
-                        AvatarEntryState.Success => $"✓ {avatarEntry.Message}. {time}",
-                        _ => avatarEntry.Message
+                    ((Label)element).text = avatarEntry.GetState() switch {
+                        AvatarEntryState.InProgress => $"○ {avatarEntry.GetMessage()}",
+                        AvatarEntryState.GenericError => $"✗ {avatarEntry.GetMessage()}. {time}",
+                        AvatarEntryState.BuildError => $"✗ {avatarEntry.GetMessage()}. {time}",
+                        AvatarEntryState.UploadError => $"✗ {avatarEntry.GetMessage()}. {time}",
+                        AvatarEntryState.Success => $"✓ {avatarEntry.GetMessage()}. {time}",
+                        _ => avatarEntry.GetMessage()
                     };
 
-                    ((Label)element).style.color = avatarEntry.State switch {
+                    ((Label)element).style.color = avatarEntry.GetState() switch {
                         AvatarEntryState.InProgress => new Color(0.9f, 0.4f, 0.0f),
                         AvatarEntryState.GenericError => new Color(0.8f, 0.2f, 0.2f),
                         AvatarEntryState.BuildError => new Color(0.8f, 0.2f, 0.2f),
@@ -266,7 +267,7 @@ namespace Azzmurr.Utils {
             }
 
             foreach (var entry in allAvatars) {
-                entry.Index = allAvatars.IndexOf(entry);
+                entry.SetIndex(allAvatars.IndexOf(entry));
             }
             
             EditorSceneManager.RestoreSceneManagerSetup(currentScene);
@@ -376,7 +377,8 @@ namespace Azzmurr.Utils {
                 var success = await UploadAvatar(builder, entry, ct);
                 if (success) return true;
 
-                if (entry.State == AvatarEntryState.UploadError) {
+                if (entry.GetState() == AvatarEntryState.UploadError) {
+                    entry.Pending($"Retrying... Attempt {i + 1}");
                     await Task.Delay(_retryDelay, ct);
                 }
                 else {
@@ -392,7 +394,7 @@ namespace Azzmurr.Utils {
             var scene = EditorSceneManager.OpenScene(AssetDatabase.GetAssetPath(entry.AvatarScene),
                 OpenSceneMode.Additive);
             entry.InProgress("Starting...");
-            MainListView.RefreshItem(entry.Index);
+            MainListView.RefreshItem(entry.GetIndex());
 
             EventHandler<object> onBuildStart = null;
             EventHandler<string> onBuildProgress = null;
@@ -411,7 +413,7 @@ namespace Azzmurr.Utils {
 
                 if (!added) {
                     entry.GenericError("Failed to add copyright agreement");
-                    MainListView.RefreshItem(entry.Index);
+                    MainListView.RefreshItem(entry.GetIndex());
                     return false;
                 }
 
@@ -448,35 +450,35 @@ namespace Azzmurr.Utils {
 
                 onBuildStart = (_, _) => RunOnMainThread(() => {
                     entry.InProgress("Building...");
-                    MainListView.RefreshItem(entry.Index);
+                    MainListView.RefreshItem(entry.GetIndex());
                 });
                 onBuildProgress = (_, m) => RunOnMainThread(() => {
                     entry.InProgress(m);
-                    MainListView.RefreshItem(entry.Index);
+                    MainListView.RefreshItem(entry.GetIndex());
                 });
                 onBuildSuccess = (_, m) => RunOnMainThread(() => {
                     entry.InProgress(m);
-                    MainListView.RefreshItem(entry.Index);
+                    MainListView.RefreshItem(entry.GetIndex());
                 });
                 onBuildError = (_, m) => RunOnMainThread(() => {
                     entry.BuildError(m);
-                    MainListView.RefreshItem(entry.Index);
+                    MainListView.RefreshItem(entry.GetIndex());
                 });
                 onUploadStart = (_, _) => RunOnMainThread(() => {
                     entry.InProgress("Uploading...");
-                    MainListView.RefreshItem(entry.Index);
+                    MainListView.RefreshItem(entry.GetIndex());
                 });
                 onUploadProgress = (_, m) => RunOnMainThread(() => {
                     entry.InProgress(m.status);
-                    MainListView.RefreshItem(entry.Index);
+                    MainListView.RefreshItem(entry.GetIndex());
                 });
                 onUploadSuccess = (_, _) => RunOnMainThread(() => {
                     entry.Success("Uploaded!");
-                    MainListView.RefreshItem(entry.Index);
+                    MainListView.RefreshItem(entry.GetIndex());
                 });
                 onUploadError = (_, m) => RunOnMainThread(() => {
                     entry.UploadError(m);
-                    MainListView.RefreshItem(entry.Index);
+                    MainListView.RefreshItem(entry.GetIndex());
                 });
 
                 builder.OnSdkBuildStart += onBuildStart;
@@ -494,7 +496,7 @@ namespace Azzmurr.Utils {
             }
 
             catch (ApiErrorException e) {
-                if (entry.State is not AvatarEntryState.UploadError) {
+                if (entry.GetState() is not AvatarEntryState.UploadError) {
                     entry.UploadError(e.ErrorMessage);
                     MainListView.RefreshItems();
                 }
@@ -504,8 +506,11 @@ namespace Azzmurr.Utils {
             }
 
             catch (Exception e) {
-                if (entry.State is not (AvatarEntryState.BuildError or AvatarEntryState.UploadError
-                    or AvatarEntryState.GenericError)) {
+                if (entry.GetState() is not (
+                    AvatarEntryState.BuildError 
+                    or AvatarEntryState.UploadError
+                    or AvatarEntryState.GenericError
+                    )) {
                     entry.GenericError(e.Message);
                     MainListView.RefreshItems();
                 }
@@ -561,11 +566,11 @@ namespace Azzmurr.Utils {
             public readonly string BlueprintId;
             public readonly string Name;
             public bool Selected;
-            public AvatarEntryState State;
-            public string Message;
-            public TimeSpan TimeTaken;
-            public int Index;
-
+            
+            private AvatarEntryState _state;
+            private string _message;
+            private TimeSpan _timeTaken;
+            private int _index;
             private Stopwatch _stopwatch;
 
             public AvatarEntry(GameObject avatar) {
@@ -578,51 +583,71 @@ namespace Azzmurr.Utils {
                 }
 
                 Selected = false;
-                State = AvatarEntryState.Pending;
+                _state = AvatarEntryState.Pending;
             }
 
             public void Pending(string message) {
-                State = AvatarEntryState.Pending;
-                Message = message;
+                _state = AvatarEntryState.Pending;
+                _message = message;
             }
 
             public void BuildError(string message) {
-                State = AvatarEntryState.BuildError;
-                Message = message;
+                _state = AvatarEntryState.BuildError;
+                _message = message;
                 _stopwatch.Stop();
-                TimeTaken = _stopwatch.Elapsed;
+                _timeTaken = _stopwatch.Elapsed;
                 _stopwatch = null;
             }
 
             public void UploadError(string message) {
-                State = AvatarEntryState.UploadError;
-                Message = message;
+                _state = AvatarEntryState.UploadError;
+                _message = message;
                 _stopwatch.Stop();
-                TimeTaken = _stopwatch.Elapsed;
+                _timeTaken = _stopwatch.Elapsed;
                 _stopwatch = null;
             }
 
             public void GenericError(string message) {
-                State = AvatarEntryState.GenericError;
-                Message = message;
+                _state = AvatarEntryState.GenericError;
+                _message = message;
                 _stopwatch.Stop();
-                TimeTaken = _stopwatch.Elapsed;
+                _timeTaken = _stopwatch.Elapsed;
                 _stopwatch = null;
             }
 
             public void Success(string message) {
-                State = AvatarEntryState.Success;
-                Message = message;
+                _state = AvatarEntryState.Success;
+                _message = message;
                 _stopwatch.Stop();
-                TimeTaken = _stopwatch.Elapsed;
+                _timeTaken = _stopwatch.Elapsed;
                 _stopwatch = null;
             }
 
             public void InProgress(string message) {
-                State = AvatarEntryState.InProgress;
-                Message = message;
+                _state = AvatarEntryState.InProgress;
+                _message = message;
                 
                 _stopwatch ??= Stopwatch.StartNew();
+            }
+            
+            public AvatarEntryState GetState() {
+                return _state;
+            }
+            
+            public string GetMessage() {
+                return _message;
+            }
+            
+            public TimeSpan GetTimeTaken() {
+                return _timeTaken;
+            }
+
+            public void SetIndex(int index) {
+                _index = index;
+            }
+            
+            public int GetIndex() {
+                return _index;
             }
         }
 
