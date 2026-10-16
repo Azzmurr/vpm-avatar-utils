@@ -211,12 +211,12 @@ namespace Azzmurr.Utils {
 
         }
 
-        protected void DoAndRedraw(Action action) {
+        protected virtual void DoAndRedraw(Action action) {
             action.Invoke();
             MainListView.RefreshItems();
         }
 
-        protected void DoAndRedraw(int index, Action action) {
+        protected virtual void DoAndRedraw(int index, Action action) {
             action.Invoke();
             MainListView.RefreshItem(index);
         }

@@ -35,7 +35,7 @@ namespace Azzmurr.Utils {
             var avatarSelector = CreateAvatarSelectorField(_ => {
                 MainListView.itemsSource = Avatar?.textures;
 
-                refreshTexturesMemory();
+                RefreshTexturesMemory();
                 OnSortingChanged();
             });
 
@@ -352,6 +352,15 @@ namespace Azzmurr.Utils {
             return MainListView;
         }
 
+        protected override void DoAndRedraw(Action action) {
+            base.DoAndRedraw(action);
+            RefreshTexturesMemory();
+        }
+
+        protected override void DoAndRedraw(int index, Action action) {
+            base.DoAndRedraw(index, action);
+            RefreshTexturesMemory();
+        }
 
         private void OnSortingChanged() {
             var sortedColumns = MainListView.sortedColumns.ToList();
@@ -379,10 +388,7 @@ namespace Azzmurr.Utils {
             MainListView.RefreshItems();
         }
 
-
-
-
-        private void refreshTexturesMemory() {
+        private void RefreshTexturesMemory() {
             if (Avatar != null) TexturesMemory.text = $"Textures Memory: {Avatar.TexturesMemory}";
             if (Avatar == null) TexturesMemory.text = $"No Avatar Selected";
         }
