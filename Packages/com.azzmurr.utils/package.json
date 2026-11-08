@@ -1,7 +1,7 @@
 {
   "name": "com.azzmurr.utils",
   "displayName": "Azzmurr - Utils",
-  "version": "2.12.5",
+  "version": "2.13.0",
   "unity": "2022.3",
   "description": "My utils for myself",
   "vrchatVersion": "2022.1.1",
@@ -13,6 +13,6 @@
   },
   "author": {
     "name": "Azzmurr",
-    "email": "trofum@gmail.com"
+    "email": "unity@azzmurr.com"
   }
 }
